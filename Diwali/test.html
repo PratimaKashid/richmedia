@@ -1,0 +1,36 @@
+// Request camera access
+if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+    navigator.mediaDevices.getUserMedia({ video: true }).then(function (stream) {
+        videoElement.srcObject = stream;
+        videoElement.play();
+
+        setTimeout(() => {
+            diyaDiv.style.display = 'block';
+            // Get viewport dimensions
+            const viewportWidth = window.innerWidth;
+            const viewportHeight = window.innerHeight;
+
+            // Get all diya images
+
+            diyaImages.forEach(function (diya) {
+                // Generate random positions within the viewport
+                const randomTop = Math.random() * (viewportHeight - diya.clientHeight);
+                const randomLeft = Math.random() * (viewportWidth - diya.clientWidth);
+
+                // Set the random positions
+                diya.style.top = `${randomTop}px`;
+                diya.style.left = `${randomLeft}px`;
+
+                startBtn.style.opacity = 0;
+                startBtn.style.transition = "all .7s linear";
+
+            })
+
+        }, 1000);
+
+    }).catch(function (error) {
+        console.error("Camera access denied or not available.", error);
+    });
+} else {
+    alert("Your browser does not support camera access.");
+}

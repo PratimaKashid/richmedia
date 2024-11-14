@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Camera with Shadow Effect</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+        #videoElement, #canvasElement {
+            position: absolute;
+            width: 320px;
+            height: 240px;
+        }
+        #canvasElement {
+            z-index: 10;
+        }
+    </style>
+</head>
+<body>
+    <video id="videoElement" autoplay></video>
+    <canvas id="canvasElement"></canvas>
+
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/body-pix"></script>
+    <script>
+        const videoElement = document.getElementById('videoElement');
+        const canvasElement = document.getElementById('canvasElement');
+        const ctx = canvasElement.getContext('2d');
+
+        async function setupCamera() {
+            try {
+                const stream = await navigator.mediaDevices.getUserMedia({ video: { width: 320, height: 240 } });
+                videoElement.srcObject = stream;
+                return new Promise((resolve) => {
+                    videoElement.onloadedmetadata = () => {
+                        resolve(videoElement);
+                    };
+                });
+            } catch (error) {
+                console.error('Error accessing the camera', error);
+            }
+        }
+
+        async function loadAndPredict() {
+            const net = await bodyPix.load();
+
+            async function detectBody() {
+                const segmentation = await net.segmentPerson(videoElement);
+                const mask = bodyPix.toMask(segmentation);
+
+                ctx.clearRect(0, 0, canvasElement.width, canvasElement.height);
+                ctx.drawImage(videoElement, 0, 0, canvasElement.width, canvasElement.height);
+
+                const imageData = new ImageData(mask, canvasElement.width, canvasElement.height);
+                const tempCanvas = document.createElement('canvas');
+                const tempCtx = tempCanvas.getContext('2d');
+                tempCanvas.width = canvasElement.width;
+                tempCanvas.height = canvasElement.height;
+
+                tempCtx.putImageData(imageData, 0, 0);
+                ctx.globalCompositeOperation = 'destination-over';
+                ctx.fillStyle = 'rgba(255, 0, 0, 0.5)';
+                ctx.fillRect(0, 0, canvasElement.width, canvasElement.height);
+                ctx.globalCompositeOperation = 'source-over';
+
+                setTimeout(detectBody, 100);  // Predict every 100ms
+            }
+
+            detectBody();
+        }
+
+        setupCamera().then(loadAndPredict);
+    </script>
+</body>
+</html>

@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SBI Dreams</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        overflow: hidden;
+    }
+
+    .main {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+    }
+
+    .firstScreen,
+    .aapl_inner {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        position: absolute;
+
+    }
+
+    #close {
+        position: absolute;
+        right: 1px;
+        top: 1px;
+        width: 30px;
+        z-index: 99999;
+        cursor: pointer;
+    }
+
+    @keyframes logo {
+        0% {
+            opacity: 0;
+            left: -200px;
+        }
+
+        100% {
+            opacity: 1;
+            left: 10px;
+        }
+    }
+
+    @keyframes circle {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        100% {
+            transform: rotate(-360deg);
+        }
+    }
+
+    @keyframes lastScreenDreams {
+        0% {
+            opacity: 0;
+            /* left: -50px; */
+            transform: skew(30deg);
+            /* transform: skew(-0.06turn, 18deg); */
+        }
+
+        50% {
+            transform: skew(-30deg);
+        }
+
+        100% {
+            opacity: 1;
+            /* left: 10px; */
+            transform: skew(0);
+        }
+    }
+
+    @keyframes Dreams {
+        0% {
+            opacity: 0;
+        }
+
+        60% {
+            opacity: 0;
+            transform: scale(4)
+        }
+
+        100% {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    @keyframes lastScreenDontJudge {
+        0% {
+            opacity: 0;
+        }
+
+        60% {
+            opacity: 0;
+            transform: scale(0);
+        }
+
+        100% {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    @keyframes bothAni {
+        0% {
+            opacity: 0;
+        }
+
+        70% {
+            opacity: 0;
+            bottom: 170px;
+        }
+
+        100% {
+            opacity: 1;
+            bottom: 160px;
+        }
+    }
+
+    @keyframes ctaAni {
+        0% {
+            opacity: 0;
+        }
+
+        70% {
+            opacity: 0;
+            bottom: -150px;
+        }
+
+        100% {
+            opacity: 1;
+            bottom: 20px;
+        }
+    }
+
+    @keyframes divAni {
+        0% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+    @keyframes pulse {
+        0% {
+            transform: scale(1);
+        }
+
+        100% {
+            transform: scale(1.05);
+        }
+    }
+
+    @keyframes text1 {
+        0% {
+            opacity: 0;
+        }
+
+        70% {
+            transform: scale(0);
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    @keyframes Cricketer {
+        0% {
+            opacity: 0;
+        }
+
+        90% {
+            /* transform: scale(0); */
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+            /* transform: scale(1); */
+        }
+    }
+
+    @keyframes text2 {
+        0% {
+            opacity: 0;
+        }
+
+        30% {
+            transform: scale(0);
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    @keyframes blowText {
+        0% {
+            opacity: 0;
+        }
+
+        40% {
+            transform: scale(0);
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    @keyframes plane {
+
+        /* 0%{
+            opacity: 0;
+        }
+        60%{
+            opacity: 0;
+            left: -50%;
+        }
+        100%{
+            opacity: 1;
+            left: 0;
+        } */
+        0% {
+            opacity: 0;
+        }
+
+        60% {
+            opacity: 0;
+            transform-origin: 50% 50% 0px;
+            left: -348px;
+            top: 400px;
+            animation-timing-function: linear;
+        }
+
+        100% {
+            transform-origin: 559.698px -264.377px 0px;
+            left: 0;
+            /* top: 247px; */
+            animation-timing-function: linear;
+        }
+    }
+
+    @keyframes nextPlane {
+        0%{
+            transform-origin: 50% 50% 0px;
+            left: 0;
+            /* top: 247px; */
+            animation-timing-function: linear;
+        }
+        100%{
+            /* transform-origin: 559.698px -200px 0px;
+            left: 401px;
+            top: 45px;
+            animation-timing-function: linear; */
+            transform: translate(350px, -150px);
+        }
+    }
+    @keyframes clipPath {
+        0% {
+            clip-path: circle(100%);
+        }
+
+        100% {
+            clip-path: circle(0);
+
+        }
+    }
+
+    @keyframes toLettext {
+        0% {
+            opacity: 0;
+        }
+
+        80% {
+            opacity: 0;
+            right: -200px;
+        }
+
+        100% {
+            opacity: 1;
+            right: 0;
+        }
+    }
+
+    @keyframes mic {
+        0% {
+            opacity: 0;
+        }
+
+        80% {
+            opacity: 0;
+            /* right: -200px; */
+        }
+
+        100% {
+            opacity: 1;
+            /* right: 0; */
+        }
+    }
+</style>
+
+<body>
+    <div class="main" id="main">
+        <div class="firstScreen" id="firstScreen">
+            <img src="./images/BG.png" style="position: absolute;width: 100%;height: 100%;" alt="">
+
+            <img src="./images/CornerBlue.png" style="position: absolute;right: 0;top: 0;" alt="">
+            <img src="./images/LOGO.png"
+                style="position: absolute;left: 10px;top: 10px;width: 120px;animation: logo 1s ease-in-out;" alt="">
+
+            <div id="startMiddle" style="position: absolute;width: 100%;height: 100%;top: 0;">
+
+                <img src="./images/Circle.png" style="position: absolute;left: 60px;right: 0;margin: auto;top: -12%;bottom: 0;width: 80%;
+                animation: circle 15s 1.2s linear infinite;">
+
+                <img id="cricketer" src="./images/Cricketer.png"
+                    style="width: 100%; position: absolute;left: 0;right: 0;margin: 0 auto;bottom: 23%;animation: Cricketer 1.8s;"
+                    alt="">
+
+                <img id="doctor" src="./images/Doctor.png"
+                    style="display: none; width: 60%; position: absolute;left: 0;right: 0;margin: 0 auto;bottom: 23%;animation: divAni .9s ease;"
+                    alt="">
+
+                <img src="./images/Dreams.png"
+                    style="position: absolute;bottom: 16%;left: 0;right: 0;margin: 0 auto;width: 300px;animation: Dreams 1.5s ease-in-out;"
+                    alt="">
+
+                <img id="textOne" src="./images/AreForEveryone.png"
+                    style="position: absolute;bottom: 12%;left: 0;right: 0;margin: 0 auto;width: 300px;animation: text1 2s ease-in-out;"
+                    alt="">
+
+                <img id="textTwo" src="./images/DontDiscriminate.png"
+                    style="display: none; position: absolute;bottom: 12%;left: 0;right: 0;margin: 0 auto;width: 300px;animation: text2 .9s ease-in-out;"
+                    alt="">
+
+                <img id="textThree" src="./images/SeenoLimits.png"
+                    style="display: none; position: absolute;bottom: 12%;left: -110px;right: 0;margin: 0 auto;width: 200px;animation: text2 .7s ease-in-out;"
+                    alt="">
+
+            </div>
+            <div id="blowDiv" style="position: absolute;width: 100%;height: 100%;top: 0;display: none;">
+                <img src="./images/BlowText.png"
+                    style="position: absolute;left: 0;right: 0;margin:  0 auto; width: 60%;top: 120px;animation: blowText 1s linear;"
+                    alt="">
+                <img id="plane" src="./images/Plane.png"
+                    style="position: absolute;left: 0;right: 0;margin:  0 auto; width: 50%;top: 40%;animation: plane 1.5s linear;"
+                    alt="">
+                <img src="./images/toLet.png"
+                    style="position: absolute;width: 60%;left: 0;right: 0;margin:  0 auto;top: 65%;animation: toLettext 2s ease;"
+                    alt="">
+                <img id="disable" src="./images/MicrophoneDisabled.png"
+                    style="position: absolute;left: 0;right: 0;margin: 0 auto;bottom: 5%;width: 60px;animation: mic 2.5s ease;"
+                    alt="">
+                <img id="enable" src="./images/MicrophoneEnabled.png"
+                    style="display: none; position: absolute;left: 0;right: 0;margin: 0 auto;bottom: 5%;width: 60px;"
+                    alt="">
+                <!-- <audio id="myAudio" src="./images/audio.mp3" muted autoplay></audio> -->
+            </div>
+
+
+
+
+            <div id="tapDiv" style="display: none; position: absolute;width: 100%;height: 100%;"></div>
+
+            <div id="lastScreen" style="position: absolute;width: 100%;height: 100%;top: 0;display: none;">
+
+                <video id="myVid" src="https://beta.andbeyond.media/abm-direct//RichMedia/video/sbi-dream.mp4" controls autoplay muted
+                    style="position: absolute;width: 96%;top: 13%;border: 2px solid #fff; left: 0;right: 0;margin: 0 auto;"></video>
+                <a href="https://sbi.co.in/" target="_blank">
+                    <img src="./images/both.png"
+                        style="position: absolute;left: 0;right: 0;margin: 0 auto;width: 320px;bottom: 160px;animation: bothAni 2s linear;"
+                        alt="">
+                    <img src="./images/Dreams.png"
+                        style="position: absolute;bottom: 122px;left: 0;right: 0;margin: 0 auto;width: 300px;animation: lastScreenDreams 1s ease-in-out;"
+                        alt="">
+                    <img src="./images/dontjudge.png"
+                        style="position: absolute;bottom: 90px;left: -56px;right: 0;margin: 0 auto;width: 256px;animation: lastScreenDontJudge 1.5s ease-in-out;"
+                        alt="">
+                    <img id="cta" src="./images/cta.png"
+                        style="position: absolute;bottom: 20px;width: 170px;left: 0;right: 0;margin: 0 auto;animation: ctaAni 2.5s linear;"
+                        alt="">
+
+                </a>
+            </div>
+
+
+            <img id="close"
+                src="https://cache-ssl.celtra.com/api/static/ve67ae1362e/runner/clazzes/CreativeUnit/close-up.svg">
+        </div>
+
+    </div>
+
+
+    <script>
+        var close = document.getElementById("close");
+        var main = document.getElementById("main");
+        var cta = document.getElementById("cta");
+        var textOne = document.getElementById("textOne");
+        var textTwo = document.getElementById("textTwo");
+        var textThree = document.getElementById("textThree");
+        var doctor = document.getElementById("doctor");
+        var cricketer = document.getElementById("cricketer");
+        var startMiddle = document.getElementById("startMiddle");
+        var disable = document.getElementById("disable");
+        var enable = document.getElementById("enable");
+        var tapDiv = document.getElementById("tapDiv");
+        var blowDiv = document.getElementById("blowDiv");
+        // var myAudio = document.getElementById("myAudio");
+        var plane = document.getElementById("plane");
+
+        var afterBlowDetected = document.getElementById("afterBlowDetected");
+
+        setTimeout(() => {
+            textOne.style.opacity = 0;
+            textOne.style.transition = "all .7s linear";
+            textOne.style.transform = "scale(2)";
+            textTwo.style.display = "block"
+        }, 3000);
+        setTimeout(() => {
+            textThree.style.display = "block";
+            doctor.style.display = "block";
+            cricketer.style.opacity = 0;
+            cricketer.style.transition = "all .7s linear";
+            textTwo.style.opacity = 0;
+            textTwo.style.transition = "all .7s linear";
+            textTwo.style.transform = "scale(2)";
+        }, 6000);
+        setTimeout(() => {
+            
+            startMiddle.style.animation = "clipPath 1.5s linear";
+            setTimeout(() => {
+                startMiddle.style.display = "none"
+            }, 1501);
+            setTimeout(() => {
+                blowDiv.style.display = "block";
+                tapDiv.style.display = "block";
+            }, 1000);
+            // afterBlow();
+
+        }, 9000);
+
+        tapDiv.addEventListener("click", function () {
+            afterBlow();
+        })
+
+        function afterBlow() {
+            disable.style.display = "none";
+            tapDiv.style.display = "none";
+            enable.style.display = "block";
+
+            setTimeout(() => {
+                startDetection()
+            }, 2100);
+        }
+
+        close.addEventListener("click", () => {
+            main.style.display = "none";
+            myVid.muted = true;
+            myVid.pause();
+        })
+
+
+        tapDiv.addEventListener('click', function () {
+            startDetection()
+        });
+
+        function startDetection() {
+            console.log("start blow.....");
+            navigator.mediaDevices.getUserMedia({ audio: true })
+                .then(stream => {
+                    const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                    const analyser = audioContext.createAnalyser();
+                    const microphone = audioContext.createMediaStreamSource(stream);
+                    const scriptProcessor = audioContext.createScriptProcessor(256, 1, 1);
+
+                    analyser.smoothingTimeConstant = 0.8;
+                    analyser.fftSize = 1024;
+
+                    microphone.connect(analyser);
+                    analyser.connect(scriptProcessor);
+                    scriptProcessor.connect(audioContext.destination);
+
+                    scriptProcessor.onaudioprocess = function () {
+                        const array = new Uint8Array(analyser.frequencyBinCount);
+                        analyser.getByteFrequencyData(array);
+                        const average = array.reduce((a, b) => a + b, 0) / array.length;
+
+                        if (average > 50) {
+                            
+                            plane.style.animation = "nextPlane 1s linear";
+                            setTimeout(() => {
+                                plane.style.display = "none"
+                            }, 1000);
+                            
+                            setTimeout(() => {
+                                blowDiv.style.opacity = 0;
+                                blowDiv.style.transition ="all .7s";
+
+                                setTimeout(() => {
+                                    lastScreen.style.display = 'block';
+                                }, 700);
+
+                                myVid.muted = false;
+                                myVid.play();
+                                setTimeout(() => {
+                                    cta.style.animation="pulse .7s ease alternate infinite"
+                                }, 2701);
+                            }, 1001);
+
+                            console.log("average", average);
+                        } else {
+                            // document.getElementById('status').textContent = 'Not Detecting';
+                        }
+                    };
+                })
+                .catch(err => console.error('Error accessing the microphone: ' + err));
+        }
+
+
+
+    </script>
+</body>
+
+</html>

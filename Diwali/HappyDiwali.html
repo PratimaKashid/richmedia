@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        overflow: hidden;
+    }
+
+    .main {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    #innerDiv {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    #diyaDiv {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 9999;
+        animation: divAni 1s ease-in-out;
+    }
+
+    @keyframes divAni {
+        0% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+    #close {
+        position: absolute;
+        right: 1px;
+        top: 1px;
+        width: 27px;
+        z-index: 9999;
+        cursor: pointer;
+    }
+
+    .diya {
+        width: 100px;
+        position: absolute;
+    }
+
+    .openCamera {
+        position: absolute;
+        padding: 10px;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        bottom: 15px;
+        width: 170px;
+    }
+
+    .videoElement {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    @keyframes logoAni {
+        0% {
+            opacity: 0;
+            top: -100px;
+        }
+
+        100% {
+            opacity: 1;
+            top: 10px;
+        }
+    }
+
+    @keyframes logoAni1 {
+
+        0%,
+        50% {
+            opacity: 0;
+            /* transform: scale(0); */
+        }
+
+        100% {
+            opacity: 1;
+            /* transform: scale(1); */
+        }
+    }
+
+    @keyframes opaAni {
+        0% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+    @keyframes opaAni1 {
+
+        0%,
+        50% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+    @keyframes blureAni {
+
+        0% {
+            opacity: 0;
+        }
+
+        74% {
+            opacity: 0;
+        }
+
+        75% {
+            opacity: 1;
+            filter: blur(10px);
+            top: 35%;
+            /* transform: scale(0); */
+        }
+
+        100% {
+            filter: blur(0);
+            top: 40%;
+            /* transform: scale(1); */
+        }
+    }
+
+    @keyframes blureAni1 {
+
+        0% {
+            opacity: 0;
+        }
+
+        74% {
+            opacity: 0;
+        }
+
+        75% {
+            opacity: 1;
+            filter: blur(10px);
+            top: 7%;
+            /* transform: scale(0); */
+        }
+
+        100% {
+            filter: blur(0);
+            top: 2%;
+            /* transform: scale(1); */
+        }
+    }
+
+    .newAni {
+        animation: opaAni .5s linear;
+    }
+
+    @keyframes pulse {
+        0% {
+            transform: scale(1);
+        }
+
+        100% {
+            transform: scale(1.07);
+        }
+    }
+
+    @keyframes prod {
+        0% {
+            transform: scale(0);
+            opacity: 0;
+        }
+
+        100% {
+            transform: scale(1);
+            opacity: 1;
+        }
+    }
+
+    @keyframes flame1 {
+
+        0%,
+        40% {
+            opacity: 0;
+            transform: scale(0);
+            top: -120px;
+        }
+
+        100% {
+            opacity: 1;
+            transform: scale(1);
+            top: 0px;
+        }
+    }
+
+    @keyframes anarar {
+
+        0%,
+        40% {
+            width: 10px;
+        }
+
+        100% {
+            width: 100px;
+        }
+    }
+    @keyframes chakri {
+        0% {
+           transform: rotate(0);
+        }
+
+        100% {
+            transform: rotate(-760deg);
+        }
+    }
+</style>
+
+<body>
+    <div class="main" id="main">
+        <div id="screenOne" style="position: absolute;width: 100%;height: 100%;top: 0;">
+            <img id="bg1" src="./images/BG 1.png"
+                style="position: absolute;width: 100%;height: 100%;animation: opaAni .5s linear;" alt="">
+            <img id="bg2" src="./images/BG 2.png"
+                style="display: none; position: absolute;width: 100%;height: 100%;animation: opaAni .5s linear;" alt="">
+            <img id="bg3" src="./images/BG 3.png"
+                style="display: none; position: absolute;width: 100%;height: 100%;animation: opaAni .5s linear;" alt="">
+            <img src="./images/LOGO.png"
+                style="position: absolute;width: 100px;top: 10px;left: 0;right: 0;margin: 0 auto;animation: logoAni 1s ease-in-out;"
+                alt="">
+            <img id="text1" src="./newImg/txt1.png"
+                style="position: absolute;width: 84%;top: 13.5%;left: 0;right: 0;margin: 0 auto;animation: logoAni1 2s ease;"
+                alt="">
+
+            <img id="rangoli" src="./images/Diwali Ele.png"
+                style="position: absolute;width: 50%;bottom: 2%;left: 0;right: 0;margin: 0 auto;" alt="">
+        </div>
+        <img id="text2" src="./newImg/txt2.png"
+            style="display: none; position: absolute;width: 87%;top: 12.5%;left: 0;right: 0;margin: 0 auto;animation: logoAni1 2s ease;"
+            alt="">
+        <div id="innerDiv">
+
+            <div id="diyaDiv" style="display: none;">
+                <div class="diya" style="position: absolute;width: 130px;height: 80px;">
+
+                    <img id="noFlame" src="./newImg/Rocket.png"
+                        style="width: 25px;position: absolute;left: 0;right: 0;margin: auto;top: 0;bottom: 0;animation: opaAni1 1.5s ease;"
+                        alt="">
+                </div>
+                <div class="diya" style="position: absolute;width: 130px;height: 80px;">
+                    <img id="withFlame2" src="./newImg/Annar Fire Big.png"
+                        style="display: none; width: 100px;position: absolute;left: 0;right: 0;margin: auto;bottom: 73px;z-index: 1; animation: anarar 1s linear"
+                        alt="">
+                    <img id="noFlame2" src="./newImg/Diwali Annar.png"
+                        style="display: none; width: 80px;position: absolute;left: 0;right: 0;margin: auto;top: 0;bottom: 0;animation: opaAni1 1.5s ease;"
+                        alt="">
+                </div>
+                <div class="diya" style="position: absolute;width: 130px;height: 80px;">
+                    <img id="noFlame3" src="./newImg/circle.png"
+                        style="display: none; width: 80px;position: absolute;left: 0;right: 0;margin: auto;top: 0;bottom: 0;animation: opaAni1 1.5s ease"
+                        alt="">
+                    <img id="withFlame3" src="./newImg/Chakra Flame.png"
+                        style="display: none; width: 280px;position: absolute; left: -63px;right: 0;margin: auto;top: 0;bottom: 0;animation: chakri .2s linear 5"
+                        alt="">
+                    
+                </div>
+
+            </div>
+            <img id="withFlame1" src="./newImg/Diwali Fireworks1.png"
+                style="display: none; width: 80%;position: absolute;left: 0;right: 0;margin: auto;top: 0px;animation: flame1 1s linear;"
+                alt="">
+            <!-- <div id="diyaDiv" style="display: none;">
+                <div class="diya" style="position: absolute;width: 130px;height: 80px;">
+                    <img id="withFlame1" src="./images/Panati.png"
+                        style="display: none; width: 200px;position: absolute;left: 0;right: 0;margin: auto;top: 0;bottom: 0;animation: opaAni 1s linear;"
+                        alt="">
+                    <img id="noFlame" src="./images/Panati NoFlame.png"
+                        style="width: 200px;position: absolute;left: 0;right: 0;margin: auto;top: 0;bottom: 0;animation: opaAni1 1.5s ease;"
+                        alt="">
+                </div>
+                <div class="diya" style="position: absolute;width: 130px;height: 80px;">
+                    <img id="withFlame2" src="./images/Panati.png"
+                        style="display: none; width: 200px;position: absolute;left: 0;right: 0;margin: auto;top: 0;bottom: 0;animation: opaAni 1s linear"
+                        alt="">
+                    <img id="noFlame2" src="./images/Panati NoFlame.png"
+                        style="display: none; width: 200px;position: absolute;left: 0;right: 0;margin: auto;top: 0;bottom: 0;animation: opaAni1 1.5s ease;"
+                        alt="">
+                </div>
+                <div class="diya" style="position: absolute;width: 130px;height: 80px;">
+                    <img id="withFlame3" src="./images/Panati.png"
+                        style="display: none; width: 200px;position: absolute;left: 0;right: 0;margin: auto;top: 0;bottom: 0;animation: opaAni 1s linear"
+                        alt="">
+                    <img id="noFlame3" src="./images/Panati NoFlame.png"
+                        style="display: none; width: 200px;position: absolute;left: 0;right: 0;margin: auto;top: 0;bottom: 0;animation: opaAni1 1.5s ease"
+                        alt="">
+                </div>
+
+            </div> -->
+            <img id="startBtn" class="openCamera" src="./newImg/letsGo.png"
+                style="display: none;animation: opaAni 1s ease;" alt="">
+            <img id="view360" class="" src="./images/360.png"
+                style="display: none;width: 60px;right: 0px;bottom: 0px;position: absolute;animation: opaAni 1s ease;"
+                alt="">
+
+            <div id="overlayDiv"
+                style="position: absolute;width: 100%;height: 100%;top: 0;animation: opaAni 1s linear;display: none;">
+                <img src="./images/Black Overlay.png"
+                    style="position: absolute;width: 100%;height: 100%; left: 0;right: 0;margin: 0 auto;top: 0%;"
+                    alt="">
+                <img src="./newImg/Diwali Fireworks.png"
+                    style="position: absolute;width: 95%;top: 40%;left: 0;right: 0;margin: 0 auto;animation: blureAni 2.5s ease;"
+                    alt="">
+                <img src="./newImg/Diwali Fireworks.png"
+                    style="position: absolute;width: 100%;top: 2%;left: 0;right: 0;margin: 0 auto;animation: blureAni1 2.5s ease;"
+                    alt="">
+                <img src="./newImg/Diwali BG StickerTEXT.png"
+                    style="position: absolute;width: 90%;left: 0;right: 0;margin: auto;top: 0;bottom: 0; animation: logoAni1 2s ease;"
+                    alt="">
+            </div>
+
+            <video id="videoElement" class="videoElement" autoplay style="display:none;"></video>
+            <img id="dragElement" src="./images/Stick Flame.png"
+                style="display: none; position: absolute; width: 140px;z-index: 99999;top: 0;animation: opaAni 1s linear;"
+                alt="">
+
+
+        </div>
+        <div id="lastScreen" style="display: none; width: 100%;height: 100%;position: absolute;left: 0;right: 0;margin: 0 auto;
+                background-color: #fff;animation: opaAni 1s linear;">
+            <a href="http://google.com" target="_blank">
+                <img src="./newImg/bgLast.png"
+                    style="position: absolute;width: 100%;height: 100%;top: 0;object-fit: cover;" alt="">
+                <img id="prod1" src="./newImg/Product 1.png"
+                    style="position: absolute;left: 0;right: 0; bottom:11%; margin: 0 auto; width: 315px;animation: prod .7s ease-in-out;"
+                    alt="">
+                <img id="prod2" src="./newImg/Product 2.png"
+                    style="display: none; position: absolute;right: 0;left: 0; bottom:11%; margin: 0 auto; width: 315px;animation: prod .7s ease-in-out;"
+                    alt="">
+                <img id="prod3" src="./newImg/Product 3.png"
+                    style="display: none; position: absolute;right: 0;left: 0; bottom:11%; margin: 0 auto; width: 315px;animation: prod .7s ease-in-out;"
+                    alt="">
+                <img id="cta" src="./newImg/Shop Now.png"
+                    style="position: absolute;width: 140px;bottom: 3%;left: 0;right: 0;margin: 0 auto;animation: logoAni1 2s ease"
+                    alt="">
+                <img src="./newImg/Text 3 EndScreen.png"
+                    style="position: absolute;left: 0;right: 0;margin: 0 auto;top: 7%;width: 70%;" alt="">
+            </a>
+
+
+
+        </div>
+        <img id="close"
+            src="https://cache-ssl.celtra.com/api/static/ve67ae1362e/runner/clazzes/CreativeUnit/close-up.svg"
+            alt="Close Button">
+    </div>
+
+    <script>
+        const close = document.getElementById("close");
+        const diyaImages = document.querySelectorAll('.diya');
+        const main = document.getElementById("main");
+        let diyaDiv = document.getElementById('diyaDiv');
+        let text1 = document.getElementById('text1');
+        let text2 = document.getElementById('text2');
+        let rangoli = document.getElementById('rangoli');
+        let view360 = document.getElementById('view360');
+        let withFlame1 = document.getElementById('withFlame1');
+        let withFlame2 = document.getElementById('withFlame2');
+        let noFlame2 = document.getElementById('noFlame2');
+        let overlayDiv = document.getElementById('overlayDiv');
+        let screenOne = document.getElementById('screenOne');
+        let lastScreen = document.getElementById('lastScreen');
+        let bg1 = document.getElementById('bg1');
+        let bg2 = document.getElementById('bg2');
+        let bg3 = document.getElementById('bg3');
+        let cta = document.getElementById('cta');
+        let prod1 = document.getElementById('prod1');
+        let prod2 = document.getElementById('prod2');
+        let prod3 = document.getElementById('prod3');
+        let noFlame = document.getElementById('noFlame');
+
+        const dragElement = document.getElementById('dragElement');
+
+        let offsetX, offsetY, isDragging = false;
+
+
+        function proRotation() {
+            prod1.style.opacity = 1;
+            prod2.style.opacity = 1;
+            prod3.style.opacity = 1;
+            prod3.style.display = "none";
+            setTimeout(() => {
+                prod1.style.opacity = 0;
+                prod1.style.transition = "all .5s ease";
+
+                prod2.style.display = "block"
+            }, 3000);
+            setTimeout(() => {
+                prod2.style.opacity = 0;
+                prod2.style.transition = "all .5s ease";
+
+                prod3.style.display = "block"
+                prod1.style.display = "none";
+            }, 6000);
+            setTimeout(() => {
+                prod3.style.opacity = 0;
+                prod3.style.transition = "all .5s ease";
+
+                prod1.style.display = "block";
+                prod2.style.display = "none";
+                proRotation();
+            }, 9000);
+
+        }
+
+        rotaion();
+        function rotaion() {
+            setTimeout(() => {
+                bg2.style.display = "block";
+            }, 2000);
+            setTimeout(() => {
+                bg1.style.display = "none";
+                bg3.style.display = "block";
+            }, 4000);
+            setTimeout(() => {
+                bg1.style.display = "block";
+                bg2.style.display = "none";
+                rotaion();
+            }, 6000);
+            setTimeout(() => {
+                bg3.style.display = "none";
+            }, 7000);
+
+        }
+
+        window.parent.document.body.style.overflow = "hidden";
+
+        close.addEventListener("click", () => {
+            main.style.display = "none";
+            window.parent.document.body.style.overflow = "scroll";
+        });
+        setTimeout(() => {
+
+            rangoli.style.opacity = 0;
+            rangoli.style.transition = "all .7s linear";
+
+            text2.style.display = "block";
+            startBtn.style.display = "block";
+        }, 3000);
+
+
+        const startBtn = document.getElementById('startBtn')
+        startBtn.addEventListener('click', function () {
+
+            // Access the camera
+            const videoElement = document.getElementById('videoElement');
+            videoElement.style.display = 'block';
+            view360.style.display = 'block';
+
+            // if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+            //     navigator.mediaDevices.getUserMedia({ video: true }).then(function (stream) {
+            //         videoElement.srcObject = stream;
+            //         videoElement.play();
+
+
+                    if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+                        navigator.mediaDevices.getUserMedia({
+                            video: { facingMode: { exact: 'environment' } } // Request the back camera
+                        }).then(function (stream) {
+                            videoElement.srcObject = stream;
+                            videoElement.play();
+
+                    setTimeout(() => {
+                        dragElement.style.display = 'block';
+                    }, 2000);
+                    // Show the diyaDiv and randomly position the diya images after 1 second
+                    setTimeout(() => {
+
+                        diyaDiv.style.display = 'block';
+
+                        // Get viewport dimensions
+                        const viewportWidth = window.innerWidth;
+                        const viewportHeight = window.innerHeight;
+
+                        // Position each diya image randomly within the viewport
+                        diyaImages.forEach(function (diya) {
+                            // Generate random positions within the viewport
+                            const randomTop = Math.random() * (viewportHeight - diya.clientHeight);
+                            const randomLeft = Math.random() * (viewportWidth - diya.clientWidth);
+
+                            // Set the random positions
+                            diya.style.position = 'absolute'; // Ensure the diya images are positioned absolutely
+                            diya.style.top = `${randomTop}px`;
+                            diya.style.left = `${randomLeft}px`;
+                        });
+
+                        // Make the start button fade out
+                        startBtn.style.opacity = 0;
+                        startBtn.style.transition = "all .7s linear";
+
+                    }, 1000);
+                    setTimeout(() => {
+                        text2.style.opacity = 0;
+                        text2.style.transition = "all .5s linear";
+                    }, 1500);
+                    setTimeout(() => {
+                        text2.style.display = "none";
+                    }, 2010);
+
+                    dragElement.addEventListener('touchstart', (e) => {
+                        isDragging = true;
+                        const touch = e.touches[0];
+                        offsetX = touch.clientX - dragElement.getBoundingClientRect().left;
+                        offsetY = touch.clientY - dragElement.getBoundingClientRect().top;
+                    });
+
+                    // Touch move event for mobile devices
+                    document.addEventListener('touchmove', (e) => {
+                        if (isDragging) {
+                            const touch = e.touches[0];
+                            const x = touch.clientX - offsetX;
+                            const y = touch.clientY - offsetY;
+                            dragElement.style.left = `${x}px`;
+                            dragElement.style.top = `${y}px`;
+                        }
+                    });
+
+                    // Touch end event for mobile devices
+                    let counter = 0;
+                    document.addEventListener('touchend', () => {
+                        isDragging = false;
+                        counter = counter + 1
+                        console.log("touch end", counter);
+                        if (counter === 1) {
+                            // transform: translateY(-440px);
+                            noFlame.style.transform = "translateY(-600px)";
+                            noFlame.style.transition = "all .5s linear";
+                            withFlame1.style.display = "block";
+
+                            setTimeout(() => {
+                                withFlame1.style.opacity = 0;
+                                withFlame1.style.transition = "all .5s linear";
+                            }, 1400);
+
+                            noFlame2.style.display = "block";
+                        }
+                        if (counter === 2) {
+                            withFlame2.style.display = "block";
+                            noFlame3.style.display = "block";
+
+                            noFlame.style.opacity = 0;
+                            noFlame.style.transition = "all .5s linear";
+                            setTimeout(() => {
+                                withFlame2.style.opacity = 0;
+                                withFlame2.style.transition = "all .5s linear";
+                            }, 1500);
+
+                        }
+                        if (counter === 3) {
+                            setTimeout(() => {
+                                noFlame3.style.display = "none";
+                                withFlame3.style.display = "block";
+                            }, 1000);
+
+                            noFlame2.style.opacity = 0;
+                            noFlame2.style.transition = "all .5s linear";
+                            // noFlame2.style.clipPath="polygon(15% 75%, 92% 75%, 100% 100%, 0% 100%)";
+ 
+
+                            setTimeout(() => {
+                                diyaDiv.style.opacity = 0;
+                                diyaDiv.style.transition = "all .5s linear";
+                            }, 2500);
+
+                            setTimeout(() => {
+                                overlayDiv.style.display = "block";
+                                view360.style.opacity = 0;
+                                view360.style.transition = "all .7s";
+                                dragElement.style.opacity = 0;
+                                dragElement.style.transition = "all .5s linear";
+                            }, 3000);
+
+                            setTimeout(() => {
+                                overlayDiv.style.opacity = 0;
+                                overlayDiv.style.transition = "all .7s linear";
+                                screenOne.style.opacity = 0;
+                                screenOne.style.transition = "all .7s linear";
+
+                                videoElement.style.display = "none";
+                                diyaDiv.style.display = "none";
+                                lastScreen.style.display = "block";
+                                setTimeout(() => {
+                                    proRotation();
+                                }, 1500);
+                                setTimeout(() => {
+                                    cta.style.animation = "pulse .7s ease alternate infinite";
+                                }, 2010);
+                            }, 7500);
+                        }
+
+                    });
+
+
+                }).catch(function (error) {
+                    console.error("Camera access denied or not available.", error);
+                });
+            } else {
+                alert("Your browser does not support camera access.");
+            }
+
+
+        });
+    </script>
+</body>
+
+</html>

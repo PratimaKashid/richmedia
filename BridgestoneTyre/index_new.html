@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <title>Bridgestone</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        overflow: hidden;
+        font-family: "Poppins", sans-serif;
+    }
+
+    .main {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        overflow: hidden;
+    }
+
+    .firstScreen {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        position: absolute;
+
+    }
+
+    #close {
+        position: absolute;
+        right: 1px;
+        top: 1px;
+        width: 27px;
+        z-index: 9999;
+        cursor: pointer;
+    }
+
+    #closeVid {
+        position: absolute;
+        right: 20px;
+        top: 135px;
+        width: 30px;
+        z-index: 99999;
+        cursor: pointer;
+    }
+
+
+    @keyframes pulse {
+        0% {
+            transform: scale(1);
+        }
+
+        100% {
+            transform: scale(.95);
+        }
+    }
+
+    @keyframes divAni {
+        0% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+    @keyframes logo {
+        0% {
+            left: -150px;
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+            left: 0px;
+            /* transform: skewX(-30deg); */
+        }
+
+    }
+    @keyframes logo1 {
+        0% {
+            right: -150px;
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+            right: -12px;
+            /* transform: skewX(-30deg); */
+        }
+
+    }
+
+    @keyframes text1 {
+        0% {
+            top: -150px;
+            opacity: 0;
+        }
+
+        60% {
+            opacity: 0;
+            filter: blur(50px);
+            top: 100px;
+        }
+
+        100% {
+            top: 160px;
+            opacity: 1;
+            filter: blur(0);
+        }
+    }
+
+    @keyframes text11 {
+        0% {
+            top: -150px;
+            opacity: 0;
+        }
+
+        30% {
+            opacity: 0;
+            filter: blur(50px);
+            top: 100px;
+        }
+
+        100% {
+            top: 160px;
+            opacity: 1;
+            filter: blur(0);
+        }
+    }
+
+    @keyframes tyre {
+        0% {
+            top: -150px;
+            opacity: 0;
+        }
+
+        70% {
+            opacity: 0;
+            filter: blur(50px);
+        }
+
+        100% {
+            opacity: 1;
+            filter: blur(0);
+        }
+    }
+
+    @keyframes comfert {
+        0% {
+            opacity: 0;
+        }
+
+        50% {
+            transform: scale(3);
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    @keyframes comfert1 {
+        0% {
+            opacity: 0;
+        }
+
+        50% {
+            bottom: -120px;
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+            bottom: 15%;
+        }
+    }
+
+    @keyframes tapTxt {
+        0% {
+            opacity: 0;
+        }
+
+        60% {
+            bottom: -120px;
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+            bottom: 6%;
+        }
+    }
+
+    @keyframes hand {
+        0% {
+            opacity: 0;
+        }
+
+        90% {
+            /* bottom: -120px; */
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+            /* bottom: 6%; */
+        }
+    }
+
+    @keyframes f1 {
+        0% {
+            opacity: 0;
+        }
+
+        60% {
+            opacity: 0;
+            left: -150px;
+        }
+
+        100% {
+            opacity: 1;
+            left: 20px;
+        }
+    }
+
+    @keyframes f2 {
+        0% {
+            opacity: 0;
+        }
+
+        65% {
+            opacity: 0;
+            right: -150px;
+        }
+
+        100% {
+            opacity: 1;
+            right: 20px;
+        }
+    }
+
+    @keyframes f3 {
+        0% {
+            opacity: 0;
+        }
+
+        70% {
+            opacity: 0;
+            left: -150px;
+        }
+
+        100% {
+            opacity: 1;
+            left: 20px;
+        }
+    }
+
+    @keyframes f4 {
+        0% {
+            opacity: 0;
+        }
+
+        75% {
+            opacity: 0;
+            right: -150px;
+        }
+
+        100% {
+            opacity: 1;
+            right: 20px;
+        }
+    }
+
+    @keyframes text1last {
+        0% {
+            opacity: 0;
+        }
+
+        60% {
+            opacity: 0;
+            top: 100px;
+        }
+
+        100% {
+            opacity: 1;
+            top: 120px;
+        }
+    }
+
+    @keyframes tyre2 {
+        0% {
+            opacity: 0;
+        }
+
+        75% {
+            opacity: 0;
+            /* top: 100px; */
+        }
+
+        100% {
+            opacity: 1;
+            /* top: 130px; */
+        }
+    }
+
+    @keyframes tyre3 {
+        0% {
+            opacity: 0;
+        }
+
+        80% {
+            opacity: 0;
+            left: -200px;
+        }
+
+        100% {
+            opacity: 1;
+            left: 0px;
+        }
+    }
+
+    @keyframes cta {
+        0% {
+            opacity: 0;
+        }
+
+        90% {
+            opacity: 0;
+            left: -150px;
+        }
+
+        100% {
+            opacity: 1;
+            left: 25px;
+        }
+    }
+
+    @keyframes vBtn {
+        0% {
+            opacity: 0;
+        }
+
+        90% {
+            opacity: 0;
+            bottom: -100px;
+        }
+
+        100% {
+            opacity: 1;
+            bottom: 60px;
+        }
+    }
+
+    @keyframes features {
+        0% {
+            opacity: 0;
+        }
+
+        85% {
+            opacity: 0;
+            /* bottom: -150px; */
+        }
+
+        100% {
+            opacity: 1;
+            /* bottom: 0; */
+        }
+    }
+
+    @keyframes startbtn {
+        0% {
+            opacity: 0;
+        }
+
+        80% {
+            opacity: 0;
+            transform: scale(0);
+        }
+
+        100% {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    @keyframes tyreMOve {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+
+    @keyframes divMove {
+        0% {
+            left: 0;
+        }
+
+        100% {
+            left: -15000px;
+        }
+    }
+
+    @keyframes wheelsRotate {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+
+    @keyframes s1 {
+        0% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+    @keyframes s2 {
+        0% {
+            opacity: 1;
+        }
+
+        100% {
+            opacity: 0;
+        }
+    }
+
+    @keyframes dragText {
+        0% {
+            opacity: 0;
+        }
+
+        80% {
+            opacity: 0;
+            bottom: -30px;
+        }
+
+        100% {
+            opacity: 1;
+            bottom: 0px;
+        }
+    }
+
+    @keyframes newHand {
+        0% {
+            opacity: 0;
+        }
+
+        90% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+
+    #dragBox {
+        width: 130px;
+        height: 130px;
+        text-align: center;
+        /* cursor: grab; */
+        position: absolute;
+        bottom: 55px;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        animation: dB .8s linear;
+        /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+    }
+
+    @keyframes dB {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+    @keyframes newHandMove {
+        0% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+    @keyframes featu {
+        0% {
+            opacity: 0;
+            right: -200px;
+        }
+
+        100% {
+            opacity: 1;
+            right: 0;
+        }
+    }
+    ::-webkit-scrollbar {
+        -webkit-appearance: none;
+    }
+</style>
+
+<body>
+    <div class="main" id="main">
+
+
+        <div class="firstScreen" id="firstScreen" style="overflow: hidden;">
+
+            <div id="moveDiv" style="position: absolute;width: 15000px;height: 100%;left: 0;overflow: hidden;">
+                <img src="./images/bgLarge.png" style="position: absolute;width: 100%;height: 100%;" alt="">
+                <img src="./images/newImg/Garage.png" style="position: absolute;bottom: 39%;width: 380px;left: 1450px;"
+                    alt="">
+            </div>
+
+            <div id="carDiv"
+                style="position: absolute;width: 360px;height: 400px;left: -50px;right: 0;margin: 0 auto;bottom: 35px;">
+                <img src="./images/newImg/Car.png"
+                    style="position: absolute;bottom: 214px;left: 0;right: 0;margin: 0 auto;width: 350px;" alt="">
+                <img class="tyreOld" src="./images/newImg/oldTyre1.png"
+                    style="position: absolute;left: 50px;bottom: 202px;width: 53px;" alt="">
+                <img class="tyreOld" src="./images/newImg/oldTyre1.png"
+                    style="position: absolute;right: 40px;bottom: 201px;width: 53px;" alt="">
+
+                <!-- <div id="dropZone"></div> -->
+            </div>
+            <a href="https://www.bridgestone.co.in/" target="_blank">
+                <img src="./newImg/logoTop.png"
+                    style="z-index: 9999; position: absolute;left: 0;top: 0px;width: 80px;animation: logo 1s ease;"
+                    alt="">
+                <img src="./newImg/bidgestonelogo.png"
+                    style="z-index: 9999; position: absolute;right: -12px;bottom: -12px;width:170px;animation: logo1 1s ease;"
+                    alt="">
+            </a>
+            <div id="btnHandText1Div" style="position: absolute;left: 0;width: 100%;height: 100%;">
+                <img id="startbtn" src="./newImg/startBtn.png"
+                    style="position: absolute;left: 0;right: 0;margin: 0 auto;bottom: 70px;width: 30%;animation: startbtn 2s ease;"
+                    alt="">
+                <!-- <img id="hand" src="./images/hnad.png"
+                    style="position: absolute;left: 30px;right: 0;margin: 0 auto;bottom: 45px;width: 40px;z-index: 9;animation: hand 2.5s ease;"
+                    alt=""> -->
+
+                <img src="./newImg/pressText.png"
+                    style="position: absolute;left: 0;right: 0;margin: 0 auto;top: 160px;width: 80%;animation: text1 1.5s ease;"
+                    alt="">
+            </div>
+
+
+
+        </div>
+
+        <div id="lightDiv"
+            style="display: none; position: absolute;width: 360px;height: 400px;left: -50px;right: 0;margin: 0 auto;bottom: 35px;">
+            <img src="./images/Sound.png"
+                style="position: absolute;right: 80px;width: 50px;bottom: 203px;transform: rotate(-44deg);animation: s1 .35s linear alternate infinite;"
+                alt="">
+            <img src="./images/Sound.png"
+                style="position: absolute;left: 85px;width: 50px;bottom: 203px;transform: rotate(104deg);opacity: 0; animation: s2 .35s linear alternate infinite;"
+                alt="">
+            <img id="" src="./newImg/noisyText.png"
+                style=" position: absolute;left: 40px;right: 0;margin: auto;bottom: 15%; width: 80%;animation: comfert1 1.5s ease;"
+                alt="">
+
+        </div>
+
+        <div id="newWheels"
+            style="display: none; position: absolute;width: 360px;height: 400px;left: -50px;right: 0;margin: 0 auto;bottom: 35px;animation: divAni .5s linear;">
+            <img class="tyreNew" src="./images/newTyre.png"
+                style="position: absolute;left: 49px;bottom: 198px;width: 54px;" alt="">
+            <img class="tyreNew" src="./images/newTyre.png"
+                style="position: absolute;right: 39px;bottom: 197px;width: 55px;" alt="">
+        </div>
+
+        <div id="dragDiv"
+            style="display: none; position: absolute;width: 320px;height: 400px;left: 0px;right: 0;margin: 0 auto;bottom: 55px;z-index: 999;">
+            <!-- <img class="hideContent" src="./images/Turanza.png"
+                style="position: absolute;left: 100px;bottom: 135px;width: 150px;" alt=""> -->
+
+            <img class="hideContent" src="./newImg/clickTxt.png"
+                style="position: absolute;left: 0;right: 0;margin: 0 auto; bottom: 0px;width: 230px;animation: dragText 1.5s ease;"
+                alt="">
+            <img id="NewHand" class="hideContent" src="./images/hnad.png"
+                style="position: absolute;left: 0px;right: -30px;margin: 0 auto;bottom: 57px;width: 25px;z-index: 9999;animation: newHand 1.5s ease;"
+                alt="">
+            <div id="dragBox"><img id="tyrePulse" src="./images/newImg/dragWalaTyre1.png" width="125" alt=""></div>
+        </div>
+
+        <audio id="myAudio" src="./images/audioMy.mp3" muted></audio>
+
+        <div id="featuresDiv" style="display: none; position: absolute;width: 100%;height: 100%;left: 0;">
+            <a href="https://www.bridgestone.co.in/" target="_blank">
+                <img id="f1" src="./newImg/f1.png"
+                    style="position: absolute;left: 0;right: 0;margin: 0 auto;width: 155px;bottom: 9%;animation: featu .7s ease;"
+                    alt="">
+                <img id="f2" src="./newImg/f2.png"
+                    style="display: none; position: absolute;left: 0;right: 0;margin: 0 auto;width: 155px;bottom: 9%;animation: featu .7s ease;"
+                    alt="">
+                <img id="f3" src="./newImg/f3.png"
+                    style="display: none; position: absolute;left: 0;right: 0;margin: 0 auto;width: 155px;bottom: 9%;animation: featu .7s ease;"
+                    alt="">
+                <img id="f4" src="./newImg/f4.png"
+                    style="display: none; position: absolute;left: 0;right: 0;margin: 0 auto;width: 155px;bottom: 9%;animation: featu .7s ease;"
+                    alt="">
+            </a>
+        </div>
+
+        <img id="tagLine" src="./newImg/GreatText.png"
+            style="display: none; position: absolute;left: 0px;right: 0;margin: auto;bottom: 17%; width: 85%;animation: comfert .8s ease;"
+            alt="">
+
+        <div id="tapDiv" style="position: absolute;width: 100%;height: 100%;"></div>
+
+
+        <div id="lastScreen"
+            style="display: none; position: absolute;width: 100%;height: 100%;animation: divAni 1s linear; overflow: hidden;animation: divAni .7s linear;">
+
+            <a href="https://www.bridgestone.co.in/" target="_blank">
+                <img src="./images/lastBg.png" style="position: absolute;width: 100%;height: 100%;object-fit: cover;"
+                    alt="">
+                <img src="./newImg/logoTop.png"
+                    style="position: absolute;left: 0;top: 0px;width: 80px;" alt="">
+                <img src="./newImg/bidgestonelogo.png"
+                    style="position: absolute;right: -12px;bottom: -12px;width: 170px;" alt="">
+                <img src="./images/text1LastScreen.png"
+                    style="position: absolute;left: 0px;right: 0;margin: 0 auto; width: 75%; top: 120px;animation: text1last 1.5s ease;"
+                    alt="">
+                <!-- <img src="./images/tyre2.png"
+                    style="position: absolute;right: 10px;top: 47%;width: 130px;animation: tyre2 2s ease;" alt=""> -->
+                <img src="./images/features.png"
+                    style="position: absolute;width: 100%;height: 150px;bottom: 105px;animation: features 3s ease;" alt="">
+                <img src="./newImg/mostComfor.png"
+                    style="position: absolute;left: 0px;right: 0;margin: 0 auto; bottom: 36%;width: 80%; animation: tyre3 2.5s ease;" alt="">
+                <!-- <img id="cta" src="./newImg/KnowMore.png"
+                    style="position: absolute;left: 25px;width: 150px;bottom: 60px;animation: cta 3.2s ease;" alt=""> -->
+            </a>
+            <img id="vidBtn" src="./newImg/WatchVideo.png"
+                style="position: absolute;right:0px;left: 0;margin: 0 auto; width: 150px;z-index: 999; bottom: 60px;animation: vBtn 3.2s ease;"
+                alt="">
+        </div>
+
+        <div id="vScreen"
+            style="display: none; position: absolute;width: 100%;height: 100%;z-index: 9999999; background-color: rgba(000, 000, 000, 1);">
+
+            <video id="myVid" src="https://beta.andbeyond.media/abm-direct/RichMedia/video/tyre1.mp4" controls playsinline
+                style="position: absolute;width: 100%;left: 0;top:0px;right: 0;margin: auto; bottom: 0;"></video>
+
+            <a href="https://www.bridgestone.co.in/" target="_blank">
+                <img id="cta" src="./newImg/KnowMore.png"
+                    style="position: absolute;left: 0px;right: 0;margin: 0 auto; width: 150px;bottom: 120px;" alt="">
+            </a>
+
+            <img id="closeVid"
+                src="https://cache-ssl.celtra.com/api/static/ve67ae1362e/runner/clazzes/CreativeUnit/close-up.svg"
+                alt="Close Button">
+        </div>
+
+
+        <img id="close"
+            src="https://cache-ssl.celtra.com/api/static/ve67ae1362e/runner/clazzes/CreativeUnit/close-up.svg"
+            alt="Close Button">
+    </div>
+
+    <script>
+
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const close = document.getElementById("close");
+            const main = document.getElementById("main");
+            const firstScreen = document.getElementById("firstScreen");
+
+            const cta = document.getElementById("cta");
+            const vidBtn = document.getElementById("vidBtn");
+
+            // const hand = document.getElementById('hand');
+            const tapDiv = document.getElementById('tapDiv');
+            const tyreOld = document.querySelectorAll(".tyreOld")
+            const tyreNew = document.querySelectorAll(".tyreNew")
+            const hideContent = document.querySelectorAll(".hideContent")
+            const moveDiv = document.getElementById('moveDiv');
+            const myAudio = document.getElementById('myAudio');
+            const startbtn = document.getElementById('startbtn');
+            const btnHandText1Div = document.getElementById('btnHandText1Div');
+            const lightDiv = document.getElementById('lightDiv');
+            const dragDiv = document.getElementById('dragDiv');
+            const newWheels = document.getElementById('newWheels');
+            const tyrePulse = document.getElementById('tyrePulse');
+            const carDiv = document.getElementById('carDiv');
+            const myVid = document.getElementById('myVid');
+
+            const featuresDiv = document.getElementById('featuresDiv');
+            const f1 = document.getElementById('f1');
+            const f2 = document.getElementById('f2');
+            const f3 = document.getElementById('f3');
+            const f4 = document.getElementById('f4');
+
+            const lastScreen = document.getElementById('lastScreen');
+            const closeVid = document.getElementById('closeVid');
+            const vScreen = document.getElementById('vScreen');
+            const tagLine = document.getElementById('tagLine');
+
+            // vScreen.style.display = "none";
+
+            vidBtn.addEventListener("click", () => {
+                console.log("click video button..... ");
+                vScreen.style.display = "block";
+                myVid.style.display = "block";
+                myVid.play();
+                myVid.muted = false;
+            })
+
+            closeVid.addEventListener("click", () => {
+                console.log("click on close video");
+                myVid.style.display = "none";
+                vScreen.style.display = "none";
+                myVid.pause();
+                myVid.muted = true;
+            })
+
+
+            function rotation() {
+                featuresDiv.style.display = "block";
+
+                setTimeout(() => {
+                    f1.style.left = -500 + "px";
+                    f1.style.transition = "all .5s linear"
+                    f1.style.opacity = 0;
+                }, 2000);
+                setTimeout(() => {
+                    f2.style.display = "block";
+                }, 2200);
+                setTimeout(() => {
+                    f2.style.left = -500 + "px";
+                    f2.style.transition = "all .5s linear"
+                    f2.style.opacity = 0;
+                }, 4000);
+                setTimeout(() => {
+                    f3.style.display = "block";
+                }, 4200);
+                setTimeout(() => {
+                    f3.style.left = -500 + "px";
+                    f3.style.transition = "all .5s linear"
+                    f3.style.opacity = 0;
+                }, 6000);
+                setTimeout(() => {
+                    f4.style.display = "block";
+                }, 6200);
+                setTimeout(() => {
+                    f4.style.left = -500 + "px";
+                    f4.style.transition = "all .5s linear"
+                    f4.style.opacity = 0;
+
+                    tagLine.style.display = "block";
+                }, 8200);
+
+                setTimeout(() => {
+                    carDiv.style.left = 550 + "px";
+                    carDiv.style.transition = "all 2s ease";
+
+                    newWheels.style.left = 550 + "px";
+                    newWheels.style.transition = "all 2s ease";
+                }, 10500);
+
+                setTimeout(() => {
+                    lastScreen.style.display = "block";
+                    dragDiv.style.display = "none";
+                    setTimeout(() => {
+                        cta.style.animation = "pulse .5s ease alternate infinite";
+                        vidBtn.style.animation = "pulse .5s ease alternate infinite";
+                    }, 3210);
+                }, 11500);
+            }
+
+
+            window.parent.document.body.style.overflow = "hidden";
+
+
+            const dragBox = document.getElementById('dragBox');
+            // const dropZone = document.getElementById('dropZone');
+
+
+
+
+            setTimeout(() => {
+                // hand.style.animation = "pulse .5s ease alternate infinite";
+                startbtn.style.animation = "pulse .5s ease alternate infinite";
+            }, 2010);
+
+            tapDiv.addEventListener("click", () => {
+                console.log("click");
+                tapDiv.style.display = "none";
+                startbtn.style.transform = "scale(.95)";
+                startbtn.style.transition = "all .2s linear";
+
+                lightDiv.style.display = "block";
+
+                btnHandText1Div.style.opacity = 0;
+                btnHandText1Div.style.transition = "all .4s linear";
+
+                setTimeout(() => {
+                    btnHandText1Div.style.display = "none";
+                }, 400);
+
+
+                tyreOld.forEach((item) => {
+                    item.style.animation = "wheelsRotate 2s linear infinite";
+                })
+                moveDiv.style.animation = "divMove 55s linear infinite";
+
+                myAudio.muted = false;
+                myAudio.play();
+
+                setTimeout(() => {
+
+                    lightDiv.style.opacity = 0;
+                    lightDiv.style.transition = "all .5s linear"
+                    moveDiv.style.animationPlayState = "paused";
+                    myAudio.pause();
+
+                    tyreOld.forEach((item) => {
+                        item.style.animationPlayState = "paused";
+                    })
+                    dragDiv.style.display = "block";
+
+                    setTimeout(() => {
+                        tyrePulse.style.animation ="pulse .5s ease alternate infinite";
+                    }, 500);
+
+
+
+                    dragBox.addEventListener("click", function () {
+                        tapFunction();
+                    })
+
+
+                    function tapFunction() {
+
+                        console.log("click on drag div");
+                        dragBox.style.opacity = '0';
+                        dragBox.style.width = 50 + "px";
+
+                        newWheels.style.display = "block";
+                        tyreOld.forEach((item) => {
+                            item.style.opacity = 0;
+                            item.style.transition ="all 0.5s linear"
+                        })
+                        setTimeout(() => {
+                        
+                                moveDiv.style.animationPlayState = "running";
+                         
+                            tyreNew.forEach((item) => {
+                                item.style.animation = "wheelsRotate 1.5s linear infinite"
+                            })
+                            hideContent.forEach((ele) => {
+                                ele.style.left = -200 + "px";
+                                ele.style.opacity = 0;
+                                ele.style.transition = "all .5s ease";
+                                setTimeout(() => {
+                                    ele.style.display ="none";
+                                }, 600);
+                            })
+                            rotation();
+                        }, 1000);
+                    }
+
+                    // setTimeout(() => {
+                    //     NewHand.style.animation = "newHandMove 1.4s 3"
+                    // }, 1510);
+                }, 4890);
+
+            })
+
+            close.addEventListener("click", () => {
+                main.style.display = "none";
+                myAudio.muted = true;
+                myAudio.pause();
+
+                myVid.pause();
+                myVid.muted = true;
+
+                window.parent.document.body.style.overflow = "scroll";
+            });
+        });
+
+    </script>
+</body>
+
+</html>

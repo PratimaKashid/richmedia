@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <title>TATA Punch</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        overflow: hidden;
+        font-family: "Poppins", sans-serif;
+    }
+
+    .main {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+    }
+
+    .firstScreen,
+    .aapl_inner {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        position: absolute;
+
+    }
+
+    #close {
+        position: absolute;
+        right: 1px;
+        top: 1px;
+        width: 27px;
+        z-index: 99999;
+        cursor: pointer;
+    }
+
+
+    @keyframes pulse {
+        0% {
+            transform: scale(1);
+        }
+
+        100% {
+            transform: scale(.95);
+        }
+    }
+
+    @keyframes divAni {
+        0% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+    @keyframes logo {
+        0% {
+            left: -100px;
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+            left: 30px;
+        }
+    }
+
+    @keyframes logo1 {
+        0% {
+            right: -100px;
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+            right: 30px;
+        }
+    }
+
+    @keyframes hit {
+        0% {
+
+            opacity: 0;
+        }
+
+        40% {
+            bottom: -20%;
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+            bottom: 8%;
+        }
+    }
+
+    .targetBoxDiv {
+        animation: scale 1.3s ease-in-out;
+        bottom: 22%;
+    }
+
+    .target {
+        animation: scale .5s ease-in-out;
+    }
+
+    @keyframes scale {
+        0% {
+            opacity: 0;
+            transform: scale(0);
+        }
+
+        100% {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    .hand {
+        animation: hand 1s ease;
+    }
+
+    @keyframes hand {
+        0% {
+            opacity: 0;
+
+        }
+
+        80% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+
+        }
+    }
+
+    @keyframes car {
+        0% {
+            opacity: 0;
+
+        }
+
+        39% {
+            opacity: 0;
+        }
+
+        40% {
+            opacity: 1;
+            transform: scale(0);
+        }
+
+        100% {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    @keyframes clipPath {
+        0% {
+            opacity: 0;
+
+        }
+
+        39% {
+            opacity: 0;
+        }
+
+        /* 40% {
+            opacity: 1;
+            clip-path: circle(0);
+        } */
+
+        100% {
+            opacity: 1;
+            /* clip-path: circle(100%); */
+        }
+    }
+
+    @keyframes l1 {
+        0% {
+            opacity: 0;
+
+        }
+
+        70% {
+            opacity: 0;
+            left: -200px;
+        }
+
+        100% {
+            opacity: 1;
+            left: 50px;
+        }
+    }
+
+    @keyframes l2 {
+        0% {
+            opacity: 0;
+
+        }
+
+        70% {
+            opacity: 0;
+            right: -220px;
+        }
+
+        100% {
+            opacity: 1;
+            right: 30px;
+        }
+    }
+
+
+
+
+
+
+    .cube-parent-container {
+        width: 100%;
+        margin: 0;
+        position: absolute;
+        bottom: 0px;
+    }
+
+    .cubeSwiper .swiper-slide {
+        aspect-ratio: 1/1;
+    }
+
+    .cubeSwiper .swiper-slide img {
+        width: 100%;
+        object-fit: cover;
+    }
+
+    .cubeSwiper .pagination-container {
+        padding-top: 25px;
+        width: 100%;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 100px 1fr;
+        grid-template-rows: 1fr;
+        grid-column-gap: 0px;
+        grid-row-gap: 0px;
+        position: absolute;
+        top: 250px;
+        transform: scale(0.8);
+    }
+
+    .pagination-container {
+        position: relative;
+        top: -25px;
+    }
+
+    .cubeSwiper .cube-pagination-fraction {
+        color: rgba(255, 0, 255, 0.8);
+        font-size: 18px;
+        font-weight: 700;
+        margin-top: 15px;
+        text-align: center;
+        position: relative;
+    }
+
+    .swiper-button-next,
+    .swiper-button-prev {
+        color: #fff;
+        width: calc(var(--swiper-navigation-size)/ 44 * 6);
+        font-size: 12px;
+        font-weight: bolder;
+    }
+
+    .swiper-button-next:after,
+    .swiper-button-prev:after {
+        font-size: 12px;
+        font-weight: bolder;
+        padding: 7px 9px;
+        border-radius: 20px;
+
+    }
+
+    .swiper-button-prev {
+        left: var(--swiper-navigation-sides-offset, 19px);
+        position: absolute;
+        top: -150px;
+    }
+
+    .swiper-button-next {
+        right: var(--swiper-navigation-sides-offset, 20px);
+        position: absolute;
+        top: -150px;
+    }
+
+    .swiper-pagination-bullets.swiper-pagination-horizontal {
+        bottom: var(--swiper-pagination-bottom, -10px);
+    }
+
+    .swiper {
+        width: 300px;
+        position: relative;
+        height: 265px;
+    }
+
+    .swiper-pagination-bullet {
+        width: 12px;
+        height: 12px;
+    }
+
+
+    .vidBtn {
+        animation: vidBtn 3s ease;
+    }
+
+    @keyframes vidBtn {
+        0% {
+            opacity: 0;
+        }
+
+        80% {
+            opacity: 0;
+            left: -150px;
+        }
+
+        100% {
+            opacity: 1;
+            left: 15px;
+        }
+    }
+
+    .ctaBtn {
+        animation: cta 3s ease;
+    }
+
+    @keyframes cta {
+        0% {
+            opacity: 0;
+        }
+
+        80% {
+            opacity: 0;
+            right: -150px;
+        }
+
+        100% {
+            opacity: 1;
+            right: 15px;
+        }
+    }
+</style>
+
+<body>
+    <div class="main" id="main">
+        <img src="./images/bg.png" style="position: absolute;width: 100%;height: 100%;" alt="Background">
+        <div class="firstScreen" id="firstScreen">
+            <img src="./images/LogoLeft.png" style="position: absolute;left: 30px;top: 30px;animation: logo 1s ease;"
+                alt="">
+            <img src="./images/LogoRight.png" style="position: absolute;right: 30px;top: 30px;animation: logo1 1s ease;"
+                alt="">
+            <img id="hitText" src="./images/text1.png"
+                style="position: absolute;left: 0;right: 0;margin: 0 auto;bottom: 8%;width: 80%;animation: hit 1.3s ease-in-out;"
+                alt="">
+
+            <div id="targetDiv"
+                style="display: none; position: absolute;width: 90%;height: 80%;left: 0;right: 0;margin: auto;top: 0;bottom: 0;">
+                <div id="parentDiv"
+                    style="position: absolute;width: 310px;height: 100%;left: 0;right: 0;margin: 0 auto;">
+
+                    <div id="targetBoxDiv" class="targetBoxDiv"
+                        style="position: absolute;width: 310px;height: 205px;left: 0;right: 0;margin: 0 auto;">
+                        <img class="box" id="box" src="./images/TargetBox.png"
+                            style="position: absolute;width: 100%;left: 0;right: 0;margin: 0 auto;" alt="">
+
+                        <img id="hand" class="hand" src="./images/hand.png"
+                            style="width: 30px;display: none;position: absolute;left: 20px;right: 0;margin: auto;top: 40px;bottom: 0;"
+                            alt="">
+                        <img id="targetOne" class="target" src="./images/Features/Camo.png"
+                            style="width: 95%;display: none;position: absolute;left: 0;right: 0;margin: auto;top: 0;bottom: 0;"
+                            alt="">
+                        <img id="targetTwo" class="target" src="./images/Features/Wheels.png"
+                            style="width: 95%;display: none;position: absolute;left: 0;right: 0;margin: auto;top: 0;bottom: 0;"
+                            alt="">
+                        <img id="targetThree" class="target" src="./images/Features/Front PPlate.png"
+                            style="width: 95%;display: none;position: absolute;left: 0;right: 0;margin: auto;top: 0;bottom: 0;"
+                            alt="">
+                        <!-- <img id="targetFour" class="target" src="./images/Features/Dashboard.png"
+                            style="width: 95%;display: none;position: absolute;left: 0;right: 0;margin: auto;top: 0;bottom: 0;"
+                            alt=""> -->
+                        <!-- <img id="targetOne" class="target" src="./images/target1.png"
+                            style="width: 80%;display: none;position: absolute;left: 0;right: 0;margin: auto;top: 0;bottom: 0;"
+                            alt="">
+                        <img id="targetTwo" class="target" src="./images/target2.png"
+                            style="width: 80%;display: none;position: absolute;left: 0;right: 0;margin: auto;top: 0;bottom: 0;"
+                            alt="">
+                        <img id="targetThree" class="target" src="./images/target3.png"
+                            style="width: 72%;display: none;position: absolute;left: 0;right: 0;margin: auto;top: 0;bottom: 0;"
+                            alt="">
+                        <img id="targetFour" class="target" src="./images/target4.png"
+                            style="width: 72%;display: none;position: absolute;left: 0;right: 0;margin: auto;top: 0;bottom: 0;"
+                            alt=""> -->
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <audio id="myAudio" src="./images/audio.mp3"></audio>
+        <!-- <img id="car" src="./images/Car.png"
+            style="display: none; position: absolute;left: 0;right: 0;margin:  0 auto;top: 200px;width: 320px;animation: car 1s ease-in-out;"
+            alt=""> -->
+
+
+        <!-- final screen -->
+        <div id="lastScreen"
+            style="display: none; position: absolute;width: 100%;height: 100%;animation: divAni .7s linear;overflow: hidden;">
+            <!-- <img src="./images/bg.png" style="position: absolute;width: 100%;height: 100%;" alt="Background"> -->
+            <a href="https://cars.tatamotors.com/punch/ice/edition/camo.html" target="_blank">
+                <img src="./images/LogoLeft.png" style="position: absolute;left: 30px;top: 30px;" alt="">
+                <img src="./images/LogoRight.png" style="position: absolute;right: 30px;top: 30px;" alt="">
+
+                <img src="./images/CarBanner.png"
+                    style="position: absolute;top: 120px;width: 100%;animation: clipPath 2s linear;" alt="">
+                <img src="./images/Text Large 1.png"
+                    style="width: 250px; position: absolute;left: 50px;top: 86px;animation: l1 2.5s ease;" alt="">
+                <img src="./images/TextLarrge 2.png"
+                    style="width: 270px; position: absolute;right: 30px;top: 120px;animation: l2 2.5s ease;" alt="">
+
+
+                <img id="cta" class="ctaBtn" src="./images/Know More.png"
+                    style="position: absolute;right: 15px;width: 160px;bottom: 10px; z-index: 9999;" alt="">
+            </a>
+
+            <figure class="cube-parent-container" id="swiperId" style="display: none;">
+                <!-- Swiper -->
+                <div class="swiper cubeSwiper">
+                    <div class="swiper-wrapper">
+                        <!-- begin slides -->
+
+                        <div class="swiper-slide">
+                            <img src="./images/Features/Camo.png" style="width: 100%;" />
+                        </div>
+
+                        <div class="swiper-slide">
+                            <img src="./images/Features/Color Out.png" style="width: 100%;" />
+                        </div>
+
+                        <div class="swiper-slide">
+                            <img src="./images/Features/Dashboard.png" style="width: 100%;" />
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="./images/Features/Front PPlate.png" style="width: 100%;" />
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="./images/Features/Seats.png" style="width: 100%;" />
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="./images/Features/Wheels.png" style="width: 100%;" />
+                        </div>
+
+                        <!-- end slides -->
+                    </div>
+                </div>
+                <div class="pagination-container">
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                </div>
+            </figure>
+
+
+            <img id="vidBtn" class="vidBtn" src="./images/Watch Video.png"
+                style="position: absolute;left: 15px;width: 160px;bottom: 10px;z-index: 99999;" alt="">
+
+            <video id="myVid"
+                style="display: none; position: absolute;left: 0;right: 0;margin: 0 auto;top: 160px;width: 90%;"
+                controls autoplay muted
+                src="https://beta.andbeyond.media/abm-direct/RichMedia/video/tataPunch.mp4"></video>
+
+            <img id="closeVid" style="display: none; position: absolute;right: 3%;top: 150px;width: 25px;"
+                src="https://cache-ssl.celtra.com/api/static/ve67ae1362e/runner/clazzes/CreativeUnit/close-up.svg"
+                alt="Close Button video">
+        </div>
+
+
+        <img id="close"
+            src="https://cache-ssl.celtra.com/api/static/ve67ae1362e/runner/clazzes/CreativeUnit/close-up.svg"
+            alt="Close Button">
+    </div>
+
+    <script>
+
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const close = document.getElementById("close");
+            const main = document.getElementById("main");
+            const firstScreen = document.getElementById("firstScreen");
+            const myVid = document.getElementById("myVid");
+            const cta = document.getElementById("cta");
+            const lastScreen = document.getElementById('lastScreen');
+            const targetDiv = document.getElementById('targetDiv');
+            const hitText = document.getElementById('hitText');
+            const hand = document.getElementById('hand');
+            const car = document.getElementById('car');
+            const vidBtn = document.getElementById('vidBtn');
+            const swiperId = document.getElementById('swiperId');
+            const myFrame = document.getElementById('myFrame');
+            const closeVid = document.getElementById('closeVid');
+            const box = document.getElementById('box');
+            const myAudio = document.getElementById('myAudio');
+
+            window.parent.document.body.style.overflow = "hidden";
+
+            setTimeout(() => {
+                targetDiv.style.display = "block";
+                hand.style.display = "block";
+            }, 1000);
+
+
+
+            vidBtn.addEventListener("click", function () {
+                myVid.style.display = "block";
+                closeVid.style.display = "block";
+                myVid.muted = false;
+                myVid.play();
+            })
+
+            closeVid.addEventListener("click", () => {
+                myVid.muted = true;
+                myVid.pause();
+                myVid.style.display = "none"
+                closeVid.style.display = "none"
+
+            })
+
+
+            let intervalId;
+            let currentTargetIndex = 0;
+            const targets = document.querySelectorAll('.target');
+
+            function moveTargetBox() {
+                const parentDiv = document.getElementById('parentDiv');
+                const targetBoxDiv = document.getElementById('targetBoxDiv');
+
+                const parentWidth = parentDiv.clientWidth;
+                const parentHeight = parentDiv.clientHeight;
+
+                const boxWidth = targetBoxDiv.clientWidth;
+                const boxHeight = targetBoxDiv.clientHeight;
+
+                const maxX = parentWidth - boxWidth;
+                const maxY = parentHeight - boxHeight;
+
+                const randomX = Math.random() * maxX;
+                const randomY = Math.random() * maxY;
+
+                targetBoxDiv.style.left = randomX + 'px';
+                targetBoxDiv.style.top = randomY + 'px';
+                box.style.opacity = 1;
+            }
+
+            function showNextTargetImage() {
+                if (currentTargetIndex >= targets.length) {
+                    clearInterval(intervalId);
+
+                    targetDiv.style.opacity = 0;
+                    targetDiv.style.transition = "all .7s";
+
+
+
+                    return;
+                }
+
+                const currentTarget = targets[currentTargetIndex];
+                currentTarget.style.display = 'block';
+                box.style.opacity = 0;
+
+
+
+                setTimeout(() => {
+                    currentTarget.style.opacity = 0;
+                    currentTargetIndex++;
+                    console.log("current target index :", currentTargetIndex);
+                    box.style.opacity = 1;
+
+                    if (currentTargetIndex == 3) {
+                        hitText.style.opacity = 0;
+                        hitText.style.bottom = -10 + "%";
+                        hitText.style.transition = "all .7s";
+                        box.style.display = "none";
+                        setTimeout(() => {
+                            firstScreen.style.transition = "all .7s";
+                            firstScreen.style.opacity = 0;
+                            lastScreen.style.display = "block";
+
+                            setTimeout(() => {
+                                swiperId.style.display = "block";
+                                var swiper = new Swiper(".cubeSwiper", {
+                                    effect: "slide",
+                                    grabCursor: true,
+                                    speed: 1500,
+                                    spaceBetween: 10,
+                                    // autoplay: false,
+                                    loop: true,
+                                    autoplay: {
+                                        delay: 2000,
+                                        disableOnInteraction: false
+                                    },
+
+                                    pagination: {
+                                        el: ".swiper-pagination",
+                                        clickable: true,
+                                    },
+                                    navigation: {
+                                        nextEl: '.swiper-button-next',
+                                        prevEl: '.swiper-button-prev',
+                                    },
+                                });
+                            }, 2500);
+
+                            setTimeout(() => {
+                                cta.style.animation = "pulse .7s ease alternate infinite";
+                                vidBtn.style.animation = "pulse .7s ease alternate infinite";
+                            }, 3001);
+                        }, 100);
+                    }
+
+                    intervalId = setInterval(moveTargetBox, 1500);
+
+                }, 1500);
+            }
+
+            function stopAndShowTargetImage() {
+                // hitText.style.opacity = 0;
+                // hitText.style.bottom = -10 + "%";
+                // hitText.style.transition = "all .7s";
+                hand.style.opacity = 0;
+                hand.style.transition = "all .7s";
+                box.style.opacity = 1
+                clearInterval(intervalId);
+                showNextTargetImage();
+                myAudio.muted = false;
+                myAudio.play();
+            }
+
+            intervalId = setInterval(moveTargetBox, 800);
+
+            const targetBoxDiv = document.getElementById('targetBoxDiv');
+            targetBoxDiv.addEventListener('click', stopAndShowTargetImage);
+
+            close.addEventListener("click", () => {
+                main.style.display = "none";
+                myVid.muted = true;
+                myVid.pause();
+                myAudio.pause();
+                window.parent.document.body.style.overflow = "scroll";
+            });
+        });
+
+    </script>
+</body>
+
+</html>

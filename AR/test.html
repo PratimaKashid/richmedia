@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Gesture Interactions - A-Frame & AR.js</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+  <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1c2407b26c61958baa93967b5412487cd94b290b/dist/aframe-master.min.js"></script>
+  <script src="gesture-detector.js"></script>
+</head>
+<body>
+  <a-scene arjs embedded renderer="logarithmicDepthBuffer: true;" vr-mode-ui="enabled: false" id="scene">
+    <a-assets>
+      <video id="myVideo" src="https://beta.andbeyond.media/abm-direct/RichMedia/video/Mercedes.mp4" style="display: none;" autoplay loop muted playsinline webkit-playsinline></video>
+    </a-assets>
+    
+    <a-entity geometry="primitive: plane; width: 1; height: 0.75" material="shader: flat; src: #myVideo" position="0 0 0" rotation="-90 0 0"></a-entity>
+    <a-entity camera></a-entity>
+  </a-scene>
+  
+  <!-- <img id="img" src="./Only QR.png" style="display: none; position: absolute;top: 0;bottom: 0;right: 0;left: 0;margin: auto;" alt=""> -->
+  <!-- Button to start video -->
+  <!-- <button id="startVid" style="position: absolute; bottom: 20px; left: 0px;right: 0;margin: 0 auto;padding: 5px 8px; z-index: 1000;width: auto;">Click Me</button> -->
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const myVideo = document.getElementById("myVideo");
+    //   const startButton = document.getElementById("startVid");
+      // const img = document.getElementById("img");
+
+      // Add event listener to unmute the video when the button is clicked
+    //   startButton.addEventListener('click', () => {
+        myVideo.style.display = "block"
+        // img.style.display = "block"
+        myVideo.muted = false;
+        myVideo.play().catch((error) => {
+          console.log("Play prevented:", error);
+        });
+    //   });
+
+      // Try to play the video muted initially to comply with autoplay policy
+      myVideo.play().catch((error) => {
+        console.log("Autoplay prevented:", error);
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <title>Carens</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        overflow: hidden;
+    }
+
+    .main {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        overflow: hidden;
+    }
+
+    .firstScreen {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        position: absolute;
+    }
+
+    #close {
+        position: absolute;
+        right: 1px;
+        top: 1px;
+        width: 30px;
+        z-index: 99999;
+        cursor: pointer;
+    }
+
+    @keyframes logo {
+        0% {
+            top: -100px;
+            opacity: 0;
+        }
+
+        100% {
+            top: 20px;
+            opacity: 1;
+        }
+    }
+
+    @keyframes pulse {
+        0% {
+            transform: scale(1);
+        }
+
+        100% {
+            transform: scale(.95);
+        }
+    }
+
+    @keyframes tilt {
+        0% {
+            transform: rotate(5deg);
+        }
+
+        50% {
+            transform: rotate(0eg);
+        }
+
+        100% {
+            transform: rotate(-5deg);
+        }
+    }
+
+    @keyframes text1 {
+        0% {
+            opacity: 0;
+        }
+
+        60% {
+            opacity: 0;
+            top: 11%;
+        }
+
+        100% {
+            opacity: 1;
+            top: 14%;
+        }
+    }
+
+    @keyframes car1 {
+        0% {
+            right: -130%;
+            opacity: 1;
+            transform: scale(.2);
+        }
+
+        100% {
+            opacity: 1;
+            right: 0;
+            transform: scale(1);
+        }
+    }
+
+    @keyframes car2 {
+        0% {
+            left: -130%;
+            opacity: 1;
+            transform: scale(.2);
+        }
+
+        100% {
+            opacity: 1;
+            left: 0;
+            transform: scale(1);
+        }
+    }
+
+    @keyframes circle1 {
+        0% {
+            opacity: 0;
+        }
+
+        60% {
+            opacity: 0;
+            transform: scale(.2);
+        }
+
+        100% {
+            opacity: 1;
+            right: 0;
+            transform: scale(1);
+        }
+    }
+
+    @keyframes L1 {
+        0% {
+            opacity: 0;
+        }
+
+        60% {
+            opacity: 0;
+            bottom: 30px;
+        }
+
+        100% {
+            opacity: 1;
+            bottom: 18px;
+        }
+    }
+
+    @keyframes L2 {
+        0% {
+            opacity: 0;
+        }
+
+        60% {
+            opacity: 0;
+            bottom: 30px;
+        }
+
+        100% {
+            opacity: 1;
+            bottom: 18px;
+        }
+    }
+
+    @keyframes movetxt {
+        0% {
+            opacity: 0;
+        }
+
+        60% {
+            opacity: 0;
+            bottom: -100px;
+        }
+
+        100% {
+            opacity: 1;
+            bottom: 10px;
+        }
+    }
+
+    @keyframes icon {
+        0% {
+            opacity: 0;
+        }
+
+        80% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+    .leftIcon {
+        animation: icon 3.5s ease;
+    }
+
+    .rightIcon {
+        animation: icon 3.5s ease;
+    }
+
+    @keyframes rightIcon {
+        0% {
+            transform: rotate(0);
+        }
+
+        100% {
+            transform: rotate(-10deg);
+
+
+        }
+    }
+
+    @keyframes leftIcon {
+        0% {
+            transform: rotate(0);
+        }
+
+        100% {
+            transform: rotate(10deg);
+
+        }
+    }
+
+    @keyframes divAni {
+        0% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+    @keyframes textOne {
+        0% {
+            opacity: 0;
+        }
+
+        60% {
+            opacity: 0;
+            transform: scale(0);
+        }
+
+        100% {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    @keyframes carL1 {
+        0% {
+            transform: scale(.3);
+        }
+
+        100% {
+            transform: scale(1);
+        }
+    }
+
+    @keyframes lux2 {
+        0% {
+            opacity: 0;
+        }
+
+        70% {
+            opacity: 0;
+            top: 32%;
+        }
+
+        100% {
+            opacity: 1;
+            top: 37%;
+        }
+    }
+
+    @keyframes interior {
+        0% {
+            opacity: 0;
+        }
+
+        78% {
+            opacity: 0;
+            left: -200px;
+        }
+
+        100% {
+            opacity: 1;
+            left: 30px;
+        }
+    }
+
+    @keyframes exterior {
+        0% {
+            opacity: 0;
+        }
+
+        78% {
+            opacity: 0;
+            right: -200px;
+        }
+
+        100% {
+            opacity: 1;
+            right: 30px;
+        }
+    }
+
+    @keyframes tap {
+        0% {
+            opacity: 0;
+        }
+
+        85% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+    @keyframes cta {
+        0% {
+            opacity: 0;
+        }
+
+        50% {
+            opacity: 0;
+            bottom: -100px;
+        }
+
+        100% {
+            bottom: 6%;
+            opacity: 1;
+        }
+    }
+</style>
+
+<body>
+    <div class="main" id="main">
+
+        <div class="firstScreen" id="firstScreen" style="background-color: #fff;">
+            <img src="./screenOne/toplogo.png"
+                style="position: absolute;top: 20px;width: 88%;left: 0;right: 0;margin: 0 auto;animation: logo 1s ease-in-out;"
+                alt="">
+
+            <div id="innerOne" style="position: absolute;width: 100%;height: 100%;left: 0;">
+                <img src="./screenOne/text1.png"
+                    style="position: absolute;top: 14%;left: 0;right: 0;margin: 0 auto;width: 70%;animation: text1 1.5s ease-in-out;"
+                    alt="">
+
+                <div style="position: absolute;width: 300px;height: 250px;left: 0;right: 0;margin: 0 auto;top: 20%;">
+                    <img id="luxury" src="./screenOne/luxury.png"
+                        style="display: none; position: absolute;left: 0;right: 0;width: 280px;top: 60px;margin: 0 auto;animation: car1 1.5s ease-in-out;"
+                        alt="">
+                    <img id="c1" src="./screenOne/circle1.png"
+                        style="display: none; position: absolute;left: 0;right: 0;margin: 0 auto;bottom: 0%;width: 225px;animation: circle1 2s ease-in-out;"
+                        alt="">
+                    <img id="l1" src="./screenOne/luxurytext.png"
+                        style="display: none; position: absolute;left: 10px;right: 0;margin: 0 auto;bottom: 18px;width: 70px; ;animation: L1 2.5s ease-in-out;"
+                        alt="">
+                </div>
+
+                <img id="rightIcon" class="rightIcon" src="./screenOne/righicon.png"
+                    style="display: none; position: absolute;top: 24%;left: 20px;width: 40px;" alt="">
+
+                <div style="position: absolute;width: 300px;height: 250px;left: 0;right: 0;margin: 0 auto;top: 54%;">
+                    <img id="plus" src="./screenOne/plus.png"
+                        style="display: none; position: absolute;left: 0;right: 0;width: 280px;top: 60px;margin: 0 auto;animation: car2 1.5s ease-in-out;"
+                        alt="">
+                    <img id="c2" src="./screenOne/circle2.png"
+                        style="display: none; position: absolute;left: 0;right: 0;margin: 0 auto;bottom: 0;width: 225px;animation: circle1 2s ease-in-out;"
+                        alt="">
+                    <img id="l2" src="./screenOne/X-Line.png"
+                        style="display: none; position: absolute;left: 5px;right: 0;margin: 0 auto;bottom: 18px;width: 60px;animation: L2 2.5s ease-in-out;"
+                        alt="">
+                </div>
+
+                <img id="leftIcon" class="leftIcon" src="./screenOne/lefticon.png"
+                    style="display: none; position: absolute;top: 60%;right: 20px;width: 47px;" alt="">
+
+                <img id="moveText" src="./screenOne/moveyourtext.png"
+                    style="display: none; position: absolute;left: 0;right: 0;margin: 0 auto;bottom: 10px;width: 280px;animation: movetxt 3s ease-in-out;"
+                    alt="">
+            </div>
+
+
+
+            <div id="commonSession"
+                style="display: none; position: absolute;width: 100%;height: 100%;left: 0;animation: divAni .7s linear;">
+                <img src="./otherImg/BG.png" style="position: absolute;width: 100%;height: 100%;object-fit: cover;"
+                    alt="">
+                <img id="backMain" src="./otherImg/Back.png"
+                    style="z-index: 999; position: absolute;left: 10px;top: 28%;width: 28px;" alt="">
+
+                <img src="./otherImg/Logo White.png"
+                    style="position: absolute;top: -10px;width: 100%;left: 0;right: 0;margin: 0 auto">
+                <img src="./otherImg/text1.png"
+                    style="position: absolute;left: 0;right: 0;margin: 0 auto;width: 280px;top: 120px;animation: textOne 1.3s ease;"
+                    alt="">
+
+                <img id="luxuryInterior" src="./otherImg/Interior BTN.png"
+                    style="z-index: 999; position: absolute;left: 30px;bottom: 4%;width: 130px;animation: interior 2.5s ease-in-out;"
+                    alt="">
+                <img id="luxuryExterior" src="./otherImg/Exterior BTN.png"
+                    style="z-index: 999; position: absolute;right: 30px;bottom: 4%;width: 130px;animation: exterior 2.5s ease-in-out;"
+                    alt="">
+            
+
+                <!-- Luxury -->
+                <div id="luxuryCar" style="display: none; position: absolute;width: 100%;height: 100%;left: 0;">
+                    <img src="./otherImg/Car Luxury+.png"
+                        style="transform-origin: top; position: absolute;left: 0;right: 0;margin: 0 auto;top: 55%;width: 280px;animation: carL1 1.5s ease-in-out;">
+                    <img src="./otherImg/Luxury+.png"
+                        style="position: absolute;left: 0;right: 0;margin: 0 auto;top: 37%;width: 160px;animation: lux2 2s ease;"
+                        alt="">
+                </div>
+
+                <!-- X-Line -->
+                <div id="xLineCar" style="display: none; position: absolute;width: 100%;height: 100%;left: 0;">
+                    <img src="./otherImg/Car X-Line.png"
+                        style="transform-origin: top; position: absolute;left: 0;right: 0;margin: 0 auto;top: 55%;width: 280px;animation: carL1 1.5s ease-in-out;">
+                    <img src="./otherImg/X-Line.png"
+                        style="position: absolute;left: 0;right: 0;margin: 0 auto;top: 37%;width: 160px;animation: lux2 2s ease;"
+                        alt="">
+                </div>
+            </div>
+
+
+            <!-- interior Div -->
+            <div id="commonInterior"
+                style="display: none; position: absolute;width: 100%;height: 100%;left:0;top: 0;background-color: black;animation: divAni .7s linear;">
+
+                <a href="https://www.kia.com/in/our-vehicles/Carens/showroom.html?utm_source=google&utm_medium=sem&utm_campaign=search_carens_brand_exact&gad_source=1&gclid=EAIaIQobChMIwJel77X7hgMVyA2DAx36rA48EAAYASAAEgJ2HvD_BwE"
+                    target="_blank">
+                    <img src="./otherImg/Logo Black.png"
+                        style="position: absolute;top: 20px;width: 82%;left: 0;right: 0;margin: 0 auto;">
+
+
+                    <img id="cta" src="./otherImg/Know More.png"
+                        style="z-index: 9999; position: absolute;left: 0;right: 0;margin: 0 auto;bottom: 6%;width: 200px;animation: cta 1.5s ease;"
+                        alt="">
+                </a>
+
+                <img id="backInterior" src="./otherImg/Back.png"
+                    style="z-index: 999; position: absolute;left: 50px;top: 15%;width: 35px;" alt="">
+
+
+                <iframe id="interiorIframe" src="./otherImg/new.html"
+                    style="display: none; position: absolute;width: 100%;height: 85%;bottom: 0;"
+                    frameborder="0"></iframe>
+                <iframe id="exteriorIframe" src="./otherImg/exte.html"
+                    style="display: none; position: absolute;width: 100%;height: 85%;bottom: 0;"
+                    frameborder="0"></iframe>
+
+
+            </div>
+
+
+        </div>
+
+        <img id="close"
+            src="https://cache-ssl.celtra.com/api/static/ve67ae1362e/runner/clazzes/CreativeUnit/close-up.svg">
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        window.addEventListener('load', function () {
+            var close = document.getElementById("close");
+            var main = document.getElementById("main");
+            var screenOne = document.getElementById("screenOne");
+
+            var myVid = document.getElementById("myVid");
+            var cta = document.getElementById("cta");
+
+            var luxury = document.getElementById("luxury");
+            var plus = document.getElementById("plus");
+            var c1 = document.getElementById("c1");
+            var c2 = document.getElementById("c2");
+            var l1 = document.getElementById("l1");
+            var l2 = document.getElementById("l2");
+            var moveText = document.getElementById("moveText");
+            var rightIcon = document.getElementById("rightIcon");
+            var leftIcon = document.getElementById("leftIcon");
+            var innerOne = document.getElementById("innerOne");
+            // var hand = document.querySelectorAll(".hand");
+            var commonSession = document.getElementById("commonSession");
+            var interiorIframe = document.getElementById("interiorIframe");
+            var exteriorIframe = document.getElementById("exteriorIframe");
+
+            var luxuryCar = document.getElementById("luxuryCar");
+            var luxuryInterior = document.getElementById("luxuryInterior");
+            var luxuryExterior = document.getElementById("luxuryExterior");
+
+            var xLineCar = document.getElementById("xLineCar");
+            var backInterior = document.getElementById("backInterior");
+            var backMain = document.getElementById("backMain");
+            // var xLineInterior = document.getElementById("xLineInterior");
+            // var xLineExterior = document.getElementById("xLineExterior");
+
+
+            window.parent.document.body.style.overflow = "hidden";
+
+            luxuryInterior.addEventListener("click", () => {
+                    commonInterior.style.display = "block";
+                    interiorIframe.style.display = "block";
+                    interiorIframe.style.opacity = 1;
+                    exteriorIframe.style.display = "none";
+                    commonInterior.style.opacity = 1;
+                    luxuryInterior.style.opacity = 0;
+                    luxuryExterior.style.opacity = 0;
+                    backMain.style.opacity = 0;
+
+                    setTimeout(() => {
+                        cta.style.animation = "pulse .7s ease alternate infinite";
+                    }, 1600);
+                });
+
+
+
+                backInterior.addEventListener("click", () => {
+                    commonInterior.style.opacity = "0";
+                    commonInterior.style.transition = "all .7s";
+                    interiorIframe.style.opacity = "0";
+                    interiorIframe.style.transition = "all .7s";
+                    luxuryInterior.style.opacity = 1;
+                    luxuryExterior.style.opacity = 1;
+                    backMain.style.opacity = 1;
+                });
+
+                luxuryExterior.addEventListener("click", () => {
+                    backMain.style.opacity = 0;
+                    commonInterior.style.display = "block";
+                    commonInterior.style.opacity = 1;
+                    interiorIframe.style.display = "none";
+                    exteriorIframe.style.display = "block";
+                    exteriorIframe.style.opacity = 1;
+                    luxuryInterior.style.opacity = 0;
+                    luxuryExterior.style.opacity = 0;
+
+                    setTimeout(() => {
+                        cta.style.animation = "pulse .7s ease alternate infinite";
+                    }, 1600);
+                });
+
+            function startProcess() {
+                
+
+               
+
+                setTimeout(() => {
+                    luxury.style.display = "block";
+                    plus.style.display = "block";
+                    c1.style.display = "block";
+                    c2.style.display = "block";
+                    l1.style.display = "block";
+                    l2.style.display = "block";
+                    moveText.style.display = "block";
+                    rightIcon.style.display = "block";
+                    leftIcon.style.display = "block";
+
+                    setTimeout(() => {
+                        rightIcon.style.animation = "rightIcon .7s ease-in-out alternate infinite";
+                        leftIcon.style.animation = "leftIcon .7s ease-in-out alternate infinite";
+
+                        function handleOrientation(event) {
+                            const gamma = event.gamma;
+                            const tiltThreshold = 30;
+
+                            if (gamma < -tiltThreshold) {
+                                moveLeft();
+                                window.removeEventListener('deviceorientation', handleOrientation);
+                            } else if (gamma > tiltThreshold) {
+                                moveRight();
+                                window.removeEventListener('deviceorientation', handleOrientation);
+                            }
+                        }
+
+                        function addDeviceOrientationListener() {
+                            if (typeof DeviceMotionEvent.requestPermission === 'function') {
+                                DeviceMotionEvent.requestPermission()
+                                    .then(permissionState => {
+                                        if (permissionState === 'granted') {
+                                            window.addEventListener('deviceorientation', handleOrientation);
+                                        }
+                                    })
+                                    .catch(console.error);
+                            } else {
+                                window.addEventListener('deviceorientation', handleOrientation);
+                            }
+                        }
+
+                        addDeviceOrientationListener();
+
+                        backMain.addEventListener("click", () => {
+                            console.log("click on main back");
+                            commonSession.style.display = "none";
+                            innerOne.style.display = "block";
+                            innerOne.style.opacity = 1;
+                            luxury.style.transform = "translate(0px, 0px)";
+                            luxury.style.transition = "none";
+                            plus.style.transition = "none";
+                            plus.style.transform = "translate(0px, 0px)";
+                            backMain.style.opacity = 1;
+
+                            // Restart the process
+                            startProcess();
+                        });
+
+                    }, 3000);
+
+                }, 1500);
+            }
+
+            function moveLeft() {
+                console.log("luxury car .....");
+                luxury.style.transform = "translate(-400px, 0px)";
+                luxury.style.transition = "all 2s ease-in-out";
+
+                setTimeout(() => {
+                    innerOne.style.transition = "all 1s";
+                    innerOne.style.opacity = 0;
+
+                    setTimeout(() => {
+                        innerOne.style.display = "none";
+                    }, 1000);
+
+                    commonSession.style.display = "block";
+                    luxuryCar.style.display = "block";
+
+                    setTimeout(() => {
+                        luxuryInterior.style.animation = "pulse .7s ease-in-out alternate infinite";
+                        luxuryExterior.style.animation = "pulse .7s ease-in-out alternate infinite";
+                    }, 2600);
+
+                }, 1700);
+            }
+
+            function moveRight() {
+                console.log("plus car....");
+                plus.style.transform = "translate(400px, 0px)";
+                plus.style.transition = "all 2s ease-in-out";
+
+                setTimeout(() => {
+                    innerOne.style.opacity = 0;
+                    innerOne.style.transition = "all 1s ease-in-out";
+
+                    setTimeout(() => {
+                        innerOne.style.display = "none";
+                    }, 1000);
+
+                    commonSession.style.display = "block";
+                    xLineCar.style.display = "block";
+
+                    setTimeout(() => {
+                        luxuryInterior.style.animation = "pulse .7s ease-in-out alternate infinite";
+                        luxuryExterior.style.animation = "pulse .7s ease-in-out alternate infinite";
+                    }, 2600);
+
+                }, 1700);
+            }
+
+            close.addEventListener("click", () => {
+                main.style.display = "none";
+                window.parent.document.body.style.overflow = "scroll";
+            });
+
+            // Start the initial process
+            startProcess();
+        });
+    </script>
+</body>
+
+</html>

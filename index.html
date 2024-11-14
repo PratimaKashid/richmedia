@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bridgestone Tyre</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        overflow: hidden;
+    }
+
+    .main {
+        width: 320px;
+        height: 480px;
+        overflow: hidden;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    .first {
+        width: 320px;
+        height: 480px;
+        overflow: hidden;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    #close {
+        position: absolute;
+        right: 1px;
+        top: 1px;
+        width: 23px;
+        z-index: 9999;
+        cursor: pointer;
+    }
+
+    #closeVid {
+        position: absolute;
+        right: 1px;
+        top: 1px;
+        width: 23px;
+        z-index: 9999;
+        cursor: pointer;
+    }
+
+    @keyframes text1 {
+        0% {
+            top: 230px;
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+            top: 145px;
+        }
+
+    }
+
+    @keyframes pulseText1 {
+        0% {
+            transform: scale(1);
+        }
+
+        24% {
+            transform: scale(1.1);
+        }
+
+        48% {
+            transform: scale(1);
+        }
+
+        72% {
+            transform: scale(1.1);
+        }
+
+        100% {
+            transform: scale(1);
+        }
+    }
+
+    /* @keyframes text1 {
+        0% {
+            top: 250px;
+            opacity: 0;
+        }
+
+        35% {
+            opacity: 1;
+            top: 145px;
+        }
+        36%{
+            transform: scale(1);
+        }
+
+        50% {
+            transform: scale(1.12);
+        }
+
+        65% {
+            transform: scale(1.12);
+        }
+
+        70% {
+            transform: scale(1);
+        }
+
+        85% {
+            transform: scale(1.12);
+        }
+
+        100% {
+            transform: scale(1);
+        }
+    } */
+
+    @keyframes text2 {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+
+    @keyframes bgTwo {
+
+        0%{
+            opacity: 0;
+            left: -50px;
+        }
+
+        100% {
+            opacity: 1;
+            left: 0;
+        }
+    }
+
+    @keyframes text3 {
+        0% {
+            transform: scale(.8);
+            opacity: 0;
+        }
+
+        100% {
+            transform: scale(1);
+            opacity: 1;
+        }
+    }
+
+    @keyframes text4 {
+
+        0%{
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+    @keyframes text5 {
+
+        0% {
+            opacity: 0;
+            bottom: 86px;
+        }
+
+        100% {
+            opacity: 1;
+            bottom: 83px;
+        }
+    }
+
+    @keyframes ft1 {
+        0% {
+            transform: scale(1.45);
+            opacity: 0;
+        }
+
+        100% {
+            transform: scale(1);
+            opacity: 1;
+        }
+    }
+
+    @keyframes line {
+        0% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+    @keyframes watchVideo {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+    @keyframes watchVidAni {
+        0%{
+            transform: scale(1.3);
+        }
+        26%{
+            transform: scale(1);
+        }
+        69%{
+            transform: scale(1.3);
+        }
+        100%{
+            transform: scale(1);
+        }
+    }
+</style>
+
+<body>
+    <div class="main" id="main">
+        <div class="first" id="firstScreen">
+            <img src="./images/bg1.jpg" style="position: absolute;width: 320px;height: 480px;" alt="">
+            <img id="bg2" src="./images/bg2new.png"
+                style="display: none; position: absolute;width: 320px;height: 480px;left: 0; animation: bgTwo .4s linear;"
+                alt="">
+            <img id="" src="./images/logoTest.png" style="position: absolute;width: 325px;left: 0;" alt="">
+
+            <div id="textFirst" style="position: absolute;width: 320px;height: 480px;top: 0;left: 0;z-index: 999;">
+                <img id="text1"  src="./images/uneven.png"
+                    style="position: absolute;width: 260px;left: 0;right: 0;margin: 0 auto;top: 145px;animation: text1 .3s ease-in-out;"
+                    alt="">
+                <img id="text2" src="./images/not.png"
+                    style="display: none; position: absolute;width: 140px;left: 0;right: 0;margin: 0 auto;top: 192px;animation: text2 .450s linear;"
+                    alt="">
+            </div>
+
+            <div id="textTwo" style="display: none; position: absolute;width: 320px;height: 480px;top: 0;left: 0;">
+                <img src="./images/text1LastScreen.png"
+                    style="position: absolute;width: 240px;left: 0;right: 0;margin: 0 auto;top: 60px;transform-origin: top right; animation: text3 .350s linear;"
+                    alt="">
+                <img id="text4" src="./images/mostComfor.png"
+                    style="display: none; position: absolute;width: 180px;left: 0;right: 0;margin: 0 auto;bottom: 176px;animation: text4 .4s linear;"
+                    alt="">
+                <img id="text5" src="./images/premiumcomfort.png"
+                    style="display: none; position: absolute;width: 340px;left: -15px;right: 0;margin: 0 auto;bottom: 83px;animation: text5 .250s linear;"
+                    alt="">
+
+            </div>
+
+            <div id="features"
+                style="position: absolute;width: 320px;height: 50px;bottom: 85px;left: 0;display: flex;flex-direction: row;justify-content: space-around;align-items: center;">
+                <div id="features1"
+                    style="display: none; position: absolute;width: 100px;height: 50px;bottom: 0;left: 0px;">
+                    <img src="./images/icons/smoothicon.png"
+                        style="width: 47px;position:absolute;left: 0; right:0; margin:0 auto;top: 0;animation: ft1 .4s linear;"
+                        alt="">
+                    <img src="./images/icons/smoothtext.png"
+                        style="width: 58px;position:absolute;left: 0; right:0; margin:0 auto;bottom: 9px;animation: ft1 .4s linear;"
+                        alt="">
+                </div>
+                <div id="features2"
+                    style="display: none; position: absolute;width: 100px;height: 50px;bottom: 0;left: 70px;">
+                    <img src="./images/line.png"
+                        style="position: absolute;height: 50px;top: 0;left: 13px;animation: line .4s linear" alt="">
+                    <img src="./images/icons/quietIcon.png"
+                        style="width: 23px;position:absolute;left: 9px; right:0; margin:0 auto;top: 0;animation: ft1 .4s linear;"
+                        alt="">
+                    <img src="./images/icons/quiteText.png"
+                        style="width: 44px;position:absolute;left: 9px; right:0; margin:0 auto;bottom: 8px;animation: ft1 .4s linear;"
+                        alt="">
+                </div>
+                <div id="features3"
+                    style="display: none; position: absolute;width: 100px;height: 50px;bottom: 0;right: 70px;">
+                    <img src="./images/line.png"
+                        style="position: absolute;height: 50px;top: 0;left: 0;animation: line .4s linear" alt="">
+                    <img src="./images/icons/speriorIcon.png"
+                        style="width: 24px;position:absolute;left: -9px; right:0; margin:0 auto;top: 0;animation: ft1 .4s linear;"
+                        alt="">
+                    <img src="./images/icons/superiorText.png"
+                        style="width: 42px;position:absolute;left: -10px; right:0; margin:0 auto;bottom: 0;animation: ft1 .4s linear;"
+                        alt="">
+                </div>
+                <div id="features4"
+                    style="display: none; position: absolute;width: 100px;height: 50px;bottom: 0;right: 0px;">
+                    <img src="./images/line.png"
+                        style="position: absolute;height: 50px;top: 0;left: 0;animation: line .4s linear;" alt="">
+                    <img src="./images/icons/betterfuelIcon.png"
+                        style="width: 30px;position:absolute;left: 0; right:0; margin:0 auto;top: 0;animation: ft1 .5s linear;"
+                        alt="">
+                    <img src="./images/icons/betterfuelText.png"
+                        style="width: 48px;position:absolute;left: 0; right:0; margin:0 auto;bottom: 0;animation: ft1 .5s linear;"
+                        alt="">
+                </div>
+            </div>
+            <img id="watchvideo" src="./images/watchvideo.png"
+                style="display: none;cursor: pointer; position: absolute;left: 0;right: 0;margin: 0 auto;bottom: 45px;width: 95px;transform-origin: top; animation: watchVideo .650s linear;"
+                alt="">
+
+
+
+        </div>
+
+            <img id="close"
+                src="https://cache-ssl.celtra.com/api/static/ve67ae1362e/runner/clazzes/CreativeUnit/close-up.svg"
+                alt="Close Button">
+
+            <div id="vidScreen" style="display: none; position: absolute;width: 320px;height: 480px;top: 0;left: 0;">
+                <a href="https://www.bridgestone.co.in/passenger-tyres/turanza-tyres/turanza6i" target="_blank">
+                    <img id="" src="./images/lastscreen1.png"
+                        style="position: absolute;width: 320px;height: 480px;left: 0;" alt="">
+                    <img id="" src="./images/logoTest.png" style="position: absolute;width: 325px;left: 0;" alt="">
+                </a>
+                <video id="myVid" src="https://beta.andbeyond.media/abm-direct/RichMedia/video/tyre1.mp4" controls
+                    playsinline
+                    style="position: absolute;width: 100%;left: 0;right: 0;margin:0 auto;top: 90px;"></video>
+                <img id="closeVid"
+                    src="https://cache-ssl.celtra.com/api/static/ve67ae1362e/runner/clazzes/CreativeUnit/close-up.svg"
+                    alt="Close Button">
+
+            </div>
+        </div>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', (event) => {
+
+                const close = document.getElementById("close");
+                const closeVid = document.getElementById("closeVid");
+                const main = document.getElementById("main");
+                const firstScreen = document.getElementById("firstScreen");
+                const textFirst = document.getElementById("textFirst");
+                const bg2 = document.getElementById("bg2");
+                const textTwo = document.getElementById("textTwo");
+                const watchvideo = document.getElementById("watchvideo");
+                const myVid = document.getElementById("myVid");
+                const vidScreen = document.getElementById("vidScreen");
+
+                const features1 = document.getElementById("features1");
+                const features2 = document.getElementById("features2");
+                const features3 = document.getElementById("features3");
+                const features4 = document.getElementById("features4");
+                const text1 = document.getElementById("text1");
+                const text2 = document.getElementById("text2");
+                const text4 = document.getElementById("text4");
+                const text5 = document.getElementById("text5");
+
+                window.parent.document.body.style.overflow = "hidden";
+
+                close.addEventListener("click", () => {
+                    main.style.display = "none";
+                    window.parent.document.body.style.overflow = "scroll";
+                });
+                closeVid.addEventListener("click", () => {
+                    firstScreen.style.opacity = 1;
+                    vidScreen.style.display = "none";
+                    myVid.muted = true;
+                    myVid.pause()
+                })
+                setTimeout(() => {
+                    text1.style.animation = "pulseText1 1.150s linear";
+                }, 310);
+                setTimeout(() => {
+                    text2.style.display = "block";
+                }, 1650);
+                setTimeout(() => {
+
+                    text1.style.opacity = 0;
+                    text1.style.transition = "all .5s linear";
+
+                    text2.style.opacity = 0;
+                    text2.style.transition = "all .5s linear";
+                }, 3000);
+
+                setTimeout(() => {
+                    bg2.style.display = "block";
+                }, 3400);
+                setTimeout(() => {
+                    textFirst.style.display = "none";
+                    textTwo.style.display = "block";
+                }, 4350);
+                setTimeout(() => {
+                    text4.style.display = "block";
+                }, 5350);
+                setTimeout(() => {
+                    text5.style.display = "block";
+                }, 6350);
+
+                setTimeout(() => {
+                    features1.style.display = "block";
+                }, 6600);
+                setTimeout(() => {
+                    features2.style.display = "block";
+                }, 7750);
+                setTimeout(() => {
+                    features3.style.display = "block";
+                }, 8900);
+                setTimeout(() => {
+                    features4.style.display = "block";
+                }, 10500);
+                setTimeout(() => {
+                    watchvideo.style.display = "block";
+                }, 11650);
+                setTimeout(() => {
+                    watchvideo.style.animation = "watchVidAni 2.750s linear";
+                }, 1231);
+
+                watchvideo.addEventListener("click", () => {
+                    console.log("click");
+                    firstScreen.style.opacity = 1;
+                    vidScreen.style.display = "block";
+                    myVid.play();
+                    myVid.muted = false;
+                })
+            })
+        </script>
+</body>
+
+</html>

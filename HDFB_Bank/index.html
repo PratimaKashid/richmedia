@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HDFC</title>
+    <script type="text/javascript">
+        var clickTag = "https://www.hdfcbank.com/";
+    </script>
+</head>
+<style>
+    body {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+
+    }
+
+    .main {
+        width: 100%;
+        height: 100%;
+        /* position: absolute; */
+        position: fixed;
+        overflow: hidden;
+
+
+    }
+
+    .firstScreen,
+    .aapl_inner {
+        box-sizing: border-box;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        position: absolute;
+
+    }
+
+    #close {
+        position: absolute;
+        right: 1px;
+        top: 1px;
+        width: 30px;
+        z-index: 99999;
+        cursor: pointer;
+    }
+
+    @keyframes logo {
+        0% {
+            opacity: 0;
+            transform: scale(0);
+        }
+
+        100% {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    @keyframes lastDIv {
+        0% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+    @keyframes lastScreenText1 {
+        0% {
+            opacity: 0;
+        }
+
+        50% {
+            opacity: 0;
+            left: -300px;
+        }
+
+        100% {
+            opacity: 1;
+            left: 0;
+        }
+    }
+
+    @keyframes lastScreenText2 {
+        0% {
+            opacity: 0;
+        }
+
+        60% {
+            opacity: 0;
+            left: -300px;
+        }
+
+        100% {
+            opacity: 1;
+            left: 0;
+        }
+    }
+
+    @keyframes text1 {
+        0% {
+            opacity: 0;
+        }
+
+        40% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+    @keyframes text2 {
+        0% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+    @keyframes step1 {
+        0% {
+            opacity: 0;
+        }
+
+        29% {
+            opacity: 0;
+        }
+
+        30% {
+            opacity: 1;
+            transform: scale(1.4);
+        }
+
+        100% {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    @keyframes step2 {
+        0% {
+            opacity: 0;
+        }
+
+        44% {
+            opacity: 0;
+        }
+
+        45% {
+            opacity: 1;
+            transform: scale(1.4);
+        }
+
+        100% {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    @keyframes step3 {
+        0% {
+            opacity: 0;
+        }
+
+        59% {
+            opacity: 0;
+        }
+
+        60% {
+            opacity: 1;
+            transform: scale(1.4);
+        }
+
+        100% {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    @keyframes step4 {
+        0% {
+            opacity: 0;
+        }
+
+        74% {
+            opacity: 0;
+        }
+
+        75% {
+            opacity: 1;
+            transform: scale(1.4);
+        }
+
+        100% {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    @keyframes drawText {
+        0% {
+            opacity: 0;
+        }
+
+        75% {
+            opacity: 0;
+            bottom: -5%;
+        }
+
+        100% {
+            opacity: 1;
+            bottom: 3%;
+        }
+    }
+
+    @keyframes handmove {
+        0% {
+            transform: translate3d(0px, 0px, 0px);
+            animation-timing-function: linear;
+        }
+
+        14.2857% {
+            transform: translate3d(62.8px, 36px, 0px);
+            animation-timing-function: linear;
+        }
+
+        25% {
+            transform: translate3d(75.8px, 117px, 0px);
+            animation-timing-function: linear;
+        }
+
+        35.7143% {
+            transform: translate3d(72.8px, 195px, 0px);
+            animation-timing-function: linear;
+        }
+
+        50% {
+            transform: translate3d(13.8px, 247px, 0px);
+            animation-timing-function: linear;
+        }
+
+        60.7143% {
+            transform: translate3d(-65.2px, 215px, 0px);
+            animation-timing-function: linear;
+        }
+
+        71.4286% {
+            transform: translate3d(-78.2px, 119px, 0px);
+            animation-timing-function: linear;
+        }
+
+        85.7143% {
+            transform: translate3d(-61.2px, 27px, 0px);
+            animation-timing-function: linear;
+        }
+
+        100% {
+            transform: translate3d(0px, 0px, 0px);
+            animation-timing-function: linear;
+            opacity: 1;
+        }
+
+    }
+
+    .hand {
+        animation: text2 1.2s ease;
+    }
+
+    @keyframes half {
+        0% {
+            opacity: 0;
+        }
+
+        10% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+    @keyframes half1 {
+        0% {
+            opacity: 0;
+        }
+
+        60% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+    #orientationInfo {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 24px;
+
+    }
+
+    #player iframe {
+        width: 90%;
+        height: 210px;
+    }
+
+    #player {
+        height: 210px;
+    }
+</style>
+
+<body>
+    <div class="main" id="main">
+
+        <div class="firstScreen" id="firstScreen">
+            <div id="screenOne" style="position: absolute;width: 100%;height: 100%;overflow: hidden;">
+                <img src="./images/bg1.png" style="position: absolute;width: 100%;height: 100%;" alt="">
+                <div class="One" id="one"
+                    style="position: absolute;width: 100%;height: 100%;top: 0;bottom: 0;left: 0;right: 0;margin: auto;">
+                    <img id="text1" src="./images/text1.png"
+                        style="width: 60%; position: absolute;top: 100px;left: 0;right: 0;margin: 0 auto;animation: text1 1.3s ease;"
+                        alt="">
+
+                    <div id="steps"
+                        style="display: none; position: absolute;width: 100%;height: 100%;overflow: hidden;top: 0;bottom: 0;left: 0;right: 0;margin: auto">
+                        <img id="step1" src="./images/NEFT.png"
+                            style="position: absolute;left: 0;right: 0;margin: 0 auto;top: 36%;width:85%;animation: step1 1s ease;"
+                            alt="">
+                        <img id="step2" src="./images/ATM.png"
+                            style="position: absolute;left: 0;right: 0;margin: 0 auto;top: 51%;width:85%;animation: step2 1.5s ease;"
+                            alt="">
+                        <img id="step3" src="./images/SMS.png"
+                            style="position: absolute;left: 0;right: 0;margin: 0 auto;top: 66%;width:85%;animation: step3 2s ease;"
+                            alt="">
+                        <img id="step4" src="./images/Cheque.png"
+                            style="position: absolute;left: 0;right: 0;margin: 0 auto;top: 80%;width:85%;animation: step4 2.5s ease;"
+                            alt="">
+                    </div>
+
+
+                    <div id="zeroandMove"
+                        style="display: none; position: absolute;width: 100%;height: 100%;overflow: hidden;top: 0;bottom: 0;left: 0;right: 0;margin: auto">
+                        <img id="text2" src="./images/text2.png"
+                            style=" width: 60%; position: absolute;top: 100px;left: 0;right: 0;margin: 0 auto;animation: text2 1.2s ease;"
+                            alt="">
+
+                        <div
+                            style="position: absolute;width: 350px;height: 300px;top: 35%;left: 0;right: 0;margin: 0 auto;">
+                            <img id="dotedZero" src="./images/dotedZero.png"
+                                style=" width: 190px; position: absolute;top: 0;left: 0;right: 0;margin: 0 auto;animation: text2 1.2s ease;"
+                                alt="">
+                            <img id="hand" class="hand" src="./images/hand.png"
+                                style="position: absolute;top: 5px;left: 0;right: 0;margin: 0 auto; width: 37px;"
+                                alt="">
+                        </div>
+
+                        <img src="./images/drawText.png"
+                            style="position: absolute;left: 0;right: 0;margin: 0 auto;bottom: 3%;width: 55%;animation:drawText 1.7s ease ;"
+                            alt="">
+                    </div>
+
+                    <div id="fillDiv"
+                        style="display: none; position: absolute;width: 270px;height: 310px;top: 35%;left: 0;right: 0;margin: 0 auto;">
+                        <img id="leftImage" src="./images/middle.png"
+                            style="display: none;width: 97px;position: absolute;top: 2%;left: 93px;right: 0;margin: 0 auto;animation: half 1.3s ease;height: 298px;">
+                        <img id="rightImage" src="./images/middle1.png"
+                            style="display: none;width: 97px;position: absolute;top: 2%;right: 95px;left: 0; margin: 0 auto;animation: half1 2s ease;height: 298px;">
+
+                    </div>
+                </div>
+            </div>
+
+
+            <div id="orientationInfo"></div>
+
+            <!-- <a href="https://www.hdfcbank.com/" target="_blank"> -->
+            <a href="javascript:void(window.open(clickTag))">
+                <div id="lastScreen"
+                    style="display: none; position: absolute;width: 100%;height: 100%;overflow: hidden;top: 0;bottom: 0;left: 0;right: 0;margin: auto">
+
+                    <img src="./images/bg2.png" style="position: absolute;width: 100%;height: 100%;object-fit: cover;"
+                        alt="">
+                    <img src="./images/lastScreenText1.png"
+                        style="position: absolute;left: 0;right: 0;margin: 0 auto;bottom: 12%;width: 80%;animation: lastScreenText1 1.2s ease;"
+                        alt="">
+                    <img src="./images/cta.png"
+                        style="position: absolute;left: 0;right: 0;margin: 0 auto;bottom: 2%;width: 78%;animation: lastScreenText2 1.7s ease;"
+                        alt="">
+
+                    <div id="player1" class="vframe"
+                        style="position: absolute;top: 90px;width: 90%;height: 210px; left: 0;right: 0;margin: 0 auto;">
+                    </div>
+
+                </div>
+                <img src="./images/Logo.png"
+                    style="position: absolute;left: 0;right: 0;margin: 0 auto;top: 20px;width: 45%;animation: logo .8s ease;"
+                    alt="">
+            </a>
+
+            <img id="close"
+                src="https://cache-ssl.celtra.com/api/static/ve67ae1362e/runner/clazzes/CreativeUnit/close-up.svg">
+        </div>
+    </div>
+
+</body>
+
+<script src="https://www.youtube.com/iframe_api"></script>
+<script>
+    var close = document.getElementById("close");
+    var main = document.getElementById("main");
+    var cta = document.getElementById("cta");
+    var lastScreen = document.getElementById("lastScreen");
+    var myVid = document.getElementById("myVid");
+    var steps = document.getElementById("steps");
+    var text1 = document.getElementById("text1");
+    var zeroandMove = document.getElementById("zeroandMove");
+
+    var step1 = document.getElementById("step1");
+    var step2 = document.getElementById("step2");
+    var step3 = document.getElementById("step3");
+    var step4 = document.getElementById("step4");
+    var hand = document.getElementById("hand");
+    var fillDiv = document.getElementById("fillDiv");
+
+    var leftImage = document.getElementById('leftImage');
+    var rightImage = document.getElementById('rightImage');
+
+    var player1, player2, player3;
+
+    function onYouTubeIframeAPIReady() {
+        player1 = new YT.Player('player1', {
+            height: '390',
+            width: '640',
+            autoplay: 1,
+            muted: 1,
+            videoId: 'bgU-gahd3qY',
+            events: {
+                'onReady': onPlayerReady
+            }
+        });
+    }
+    function onPlayerReady() {
+        player1.unMute();
+    }
+
+
+
+
+    setTimeout(() => {
+
+        steps.style.display = "block";
+        setTimeout(() => {
+            step1.style.left = -180 + "%";
+            step3.style.left = -180 + "%";
+            step1.style.transition = "all 1s";
+            step3.style.transition = "all 1s";
+
+            step2.style.right = -180 + "%";
+            step4.style.right = -180 + "%";
+            step2.style.transition = "all 1s";
+            step4.style.transition = "all 1s";
+
+            text1.style.opacity = 0;
+            text1.style.transition = "all 1s";
+
+        }, 4000);
+        setTimeout(() => {
+            zeroandMove.style.display = "block";
+            setTimeout(() => {
+                hand.style.animation = "handmove 2.3s linear";
+            }, 1250);
+            setTimeout(() => {
+                hand.style.opacity = 0;
+                hand.style.transition = "all .5s";
+                console.log("draw shape start");
+
+                // call function hear draw shape 
+                // setTimeout(() => {
+                //     drawShape()
+                // }, 3000);
+                setTimeout(() => {
+                    window.addEventListener('deviceorientation', handleOrientation);
+                }, 500);
+
+            }, 3550);
+        }, 4700);
+        setTimeout(() => {
+            step1.style.display = "none"
+            step2.style.display = "none"
+            step3.style.display = "none"
+            step4.style.display = "none"
+            text1.style.display = "none"
+        }, 5000);
+    }, 1000);
+
+    function drawShape() {
+        fillDiv.style.display = "block";
+        setTimeout(() => {
+            fillDiv.style.transform = "scale(5.5)"
+            fillDiv.style.transition = "all 1s"
+            dotedZero.style.transform = "scale(5.5)"
+            dotedZero.style.transition = "all 1s"
+        }, 2600);
+        setTimeout(() => {
+
+            lastScreen.style.display = "block";
+            player1.playVideo();
+        }, 3600);
+    }
+    // setTimeout(() => {
+    function handleOrientation(event) {
+        var beta = event.beta; // X-axis rotation (in degrees)
+        var gamma = event.gamma; // Y-axis rotation (in degrees)
+
+        // Check if the device is tilted to the left
+        if (gamma < -45) {
+            leftImage.style.display = 'block'; // Show left image
+            drawShape()
+        }
+        // Check if the device is tilted to the right
+        else if (gamma > 45) {
+            rightImage.style.display = 'block'; // Show right image
+            drawShape()
+        }
+        // else {
+        //     leftImage.style.display = 'none'; // Hide left image
+        //     rightImage.style.display = 'none'; // Hide right image
+        // }
+    }
+    // }, 1000);
+
+
+
+
+    close.addEventListener("click", () => {
+        main.style.display = "none";
+        player1.stopVideo();
+    })
+</script>
+
+</html>

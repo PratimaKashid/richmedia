@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://demo.adgebra.in/js/jquery-2.1.3.min.js"></script>
+
+  <link rel="stylesheet" href="https://demo.adgebra.in/custom/css/slick.css" />
+  <script src="https://demo.adgebra.in/custom/js/slick.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+  <title>Palassio Christmas</title>
+
+</head>
+
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    overflow: hidden;
+  }
+
+
+  .slick-track {
+    height: 100%;
+  }
+
+  .slick-list {
+    height: 100%;
+  }
+
+
+
+
+
+  /* Flip Animation End */
+
+
+  /* my demo animation start */
+
+  @keyframes screen1text {
+    0% {
+      opacity: 0;
+    }
+
+    50% {
+      opacity: 0;
+      transform: scale(0);
+    }
+
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes screen2text {
+    0% {
+      opacity: 0;
+      transform: scale(0);
+    }
+
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes logo {
+    0% {
+      opacity: 0;
+      top: 10px;
+    }
+
+    100% {
+      opacity: 1;
+      top: 35px;
+    }
+  }
+
+  @keyframes largest {
+
+    0%,
+    50% {
+      opacity: 0;
+      left: -10px;
+    }
+
+    100% {
+      opacity: 1;
+      left: 10px;
+    }
+  }
+
+  @keyframes watch1 {
+
+    0%,
+    80% {
+      opacity: 0;
+      left: 0px;
+    }
+
+    100% {
+      opacity: 1;
+      left: 20px;
+    }
+  }
+
+  @keyframes next1 {
+
+    0%,
+    80% {
+      opacity: 0;
+      right: 0px;
+    }
+
+    100% {
+      opacity: 1;
+      right: 20px;
+    }
+  }
+
+  @keyframes f1t1 {
+
+    0%,
+    60% {
+      opacity: 0;
+      left: 20px;
+    }
+
+    100% {
+      opacity: 1;
+      left: 40px;
+    }
+  }
+
+  @keyframes f1t2 {
+
+    0%,
+    70% {
+      opacity: 0;
+      left: 20px;
+    }
+
+    100% {
+      opacity: 1;
+      left: 40px;
+    }
+  }
+
+  @keyframes f2t1 {
+
+    0%,
+    60% {
+      opacity: 0;
+      left: 40px;
+    }
+
+    100% {
+      opacity: 1;
+      left: 0px;
+    }
+  }
+
+  @keyframes engin {
+
+    0%,
+    55% {
+      opacity: 0;
+      bottom: 12%;
+    }
+
+    100% {
+      opacity: 1;
+      bottom: 15%;
+    }
+  }
+
+  @keyframes logo11 {
+    0% {
+      opacity: 0;
+      top: 10px;
+    }
+
+    100% {
+      opacity: 1;
+      top: 35px;
+    }
+  }
+
+  @keyframes logo2 {
+
+    0%,
+    65% {
+      opacity: 0;
+      top: 55px;
+    }
+
+    100% {
+      opacity: 1;
+      top: 75px;
+    }
+  }
+
+  @keyframes f4t1 {
+
+    0%,
+    70% {
+      opacity: 0;
+      right: -20px;
+    }
+
+    100% {
+      opacity: 1;
+      right: 0;
+    }
+  }
+
+  .closeVid {
+    position: absolute;
+    right: 1px;
+    top: 1px;
+    width: 25px;
+    z-index: 9999999;
+    cursor: pointer;
+  }
+</style>
+
+<body>
+  <div style="position: absolute; width: 100%; height: 100%; overflow:
+          hidden;">
+
+    <div class="rotateDiv" id="rotateDiv" style="display: none; position: relative; height: 100%;overflow: hidden;">
+
+      <!-- screen One  curvv-->
+      <div class="screen1" style="position: relative; width: 100%;height:100%">
+        <img src="./images/curvvFeature1/bg.jpg"
+          style="width: 100%;height: 100%; left: 0;right: 0;margin: 0 auto;object-fit: cover;" />
+        <img src="./Screen1TATA/toplogo-white.png"
+          style="position: absolute;width: 95%;top: 35px;left: 0;right: 0;margin: 0 auto;animation: logo 1s ease-out;"
+          alt="">
+
+        <div id="screenOne" style="position: absolute; width: 100%;height: 100%;top: 0;">
+          <img src="./images/curvvFeature1/text1.png"
+            style="width: 70%; position: absolute;bottom:15%;left: 40px;margin: 0 auto;animation: f1t1 2s ease-out;"
+            alt="">
+          <img src="./images/curvvFeature1/text2.png"
+            style="width: 25%; position: absolute;bottom:12%;left: 40px;margin: 0 auto;animation: f1t2 2.7s ease-out;"
+            alt="">
+          <img class="evVideocurvv" id="cOne" src="./images/curvvFeature2/watch.png"
+            style="width: 150px; position: absolute;bottom:20px;left: 20px;margin: 0 auto;animation: watch1 3.5s ease-out;"
+            alt="">
+          <a href="https://cars.tatamotors.com/curvv/ice.html?utm_source=AndbeyondMedia&utm_medium=interactiveads&utm_campaign=OMD_TML_AndbeyondMedia_CURVV_PV_Launch_September2024
+
+" target="_blank">
+
+            <img id="" class="" src="./images/curvvFeature6/booknow.png"
+              style=" width: 150px; position: absolute;bottom:20px;right: 20px;margin: 0 auto;animation: next1 3.5s ease-out;"
+              alt="">
+          </a>
+        </div>
+      </div>
+
+      <!-- screen Two -->
+      <div class="screen2" style="position: relative; width: 100%; height:100%">
+        <img src="./images/curvvFeature2/bg.jpg"
+          style="width: 100%;height: 100%; left: 0;right: 0;margin: 0 auto;object-fit: cover;" />
+        <div id="screenTwo" style="display: none; position: absolute;width: 100%; height: 100%;top: 0;">
+          <img src="./Screen1TATA/toplogo-white.png"
+            style="position: absolute;width: 95%;top: 35px;left: 0;right: 0;margin: 0 auto;animation: logo11 1s ease-out;"
+            alt="">
+          <img src="./images/curvvFeature2/text.png"
+            style="width: 50%; position: absolute;bottom:12%;left: 0px;right: 0; margin: 0 auto;animation: f2t1 2s ease-out;"
+            alt="">
+          <img id="cTwo" src="./images/curvvFeature2/watch.png"
+            style="width: 150px; position: absolute;bottom:20px;left: 20px;margin: 0 auto;animation: watch1 3.5s ease-out;"
+            alt="">
+          <a href="https://cars.tatamotors.com/curvv/ice.html?utm_source=AndbeyondMedia&utm_medium=interactiveads&utm_campaign=OMD_TML_AndbeyondMedia_CURVV_PV_Launch_September2024
+
+" target="_blank">
+
+            <img id="" src="./images/curvvFeature6/booknow.png"
+              style="width: 150px; position: absolute;bottom:20px;right: 20px;margin: 0 auto;animation: next1 3.5s ease-out;"
+              alt="">
+          </a>
+        </div>
+      </div>
+
+      <!-- screen Three -->
+      <div class="screen3" style="position: relative; width: 100%; height:100%">
+        <img src="./images/curvvFeature3/bg.jpg"
+          style="width: 100%;height: 100%; left: 0;right: 0;margin: 0 auto;object-fit: initial;" />
+        <div id="screenThree" style="display: none; position: absolute;width: 100%; height: 100%;top: 0;">
+          <img src="./Screen1TATA/toplogo-white.png"
+            style="position: absolute;width: 95%;top: 35px;left: 0;right: 0;margin: 0 auto;animation: logo 1s ease-out;"
+            alt="">
+          <img src="./images/curvvFeature3/text.png"
+            style="width: 75%; position: absolute;bottom:12%;left: 0px;right: 0; margin: 0 auto;animation: f2t1 2s ease-out;"
+            alt="">
+          <img id="cThree" class="evVideocurvv" src="./images/curvvFeature2/watch.png"
+            style="width: 150px; position: absolute;bottom:20px;left: 20px;margin: 0 auto;animation: watch1 3.5s ease-out;"
+            alt="">
+          <a href="https://cars.tatamotors.com/curvv/ice.html?utm_source=AndbeyondMedia&utm_medium=interactiveads&utm_campaign=OMD_TML_AndbeyondMedia_CURVV_PV_Launch_September2024
+
+" target="_blank">
+
+            <img id="" src="./images/curvvFeature6/booknow.png"
+              style="width: 150px; position: absolute;bottom:20px;right: 20px;margin: 0 auto;animation: next1 3.5s ease-out;"
+              alt="">
+          </a>
+
+        </div>
+      </div>
+
+      <!-- screen four -->
+      <div class="screen4" style="position: relative; width: 100%; height:100%">
+        <img src="./images/curvvFeature4/bg.jpg" style="width: 100%;height: 100%; left: 0;right: 0;margin: 0 auto;" />
+
+        <div id="screenFour" style="display: none; position: absolute;width: 100%; height: 100%;top: 0;">
+          <img src="./images/curvvFeature4/engin.png"
+            style="position: absolute;width: 75%;top: 20%;left: 0;right: 0;margin: 0 auto;animation: engin 2s ease-out;"
+            alt="">
+          <img src="./Screen1TATA/toplogo-white.png"
+            style="position: absolute;width: 95%;top: 35px;left: 0;right: 0;margin: 0 auto;animation: logo 1s ease-out;"
+            alt="">
+          <img src="./images/curvvFeature4/logo.png"
+            style="position: absolute;width: 65%;top: 75px;left: 0;right: 0;margin: 0 auto;animation: logo2 1.5s ease-out;"
+            alt="">
+          <img src="./images/curvvFeature4/text1.png"
+            style="width: 80%; position: absolute;bottom:15%;left: 0px;right: 0; margin: 0 auto;animation: f4t1 2.3s ease-out;"
+            alt="">
+          <img src="./images/curvvFeature4/text2.png"
+            style="width: 25%; position: absolute;bottom:12%;left: 40px;margin: 0 auto;animation: f1t2 2.7s ease-out;"
+            alt="">
+          <img class="evVideocurvv" id="cFour" src="./images/curvvFeature2/watch.png"
+            style="width: 150px; position: absolute;bottom:20px;left: 20px;margin: 0 auto;animation: watch1 3.5s ease-out;"
+            alt="">
+          <a href="https://cars.tatamotors.com/curvv/ice.html?utm_source=AndbeyondMedia&utm_medium=interactiveads&utm_campaign=OMD_TML_AndbeyondMedia_CURVV_PV_Launch_September2024
+
+" target="_blank">
+
+            <img id="" src="./images/curvvFeature6/booknow.png"
+              style="width: 150px; position: absolute;bottom:20px;right: 20px;margin: 0 auto;animation: next1 3.5s ease-out;"
+              alt="">
+          </a>
+        </div>
+      </div>
+
+      <!-- screen five -->
+      <div class="screen5" style="position: relative; width: 100%; height:100%">
+        <img src="./images/curvvFeature5/bg.jpg" style="width: 100%;height: 100%; left: 0;right: 0;margin: 0 auto;" />
+        <div id="screenFive" style="display: none; position: absolute;top: 0; width: 100%; height: 100%">
+          <img src="./Screen1TATA/toplogo-white.png"
+            style="position: absolute;width: 95%;top: 35px;left: 0;right: 0;margin: 0 auto;animation: logo 1s ease-out;"
+            alt="">
+          <img src="./images/curvvFeature5/text.png"
+            style="width: 80%; position: absolute;bottom:12%;left: 0px;right: 0; margin: 0 auto;animation: f2t1 2s ease-out;"
+            alt="">
+          <img class="evVideocurvv" id="cFive" src="./images/curvvFeature2/watch.png"
+            style="width: 150px; position: absolute;bottom:20px;left: 20px;margin: 0 auto;animation: watch1 3.5s ease-out;"
+            alt="">
+          <a href="https://cars.tatamotors.com/curvv/ice.html?utm_source=AndbeyondMedia&utm_medium=interactiveads&utm_campaign=OMD_TML_AndbeyondMedia_CURVV_PV_Launch_September2024
+
+" target="_blank">
+
+            <img id="" src="./images/curvvFeature6/booknow.png"
+              style="width: 150px; position: absolute;bottom:20px;right: 20px;margin: 0 auto;animation: next1 3.5s ease-out;"
+              alt="">
+          </a>
+        </div>
+      </div>
+
+
+      <!-- screen six -->
+      <div class="screen6" style="position: relative; width: 100%; height:100%">
+        <img src="./images/curvvFeature6/bg.jpg" style="width: 100%;height: 100%; left: 0;right: 0;margin: 0 auto;" />
+        <div id="screenSix" style="display: none; position: absolute;top: 0; width: 100%; height: 100%">
+          <img src="./Screen1TATA/toplogo-white.png"
+            style="position: absolute;width: 95%;top: 35px;left: 0;right: 0;margin: 0 auto;animation: logo 1s ease-out;"
+            alt="">
+          <img src="./images/curvvFeature6/Gesture Controlled  Powered Tailgate.png"
+            style="width: 80%; position: absolute;bottom:12%;left: 0px;right: 0; margin: 0 auto;animation: f2t1 2s ease-out;"
+            alt="">
+          <img class="evVideocurvv" id="cSix" src="./images/curvvFeature2/watch.png"
+            style="width: 150px; position: absolute;bottom:20px;left: 20px;margin: 0 auto;animation: watch1 3.5s ease-out;"
+            alt="">
+          <a href="https://cars.tatamotors.com/curvv/ice.html?utm_source=AndbeyondMedia&utm_medium=interactiveads&utm_campaign=OMD_TML_AndbeyondMedia_CURVV_PV_Launch_September2024
+
+" target="_blank">
+            <img id="" src="./images/curvvFeature6/booknow.png"
+              style="width: 150px; position: absolute;bottom:20px;right: 20px;margin: 0 auto;animation: next1 3.5s ease-out;"
+              alt="">
+          </a>
+        </div>
+      </div>
+
+
+    </div>
+
+    <div id="curvvVidScreen"
+      style="display: none; position: absolute;z-index: 99999; width: 100%;height: 100%;top: 0;left: 0;background-color: rgba(0, 0, 0, 0.9)">
+      <video id="myVidcurvv" src="https://beta.andbeyond.media/abm-direct/RichMedia/video/curvv.mp4" controls
+        playsinline style="position: absolute;width: 100%;left: 0;right: 0;margin:0 auto;top: 150px;"></video>
+      <img id="closeVidcurvv" class="closeVid"
+        src="https://cache-ssl.celtra.com/api/static/ve67ae1362e/runner/clazzes/CreativeUnit/close-up.svg"
+        alt="Close Button">
+    </div>
+
+  </div>
+
+  <script>
+
+    const screenOne = document.getElementById('screenOne')
+    const screenTwo = document.getElementById('screenTwo')
+    const screenThree = document.getElementById('screenThree')
+    const screenFour = document.getElementById('screenFour')
+    const screenFive = document.getElementById('screenFive')
+    const screenSix = document.getElementById('screenSix')
+    const screen6 = document.getElementById('screen6')
+    const rotateDiv = document.getElementById('rotateDiv')
+
+    const cOne = document.getElementById('cOne');
+    const cTwo = document.getElementById('cTwo');
+    const cThree = document.getElementById('cThree');
+    const cFour = document.getElementById('cFour');
+    const cFive = document.getElementById('cFive');
+    const cSix = document.getElementById('cSix');
+
+    // watchCurvv.addEventListener("click", () => {
+    //     myCurvv();
+    // })
+    cOne.addEventListener("click", () => {
+      myCurvv();
+    })
+    cTwo.addEventListener("click", () => {
+      myCurvv();
+    })
+    cThree.addEventListener("click", () => {
+      myCurvv();
+    })
+    cFour.addEventListener("click", () => {
+      myCurvv();
+    })
+    cFive.addEventListener("click", () => {
+      myCurvv();
+    })
+    cSix.addEventListener("click", () => {
+      myCurvv();
+    })
+    function myCurvv() {
+      curvvVidScreen.style.display = "block";
+      myVidcurvv.muted = false;
+      myVidcurvv.play();
+    }
+
+    // closeVidcurvv.addEventListener("click", () => {
+    //     curvvVidScreen.style.display = "none";
+    //     myVidcurvv.muted = true;
+    //     myVidcurvv.pause()
+    // })
+    // setTimeout(() => {
+      $(".rotateDiv").slick({
+
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        autoplay: true,
+        arrows: false,
+        autoplaySpeed: 6000,
+        infinite: true,
+        swipe: true,
+        pauseOnFocus: false,
+        pauseOnHover: false,
+        speed: 1500,
+        prevArrow:
+          "<button type='button' style='position: absolute;border-radius: 0 5px 5px 0;padding: 8px; cursor: pointer; top: 50%; left: 0px; z-index: 99999999; background: white; border: none; opacity: 0.8;' class='slick-prev pull-left'><i style='font-size: 30px; font-weight:800; color: black;' class='fa fa-angle-left' aria-hidden='true'></i></button>",
+        nextArrow:
+          "<button type='button' style='position: absolute;border-radius: 5px 0 0 5px;padding: 8px; cursor: pointer; top: 50%; right: 0px; z-index: 99999999; background: white; border: none; opacity: 0.8;' class='slick-next pull-right'><i style='font-size: 30px; font-weight:800; color: black;' class='fa fa-angle-right' aria-hidden='true'></i></button>",
+      });
+
+      $('.rotateDiv').on('beforeChange', function (event, slick, currentSlide, nextSlide) {
+
+        setTimeout(() => {
+          screenOne.style.display = 'none';
+          screenTwo.style.display = 'none';
+          screenThree.style.display = 'none';
+          screenFour.style.display = 'none';
+          screenFive.style.display = 'none';
+          screenSix.style.display = 'none';
+        }, 500);
+
+        let sliderActiveDiv = slick.$slides;
+
+        Array.from(sliderActiveDiv).forEach(DivElement => {
+
+          setTimeout(() => {
+            if (DivElement.classList.contains('slick-active')) {
+              setTimeout(() => {
+                DivElement.children[1].style.display = 'block';
+              }, 100);
+            }
+          }, 500);
+
+
+        });
+
+      });
+    // }, 3000);
+
+
+
+
+
+    if (screen6 === "slick-active") {
+      logo.style.display = "none";
+    }
+
+
+
+
+  </script>
+</body>
+
+</html>

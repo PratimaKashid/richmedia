@@ -1,0 +1,1092 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <title>Celebrating 5 Years</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        overflow: hidden;
+    }
+
+    .main {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        overflow: hidden;
+    }
+
+    .firstScreen {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        position: absolute;
+    }
+
+    #close {
+        position: absolute;
+        right: 1px;
+        top: 1px;
+        width: 30px;
+        z-index: 99999;
+        cursor: pointer;
+    }
+
+    @keyframes logo {
+        0% {
+            top: -100px;
+            opacity: 0;
+        }
+
+        100% {
+            top: 20px;
+            opacity: 1;
+        }
+    }
+
+    @keyframes pulse {
+        0% {
+            transform: scale(1);
+        }
+
+        100% {
+            transform: scale(.95);
+        }
+    }
+
+    @keyframes tilt {
+        0% {
+            transform: rotate(5deg);
+        }
+
+        50% {
+            transform: rotate(0eg);
+        }
+
+        100% {
+            transform: rotate(-5deg);
+        }
+    }
+
+    @keyframes text1 {
+        0% {
+            opacity: 0;
+        }
+
+        60% {
+            opacity: 0;
+            top: 11%;
+        }
+
+        100% {
+            opacity: 1;
+            top: 14%;
+        }
+    }
+
+    @keyframes car1 {
+        0% {
+            right: -130%;
+            opacity: 1;
+            transform: scale(.2);
+        }
+
+        100% {
+            opacity: 1;
+            right: 0;
+            transform: scale(1);
+        }
+    }
+
+    @keyframes car2 {
+        0% {
+            left: -130%;
+            opacity: 1;
+            transform: scale(.2);
+        }
+
+        100% {
+            opacity: 1;
+            left: 0;
+            transform: scale(1);
+        }
+    }
+
+    @keyframes circle1 {
+        0% {
+            opacity: 0;
+        }
+
+        60% {
+            opacity: 0;
+            transform: scale(.2);
+        }
+
+        100% {
+            opacity: 1;
+            right: 0;
+            transform: scale(1);
+        }
+    }
+
+    @keyframes L1 {
+        0% {
+            opacity: 0;
+        }
+
+        60% {
+            opacity: 0;
+            bottom: 30px;
+        }
+
+        100% {
+            opacity: 1;
+            bottom: 18px;
+        }
+    }
+
+    @keyframes L2 {
+        0% {
+            opacity: 0;
+        }
+
+        60% {
+            opacity: 0;
+            bottom: 30px;
+        }
+
+        100% {
+            opacity: 1;
+            bottom: 18px;
+        }
+    }
+
+    @keyframes movetxt {
+        0% {
+            opacity: 0;
+        }
+
+        60% {
+            opacity: 0;
+            bottom: -100px;
+        }
+
+        100% {
+            opacity: 1;
+            bottom: 30px;
+        }
+    }
+
+    @keyframes icon {
+        0% {
+            opacity: 0;
+        }
+
+        80% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+    .leftIcon {
+        animation: icon 3.5s ease;
+    }
+
+    .rightIcon {
+        animation: icon 3.5s ease;
+    }
+
+    @keyframes rightIcon {
+        0% {
+            transform: rotate(0);
+        }
+
+        100% {
+            transform: rotate(-10deg);
+
+
+        }
+    }
+
+    @keyframes leftIcon {
+        0% {
+            transform: rotate(0);
+        }
+
+        100% {
+            transform: rotate(10deg);
+
+        }
+    }
+
+    @keyframes divAni {
+        0% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+    @keyframes textOne {
+        0% {
+            opacity: 0;
+        }
+
+        60% {
+            opacity: 0;
+            transform: scale(0);
+        }
+
+        100% {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    @keyframes carL1 {
+        0% {
+            transform: scale(.3);
+        }
+
+        100% {
+            transform: scale(1);
+        }
+    }
+
+    @keyframes lux2 {
+        0% {
+            opacity: 0;
+        }
+
+        70% {
+            opacity: 0;
+            top: 32%;
+        }
+
+        100% {
+            opacity: 1;
+            top: 37%;
+        }
+    }
+
+    @keyframes interior {
+        0% {
+            opacity: 0;
+        }
+
+        78% {
+            opacity: 0;
+            left: -200px;
+        }
+
+        100% {
+            opacity: 1;
+            left: 30px;
+        }
+    }
+
+    @keyframes exterior {
+        0% {
+            opacity: 0;
+        }
+
+        78% {
+            opacity: 0;
+            right: -200px;
+        }
+
+        100% {
+            opacity: 1;
+            right: 30px;
+        }
+    }
+
+
+    @keyframes cta {
+        0% {
+            opacity: 0;
+        }
+
+        50% {
+            opacity: 0;
+            bottom: -100px;
+        }
+
+        100% {
+            bottom: 6%;
+            opacity: 1;
+        }
+    }
+
+    @keyframes t1 {
+        0% {
+            opacity: 0;
+        }
+
+        60% {
+            opacity: 0;
+            transform: scale(2);
+        }
+
+        100% {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    @keyframes family {
+        0% {
+            opacity: 0;
+        }
+
+        80% {
+            opacity: 0;
+            /* transform: scale(2); */
+        }
+
+        100% {
+            opacity: 1;
+            /* transform: scale(1); */
+        }
+    }
+
+    .topText {
+        animation: t1 2s ease;
+    }
+
+
+
+    /* start new animations */
+    @keyframes light {
+        0% {
+            opacity: 0;
+        }
+
+        50% {
+            width: 10px;
+            opacity: 0;
+        }
+
+        100% {
+            width: 100%;
+            opacity: 1;
+        }
+    }
+
+    @keyframes carOne {
+        0% {
+            opacity: 0;
+        }
+
+        70% {
+            filter: blur(15px);
+            opacity: 0;
+        }
+
+        100% {
+            filter: blur(0);
+            opacity: 1;
+        }
+    }
+
+    @keyframes fastText {
+        0% {
+            opacity: 0;
+        }
+
+        80% {
+            transform: scale(0);
+            opacity: 0;
+        }
+
+        100% {
+            transform: scale(1);
+            opacity: 1;
+        }
+    }
+</style>
+
+<body>
+    <div class="main" id="main">
+        <div id="pageOne" style="position: absolute;width: 100%;height: 100%;left: 0;">
+            <img src="./images/screen1/bgBlack.png" style="position: absolute;width: 100%;height: 100%;left: 0;top: 0"
+                alt="">
+            <img src="./images/screen1/light.png"
+                style="position: absolute;left: 0;right: 0;margin: 0 auto;top: 0px;width: 100%;animation: light 1.5s ease-out;"
+                alt="">
+            <img src="./images/screen1/logo.png"
+                style="position: absolute;top: 20px;width: 70%;left: 0;right: 0;margin: 0 auto;animation: logo 1s ease-in-out;"
+                alt="">
+            <img id="topText" class="topText" src="./images/screen1/Heading BIG.png"
+                style="position: absolute; width: 55%; top: 17%;left: 0;right: 0;margin: 0 auto;" alt="">
+
+            <img id="carScreenOne" class="carScreenOne" src="./images/screen1/carFirstPage.png"
+                style="position: absolute; width: 90%; top: 58%;left: 0;right: 0;margin: 0 auto;animation: carOne 2s ease-out;"
+                alt="">
+
+            <img id="fastest" class="fastest" src="./images/screen1/Fastest SUV TEXT.png"
+                style="position: absolute; width: 75%; bottom: 2%;left: 0;right: 0;margin: 0 auto;animation: fastText 2.5s ease-out;"
+                alt="">
+
+        </div>
+
+        <div class="firstScreen" id="firstScreen"
+            style="background-color: #fff;display: none;animation: divAni .7s linear;">
+            <img src="./images/screen1/logo.png"
+                style="position: absolute;top: 20px;width: 70%;left: 0;right: 0;margin: 0 auto" alt="">
+
+            <div id="innerOne" style="position: absolute;width: 100%;height: 100%;left: 0;">
+                <!-- <img src="./screenOne/text1.png"
+                    style="position: absolute;top: 14%;left: 0;right: 0;margin: 0 auto;width: 70%;animation: text1 1.5s ease-in-out;"
+                    alt=""> -->
+
+                <div style="position: absolute;width: 300px;height: 250px;left: 0;right: 0;margin: 0 auto;top: 16%;">
+
+                    <img id="c1" src="./images/screen2/BG Kia Seltos GTX.png"
+                        style="display: none; position: absolute;left: 0;right: 0;margin: 0 auto;bottom: 0%;width: 225px;animation: circle1 2s ease-in-out;"
+                        alt="">
+                    <img id="luxury" src="./images/screen2/Car Kia Seltos GTX.png"
+                        style="display: none; position: absolute;left: 0;right: 0;width: 280px;top: 65px;margin: 0 auto;animation: car1 1.5s ease-in-out;"
+                        alt="">
+                    <!-- <img id="l1" src="./screenOne/luxurytext.png"
+                        style="display: none; position: absolute;left: 10px;right: 0;margin: 0 auto;bottom: 18px;width: 70px; ;animation: L1 2.5s ease-in-out;"
+                        alt=""> -->
+                </div>
+
+                <img id="rightIcon" class="rightIcon" src="./images/screen2/Shake LEFT.png"
+                    style="display: none; position: absolute;top: 20%;left: 20px;width: 40px;" alt="">
+
+                <div style="position: absolute;width: 300px;height: 250px;left: 0;right: 0;margin: 0 auto;top: 52%;">
+                    <img id="c2" src="./images/screen2/BG Kia Seltos HTE.png"
+                        style="display: none; position: absolute;left: 0;right: 0;margin: 0 auto;bottom: 0;width: 225px;animation: circle1 2s ease-in-out;"
+                        alt="">
+                    <img id="plus" src="./images/screen2/Car Kia Seltos HTE.png"
+                        style="display: none; position: absolute;left: 0;right: 0;width: 280px;top: 65px;margin: 0 auto;animation: car2 1.5s ease-in-out;"
+                        alt="">
+                    <!-- <img id="l2" src="./screenOne/X-Line.png"
+                        style="display: none; position: absolute;left: 5px;right: 0;margin: 0 auto;bottom: 18px;width: 60px;animation: L2 2.5s ease-in-out;"
+                        alt=""> -->
+                </div>
+
+                <img id="leftIcon" class="leftIcon" src="./images/screen2/Shake RIGHT.png"
+                    style="display: none; position: absolute;top: 56%;right: 20px;width: 47px;" alt="">
+
+                <img id="moveText" src="./images/screen2/MOVE YOUR PHONE RIGHT OR LEFT TO PICK YOUR CARENS.png"
+                    style="display: none; position: absolute;left: 0;right: 0;margin: 0 auto;bottom: 30px;width: 280px;animation: movetxt 3s ease-in-out;"
+                    alt="">
+            </div>
+
+
+
+            <div id="commonSession"
+                style="display: none; position: absolute;width: 100%;height: 100%;left: 0;animation: divAni .7s linear;">
+                <img src="./images/BG.png" style="position: absolute;width: 100%;height: 100%;object-fit: cover;"
+                    alt="">
+                <img id="backMain" src="./images/screen3/Back.png"
+                    style="z-index: 999; position: absolute;left: 10px;top: 28%;width: 28px;" alt="">
+
+                <img src="./images/screen1/logo.png"
+                    style="position: absolute;top: 20px;width: 70%;left: 0;right: 0;margin: 0 auto;" alt="">
+                <img src="./images/screen3/Welcome to a world of infinite choices.png"
+                    style="position: absolute;left: 0;right: 0;margin: 0 auto;width: 280px;top: 120px;animation: textOne 1.3s ease;"
+                    alt="">
+
+
+
+
+                <!-- Luxury -->
+                <div id="luxuryCar" style="display: none; position: absolute;width: 100%;height: 100%;left: 0;">
+                    <img src="./images/screen3/Car GTX Front.png"
+                        style="transform-origin: top; position: absolute;left: 0;right: 0;margin: 0 auto;top: 55%;width: 280px;animation: carL1 1.5s ease-in-out;">
+                    <img src="./images/screen3/TEXT Kia Seltos GTX.png"
+                        style="position: absolute;left: 0;right: 0;margin: 0 auto;top: 37%;width: 220px;animation: lux2 2s ease;"
+                        alt="">
+
+                    <img id="InteriorGTX" src="./images/screen3/Interior BTN.png"
+                        style="z-index: 999; position: absolute;left: 30px;bottom: 4%;width: 130px;animation: interior 2.5s ease-in-out;"
+                        alt="">
+                    <img id="exteriorGTX" src="./images/screen3/Exterior BTN.png"
+                        style="z-index: 999; position: absolute;right: 30px;bottom: 4%;width: 130px;animation: exterior 2.5s ease-in-out;"
+                        alt="">
+                </div>
+
+                <!-- X-Line -->
+                <div id="xLineCar" style="display: none; position: absolute;width: 100%;height: 100%;left: 0;">
+                    <img src="./images/screen3/Car HTE Front.png"
+                        style="transform-origin: top; position: absolute;left: 0;right: 0;margin: 0 auto;top: 55%;width: 280px;animation: carL1 1.5s ease-in-out;">
+                    <img src="./images/screen3/Text Kia Seltos HTE.png"
+                        style="position: absolute;left: 0;right: 0;margin: 0 auto;top: 37%;width: 220px;animation: lux2 2s ease;"
+                        alt="">
+                    <img id="InteriorHTE" src="./images/screen3/Interior BTN.png"
+                        style="z-index: 999; position: absolute;left: 30px;bottom: 4%;width: 130px;animation: interior 2.5s ease-in-out;"
+                        alt="">
+                    <img id="exteriorHTE" src="./images/screen3/Exterior BTN.png"
+                        style="z-index: 999; position: absolute;right: 30px;bottom: 4%;width: 130px;animation: exterior 2.5s ease-in-out;"
+                        alt="">
+                </div>
+            </div>
+
+
+            <!-- interior Div -->
+            <div id="commonInterior"
+                style="display: none; position: absolute;width: 100%;height: 100%;left:0;top: 0;background-color: black;animation: divAni .7s linear;">
+
+                <a href="https://www.kia.com/in/our-vehicles/Carens/showroom.html?utm_source=google&utm_medium=sem&utm_campaign=search_carens_brand_exact&gad_source=1&gclid=EAIaIQobChMIwJel77X7hgMVyA2DAx36rA48EAAYASAAEgJ2HvD_BwE"
+                    target="_blank">
+                    <img src="./images/screen1/logo.png"
+                        style="position: absolute;top: 20px;width: 70%;left: 0;right: 0;margin: 0 auto;">
+
+
+                    <img id="cta" src="./images/HTEexterior/Know More.png"
+                        style="z-index: 9999; position: absolute;left: 0;right: 0;margin: 0 auto;bottom: 6%;width: 200px;animation: cta 1.5s ease;"
+                        alt="">
+                </a>
+
+                <img id="backInterior" src="./images/screen3/Back.png"
+                    style="z-index: 999; position: absolute;left: 50px;top: 15%;width: 35px;" alt="">
+
+
+                <iframe id="interiorIframeGTX" src="./images/inte-gtx.html"
+                    style="display: none; position: absolute;width: 100%;height: 85%;bottom: 0;"
+                    frameborder="0"></iframe>
+                <iframe id="exteriorIframeGTX" src="./images/exte-gtx.html"
+                    style="display: none; position: absolute;width: 100%;height: 85%;bottom: 0;"
+                    frameborder="0"></iframe>
+
+                <iframe id="interiorIframeHTC" src="./images/inte-htc.html"
+                    style="display: none; position: absolute;width: 100%;height: 85%;bottom: 0;"
+                    frameborder="0"></iframe>
+                <iframe id="exteriorIframeHTC" src="./images/exte-htc.html"
+                    style="display: none; position: absolute;width: 100%;height: 85%;bottom: 0;"
+                    frameborder="0"></iframe>
+
+
+            </div>
+
+
+        </div>
+
+        <img id="close"
+            src="https://cache-ssl.celtra.com/api/static/ve67ae1362e/runner/clazzes/CreativeUnit/close-up.svg">
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        window.addEventListener('load', function () {
+            var close = document.getElementById("close");
+            var main = document.getElementById("main");
+            var screenOne = document.getElementById("screenOne");
+            var pageOne = document.getElementById("pageOne");
+            var firstScreen = document.getElementById("firstScreen");
+
+            var myVid = document.getElementById("myVid");
+            var cta = document.getElementById("cta");
+
+            var luxury = document.getElementById("luxury");
+            var plus = document.getElementById("plus");
+            var c1 = document.getElementById("c1");
+            var c2 = document.getElementById("c2");
+            // var l1 = document.getElementById("l1");
+            // var l2 = document.getElementById("l2");
+            var moveText = document.getElementById("moveText");
+            var rightIcon = document.getElementById("rightIcon");
+            var leftIcon = document.getElementById("leftIcon");
+            var innerOne = document.getElementById("innerOne");
+            var topText = document.getElementById("topText");
+
+            var commonSession = document.getElementById("commonSession");
+            var interiorIframeHTC = document.getElementById("interiorIframeHTC");
+            var exteriorIframeHTC = document.getElementById("exteriorIframeHTC");
+
+            var interiorIframeGTX = document.getElementById("interiorIframeGTX");
+            var exteriorIframeGTX = document.getElementById("exteriorIframeGTX");
+
+            var luxuryCar = document.getElementById("luxuryCar");
+            var InteriorHTE = document.getElementById("InteriorHTE");
+            var exteriorHTE = document.getElementById("exteriorHTE");
+            var InteriorGTX = document.getElementById("InteriorGTX");
+            var exteriorGTX = document.getElementById("exteriorGTX");
+
+            var xLineCar = document.getElementById("xLineCar");
+            var backInterior = document.getElementById("backInterior");
+            var backMain = document.getElementById("backMain");
+            var carScreenOne = document.getElementById("carScreenOne");
+
+            luxuryCar.style.display = "none";
+            xLineCar.style.display = "none"
+
+            window.parent.document.body.style.overflow = "hidden";
+
+
+
+            InteriorHTE.addEventListener("click", () => {
+                commonInterior.style.display = "block";
+                interiorIframeHTC.style.display = "block";
+                interiorIframeHTC.style.opacity = 1;
+                exteriorIframeHTC.style.display = "none";
+                commonInterior.style.opacity = 1;
+                InteriorHTE.style.opacity = 0;
+                exteriorHTE.style.opacity = 0;
+                backMain.style.opacity = 0;
+
+                setTimeout(() => {
+                    cta.style.animation = "pulse .7s ease alternate infinite";
+                }, 1600);
+            });
+
+            InteriorGTX.addEventListener("click", () => {
+                commonInterior.style.display = "block";
+                interiorIframeGTX.style.display = "block";
+                interiorIframeGTX.style.opacity = 1;
+                exteriorIframeGTX.style.display = "none";
+                commonInterior.style.opacity = 1;
+                InteriorGTX.style.opacity = 0;
+                exteriorGTX.style.opacity = 0;
+                // exteriorGTX.style.display ="none"
+                backMain.style.opacity = 0;
+
+                setTimeout(() => {
+                    cta.style.animation = "pulse .7s ease alternate infinite";
+                }, 1600);
+            });
+
+            backInterior.addEventListener("click", () => {
+                commonInterior.style.opacity = "0";
+                commonInterior.style.transition = "all .7s";
+                interiorIframeHTC.style.opacity = "0";
+                interiorIframeHTC.style.transition = "all .7s";
+                InteriorHTE.style.opacity = 1;
+                exteriorHTE.style.opacity = 1;
+                InteriorGTX.style.opacity = 1;
+                exteriorGTX.style.opacity = 1;
+                backMain.style.opacity = 1;
+            });
+
+            exteriorHTE.addEventListener("click", () => {
+                backMain.style.opacity = 0;
+                commonInterior.style.display = "block";
+                commonInterior.style.opacity = 1;
+                interiorIframeHTC.style.display = "none";
+                exteriorIframeHTC.style.display = "block";
+                exteriorIframeHTC.style.opacity = 1;
+                InteriorHTE.style.opacity = 0;
+                exteriorHTE.style.opacity = 0;
+
+                setTimeout(() => {
+                    cta.style.animation = "pulse .7s ease alternate infinite";
+                }, 1600);
+            });
+            exteriorGTX.addEventListener("click", () => {
+                backMain.style.opacity = 0;
+                commonInterior.style.display = "block";
+                commonInterior.style.opacity = 1;
+                interiorIframeGTX.style.display = "none";
+                exteriorIframeGTX.style.display = "block";
+                exteriorIframeGTX.style.opacity = 1;
+                InteriorGTX.style.opacity = 0;
+                exteriorGTX.style.opacity = 0;
+
+                setTimeout(() => {
+                    cta.style.animation = "pulse .7s ease alternate infinite";
+                }, 1600);
+            });
+
+            function startProcess() {
+                setTimeout(() => {
+                    pageOne.style.opacity = 0;
+                    pageOne.style.transition = "all .7s";
+                    firstScreen.style.display = "block";
+                }, 4000);
+
+                setTimeout(() => {
+                    luxury.style.display = "block";
+                    plus.style.display = "block";
+                    c1.style.display = "block";
+                    c2.style.display = "block";
+                    // l1.style.display = "block";
+                    // l2.style.display = "block";
+                    moveText.style.display = "block";
+                    rightIcon.style.display = "block";
+                    leftIcon.style.display = "block";
+
+                    setTimeout(() => {
+                        rightIcon.style.animation = "rightIcon .7s ease-in-out alternate infinite";
+                        leftIcon.style.animation = "leftIcon .7s ease-in-out alternate infinite";
+
+
+                        addDeviceOrientationListener();
+
+                        backMain.addEventListener("click", () => {
+                            window.location.reload();
+
+                        });
+
+                    }, 3000);
+
+                }, 3500);
+            }
+
+            function handleOrientation(event) {
+                const gamma = event.gamma;
+                const tiltThreshold = 30;
+
+                if (gamma < -tiltThreshold) {
+                    moveLeft();
+                    window.removeEventListener('deviceorientation', handleOrientation);
+                } else if (gamma > tiltThreshold) {
+                    moveRight();
+                    window.removeEventListener('deviceorientation', handleOrientation);
+                }
+            }
+
+            function addDeviceOrientationListener() {
+                if (typeof DeviceMotionEvent.requestPermission === 'function') {
+                    DeviceMotionEvent.requestPermission()
+                        .then(permissionState => {
+                            if (permissionState === 'granted') {
+                                window.addEventListener('deviceorientation', handleOrientation);
+                            }
+                        })
+                        .catch(console.error);
+                } else {
+                    window.addEventListener('deviceorientation', handleOrientation);
+                }
+            }
+
+            function moveLeft() {
+                window.removeEventListener('deviceorientation', handleOrientation)
+                console.log("luxury car .....");
+                luxury.style.transform = "translate(-400px, 0px)";
+                luxury.style.transition = "all 2s ease-in-out";
+
+                setTimeout(() => {
+                    innerOne.style.transition = "all 1s";
+                    innerOne.style.opacity = 0;
+
+                    setTimeout(() => {
+                        innerOne.style.display = "none";
+                    }, 1000);
+
+                    commonSession.style.display = "block";
+                    luxuryCar.style.display = "block";
+                    xLineCar.style.display = "none";
+
+                    setTimeout(() => {
+                        InteriorHTE.style.animation = "pulse .7s ease-in-out alternate infinite";
+                        exteriorHTE.style.animation = "pulse .7s ease-in-out alternate infinite";
+                    }, 2600);
+
+                }, 1700);
+            }
+
+            function moveRight() {
+                window.removeEventListener('deviceorientation', handleOrientation)
+                console.log("plus car....");
+                plus.style.transform = "translate(400px, 0px)";
+                plus.style.transition = "all 2s ease-in-out";
+
+                setTimeout(() => {
+                    innerOne.style.opacity = 0;
+                    innerOne.style.transition = "all 1s ease-in-out";
+
+                    setTimeout(() => {
+                        innerOne.style.display = "none";
+                    }, 1000);
+
+                    commonSession.style.display = "block";
+                    xLineCar.style.display = "block";
+                    luxuryCar.style.display = "none"
+
+                    setTimeout(() => {
+                        InteriorHTE.style.animation = "pulse .7s ease-in-out alternate infinite";
+                        exteriorHTE.style.animation = "pulse .7s ease-in-out alternate infinite";
+                    }, 2600);
+
+                }, 1700);
+            }
+
+            close.addEventListener("click", () => {
+                main.style.display = "none";
+                window.parent.document.body.style.overflow = "scroll";
+            });
+
+            // Start the initial process
+            startProcess();
+        });
+    </script>
+
+    <script>
+        window.onload = function () {
+            // Globals
+            var random = Math.random,
+                cos = Math.cos,
+                sin = Math.sin,
+                PI = Math.PI,
+                PI2 = PI * 2,
+                timer = undefined,
+                frame = undefined,
+                confetti = [];
+
+            var particles = 10,
+                spread = 40,
+                sizeMin = 3,
+                sizeMax = 12 - sizeMin,
+                eccentricity = 10,
+                deviation = 100,
+                dxThetaMin = -0.1,
+                dxThetaMax = -dxThetaMin - dxThetaMin,
+                dyMin = 0.13,
+                dyMax = 0.18,
+                dThetaMin = 0.4,
+                dThetaMax = 0.7 - dThetaMin;
+
+            var colorThemes = [
+                function () {
+                    return color(
+                        (200 * random()) | 0,
+                        (200 * random()) | 0,
+                        (200 * random()) | 0
+                    );
+                },
+                function () {
+                    var black = (200 * random()) | 0;
+                    return color(200, black, black);
+                },
+                function () {
+                    var black = (200 * random()) | 0;
+                    return color(black, 200, black);
+                },
+                function () {
+                    var black = (200 * random()) | 0;
+                    return color(black, black, 200);
+                },
+                function () {
+                    return color(200, 100, (200 * random()) | 0);
+                },
+                function () {
+                    return color((200 * random()) | 0, 200, 200);
+                },
+                function () {
+                    var black = (256 * random()) | 0;
+                    return color(black, black, black);
+                },
+                function () {
+                    return colorThemes[random() < 0.5 ? 1 : 2]();
+                },
+                function () {
+                    return colorThemes[random() < 0.5 ? 3 : 5]();
+                },
+                function () {
+                    return colorThemes[random() < 0.5 ? 2 : 4]();
+                }
+            ];
+            function color(r, g, b) {
+                return "rgb(" + r + "," + g + "," + b + ")";
+            }
+
+            // Cosine interpolation
+            function interpolation(a, b, t) {
+                return ((1 - cos(PI * t)) / 2) * (b - a) + a;
+            }
+
+            // Create a 1D Maximal Poisson Disc over [0, 1]
+            var radius = 1 / eccentricity,
+                radius2 = radius + radius;
+            function createPoisson() {
+                // domain is the set of points which are still available to pick from
+                // D = union{ [d_i, d_i+1] | i is even }
+                var domain = [radius, 1 - radius],
+                    measure = 1 - radius2,
+                    spline = [0, 1];
+                while (measure) {
+                    var dart = measure * random(),
+                        i,
+                        l,
+                        interval,
+                        a,
+                        b,
+                        c,
+                        d;
+
+                    // Find where dart lies
+                    for (i = 0, l = domain.length, measure = 0; i < l; i += 2) {
+                        (a = domain[i]), (b = domain[i + 1]), (interval = b - a);
+                        if (dart < measure + interval) {
+                            spline.push((dart += a - measure));
+                            break;
+                        }
+                        measure += interval;
+                    }
+                    (c = dart - radius), (d = dart + radius);
+
+                    // Update the domain
+                    for (i = domain.length - 1; i > 0; i -= 2) {
+                        (l = i - 1), (a = domain[l]), (b = domain[i]);
+
+                        if (a >= c && a < d)
+                            if (b > d) domain[l] = d;
+                            // Move interior (Left case)
+                            else domain.splice(l, 2);
+                        // Delete interval
+                        else if (a < c && b > c)
+                            if (b <= d) domain[i] = c;
+                            // Move interior (Right case)
+                            else domain.splice(i, 0, c, d); // Split interval
+                    }
+
+                    // Re-measure the domain
+                    for (i = 0, l = domain.length, measure = 0; i < l; i += 2)
+                        measure += domain[i + 1] - domain[i];
+                }
+
+                return spline.sort();
+            }
+
+            // Create the overarching container
+            var container = document.createElement("div");
+            container.id = "confetti";
+            container.style.position = "fixed";
+            container.style.top = "0";
+            container.style.left = "0";
+            container.style.width = "100%";
+            container.style.height = "0";
+            container.style.overflow = "visible";
+            container.style.zIndex = "9999";
+            container.style.display = "none";
+
+            setTimeout(() => {
+                container.style.display = "block";
+            }, 1200);
+            setTimeout(() => {
+                container.style.opacity = 0;
+                container.style.transform = "all .3s linear";
+            }, 4000);
+            setTimeout(() => {
+                container.style.display = "none";
+            }, 4300);
+
+            // Confetto constructor
+            function Confetto(theme) {
+                this.frame = 0;
+                this.outer = document.createElement("div");
+                this.inner = document.createElement("div");
+                this.outer.appendChild(this.inner);
+
+                var outerStyle = this.outer.style,
+                    innerStyle = this.inner.style;
+                outerStyle.position = "absolute";
+                outerStyle.width = sizeMin + sizeMax * random() + "px";
+                outerStyle.height = sizeMin + sizeMax * random() + "px";
+                innerStyle.width = "100%";
+                innerStyle.height = "100%";
+                innerStyle.backgroundColor = theme();
+
+                outerStyle.perspective = "50px";
+                outerStyle.transform = "rotate(" + 360 * random() + "deg)";
+                this.axis =
+                    "rotate3D(" + cos(360 * random()) + "," + cos(360 * random()) + ",0,";
+                this.theta = 360 * random();
+                this.dTheta = dThetaMin + dThetaMax * random();
+                innerStyle.transform = this.axis + this.theta + "deg)";
+
+                this.x = window.innerWidth * random();
+                this.y = -deviation;
+                this.dx = sin(dxThetaMin + dxThetaMax * random());
+                this.dy = dyMin + dyMax * random();
+                outerStyle.left = this.x + "px";
+                outerStyle.top = this.y + "px";
+
+                // Create the periodic spline
+                this.splineX = createPoisson();
+                this.splineY = [];
+                for (var i = 1, l = this.splineX.length - 1; i < l; ++i)
+                    this.splineY[i] = deviation * random();
+                this.splineY[0] = this.splineY[l] = deviation * random();
+
+                this.update = function (height, delta) {
+                    this.frame += delta;
+                    this.x += this.dx * delta;
+                    this.y += this.dy * delta;
+                    this.theta += this.dTheta * delta;
+
+                    // Compute spline and convert to polar
+                    var phi = (this.frame % 7777) / 7777,
+                        i = 0,
+                        j = 1;
+                    while (phi >= this.splineX[j]) i = j++;
+                    var rho = interpolation(
+                        this.splineY[i],
+                        this.splineY[j],
+                        (phi - this.splineX[i]) / (this.splineX[j] - this.splineX[i])
+                    );
+                    phi *= PI2;
+
+                    outerStyle.left = this.x + rho * cos(phi) + "px";
+                    outerStyle.top = this.y + rho * sin(phi) + "px";
+                    innerStyle.transform = this.axis + this.theta + "deg)";
+                    return this.y > height + deviation;
+                };
+            }
+
+            function poof() {
+                if (!frame) {
+                    // Append the container
+                    document.body.appendChild(container);
+                    console.log("container", container);
+
+                    //confetti.style.display = "none";
+
+                    // Add confetti
+                    var theme = colorThemes[0],
+                        count = 0;
+                    (function addConfetto() {
+                        var confetto = new Confetto(theme);
+                        confetti.push(confetto);
+                        container.appendChild(confetto.outer);
+                        timer = setTimeout(addConfetto, spread * random());
+                    })(0);
+
+                    // Start the loop
+                    var prev = undefined;
+                    requestAnimationFrame(function loop(timestamp) {
+                        var delta = prev ? timestamp - prev : 0;
+                        prev = timestamp;
+                        var height = window.innerHeight;
+
+                        for (var i = confetti.length - 1; i >= 0; --i) {
+                            if (confetti[i].update(height, delta)) {
+                                container.removeChild(confetti[i].outer);
+                                confetti.splice(i, 1);
+                            }
+                        }
+
+                        if (timer || confetti.length)
+                            return (frame = requestAnimationFrame(loop));
+
+                        // Cleanup
+                        document.body.removeChild(container);
+                        frame = undefined;
+                    });
+                }
+            }
+
+            poof();
+        };
+    </script>
+</body>
+
+</html>

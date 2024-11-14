@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AR.js & A-Frame Example</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+  <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+</head>
+<body>
+  <a-scene
+    embedded
+    arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false;"
+  >
+    <!-- Define assets -->
+    <a-assets>
+      <a-asset-item
+        id="bowser"
+        src="https://cdn.glitch.com/06bd98b4-97ee-4c07-a546-fe39ca205034%2Fbowser.glb"
+      >
+      </a-asset-item>
+    </a-assets>
+
+    <!-- Define marker and entities -->
+    <a-marker
+      type="pattern"
+      url="https://beta.andbeyond.media/abm-direct/RichMedia/arjs/AR_Innovation.patt"
+      id="markerA"
+    >
+      <a-plane
+        src="#myVideo"
+        position="0 0 0"
+        rotation="-90 0 0"
+        width="1"
+        height="0.75"
+      ></a-plane>
+    </a-marker>
+
+    <!-- Define camera -->
+    <a-entity camera></a-entity>
+  </a-scene>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const myVideo = document.getElementById("myVideo");
+      myVideo.muted = true; // Start muted for autoplay to work
+
+      myVideo.play().then(() => {
+        myVideo.pause(); // Pause the video initially
+      }).catch((error) => {
+        console.log("Autoplay prevented:", error);
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="chooseFoodDiv"
+            style=" width: 100%;height: 100%;position: absolute; overflow: hidden;animation: divAni .7s ease;">
+
+            <img id="McPuff" class="McPuff selectFood" src="./images/McPuff.png"
+                style="position: absolute;left: 0;right: 0;margin: 0 auto;top: 63%;width: 90%;animation: alootikki2 2.3s ease;"
+                alt="">
+            <img id="Mcegg" class="Mcegg selectFood" src="./images/Mcegg.png"
+                style="position: absolute;left: 0;right: 0;margin: 0 auto;top: 42%;width: 90%;" alt="">
+
+            <img id="alootikki" class="alootikki selectFood" src="./images/alootikki.png"
+                style="position: absolute;left: 0;right: 0;margin: 0 auto;top: 21%;width: 90%;" alt="">
+
+            <img id="pickYourFood" class="pickYourFood" src="./images/pickyour food.png"
+                style="position: absolute;left: 0;right: 0;margin: 0 auto;top: 83%;width: 65%;" alt="">
+
+        </div>
+
+        <div id="PickYourDrinkDiv"
+            style="display: none; width: 100%;height: 100%;position: absolute; overflow: hidden;animation: divAni .7s ease;">
+
+            <img id="sprite" class="sprite selectDrink" src="./images/sprite.png"
+                style="position: absolute;left: 10px;top: 24%;width: 31%;" alt="">
+
+            <img id="fanta" class="fanta selectDrink" src="./images/fanta-removebg-preview.png"
+                style="position: absolute;right: 00px;top: 17%;width: 59%;" alt="">
+
+            <img id="coke" class="coke selectDrink" src="./images/coke.png"
+                style="position: absolute;left: 0;right: 0;margin: 0 auto;top: 53%;width: 28%;" alt="">
+
+            <img id="pickYourFood" class="pickYourFood" src="./images/pick your drink.png"
+                style="position: absolute;left: 0;right: 0;margin: 0 auto;top: 83%;width: 65%;" alt="">
+
+        </div>
+
+        <div id="selectItemsDiv"
+            style="display: none; width: 100%;height: 100%;position: absolute; overflow: hidden;animation: divAni .7s ease;">
+            <img src="./images/buynow.png"
+                style="position: absolute;left: 0;right: 0;margin: 0 auto;bottom: 100px;width: 320px;" alt="">
+                
+            <img id="favfood" style="position: absolute;left: 0;bottom: 171px;width: 50%;" src="" alt="">
+            <img id="favDrink" style="position: absolute;right: 0;bottom: 171px;width: 40%;" src="" alt="">
+
+            <img src="./images/introducing.png" style="position: absolute;left: 0;right: 0;margin: 0 auto;top: 21%;width: 90%;" alt="">
+        </div>
+</body>
+<script>
+   var selectFood = document.querySelectorAll(".selectFood");
+    var selectDrink = document.querySelectorAll(".selectDrink");
+    var chooseFoodDiv = document.getElementById("chooseFoodDiv");
+    var PickYourDrinkDiv = document.getElementById("PickYourDrinkDiv");
+    var selectItemsDiv = document.getElementById("selectItemsDiv");
+    var selectedFood = "";
+    var selectedDrink = "";
+
+    selectFood.forEach(function (element) {
+        element.addEventListener("click", function (e) {
+            console.log(e.target);
+            element.style.animation = "onclickAnimation .7s ease-in-out"
+            selectedFood = e.target.id;
+            setTimeout(() => {
+                PickYourDrinkDiv.style.display = "block";
+                chooseFoodDiv.style.opacity = "0";
+                chooseFoodDiv.style.transition = "all .7s";
+            }, 800);
+        });
+    });
+
+    selectDrink.forEach(function (element) {
+        element.addEventListener("click", function (e) {
+            console.log(e.target);
+            element.style.animation = "onclickAnimation .7s ease-in-out"
+            selectedDrink = e.target.id;
+            setTimeout(() => {
+                selectItemsDiv.style.display = "block";
+                PickYourDrinkDiv.style.opacity = "0";
+                PickYourDrinkDiv.style.transition = "all .7s";
+                // Customize the content of selectItemsDiv based on selectedFood and selectedDrink
+                var favFoodImg = document.getElementById("favfood");
+                var favDrinkImg = document.getElementById("favDrink");
+                favFoodImg.src = "./images/" + selectedFood + ".png";
+                favDrinkImg.src = "./images/" + selectedDrink + ".png";
+            }, 800);
+        });
+    });
+</script>
+</html>

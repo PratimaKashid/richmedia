@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        overflow: hidden;
+    }
+
+
+    @keyframes yellowD {
+        0% {
+            transform: translate(0px, 0px) scale(1);
+        }
+
+        100% {
+            transform: translate(-95px, -176px) scale(.6);
+        }
+    }
+
+    @keyframes gree {
+        0% {
+            transform: translate(0px, 0px) scale(1);
+        }
+
+        100% {
+            transform: translate(-57px, -171px) scale(.4);
+        }
+    }
+
+    @keyframes whi {
+        0% {
+            transform: translate(0px, 0px) scale(1);
+        }
+
+        100% {
+            transform: translate(-77px, -189px) scale(.4);
+        }
+    }
+
+    @keyframes tsh {
+        0% {
+            transform: translate(0px, 0px) scale(1);
+        }
+
+        100% {
+            transform: translate(-82px, -138px) scale(.4);
+        }
+    }
+
+    @keyframes gg {
+        0% {
+            transform: translate(0px, 0px) scale(1);
+        }
+
+        100% {
+            transform: translate(-71px, -140px) scale(.4);
+        }
+    }
+
+    @keyframes su {
+        0% {
+            transform: translate(0px, 0px) scale(1);
+        }
+
+        100% {
+            transform: translate(-51px, -131px) scale(.4);
+        }
+    }
+
+    @keyframes ble {
+        0% {
+            transform: translate(0px, 0px) scale(1);
+        }
+
+        100% {
+            transform: translate(-91px, -154px) scale(.4);
+        }
+    }
+</style>
+
+<body>
+    <div id="firstScreen" style="position: absolute;width: 100%;height: 100%;left: 0;animation: s1 1.9s ease-in-out;">
+        <div style="position: absolute;left: 0;right: 0;margin: 0 auto;bottom: 0;width: 350px;height: 450px;">
+            <img id="openMachine" src="./images/Png/MachineOpen.png"
+                style="position: absolute;left: 0px;right: 0;margin: 0 auto;bottom: 60px;width: 350px;">
+
+            <img id="blue" src="./images/durtyCloths/Blue Dirty.png"
+                style="position: absolute;right: 17px;bottom: 38px;width: 140px;animation: ble 1s .5s ease-in-out;"
+                alt="">
+            <img id="suit" src="./images/durtyCloths/Suit Dirty.png"
+                style="position: absolute;right: 62px;bottom: 98px;width: 120px;animation: su 1s .7s ease-in-out;"
+                alt="">
+            <img id="girlD" src="./images/durtyCloths/Girl Dirty.png"
+                style="position: absolute;right: 54px;bottom: 66px;width: 100px;animation: gg 1s .5s ease-in-out;"
+                alt="">
+            <img id="tshirt" src="./images/durtyCloths/Tshirt Dirty.png"
+                style="position: absolute;right: 24px;bottom: 86px;width: 140px;animation: tsh 1s .3s ease-in-out;"
+                alt="">
+            <img id="whiteD" src="./images/durtyCloths/White Dirty.png"
+                style="position: absolute;right: 37px;bottom: -3px;width: 140px;animation: whi 1s .2s ease-in-out;"
+                alt="">
+            <img id="greenD" src="./images/durtyCloths/Green Dirty.png"
+                style="position: absolute;right: 55px;bottom: 32px;width: 140px;animation: gree 1s .1s ease-in-out;"
+                alt="">
+            <img id="yellowD" src="./images/durtyCloths/Yellow Dirty.png"
+                style="position: absolute;right: 30px;bottom: 45px;width: 110px;animation: yellowD 1s ease-in-out;"
+                alt="">
+
+        </div>
+
+    </div>
+
+</body>
+
+<script>
+    var yellowD = document.getElementById("yellowD")
+    var greenD = document.getElementById("greenD")
+    var whiteD = document.getElementById("whiteD")
+    var tshirt = document.getElementById("tshirt")
+    var girlD = document.getElementById("girlD")
+    var suit = document.getElementById("suit")
+    var blue = document.getElementById("blue")
+
+    setTimeout(() => {
+        yellowD.style.animationPlayState = "paused";
+    }, 999);
+    setTimeout(() => {
+        greenD.style.animationPlayState = "paused"
+    }, 1000);
+    setTimeout(() => {
+        tshirt.style.animationPlayState = "paused"
+    }, 1299);
+    setTimeout(() => {
+        whiteD.style.animationPlayState = "paused"
+    }, 1100);
+    setTimeout(() => {
+        girlD.style.animationPlayState = "paused"
+    }, 1399);
+    setTimeout(() => {
+        blue.style.animationPlayState = "paused"
+    }, 1499);
+    setTimeout(() => {
+        suit.style.animationPlayState = "paused"
+    }, 1699);
+</script>
+
+</html>

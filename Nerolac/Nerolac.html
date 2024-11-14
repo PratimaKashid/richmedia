@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script> -->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <script src="./wScratchPad.js"></script>
+
+    <title>Nerolac</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            /* cursor: url('./images/roller.png'); */
+        }
+
+        body {
+            overflow: hidden;
+
+        }
+
+        .main-div {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .scratchpad {
+            /* width: 305px;
+            height: 259px; */
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 00px;
+            right: 0px;
+            left: 0;
+            bottom: 0;
+            margin: auto;
+            z-index: 9;
+            /* cursor: url("./images/roller.png"), auto; */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            -o-user-select: none;
+            user-select: none;
+            animation: divAni .7s ease;
+        }
+
+        @keyframes divAni {
+            0% {
+                opacity: 0;
+                /* left: -100px; */
+            }
+
+            100% {
+                opacity: 1;
+                /* left: 20px; */
+            }
+        }
+
+        @keyframes logoAni {
+            0% {
+                opacity: 0;
+                left: -100px;
+            }
+
+            100% {
+                opacity: 1;
+                left: 20px;
+            }
+        }
+
+        @keyframes badeghar {
+            0% {
+                opacity: 0;
+            }
+
+            50% {
+                opacity: 0;
+                left: -130px;
+            }
+
+            100% {
+                opacity: 1;
+                left: 20px;
+            }
+        }
+
+        @keyframes paint1 {
+            0% {
+                opacity: 0;
+            }
+
+            70% {
+                opacity: 0;
+                left: -130px;
+            }
+
+            100% {
+                opacity: 1;
+                left: 20px;
+            }
+        }
+
+        @keyframes paint2 {
+            0% {
+                opacity: 0;
+            }
+
+            70% {
+                opacity: 0;
+                right: -130px;
+            }
+
+            100% {
+                opacity: 1;
+                right: 20px;
+            }
+        }
+
+        @keyframes line {
+            0% {
+                opacity: 0;
+            }
+
+            85% {
+                opacity: 0;
+                /* right: -130px; */
+            }
+
+            100% {
+                opacity: 1;
+                /* right: 20px; */
+            }
+        }
+
+        @keyframes select {
+            0% {
+                opacity: 0;
+            }
+
+            90% {
+                opacity: 0;
+                top: 55%;
+            }
+
+            100% {
+                opacity: 1;
+                top: 60%;
+            }
+        }
+
+        @keyframes ranveer1 {
+            0% {
+                opacity: 0;
+            }
+
+            90% {
+                opacity: 0;
+                right: -20%;
+            }
+
+            100% {
+                opacity: 1;
+                right: 0;
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            100% {
+                transform: scale(.95);
+            }
+        }
+
+        @keyframes ranveer1Inter {
+            0% {
+                opacity: 0;
+            }
+
+            40% {
+                opacity: 0;
+                left: -20%;
+            }
+
+            100% {
+                left: 0;
+                opacity: 1;
+            }
+        }
+
+        @keyframes stop1 {
+            0% {
+                opacity: 0;
+            }
+
+            50% {
+                opacity: 0;
+                right: -20%;
+            }
+
+            100% {
+                right: 10px;
+                opacity: 1;
+            }
+        }
+
+        @keyframes nerolac {
+            0% {
+                opacity: 0;
+            }
+
+            60% {
+                opacity: 0;
+                right: -30%;
+            }
+
+            100% {
+                right: 10px;
+                opacity: 1;
+            }
+        }
+
+        @keyframes features {
+            0% {
+                opacity: 0;
+            }
+
+            70% {
+                opacity: 0;
+                right: -30%;
+            }
+
+            100% {
+                right: 20px;
+                opacity: 1;
+            }
+        }
+
+        @keyframes cta {
+            0% {
+                opacity: 0;
+            }
+
+            80% {
+                opacity: 0;
+                right: -30%;
+            }
+
+            100% {
+                right: 10px;
+                opacity: 1;
+            }
+        }
+
+        @keyframes onestop {
+            0% {
+                opacity: 0;
+                top: 8%;
+            }
+
+            100% {
+                opacity: 1;
+                top: 12%;
+            }
+        }
+
+        @keyframes nerolac1 {
+            0% {
+                opacity: 0;
+            }
+
+            40% {
+                opacity: 0;
+                top: 22%;
+            }
+
+            100% {
+                opacity: 1;
+                top: 25%;
+            }
+        }
+
+        @keyframes bottom {
+            0% {
+                opacity: 0;
+            }
+
+            60% {
+                opacity: 0;
+                bottom: 1%;
+            }
+
+            100% {
+                opacity: 1;
+                bottom: 7%;
+            }
+        }
+
+        .custom-cursor {
+            position: fixed;
+            pointer-events: none;
+            /* Makes sure the image doesn't interfere with mouse events */
+            z-index: 9999;
+            /* Ensure it's above other elements */
+        }
+
+        .custom-cursor-yellow {
+            position: fixed;
+            pointer-events: none;
+            /* Makes sure the image doesn't interfere with mouse events */
+            z-index: 9999;
+            /* Ensure it's above other elements */
+        }
+
+        @keyframes roller {
+            0% {
+                transform: scale(1);
+            }
+
+            100% {
+                transform: scale(.9);
+            }
+        }
+
+        @keyframes backbtn {
+            0% {
+                opacity: 0;
+            }
+
+            90% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+    </style>
+
+<body>
+    <div class="main-div" id="main">
+        <!-- second Frame -->
+
+        <div id="firstScreen" style="width: 100%;height: 100%;position: absolute;overflow: hidden;">
+            <img src="./images/bg.png" style="position: absolute;width: 100%;height: 100%;" alt="">
+            <img id="logo" src="./images/logo.png"
+                style="position: absolute;left: 20px;width: 68%;top: 10px;animation: logoAni 1s ease;" alt="">
+            <img src="./images/Bade ghar ki chamak  ab kam daam mein.png"
+                style="position: absolute;left: 20px;width: 80%;top: 15%;animation: badeghar 1.5s ease;" alt="">
+
+            <img id="interior" src="./images/paint1.png"
+                style="position: absolute;left: 20px;width: 37%;top: 28%;animation: paint1 2s ease;" alt="">
+
+            <div id="redBrushDiv"
+                style="display: none;z-index: 99; width: 100%;height: 100%;position: absolute;overflow: hidden;background-color: rgba(000, 000, 000, .7);animation: divAni .7s ease;">
+                <img src="./images/redbrushbeforePaint.png"
+                    style="position: absolute;top: 0;bottom: 0;margin: auto;left: 0;right: 0;width: 50%;" alt="">
+            </div>
+
+            <img id="redRoller" src="./images/roller.png" alt="Custom Cursor"
+                style="width: 120px;display: none;animation: roller .7s ease alternate infinite; transform: rotate(55deg);top: 50px;left: 50px;"
+                class="custom-cursor">
+
+            <div id="afterScratchInterior"
+                style="z-index: 99; width: 100%;height: 100%;position: absolute;overflow: hidden;display: none;">
+                <a href="https://www.nerolac.com/painting-services" target="_blank">
+                    <img src="./images/screen3Interrior/ranveer.png"
+                        style="position: absolute;left: 0;bottom: 0;width: 75%;animation: ranveer1Inter 1s ease;"
+                        alt="">
+                    <img src="./images/screen3Interrior/1stop.png"
+                        style="position: absolute;right: 10px;top: 11%;width: 41%;animation: stop1 1.5s ease;" alt="">
+                    <img src="./images/screen3Interrior/nerolac.png"
+                        style="position: absolute;right: 10px;top: 20%;width: 35%;animation: nerolac 2s ease;" alt="">
+                    <div
+                        style="position: absolute; display: flex;flex-direction: column;top: 32%;right: 20px; width: 110px;height: 230px;justify-content: space-around;animation: features 2.5s ease;">
+                        <img src="./images/screen3Interrior/trained.png" alt="">
+                        <img src="./images/screen3Interrior/reliable.png" alt="">
+                        <img src="./images/screen3Interrior/userated.png" alt="">
+                        <img src="./images/screen3Interrior/painters near you.png" alt="">
+                    </div>
+
+                    <img id="knowMore" src="./images/screen3Interrior/know more.png"
+                        style="position: absolute;right: 10px;bottom: 22%;animation: cta 3s ease;" alt="">
+
+
+                </a>
+                <img id="backBtnRed" src="./images/back.png"
+                    style="width: 100px; z-index: 999; position: absolute;right: 10px;bottom: 20px;animation: backbtn 3.5s ease;"
+                    alt="">
+            </div>
+
+
+
+
+
+
+            <img id="exterior" src="./images/paint2.png"
+                style="position: absolute;right: 20px;width: 37%;top: 28%;animation: paint2 2s ease;" alt="">
+
+
+            <div id="YellowBrushDiv"
+                style="display: none;z-index: 99; width: 100%;height: 100%;position: absolute;overflow: hidden;background-color: rgba(000, 000, 000, .7);animation: divAni .7s ease;">
+                <img src="./images/exterior/yellow.png"
+                    style="position: absolute;top: 0;bottom: 0;margin: auto;left: 0;right: 0;width: 50%;" alt="">
+            </div>
+
+            <img id="yelllowRoller" src="./images/exterior/Yellow Brush.png" alt="Custom Cursor"
+                style="width: 120px;display: none;animation: roller .7s ease alternate infinite; transform: rotate(55deg);right: 70px;top: 70px;"
+                class="custom-cursor-yellow">
+
+            <div id="afterScratchExterior"
+                style="display: none; z-index: 99; width: 100%;height: 100%;position: absolute;overflow: hidden;">
+                <a href="https://www.nerolac.com/painting-services" target="_blank">
+                    <img src="./images/exterior/onestop.png"
+                        style="position: absolute;left: 0;right: 0;margin: 0 auto;top: 12%;width: 70%;animation: onestop 1s ease;"
+                        alt="">
+                    <img src="./images/exterior/nerolac.png"
+                        style="position: absolute;left: 0;right: 0;margin: 0 auto;top: 25%;width: 42%;animation: nerolac1 1.5s ease;"
+                        alt="">
+                    <img id="bottomCta" src="./images/exterior/bottom.png"
+                        style="position: absolute;left: 0;right: 0;margin: 0 auto;bottom: 7%;width: 90%;animation: bottom 2s ease;"
+                        alt="">
+                </a>
+                <img id="backBtnYellow" src="./images/back.png"
+                    style="width: 100px; position: absolute;right: 10px;bottom: 10px;animation: backbtn 2.5s ease;"
+                    alt="">
+            </div>
+
+            <img src="./images/line.png"
+                style="position: absolute;right: 0px;left: 0;margin: 0 auto;top: 47%;animation: line 2s ease;height: 50px;"
+                alt="">
+
+            <img id="select" src="./images/select.png"
+                style="width: 55%; position: absolute;right: 0px;left: 0;margin: 0 auto;top: 60%;animation: select 2.5s ease;"
+                alt="">
+            <img src="./images/ranveer.png"
+                style="position: absolute;right: 0;bottom: 0;width: 75%;animation: ranveer1 3s ease;" alt="">
+
+        </div>
+
+        <div id="demo2" class="scratchpad" style="display: none;"></div>
+        <div id="demo22" class="scratchpad" style="display: none;"></div>
+
+
+        <img id="close" style="position: absolute;width: 25px;right: 0;"
+            src="https://cache-ssl.celtra.com/api/static/ve67ae1362e/runner/clazzes/CreativeUnit/close-up.svg">
+    </div>
+
+    </div>
+    <script src="./js/scratch-card.js"></script>
+    <script>
+        var close = document.getElementById("close");
+        var main = document.getElementById("main");
+        let demo2 = document.getElementById("demo2");
+        let demo22 = document.getElementById("demo22");
+        let select = document.getElementById("select");
+        let logo = document.getElementById("logo");
+
+        let interior = document.getElementById("interior");
+        let redBrushDiv = document.getElementById("redBrushDiv");
+        let afterScratchInterior = document.getElementById("afterScratchInterior");
+        let knowMore = document.getElementById("knowMore");
+        let redRoller = document.getElementById("redRoller");
+        let backBtnRed = document.getElementById("backBtnRed");
+
+
+        let exterior = document.getElementById("exterior");
+        let YellowBrushDiv = document.getElementById("YellowBrushDiv");
+        let afterScratchExterior = document.getElementById("afterScratchExterior");
+        let yelllowRoller = document.getElementById("yelllowRoller");
+        let backBtnYellow = document.getElementById("backBtnYellow");
+
+
+        backBtnYellow.addEventListener("click", function () {
+            afterScratchExterior.style.display = "none";
+            afterScratchInterior.style.display = "none";
+            demo2.style.display = "none";
+            demo22.style.display = "none";
+            logo.style.zIndex = "";
+        })
+        backBtnRed.addEventListener("click", function () {
+            afterScratchExterior.style.display = "none";
+            afterScratchInterior.style.display = "none";
+            demo2.style.display = "none";
+            demo22.style.display = "none";
+            logo.style.zIndex = "";
+        })
+
+        window.parent.document.body.style.overflow = 'hidden';
+
+        setTimeout(() => {
+            // select.style.animation = "pulse .7s ease alternate infinite";
+            interior.style.animation = "pulse .7s ease alternate infinite";
+            exterior.style.animation = "pulse .7s ease alternate infinite";
+        }, 2010);
+
+        // script for interior start
+        interior.addEventListener("click", function () {
+            demo2.style.display = "block";
+            redBrushDiv.style.display = "block";
+            setTimeout(() => {
+                redBrushDiv.style.opacity = "0";
+                redBrushDiv.style.transition = "all .7s"
+            }, 2500);
+            setTimeout(() => {
+                redBrushDiv.style.display = "none";
+                redRoller.style.display = "block"
+            }, 3200);
+            interiorFunction();
+
+
+        })
+
+        function interiorFunction() {
+            setTimeout(() => {
+                // $('#demo2').wScratchPad('cursor', 'url("./images/roller.png") 5 5, default');
+                $('#demo2').wScratchPad({
+                    fg: './images/bg1-interior.png',
+                    bg: './images/new.png',
+                    cursor: "./images/roller.png",
+
+                    scratchMove: function (e, percent) {
+
+                        document.addEventListener("mousemove", moveCursor);
+                        document.addEventListener("touchmove", moveCursor);
+
+                        function moveCursor(e) {
+
+                            var cursor = document.querySelector(".custom-cursor");
+                            redRoller.style.animation = ""
+                            redRoller.style.transform = "rotate(55deg)"
+                            var x = e.clientX || e.touches[0].clientX;
+                            var y = e.clientY || e.touches[0].clientY;
+                            cursor.style.left = x + "px";
+                            cursor.style.top = y + "px";
+                        }
+
+                        $('#demo2-percent').html(percent);
+                        if (percent > 40) {
+
+                            this.clear();
+                            logo.style.zIndex = 999;
+                            redRoller.style.opacity = 0;
+                            redRoller.style.transition = "all .5s"
+
+                            setTimeout(() => {
+                                afterScratchInterior.style.display = "block";
+                                setTimeout(() => {
+                                    knowMore.style.animation = "pulse .7s ease alternate infinite"
+                                }, 3010);
+                            }, 500);
+                        }
+
+                    }
+                });
+            }, 10);
+
+        }
+
+        // script for interior end
+
+        close.addEventListener("click", () => {
+            main.style.display = "none";
+        })
+
+        // script for Exterior start
+        exterior.addEventListener("click", function () {
+            demo22.style.display = "block";
+            YellowBrushDiv.style.display = "block";
+
+            setTimeout(() => {
+                YellowBrushDiv.style.opacity = "0";
+                YellowBrushDiv.style.transition = "all .7s"
+            }, 2500);
+            setTimeout(() => {
+                YellowBrushDiv.style.display = "none";
+                yelllowRoller.style.display = "block";
+            }, 3200);
+
+            exteriorFunction();
+
+        })
+
+
+        function exteriorFunction() {
+            setTimeout(() => {
+                $('#demo22').wScratchPad({
+                    fg: './images/exterior/bg.png',
+                    bg: './images/exterior/bg2.png',
+                    // cursor: "./images/roller.png",
+
+                    scratchMove: function (e, percent) {
+
+                        document.addEventListener("mousemove", moveCursor);
+                        document.addEventListener("touchmove", moveCursor);
+
+                        function moveCursor(e) {
+
+                            let cursor1 = document.querySelector(".custom-cursor-yellow");
+                            yelllowRoller.style.animation = ""
+                            yelllowRoller.style.transform = "rotate(55deg)"
+                            var x1 = e.clientX || e.touches[0].clientX;
+                            var y1 = e.clientY || e.touches[0].clientY;
+                            cursor1.style.left = x1 + "px";
+                            cursor1.style.top = y1 + "px";
+                        }
+
+                        $('#demo22-percent').html(percent);
+                        if (percent > 30) {
+
+                            this.clear();
+                            logo.style.zIndex = 999;
+                            yelllowRoller.style.opacity = 0;
+                            yelllowRoller.style.transition = "all .5s"
+                            setTimeout(() => {
+                                afterScratchExterior.style.display = "block";
+                                setTimeout(() => {
+                                    bottomCta.style.animation = "pulse .7s ease alternate infinite";
+                                }, 2010);
+                            }, 500);
+                        }
+                    }
+                });
+            }, 10);
+
+        }
+
+        // script for exterior end
+
+    </script>
+</body>
+
+</html>

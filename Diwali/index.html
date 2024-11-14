@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        overflow: hidden;
+    }
+
+    .main {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    #innerDiv {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    #diyaDiv {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 9999;
+        animation: divAni 1s ease-in-out;
+    }
+
+    @keyframes divAni {
+        0% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+    #close {
+        position: absolute;
+        right: 1px;
+        top: 1px;
+        width: 27px;
+        z-index: 9999;
+        cursor: pointer;
+    }
+
+    .diya {
+        width: 100px;
+        position: absolute;
+    }
+
+    .openCamera {
+        position: absolute;
+        padding: 10px;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        bottom: 15px;
+        width: 170px;
+    }
+
+    .videoElement {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    @keyframes logoAni {
+        0% {
+            opacity: 0;
+            top: -100px;
+        }
+
+        100% {
+            opacity: 1;
+            top: 10px;
+        }
+    }
+
+    @keyframes logoAni1 {
+
+        0%,
+        50% {
+            opacity: 0;
+            /* transform: scale(0); */
+        }
+
+        100% {
+            opacity: 1;
+            /* transform: scale(1); */
+        }
+    }
+
+    @keyframes opaAni {
+        0% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+    @keyframes opaAni1 {
+
+        0%,
+        50% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+    @keyframes blureAni {
+
+        0%{
+            opacity: 0;
+        }
+        74%{
+            opacity: 0;
+        }
+        75% {
+            opacity: 1;
+            filter: blur(10px);
+            /* transform: scale(0); */
+        }
+
+        100% {
+            filter: blur(0);
+            /* transform: scale(1); */
+        }
+    }
+
+    .newAni {
+        animation: opaAni .5s linear;
+    }
+    @keyframes pulse {
+        0%{
+            transform: scale(1);
+        }
+        100%{
+            transform: scale(1.07);
+        }
+    }
+</style>
+
+<body>
+    <div class="main" id="main">
+        <div id="screenOne" style="position: absolute;width: 100%;height: 100%;top: 0;">
+            <img id="bg1" src="./images/BG 1.png"
+                style="position: absolute;width: 100%;height: 100%;animation: opaAni .5s linear;" alt="">
+            <img id="bg2" src="./images/BG 2.png"
+                style="display: none; position: absolute;width: 100%;height: 100%;animation: opaAni .5s linear;" alt="">
+            <img id="bg3" src="./images/BG 3.png"
+                style="display: none; position: absolute;width: 100%;height: 100%;animation: opaAni .5s linear;" alt="">
+            <img src="./images/LOGO.png"
+                style="position: absolute;width: 100px;top: 10px;left: 0;right: 0;margin: 0 auto;animation: logoAni 1s ease-in-out;"
+                alt="">
+            <img id="text1" src="./newImg/Text 1.png"
+                style="position: absolute;width: 84%;top: 13.5%;left: 0;right: 0;margin: 0 auto;animation: logoAni1 2s ease;"
+                alt="">
+            <img id="text2" src="./newImg/Text 2.png"
+                style="display: none; position: absolute;width: 87%;top: 12.5%;left: 0;right: 0;margin: 0 auto;animation: logoAni1 2s ease;"
+                alt="">
+            <img id="rangoli" src="./images/Diwali Ele.png"
+                style="position: absolute;width: 50%;bottom: 2%;left: 0;right: 0;margin: 0 auto;" alt="">
+        </div>
+        <div id="innerDiv">
+
+            <div id="diyaDiv" style="display: none;">
+                <div class="diya" style="position: absolute;width: 130px;height: 80px;">
+                    <img id="withFlame1" src="./images/Panati.png"
+                        style="display: none; width: 160px;position: absolute;left: 0;right: 0;margin: auto;top: 0;bottom: 0;animation: opaAni 1s linear;"
+                        alt="">
+                    <img id="noFlame" src="./images/Panati NoFlame.png"
+                        style="width: 160px;position: absolute;left: 0;right: 0;margin: auto;top: 0;bottom: 0;animation: opaAni1 1.5s ease;" alt="">
+                </div>
+                <div class="diya" style="position: absolute;width: 130px;height: 80px;">
+                    <img id="withFlame2" src="./images/Panati.png"
+                        style="display: none; width: 160px;position: absolute;left: 0;right: 0;margin: auto;top: 0;bottom: 0;animation: opaAni 1s linear"
+                        alt="">
+                    <img id="noFlame2" src="./images/Panati NoFlame.png"
+                        style="display: none; width: 160px;position: absolute;left: 0;right: 0;margin: auto;top: 0;bottom: 0;animation: opaAni1 1.5s ease;"
+                        alt="">
+                </div>
+                <div class="diya" style="position: absolute;width: 130px;height: 80px;">
+                    <img id="withFlame3" src="./images/Panati.png"
+                        style="display: none; width: 160px;position: absolute;left: 0;right: 0;margin: auto;top: 0;bottom: 0;animation: opaAni 1s linear"
+                        alt="">
+                    <img id="noFlame3" src="./images/Panati NoFlame.png"
+                        style="display: none; width: 160px;position: absolute;left: 0;right: 0;margin: auto;top: 0;bottom: 0;animation: opaAni1 1.5s ease"
+                        alt="">
+                </div>
+
+            </div>
+            <img id="startBtn" class="openCamera" src="./newImg/letsGo.png"
+                style="display: none;animation: opaAni 1s ease;" alt="">
+            <img id="view360" class="" src="./images/360.png"
+                style="display: none;width: 80px;right: 10px;bottom: 10px;position: absolute;animation: opaAni 1s ease;"
+                alt="">
+
+            <div id="overlayDiv"
+                style="position: absolute;width: 100%;height: 100%;top: 0;animation: opaAni 1s linear;display: none;">
+                <img src="./images/Black Overlay.png"
+                    style="position: absolute;width: 100%;height: 100%; left: 0;right: 0;margin: 0 auto;top: 0%;"
+                    alt="">
+                <img src="./newImg/Diwali Fireworks.png"
+                    style="position: absolute;width: 95%;top: 40%;left: 0;right: 0;margin: 0 auto;animation: blureAni 2.5s ease;"
+                    alt="">
+                <img src="./newImg/Diwali Fireworks.png"
+                    style="position: absolute;width: 100%;top: 2%;left: 0;right: 0;margin: 0 auto;animation: blureAni 2.5s ease;"
+                    alt="">
+                <img src="./newImg/Diwali BG StickerTEXT.png"
+                    style="position: absolute;width: 90%;left: 0;right: 0;margin: auto;top: 0;bottom: 0; animation: logoAni1 2s ease;"
+                    alt="">
+            </div>
+
+            <video id="videoElement" class="videoElement" autoplay style="display:none;"></video>
+
+
+
+        </div>
+        <div id="lastScreen" style="display: none; width: 100%;height: 100%;position: absolute;left: 0;right: 0;margin: 0 auto;
+                background-color: #fff;animation: opaAni 1s linear;">
+                <a href="http://google.com" target="_blank">
+            <img src="./newImg/bgLast.png" style="position: absolute;width: 100%;height: 100%;top: 0;object-fit: cover;" alt="">
+            <img src="./images/Phone 1.png" style="position: absolute;left: 0;bottom: 0;width: 45%;" alt="">
+            <img src="./images/Phone 2.png" style="position: absolute;right: 0;bottom: 0;width: 26%;" alt="">
+            <img id="cta" src="./newImg/Shop Now.png"
+                style="position: absolute;width: 140px;bottom: 20%;left: 0;right: 0;margin: 0 auto;animation: logoAni1 2s ease"
+                alt="">
+            </a>
+
+            <div
+                style="position: absolute;top: 70px;left: 0;right: 0;margin: 0 auto;height: 180px;width: 90%; background-color: gray;border-radius:0 20px 0 20px">
+            </div>
+            <!-- <video id="myVid" src="https://beta.andbeyond.media/abm-direct/RichMedia/video/diwali.mp4" controls muted
+                    style="position: absolute;left: 0;right: 0;margin: 0 auto;top: 75px;width: 95%;border-radius:0 20px 0 20px"></video> -->
+        </div>
+        <img id="close"
+            src="https://cache-ssl.celtra.com/api/static/ve67ae1362e/runner/clazzes/CreativeUnit/close-up.svg"
+            alt="Close Button">
+    </div>
+
+    <script>
+        const close = document.getElementById("close");
+        const diyaImages = document.querySelectorAll('.diya');
+        const main = document.getElementById("main");
+        let diyaDiv = document.getElementById('diyaDiv');
+        let text1 = document.getElementById('text1');
+        let text2 = document.getElementById('text2');
+        let rangoli = document.getElementById('rangoli');
+        let view360 = document.getElementById('view360');
+        let withFlame1 = document.getElementById('withFlame1');
+        let withFlame2 = document.getElementById('withFlame2');
+        let noFlame2 = document.getElementById('noFlame2');
+        let overlayDiv = document.getElementById('overlayDiv');
+        let screenOne = document.getElementById('screenOne');
+        let lastScreen = document.getElementById('lastScreen');
+        let bg1 = document.getElementById('bg1');
+        let bg2 = document.getElementById('bg2');
+        let bg3 = document.getElementById('bg3');
+        let cta = document.getElementById('cta');
+
+        rotaion();
+        function rotaion() {
+            setTimeout(() => {
+                bg2.style.display = "block";
+            }, 2000);
+            setTimeout(() => {
+                bg1.style.display = "none";
+                bg3.style.display = "block";
+            }, 4000);
+            setTimeout(() => {
+                bg1.style.display = "block";
+                // bg1.classList.add("newAni")
+                bg2.style.display = "none";
+                rotaion();
+            }, 6000);
+            setTimeout(() => {
+                bg3.style.display = "none";
+            }, 7000);
+
+        }
+
+        window.parent.document.body.style.overflow = "hidden";
+
+        close.addEventListener("click", () => {
+            main.style.display = "none";
+            // myVid.muted = true;
+            // myVid.pause();
+            window.parent.document.body.style.overflow = "scroll";
+        });
+        setTimeout(() => {
+            // text1.style.opacity = 0;
+            // text1.style.transition = "all 1s linear";
+
+            rangoli.style.opacity = 0;
+            rangoli.style.transition = "all .7s linear";
+
+            text2.style.display = "block";
+            startBtn.style.display = "block";
+        }, 3000);
+
+
+        const startBtn = document.getElementById('startBtn')
+        startBtn.addEventListener('click', function () {
+
+            // Access the camera
+            const videoElement = document.getElementById('videoElement');
+            videoElement.style.display = 'block';
+            view360.style.display = 'block';
+
+            if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+        navigator.mediaDevices.getUserMedia({
+            video: { facingMode: { exact: 'environment' } } // Request the back camera
+        }).then(function (stream) {
+            videoElement.srcObject = stream;
+            videoElement.play();
+
+            // Show the diyaDiv and randomly position the diya images after 1 second
+            setTimeout(() => {
+                diyaDiv.style.display = 'block';
+
+                // Get viewport dimensions
+                const viewportWidth = window.innerWidth;
+                const viewportHeight = window.innerHeight;
+
+                // Position each diya image randomly within the viewport
+                diyaImages.forEach(function (diya) {
+                    // Generate random positions within the viewport
+                    const randomTop = Math.random() * (viewportHeight - diya.clientHeight);
+                    const randomLeft = Math.random() * (viewportWidth - diya.clientWidth);
+
+                    // Set the random positions
+                    diya.style.position = 'absolute'; // Ensure the diya images are positioned absolutely
+                    diya.style.top = `${randomTop}px`;
+                    diya.style.left = `${randomLeft}px`;
+                });
+
+                // Make the start button fade out
+                startBtn.style.opacity = 0;
+                startBtn.style.transition = "all .7s linear";
+
+            }, 1000);
+
+        }).catch(function (error) {
+            console.error("Camera access denied or not available.", error);
+        });
+    } else {
+        alert("Your browser does not support camera access.");
+    }
+
+            noFlame.addEventListener("click", () => {
+                withFlame1.style.display = "block";
+                noFlame2.style.display = "block";
+            })
+            noFlame2.addEventListener("click", () => {
+                withFlame2.style.display = "block";
+                noFlame3.style.display = "block";
+            })
+            noFlame3.addEventListener("click", () => {
+                withFlame3.style.display = "block";
+
+                setTimeout(() => {
+                    diyaDiv.style.opacity = 0;
+                    diyaDiv.style.transition = "all .5s linear";
+                }, 2500);
+
+                setTimeout(() => {
+                    overlayDiv.style.display = "block";
+                    view360.style.opacity = 0;
+                    view360.style.transition = "all .7s";
+                }, 3000);
+
+                setTimeout(() => {
+                    overlayDiv.style.opacity = 0;
+                    overlayDiv.style.transition = "all .7s linear";
+                    screenOne.style.opacity = 0;
+                    screenOne.style.transition = "all .7s linear";
+                    videoElement.style.display = "none";
+                    diyaDiv.style.display = "none";
+                    lastScreen.style.display = "block";
+                    setTimeout(() => {
+                       cta.style.animation = "pulse .7s ease alternate infinite";
+                    }, 2010);
+                }, 7500);
+
+            })
+        });
+    </script>
+</body>
+
+</html>

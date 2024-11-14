@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <script type="text/javascript">
+        var clickTag = "https://www.axisbank.com/savings-account/digital-savings-account.html?utm_source=bing&utm_medium=cpc&utm_campaign=dbg_dsa_bing_acopens_brand_bmm_neev_exact&utm_content=dsa_brand_saving&utm_term=axis%20bank%20saving%20account&msclkid=95f2555e7b21174f0a3a33661d594f38";
+    </script>
+    <script type="text/javascript" src="https://example.com?click=${CLICK_URL}"></script>
+    <title>Air New Zealand</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        overflow: hidden;
+    }
+
+    .main {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        overflow: hidden;
+    }
+
+    .firstScreen {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        position: absolute;
+
+    }
+
+    #close {
+        position: absolute;
+        right: 1px;
+        top: 1px;
+        width: 30px;
+        z-index: 99999;
+        cursor: pointer;
+    }
+
+    @keyframes logo {
+        0% {
+            top: -80px;
+            opacity: 0;
+        }
+
+        100% {
+            top: 10px;
+            opacity: 1;
+        }
+    }
+
+    @keyframes plain {
+        0% {
+            opacity: 0;
+        }
+
+        80% {
+            opacity: 0;
+            bottom: -10%;
+        }
+
+        100% {
+            bottom: 5%;
+            opacity: 1;
+        }
+    }
+
+    @keyframes tilttext {
+        0% {
+            opacity: 0;
+            /* transform: scale(0); */
+        }
+        30%{
+            opacity: 0;
+            transform: scale(0);
+        }
+
+        100% {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    @keyframes choose {
+        0% {
+            opacity: 0;
+        }
+
+        40% {
+            transform: scale(0);
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    @keyframes circle {
+        0% {
+            opacity: 0;
+        }
+
+        60% {
+            opacity: 0;
+            transform: scale(0);
+        }
+
+        100% {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    @keyframes arrow {
+        0% {
+            opacity: 0;
+        }
+
+        70% {
+            opacity: 0;
+            transform: scale(0);
+        }
+
+        100% {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    @keyframes planLeft {
+        0% {
+            transform: translate3d(0px, 0px, 0px) rotateZ(0deg) scale(1);
+            animation-timing-function: linear;
+        }
+
+        40% {
+            transform: translate3d(0px, -200px, 0px) rotateZ(0deg);
+            animation-timing-function: linear;
+        }
+
+        100% {
+            transform: translate3d(-345px, -473px, 0px) rotateZ(-45deg) scale(.6);
+            animation-timing-function: linear;
+        }
+    }
+
+    @keyframes planRight {
+        0% {
+            transform: translate3d(0px, 0px, 0px) rotateZ(0deg) scale(1);
+            animation-timing-function: linear;
+        }
+
+        40% {
+            transform: translate3d(0px, -200px, 0px) rotateZ(0deg);
+            animation-timing-function: linear;
+        }
+
+        100% {
+            transform: translate3d(345px, -473px, 0px) rotateZ(45deg) scale(.6);
+            animation-timing-function: linear;
+        }
+    }
+
+    @keyframes divAni {
+        0% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+    @keyframes ExpTheLuxury {
+        0% {
+            opacity: 0;
+        }
+
+        40% {
+            opacity: 0;
+            transform: scale(4);
+        }
+
+        100% {
+            transform: scale(1);
+            opacity: 1;
+        }
+    }
+
+    .cube-parent-container {
+        width: 100%;
+        margin: 0;
+        position: absolute;
+        bottom: 30px;
+    }
+
+    .cubeSwiper .swiper-slide {
+        aspect-ratio: 1/1;
+    }
+
+    .cubeSwiper .swiper-slide img {
+        width: 100%;
+        object-fit: cover;
+    }
+
+    .cubeSwiper .pagination-container {
+        padding-top: 25px;
+        width: 100%;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 100px 1fr;
+        grid-template-rows: 1fr;
+        grid-column-gap: 0px;
+        grid-row-gap: 0px;
+        position: absolute;
+        top: 250px;
+        transform: scale(0.8);
+    }
+
+    .pagination-container {
+        position: relative;
+        top: -25px;
+    }
+
+    .cubeSwiper .cube-pagination-fraction {
+        color: rgba(255, 0, 255, 0.8);
+        font-size: 18px;
+        font-weight: 700;
+        margin-top: 15px;
+        text-align: center;
+        position: relative;
+    }
+
+    .swiper-button-next,
+    .swiper-button-prev {
+        color: #fff;
+        width: calc(var(--swiper-navigation-size)/ 44 * 6);
+        font-size: 12px;
+        font-weight: bolder;
+    }
+
+    .swiper-button-next:after,
+    .swiper-button-prev:after {
+        font-size: 12px;
+        font-weight: bolder;
+        padding: 7px 9px;
+        border-radius: 20px;
+
+    }
+
+    .swiper-button-prev {
+        left: var(--swiper-navigation-sides-offset, 19px);
+        position: absolute;
+        top: -180px;
+    }
+
+    .swiper-button-next {
+        right: var(--swiper-navigation-sides-offset, 20px);
+        position: absolute;
+        top: -180px;
+    }
+
+    .swiper-pagination-bullets.swiper-pagination-horizontal {
+        bottom: var(--swiper-pagination-bottom, -10px);
+    }
+
+    .swiper {
+        width: 320px;
+        position: relative;
+    }
+
+    .swiper-pagination-bullet {
+        width: 12px;
+        height: 12px;
+    }
+
+    @keyframes premiumClass {
+        0% {
+            opacity: 0;
+        }
+
+        60% {
+            transform: scale(0);
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    @keyframes cta {
+        0% {
+            opacity: 0;
+        }
+
+        70% {
+            bottom: -100px;
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+            bottom: 10px;
+        }
+    }
+
+    @keyframes pulse {
+        0% {
+            transform: scale(1);
+        }
+
+        100% {
+            transform: scale(.95);
+        }
+    }
+
+    @keyframes tilt {
+
+        0% {
+            transform: rotate(5deg);
+        }
+
+        50% {
+            transform: rotate(0eg);
+        }
+
+        100% {
+            transform: rotate(-5deg);
+        }
+    }
+
+    @keyframes cludes {
+        0% {
+            top: -140%;
+        }
+
+        100% {
+            top: 180%;
+        }
+    }
+</style>
+
+<body>
+    <div class="main" id="main">
+
+        <a href="https://flightbookings.airnewzealand.com.sg/vbook/actions/search" target="_blank">
+            <div class="firstScreen" id="firstScreen">
+
+                <div id="startDiv" style="position: absolute;width: 100%;height: 100%;">
+                    <img id="bgBlue" src="./images/BGsky.png" style="position: absolute;width: 100%;height: 100%;"
+                        alt="">
+
+                    <div id="clouds"
+                        style="display: none; position: absolute;width: 100%;height: 100%;top: 50%;animation: cludes 8s linear infinite;">
+                        <img src="./images/Clouds2.png" style="position: absolute;top: -20%;left: -40%; width: 100%;"
+                            alt="">
+                        <img src="./images/Clouds1.png"
+                            style="z-index: 99; position: absolute;bottom: 0%; width: 100%;left: -20%;" alt="">
+                        <img src="./images/Clouds2.png"
+                            style="z-index: 99; position: absolute;top: 15%; width: 100%;right: -55%;" alt="">
+                        <img src="./images/Clouds2 - Copy.png"
+                            style="opacity: .4; z-index: 99; position: absolute;top: -75%; width: 100%;right: -35%;"
+                            alt="">
+                    </div>
+                </div>
+
+                <div id="screenOne" style="display: none; position: absolute;width: 100%;height: 100%;">
+                    <img src="./images/BlackOverlay.png"
+                        style="position: absolute;width: 100%;height: 100%;opacity: .8;" alt="">
+                    <img src="./images/tiltText.png"
+                        style="position: absolute;left: 0;right: 0;margin: 0 auto;top: 85px;width: 55%;animation: tilttext .7s ease"
+                        alt="">
+                    <img src="./images/choose.png"
+                        style="position: absolute;left: 0;right: 0;margin: 0 auto;bottom: 25px;width: 70%;animation: choose 1.1s ease"
+                        alt="">
+                    <img src="./images/BusinessPremier.png"
+                        style="z-index: 99; position: absolute;right: 20px;top: 30%; width: 110px;animation: circle 1.6s ease;"
+                        alt="">
+                    <img src="./images/PremiumEconomy.png"
+                        style="z-index: 99;position: absolute;left: 20px;top: 30%; width: 110px;animation: circle 1.6s ease"
+                        alt="">
+                    <img src="./images/motion.png"
+                        style="position: absolute;left: 0;right: 0;margin: 0 auto;top: 23%;width: 70px; animation: tilt .7s 2.2s ease-in-out alternate infinite;"
+                        alt="">
+                    <img src="./images/arrow.png"
+                        style="transform-origin: bottom; position: absolute;left: 0;right: 0;margin: 0 auto;top: 40%;width: 50%;animation: arrow 2s ease;"
+                        alt="">
+                </div>
+
+                <img src="./images/LOGOblack.png"
+                    style="position: absolute;left: 0;right: 0;margin: 0 auto;top: 10px;width: 240px;animation: logo 1s ease-in-out;">
+                <img id="plain" src="./images/plain.png"
+                    style="position: absolute;left: 0;right: 0;margin: 0 auto; bottom: 5%;width: 90%;animation: plain 1.5s ease;"
+                    alt="">
+            </div>
+
+            <div id="premiumClass"
+                style="position: absolute;width: 100%;height: 100%;display: none;animation: divAni .9s ease;">
+                <img src="./images/ExpTheLuxury.png"
+                    style="position: absolute;top: 0;bottom: 0;left: 0;right: 0;margin: auto;width: 80%;animation: ExpTheLuxury 0.9s ease;"
+                    alt="">
+                <img src="./images/LOGOblack.png"
+                    style="position: absolute;left: 0;right: 0;margin: 0 auto;top: 10px;width: 240px;">
+            </div>
+
+            <div id="businessClass"
+                style="position: absolute;width: 100%;height: 100%;display: none;animation: divAni .9s ease;">
+                <img src="./images/Text Stretch out and relax.png"
+                    style="position: absolute;top: 0;bottom: 0;left: 0;right: 0;margin: auto;width: 80%;animation: ExpTheLuxury 0.9s ease;"
+                    alt="">
+                <img src="./images/LOGOblack.png"
+                    style="position: absolute;left: 0;right: 0;margin: 0 auto;top: 10px;width: 240px;">
+            </div>
+
+            <div id="premiumClassLastScreen"
+                style="position: absolute;width: 100%;height: 100%;display: none;animation: divAni .9s ease;background-color: black;">
+                <img src="./images/LOGOblack.png"
+                    style="position: absolute;left: 0;right: 0;margin: 0 auto;top: 10px;width: 240px;">
+
+                <video id="myVid" src="./images/vid.mp4" controls muted autoplay
+                    style="z-index: 999; position: absolute;top: 50px;width: 90%;height: 250px;left: 0;right: 0;margin: 0 auto;"></video>
+
+                <img id="cta" src="./images/Book Now.png"
+                    style="position: absolute;left: 0;right: 0;margin: 0 auto;bottom: 10px;width: 200px;animation: cta 2s ease;"
+                    alt="">
+
+                <!-- left Side -->
+                <div id="premium" style="position: absolute;width: 100%;height: 100%;display: none;">
+                    <img src="./images/features/TEXT Premium Economy.png"
+                        style="position: absolute;top: 310px;left: 0;right: 0;margin: 0 auto;width: 265px;animation: premiumClass 1.5s ease;"
+                        alt="">
+
+                    <figure class="cube-parent-container">
+                        <!-- Swiper -->
+                        <div class="swiper cubeSwiper">
+                            <div class="swiper-wrapper">
+                                <!-- begin slides -->
+
+                                <div class="swiper-slide">
+                                    <img src="./images/features/Feature 1 - Premium Economy.png" style="width: 100%;" />
+                                </div>
+
+                                <div class="swiper-slide">
+                                    <img src="./images/features/Feature 2 - Premium Economy.png" style="width: 100%;" />
+                                </div>
+
+                                <div class="swiper-slide">
+                                    <img src="./images/features/Feature 3 - Premium Economy.png" style="width: 100%;" />
+                                </div>
+
+                                <!-- end slides -->
+                            </div>
+                        </div>
+                        <div class="pagination-container">
+                            <div class="swiper-button-prev"></div>
+                            <div class="swiper-button-next"></div>
+                        </div>
+                    </figure>
+                </div>
+
+                <!-- right Side -->
+                <div id="business" style="position: absolute;width: 100%;height: 100%;display: none;">
+                    <img src="./images/features/TEXT Business Premier.png"
+                        style="position: absolute;top: 310px;left: 0;right: 0;margin: 0 auto;width: 265px;animation: premiumClass 1.5s ease;"
+                        alt="">
+
+                    <figure class="cube-parent-container">
+                        <!-- Swiper -->
+                        <div class="swiper cubeSwiper">
+                            <div class="swiper-wrapper">
+                                <!-- begin slides -->
+
+                                <div class="swiper-slide">
+                                    <img src="./images/features/Feature 1 - Business Premier.png"
+                                        style="width: 100%;" />
+                                </div>
+
+                                <div class="swiper-slide">
+                                    <img src="./images/features/Feature 2 - Business Premier.png"
+                                        style="width: 100%;" />
+                                </div>
+
+                                <div class="swiper-slide">
+                                    <img src="./images/features/Feature 3 - Business Premier.png"
+                                        style="width: 100%;" />
+                                </div>
+
+                                <!-- end slides -->
+                            </div>
+                        </div>
+                        <div class="pagination-container">
+                            <div class="swiper-button-prev"></div>
+                            <div class="swiper-button-next"></div>
+                        </div>
+                    </figure>
+                </div>
+            </div>
+            <img id="close"
+                src="https://cache-ssl.celtra.com/api/static/ve67ae1362e/runner/clazzes/CreativeUnit/close-up.svg">
+    </div>
+    </a>
+    </div>
+
+    <script>
+        var close = document.getElementById("close");
+        var main = document.getElementById("main");
+        var screenOne = document.getElementById("screenOne");
+        var plain = document.getElementById("plain");
+        var premiumClass = document.getElementById("premiumClass");
+        var businessClass = document.getElementById("businessClass");
+        var clouds = document.getElementById("clouds");
+        var startDiv = document.getElementById("startDiv");
+
+        var premiumClassLastScreen = document.getElementById("premiumClassLastScreen");
+        var myVid = document.getElementById("myVid");
+        var cta = document.getElementById("cta");
+
+        var premium = document.getElementById("premium");
+        var business = document.getElementById("business");
+        window.parent.document.body.style.overflow = "hidden";
+        setTimeout(() => {
+            clouds.style.display = "block";
+        }, 700);
+        setTimeout(() => {
+            screenOne.style.display = "block";
+        }, 4000);
+
+        function handleOrientation(event) {
+            const gamma = event.gamma;
+            const tiltThreshold = 35;
+
+            if (gamma < -tiltThreshold) {
+                // Tilted left
+                moveLeft();
+                window.removeEventListener('deviceorientation', handleOrientation);
+            } else if (gamma > tiltThreshold) {
+                // Tilted right
+                moveRight();
+                window.removeEventListener('deviceorientation', handleOrientation);
+            }
+        }
+
+        // Add event listener for device orientation
+        if (typeof DeviceMotionEvent.requestPermission === 'function') {
+            DeviceMotionEvent.requestPermission()
+                .then(permissionState => {
+                    if (permissionState === 'granted') {
+                        window.addEventListener('deviceorientation', handleOrientation);
+                    }
+                })
+                .catch(console.error);
+        } else {
+            // Add event listener for other devices
+            window.addEventListener('deviceorientation', handleOrientation);
+        }
+
+        function moveLeft() {
+
+            screenOne.style.opacity = 0;
+            screenOne.style.transition = "all .5s linear"
+
+            setTimeout(() => {
+                plain.style.animation = "planLeft 1.5s ease-in-out";
+            }, 500);
+
+            setTimeout(() => {
+                premiumClass.style.display = "block";
+            }, 1500);
+            setTimeout(() => {
+                plain.style.display = "none";
+            }, 2000);
+
+            setTimeout(() => {
+                premiumClassLastScreen.style.display = "block";
+
+                clouds.style.opacity = 0;
+                startDiv.style.opacity = 0;
+
+                premium.style.display = "block"
+                premiumClass.style.opacity = 0;
+                premiumClass.style.transform = "scale(4)"
+                premiumClass.style.transition = "all .7s";
+
+                setTimeout(() => {
+                    cta.style.animation = "pulse .7s ease alternate infinite";
+                }, 2001);
+
+
+                myVid.muted = false;
+                myVid.play();
+
+                var swiper = new Swiper(".cubeSwiper", {
+                    effect: "slide",
+                    grabCursor: true,
+                    speed: 2000,
+                    spaceBetween: 10,
+                    // autoplay: false,
+                    loop: true,
+                    autoplay: {
+                        delay: 3000,
+                        disableOnInteraction: false
+                    },
+
+                    pagination: {
+                        el: ".swiper-pagination",
+                        clickable: true,
+                    },
+                    navigation: {
+                        nextEl: '.swiper-button-next',
+                        prevEl: '.swiper-button-prev',
+                    },
+                });
+
+            }, 4500);
+        }
+
+        function moveRight() {
+
+            screenOne.style.opacity = 0;
+            screenOne.style.transition = "all .5s linear"
+
+            setTimeout(() => {
+                plain.style.animation = "planRight 1.5s ease-in-out";
+            }, 500);
+
+            setTimeout(() => {
+                businessClass.style.display = "block";
+            }, 1500);
+            setTimeout(() => {
+                plain.style.display = "none";
+            }, 2000);
+
+            setTimeout(() => {
+                premiumClassLastScreen.style.display = "block";
+
+                clouds.style.opacity = 0;
+                startDiv.style.opacity = 0;
+
+                business.style.display = "block"
+                businessClass.style.opacity = 0;
+                businessClass.style.transform = "scale(4)"
+                businessClass.style.transition = "all .7s";
+
+                setTimeout(() => {
+                    cta.style.animation = "pulse .7s ease alternate infinite";
+                }, 2001);
+
+                myVid.muted = false;
+                myVid.play();
+
+                var swiper = new Swiper(".cubeSwiper", {
+                    effect: "slide",
+                    grabCursor: true,
+                    speed: 2000,
+                    spaceBetween: 10,
+                    // autoplay: false,
+                    loop: true,
+                    autoplay: {
+                        delay: 3000,
+                        disableOnInteraction: false
+                    },
+
+                    pagination: {
+                        el: ".swiper-pagination",
+                        clickable: true,
+                    },
+                    navigation: {
+                        nextEl: '.swiper-button-next',
+                        prevEl: '.swiper-button-prev',
+                    },
+                });
+            }, 4500);
+
+        }
+
+
+
+        close.addEventListener("click", () => {
+            main.style.display = "none";
+            myVid.pause();
+            myVid.muted = true;
+            window.parent.document.body.style.overflow = "scroll";
+        })
+
+    </script>
+</body>
+
+</html>

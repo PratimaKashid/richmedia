@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Draggable Image</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+    }
+    img {
+      cursor: move;
+    }
+  </style>
+</head>
+<body>
+  <img id="dragElement" src="./images/Stick Flame.png" style="position: absolute; width: 140px;" alt="">
+
+  <script>
+    const dragElement = document.getElementById('dragElement');
+
+    let offsetX, offsetY, isDragging = false;
+
+    // Touch start event for mobile devices
+    dragElement.addEventListener('touchstart', (e) => {
+      isDragging = true;
+      const touch = e.touches[0];
+      offsetX = touch.clientX - dragElement.getBoundingClientRect().left;
+      offsetY = touch.clientY - dragElement.getBoundingClientRect().top;
+    });
+
+    // Touch move event for mobile devices
+    document.addEventListener('touchmove', (e) => {
+      if (isDragging) {
+        const touch = e.touches[0];
+        const x = touch.clientX - offsetX;
+        const y = touch.clientY - offsetY;
+        dragElement.style.left = `${x}px`;
+        dragElement.style.top = `${y}px`;
+      }
+    });
+
+    // Touch end event for mobile devices
+    let counter = 0;
+    document.addEventListener('touchend', () => {
+      isDragging = false;
+      counter= counter + 1
+      console.log("touch end", counter);
+
+    });
+  </script>
+</body>
+</html>

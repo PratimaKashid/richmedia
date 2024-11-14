@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+
+    <title>Euro 2024</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            overflow: hidden;
+        }
+
+        .main-div {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+        }
+
+        #close {
+            position: absolute;
+            right: 1px;
+            top: 1px;
+            width: 30px;
+            z-index: 99999;
+            cursor: pointer;
+        }
+
+        @keyframes LOGOA {
+            0% {
+                top: 1%;
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+                top: 6%;
+            }
+        }
+
+        @keyframes textOne {
+            0% {
+                opacity: 0;
+            }
+
+            50% {
+                transform: scale(0);
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes textTwo {
+            0% {
+                opacity: 0;
+                left: -100px;
+            }
+
+            100% {
+                opacity: 1;
+                left: 0;
+            }
+        }
+
+        @keyframes divAni {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes textThree {
+            0% {
+                opacity: 0;
+            }
+
+            45% {
+                opacity: 0;
+                right: -100px;
+            }
+
+            100% {
+                opacity: 1;
+                right: 0;
+            }
+        }
+
+        @keyframes glovesFirstAnimation {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes motionRotate {
+            0% {
+                transform: rotate(-5deg);
+            }
+
+            100% {
+                transform: rotate(5deg);
+            }
+        }
+
+        .textFontFamily {
+            font-family: "Poppins", sans-serif;
+            font-weight: 900;
+        }
+
+        #football {
+            position: absolute;
+            /* left: 0;
+            right: 0;
+            margin: 0 auto; */
+            top: 60%;
+            width: 6%;
+        }
+
+        .football {
+            /* animation: moveFootball 1.5s 4.2s ; */
+            animation: name duration timing-function delay iteration-count direction fill-mode;
+        }
+
+        @keyframes moveFootball {
+            0% {
+                /* top: 60%; */
+                width: 6%;
+                transform: translate(0);
+            }
+
+            100% {
+                /* top: 82%; */
+                width: 18%;
+                transform: translate(110px, 80px);
+            }
+        }
+
+        @keyframes moveFootball1 {
+            0% {
+                /* top: 60%; */
+                width: 6%;
+                transform: translate(0);
+            }
+
+            100% {
+                /* top: 82%; */
+                width: 18%;
+                transform: translate(-110px, 80px);
+            }
+        }
+
+
+        @keyframes moveFootball2 {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translate(10px, 80px);
+            }
+        }
+
+        @keyframes moveFootball3 {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translate(-60px, 80px);
+            }
+        }
+
+        @keyframes moveFootball4 {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translate(-100px, 80px);
+            }
+        }
+
+        @keyframes moveFootball5 {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translate(-150px, 80px);
+            }
+        }
+
+        /* @keyframes moveFootball{
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(200px);
+            }
+        } */
+    </style>
+</head>
+
+<body>
+    <div class="main-div" id="main">
+        <div id="startDiv" style="width: 100%;height: 100%;position: absolute; overflow: hidden;">
+            <img src="./images/bg1.png" style="position: absolute;width: 100%;height: 100%;object-fit: cover;" alt="">
+            <img src="./images/logo.png"
+                style="width: 30%; position: absolute;left: 0;right: 0;margin: 0 auto;top: 6%;animation: LOGOA 1s ease;"
+                alt="">
+            <img id="screen1text" src="./images/tet1.png"
+                style="position: absolute;width: 80%; left: 0;right: 0;margin: 0 auto; top: 33%;animation: textOne 1.5s ease;"
+                alt="">
+            <img id="screen1text2" src="./images/ready.png"
+                style="display: none; position: absolute;width: 80%; left: 0;right: 0;margin: 0 auto; top: 30%;animation: textTwo .7s ease;"
+                alt="">
+            <img id="screen1text3" class="screen1text3" src="./images/letsgo.png"
+                style="display: none; position: absolute;width: 70%; left: 0;right: 0;margin: 0 auto; top: 50%;" alt="">
+            <img id="motion" src="./images/motion.png"
+                style="display: none;transform: rotate(0deg); position: absolute;left: 0;right: 0;margin: 0 auto;bottom: 22%;width: 21%;animation: glovesFirstAnimation .5s ease;"
+                alt="">
+        </div>
+
+
+
+        <div id="afterTapDiv"
+            style="position: absolute;width: 100%;height: 100%;display: none;animation: divAni .7s ease;">
+            <img src="./images/gamebg.png" style="position: absolute;width: 100%;height: 100%;object-fit: cover;"
+                alt="">
+            <img src="./images/logo.png" style="width: 25%; position: absolute;left: 0;right: 0;margin: 0 auto;top: 2%;"
+                alt="">
+            <img src="./images/kick.png" style="position: absolute;left: 10px;top: 120px;width: 100px;" alt="">
+
+            <div id="kick" class="textFontFamily"
+                style="position: absolute;left: 50px;top: 160px;font-size: 25px;font-weight: bold;color: #fff;">0</div>
+
+            <div id="kick1" class="textFontFamily"
+                style="display: none; position: absolute;left: 50px;top: 160px;font-size: 25px;font-weight: bold;color: #fff;">
+                1</div>
+
+            <div id="kick2" class="textFontFamily"
+                style="display: none; position: absolute;left: 50px;top: 160px;font-size: 25px;font-weight: bold;color: #fff;">
+                2</div>
+
+            <div id="kick3" class="textFontFamily"
+                style="display: none; position: absolute;left: 50px;top: 160px;font-size: 25px;font-weight: bold;color: #fff;">
+                3</div>
+            <div id="kick4" class="textFontFamily"
+                style="display: none; position: absolute;left: 50px;top: 160px;font-size: 25px;font-weight: bold;color: #fff;">
+                3</div>
+
+            <img src="./images/save.png" style="position: absolute;right: 10px;top: 120px;width: 100px;" alt="">
+            <div id="save" class="textFontFamily"
+                style="position: absolute;right: 50px;top: 160px;font-size: 25px;font-weight: bold;color: #fff;">0</div>
+
+
+            <img src="./images/timer.png"
+                style="position: absolute;right: 0px;left: 0;margin: 0 auto;bottom: 30px;width: 80px;" alt="">
+            <div id="countdown" class="textFontFamily"
+                style="position: absolute;right: 0px;left: 0;margin: 0 auto; bottom: 40px;font-size: 27px;font-weight: bold;color: #fff;display: flex;justify-content: center;align-items: center;">
+                3</div>
+
+            <div style="position: absolute;left: 0;right: 0;margin: auto;top: 0;bottom: 0; width: 300px;height:370px;">
+                <img id="football" class="football" src="./images/football.png"
+                    style="position: absolute;left: 0;right: 0;margin: 0 auto;top: 60%;width: 6%;" alt="">
+                <img id="gloves" src="./images/gloves.png"
+                    style="position: absolute;bottom: 0;width: 33%; left: 0;right: 0;margin: 0 auto;" alt="">
+            </div>
+
+        </div>
+
+        <div id="congrats"
+            style="display: none;opacity: 0; position: absolute;width: 100%;height: 100%;background-color: rgba(000, 000, 000, .9);">
+            <div style="position: absolute;width:320px;height: 300px;left: 0;right: 0;top: 0;bottom: 0;margin: auto;">
+                <img src="./images/saved.png" style="position: absolute;width: 100%;" alt="">
+                <span
+                    style="position: absolute;bottom: -5px;left: 87px;font-size: 31px;color: #fff;text-shadow: 5px 0px #112faa;"
+                    class="textFontFamily" id="goal">0</span>
+            </div>
+        </div>
+        <div id="tapDiv" style="position: absolute;width: 100%;height: 100%;"></div>
+
+        <!-- final screen -->
+        <div id="lastScreen"
+            style="position: absolute;width: 100%;height: 100%;display: none;animation: divAni .7s ease;">
+            <a href="https://www.uefa.com/euro2024/" target="_blank">
+                <img src="./images/lastscreen.png"
+                    style="position: absolute;width: 100%;height: 100%;object-fit: cover;" alt="">
+                <img src="./images/logo.png"
+                    style="width: 23%; position: absolute;left: 0;right: 0;margin: 0 auto;top: 1%;" salt="">
+
+                <div
+                    style="position: absolute;top: 51%;display: flex;justify-content: center;align-items: center;width: 100%; animation: divAni 1s ease;">
+                    <img src="./images/a.png" style="width: 65px;height: 78px;" alt="">
+                    <img src="./images/b.png" style="width: 65px;height: 78px;" alt="">
+                    <img src="./images/c.png" style="width: 65px;height: 78px;" alt="">
+                    <img src="./images/d.png" style="width: 65px;height: 78px;" alt="">
+                    <img src="./images/e.png" style="width: 65px;height: 78px;" alt="">
+                </div>
+
+                <img id="cta" class="cta" src="./images/watchnow.png"
+                    style="position: absolute;left: 0;right: 0;margin: 0 auto;top: 64%;width: 160px;" alt="">
+            </a>
+            <video id="player1" class="vframe" src="./images/videoplayback.mp4" autoplay muted controls
+                style="position: absolute;top: 19%;width: 90%;height: 210px; left: 0;right: 0;margin: 0 auto;">
+            </video>
+        </div>
+
+        <img id="close"
+            src="https://cache-ssl.celtra.com/api/static/ve67ae1362e/runner/clazzes/CreativeUnit/close-up.svg">
+    </div>
+
+</body>
+<script>
+    var close = document.getElementById("close");
+    var main = document.getElementById("main");
+
+    var screen1text = document.getElementById("screen1text");
+    var screen1text2 = document.getElementById("screen1text2");
+    var screen1text3 = document.getElementById("screen1text3");
+    var motion = document.getElementById("motion");
+    var tapDiv = document.getElementById("tapDiv");
+    var afterTapDiv = document.getElementById("afterTapDiv");
+    var lastScreen = document.getElementById("lastScreen");
+    var football = document.getElementById('football');
+    var countdown = document.getElementById('countdown');
+    var gloves = document.getElementById('gloves');
+    var save = document.getElementById('save');
+    var kick = document.getElementById('kick');
+    var kick1 = document.getElementById('kick1');
+    var kick2 = document.getElementById('kick2');
+    var kick3 = document.getElementById('kick3');
+    var kick4 = document.getElementById('kick4');
+    var cta = document.getElementById('cta');
+    var congrats = document.getElementById('congrats');
+    var goal = document.getElementById('goal');
+
+
+
+    tapDiv.addEventListener("click", function () {
+        startGame();
+    });
+
+    setTimeout(() => {
+        screen1text.style.opacity = 0;
+        screen1text.style.opacity = "all .7s";
+        screen1text2.style.display = "block";
+        screen1text3.style.display = "block";
+        setTimeout(() => {
+            motion.style.display = "block";
+            setTimeout(() => {
+                motion.style.animation = "motionRotate .7s ease-in-out alternate infinite";
+            }, 100);
+            setTimeout(() => {
+                // startGame();
+                var gameIntervalId = setInterval(startGame, 5000);
+            }, 4000);
+        }, 700);
+        setTimeout(() => {
+            screen1text3.style.animation = "ctaPulse .7s ease alternate infinite";
+        }, 200);
+    }, 3000);
+
+    let downloadTimer1, downloadTimer2, downloadTimer3, downloadTimer4;
+
+    function startGame() {
+        afterTapDiv.style.display = "block";
+
+        timerFun();
+
+        downloadTimer1 = setTimeout(() => {
+            timerFun1();
+        }, 5500);
+        downloadTimer2 = setTimeout(() => {
+            timerFun2();
+        }, 10500);
+        downloadTimer4 = setTimeout(() => {
+            timerFun3();
+        }, 10500);
+
+        downloadTimer3 = setTimeout(() => {
+
+            setTimeout(() => {
+                congrats.style.display = "block";
+                congrats.style.opacity = 1;
+
+                afterTapDiv.style.opacity = "0"
+                afterTapDiv.style.transition ="all .5s"
+
+                setTimeout(() => {
+                    afterTapDiv.style.display = "none"
+                    lastScreen.style.display = "block";
+                    afterTapDiv.style.opacity = 0;
+                    afterTapDiv.style.transition = "all .5s"
+                    setTimeout(() => {
+                        cta.style.animation = "ctaPulse .7s ease alternate infinite";
+                    }, 1000);
+                }, 2000);
+
+            }, 15000);
+        }, 2000);
+
+    }
+
+    function timerFun() {
+        let timeleft = 3;
+        // console.log("one :");
+        var downloadTimer = setInterval(function () {
+            // console.log(" downloadTimer:");
+            if (timeleft < 0) {
+                clearInterval(downloadTimer);
+                document.getElementById("countdown").innerHTML = "0";
+                // handleOrientation();
+            } else {
+                document.getElementById("countdown").innerHTML = timeleft;
+                // console.log("time left:", timeleft);
+                // setInterval(checkTouch, 100);
+                // checkTouch()
+                if (timeleft == 0) {
+                    handleOrientation();
+                    football.style.animation = "moveFootball 1.5s .5s"
+
+                    // setInterval(incrementKick, 2000);
+                    setTimeout(() => {
+                        kick.style.display = "none"
+                        // kick2.style.display = "none"
+                        // kick3.style.display = "none"
+                        kick1.style.display = "block"
+                    }, 1800);
+
+                    // Counter for SAVE count start
+                    // setTimeout(() => {
+                    //     function checkTouch() {
+                    //         var threshold = 20; // Pixels
+                    //         if (areCentered(football, gloves, threshold)) {
+                    //             touchCount++;
+                    //             save.textContent = touchCount;
+                    //         } else {
+                    //         }
+                    //     }
+                    //     setInterval(checkTouch, 400);
+                    // }, 1100);
+                    // Counter for SAVE count end
+                }
+            }
+            timeleft -= 1;
+            checkTouch()
+        }, 1000);
+    }
+    // checkTouch()
+    function timerFun1() {
+        let timeleft = 3;
+        // console.log("two");
+        var downloadTimer = setInterval(function () {
+            // console.log(" downloadTimer:");
+            if (timeleft < 0) {
+                clearInterval(downloadTimer);
+                document.getElementById("countdown").innerHTML = "0";
+                // handleOrientation();
+            } else {
+                document.getElementById("countdown").innerHTML = timeleft;
+                // console.log("time left:", timeleft);
+
+                if (timeleft == 0) {
+                    handleOrientation();
+                    football.style.animation = "moveFootball1 1.5s"
+                    setTimeout(() => {
+                        kick2.style.display = "block"
+                        kick1.style.display = "none"
+                        kick1.style.opacity = 0;
+                        // kick.style.display = "none"
+                        // kick3.style.display = "none"
+                    }, 1800);
+
+                    // Counter for SAVE count start
+                    // setTimeout(() => {
+                    //     function checkTouch() {
+                    //         var threshold = 5; // Pixels
+                    //         if (areCentered(football, gloves, threshold)) {
+                    //             touchCount++;
+                    //             save.textContent = touchCount;
+                    //         } else {
+                    //         }
+                    //     }
+                    //     setInterval(checkTouch, 500);
+                    // }, 2000);
+                    // Counter for SAVE count end
+                }
+            }
+            timeleft -= 1;
+        }, 1000);
+    }
+
+    function timerFun2() {
+        // console.log("three");
+        let timeleft = 3;
+        var downloadTimer = setInterval(function () {
+            // console.log(" downloadTimer:");
+            if (timeleft < 0) {
+                clearInterval(downloadTimer);
+                document.getElementById("countdown").innerHTML = "0";
+                // handleOrientation();
+            } else {
+                document.getElementById("countdown").innerHTML = timeleft;
+                // console.log("time left:", timeleft);
+
+                if (timeleft == 0) {
+                    handleOrientation();
+                    football.style.animation = "moveFootball3 1.5s 1.2s"
+                    kick3.style.display = "block"
+                    kick2.style.opacity = 0;
+                    setTimeout(() => {
+                        // kick4.style.display = "block"
+                        kick2.style.display = "none"
+                        kick1.style.display = "none"
+                        kick1.style.opacity = 0;
+                        kick.style.display = "none"
+                    }, 1800);
+
+                    // Counter for SAVE count start
+                    // setTimeout(() => {
+                    //     function checkTouch() {
+                    //         var threshold = 5; // Pixels
+                    //         if (areCentered(football, gloves, threshold)) {
+                    //             touchCount++;
+                    //             save.textContent = touchCount;
+                    //         } else {
+                    //         }
+                    //     }
+                    //     setInterval(checkTouch, 500);
+                    // }, 2000);
+                    // Counter for SAVE count end
+                }
+            }
+            timeleft -= 1;
+        }, 1000);
+    }
+
+    function timerFun3() {
+        // console.log("three");
+        let timeleft = 3;
+        var downloadTimer = setInterval(function () {
+            // console.log(" downloadTimer:");
+            if (timeleft < 0) {
+                clearInterval(downloadTimer);
+                document.getElementById("countdown").innerHTML = "0";
+                // handleOrientation();
+            } else {
+                document.getElementById("countdown").innerHTML = timeleft;
+                // console.log("time left:", timeleft);
+
+                if (timeleft == 0) {
+                    football.style.animation = "moveFootball4 1.5s .5s"
+                    handleOrientation();
+                    setTimeout(() => {
+                        kick3.style.display = "block"
+                        // kick4.style.display = "block"
+                        kick2.style.display = "none"
+                        kick1.style.display = "none"
+                        kick.style.display = "none"
+                    }, 1800);
+
+                    // Counter for SAVE count start
+                    // setTimeout(() => {
+                    //     function checkTouch() {
+                    //         var threshold = 5; // Pixels
+                    //         if (areCentered(football, gloves, threshold)) {
+                    //             touchCount++;
+                    //             save.textContent = touchCount;
+                    //         } else {
+                    //         }
+                    //     }
+                    //     setInterval(checkTouch, 500);
+                    // }, 2000);
+                    // Counter for SAVE count end
+                }
+            }
+            timeleft -= 1;
+        }, 1000);
+    }
+
+
+    window.addEventListener('deviceorientation', handleOrientation);
+
+    function handleOrientation(event) {
+        if (event) {
+            const tiltLeftRight = event.gamma;
+            const moveAmount = 200;
+            const newPosition = moveAmount * (tiltLeftRight / 90);
+            console.log("newPosition", newPosition);
+
+
+
+            if (tiltLeftRight > 10 && tiltLeftRight <= 90) {
+                gloves.style.left = "220px";
+                // gloves.style.right = "auto";
+                gloves.style.right = newPosition;
+            } else if (tiltLeftRight < -10 && tiltLeftRight >= -90) {
+                gloves.style.right = "220px";
+                // gloves.style.left = "auto";
+                gloves.style.left = newPosition;
+            } else {
+                gloves.style.left = "0";
+                gloves.style.right = "0";
+                gloves.style.margin = "0 auto";
+            }
+
+            gloves.style.transition = "all .4s";
+        }
+    }
+
+
+    close.addEventListener("click", () => {
+        main.style.display = "none";
+        player1.muted = true;
+        player1.pause();
+    })
+
+
+
+    var touchCount = 0;
+
+    // Function to check if the centers of two elements are within a specified threshold distance
+    function areCentered(elem1, elem2, threshold) {
+        var rect1 = elem1.getBoundingClientRect();
+        var rect2 = elem2.getBoundingClientRect();
+
+        // Calculate the center coordinates of the first element
+        var centerX1 = rect1.left + rect1.width / 2;
+        var centerY1 = rect1.top + rect1.height / 2;
+
+        // Calculate the center coordinates of the second element
+        var centerX2 = rect2.left + rect2.width / 2;
+        var centerY2 = rect2.top + rect2.height / 2;
+
+        // Calculate the Euclidean distance between the centers of the two elements
+        var distance = Math.sqrt(Math.pow(centerX2 - centerX1, 2) + Math.pow(centerY2 - centerY1, 2));
+
+        // Log the calculated distance for debugging purposes
+        console.log(`Distance between centers: ${distance}`);
+
+        // Return true if the distance is less than or equal to the threshold, otherwise false
+        return distance <= threshold;
+    }
+
+    // Function to check if the elements are touching and update the touch count
+    function checkTouch() {
+        var threshold = 17; // Pixels
+
+        // Check if the centers of the elements are within the threshold distance
+        if (areCentered(football, gloves, threshold)) {
+            touchCount++;
+            // Display the touch count
+            save.textContent = touchCount;
+            goal.textContent = touchCount;
+            console.log("Touch count:", touchCount);
+        }
+    }
+
+
+
+
+    function incrementKick() {
+        // Get the element
+        var kickElement = document.getElementById('kick');
+
+        // Get the current value, parse it as an integer
+        var currentValue = parseInt(kickElement.textContent);
+
+        // Increment the value by 3
+        var newValue = currentValue + 1;
+
+        // Update the element's text content
+        kickElement.textContent = newValue;
+    }
+
+    // Set the interval to call incrementKick every 2 seconds (2000 milliseconds)
+
+</script>
+
+</html>

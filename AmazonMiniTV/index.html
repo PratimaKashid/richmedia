@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazon MINI TV</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            overflow: hidden;
+            /* font-family: "Poppins", sans-serif; */
+        }
+
+        .main {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            overflow: hidden;
+        }
+
+        .firstScreen {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            position: absolute;
+
+        }
+
+        #close {
+            position: absolute;
+            right: 1px;
+            top: 1px;
+            width: 27px;
+            z-index: 9999;
+            cursor: pointer;
+        }
+
+        @keyframes logo {
+            0% {
+                opacity: 0;
+                left: -100px;
+            }
+
+            100% {
+                opacity: 1;
+                left: 10px;
+            }
+        }
+
+        @keyframes logo1 {
+
+            0%,
+            40% {
+                opacity: 0;
+                bottom: -15%;
+            }
+
+            100% {
+                opacity: 1;
+                bottom: 2%;
+            }
+        }
+
+        @keyframes logo2 {
+
+            0%,
+            10% {
+                opacity: 0;
+                bottom: -15%;
+            }
+
+            100% {
+                opacity: 1;
+                bottom: 2%;
+            }
+        }
+
+        @keyframes heartAni {
+            0% {
+                transform: rotate(-2deg) scale(1);
+            }
+
+            100% {
+                transform: rotate(2deg) scale(1.1);
+            }
+        }
+
+        @keyframes girl {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes bondText {
+            0% {
+                animation-timing-function: linear;
+                transform: translate(-320px, 350px);
+            }
+
+            100% {
+                transform: translate(0px, 0px);
+                animation-timing-function: linear;
+            }
+        }
+
+        @keyframes mic {
+
+            0%,
+            70% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes mic1 {
+
+            0%,
+            80% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes opa {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes plainDIv {
+            0% {
+                top: 100%;
+            }
+
+            100% {
+                top: -74%;
+            }
+        }
+        @keyframes cta {
+            0% {
+                bottom: 0;
+            }
+
+            100% {
+               bottom: 3%;
+            }
+        }
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            100% {
+              transform: scale(1.05);
+            }
+        }
+        @keyframes pulse1 {
+            0% {
+                transform: scale(1);
+            }
+
+            100% {
+              transform: scale(1.08);
+            }
+        }
+     
+    </style>
+</head>
+
+<body>
+    <div class="main" id="main">
+
+        <div class="firstScreen" id="firstScreen" style="">
+            <img src="./images/bg.jpg"
+                style="position: absolute;width: 100%;height: 100%;top: 0;left: 0;object-fit: cover;" alt="">
+            <img id="boy" src="./images/male.png" style="position: absolute;width: 100%;bottom: 0;" alt="">
+            <img id="girl" src="./images/female.png"
+                style="display: none; position: absolute;width: 100%;bottom: -5%;animation: girl 1s ease-out;" alt="">
+            <img src="./images/logo.png"
+                style="position: absolute;left: 10px;margin: 0 auto;top: 10PX;width: 100px;animation: logo 1s ease-out;"
+                alt="">
+            <img id="heart" src="./images/fromdifferent.png"
+                style="position: absolute;left: 0;right: 0;width: 80%;bottom: 2%;margin: 0 auto;animation:logo1 1.7s ease;"
+                alt="">
+            <img id="heart2" src="./images/paths.png"
+                style="display: none; position: absolute;left: 0;right: 0;width: 80%;bottom: 2%;margin: 0 auto;animation:logo2 1s ease;"
+                alt="">
+        </div>
+
+        <div id="secondScreen"
+            style="display: none; position: absolute;width: 100%;height: 100%;top: 0;left: 0;animation: opa .7s ease-out;">
+            <img src="./images/sky.jpg"
+                style="position: absolute;width: 100%;height: 100%;top: 0;left: 0;object-fit: cover;" alt="">
+            <img src="./images/logo.png" style="position: absolute;left: 10px;margin: 0 auto;top: 10PX;width: 100px;"
+                alt="">
+            <img id="bond" src="./images/bond.png"
+                style="position: absolute;left: 0px;right: 0; margin: 0 auto;top: 25%;width: 70%;animation: bondText 1s ease-out;"
+                alt="">
+            <img id="mic" src="./images/mic.png"
+                style="position: absolute;left: 0px;right: 0; margin: 0 auto;top: 70%;width: 40px;animation: mic 1.5s ease-out;"
+                alt="">
+            <div id="line"
+                style="transform: rotate(45deg);position: absolute;left: 0px;right: 0; margin: 0 auto;top: 73%;width: 70px;height: 5px;border-radius: 7px;background-color: #000; animation: mic 1.5s ease-out;">
+            </div>
+            <img id="activate" src="./images/activate.png"
+                style="position: absolute;left: 0px;right: 0; margin: 0 auto;bottom: 7%;width: 75%;animation: mic1 2s ease-out;"
+                alt="">
+
+        </div>
+
+        <div id="tapDiv" style="position: absolute;width: 100%;height: 100%;top: 0;left: 0;z-index: 9999;"></div>
+
+        <div id="plain"
+            style="display: none; position: absolute;width: 100%;height: 100%;top: -74%;left: 0;animation: plainDIv 2s ease-out;">
+            <img src="./images/plane.png"
+                style="position: relative;left: 0;right: 0;margin: 0 auto;width: 100%;top: 10px;" alt="">
+            <img src="./images/lastbg.jpg"
+                style="position: relative;left: 0;right: 0;margin: 0 auto; width: 100%;height: 105%;object-fit: cover;bottom: 0;"
+                alt="">
+        </div>
+
+
+        <div id="lastScreen"
+        style="display: none; position: absolute;width: 100%;height: 100%;top: 0;left: 0;animation: ani1 .5s ease;">
+        <a href="https://play.google.com/store/apps/details?id=com.amazon.minitv.android.app" target="_blank">
+            <div style="position: absolute;width: 100%;height: 100%;bottom: 0;top: 0;left: 0;">
+
+                <img id="cta" src="./images/streamnow.png"
+                style="position: absolute;bottom: 3%;left: 0;right: 0;margin: 0 auto;width: 170px;animation: cta .7s ease;" alt="">
+            </div>
+            </a>
+        </div>
+        <img id="close"
+            src="https://cache-ssl.celtra.com/api/static/ve67ae1362e/runner/clazzes/CreativeUnit/close-up.svg"
+            alt="Close Button">
+    </div>
+
+</body>
+<script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+
+        const close = document.getElementById("close");
+        const jeet = document.getElementById("jeet");
+        const cta = document.getElementById("cta");
+        const main = document.getElementById("main");
+        const firstScreen = document.getElementById("firstScreen");
+        const heart = document.getElementById("heart");
+        const heart2 = document.getElementById("heart2");
+        const boy = document.getElementById("boy");
+        const girl = document.getElementById("girl");
+        const line = document.getElementById("line");
+        const tapDiv = document.getElementById("tapDiv");
+        const secondScreen = document.getElementById("secondScreen");
+        const mic = document.getElementById("mic");
+        const activate = document.getElementById("activate");
+        const bond = document.getElementById("bond");
+        const plain = document.getElementById("plain");
+
+
+        window.parent.document.body.style.overflow = "hidden";
+
+        close.addEventListener("click", () => {
+            main.style.display = "none";
+            window.parent.document.body.style.overflow = "scroll";
+
+        });
+        setTimeout(() => {
+            heart.style.animation = "heartAni .7s ease-in-out alternate infinite";
+        }, 1701);
+        setTimeout(() => {
+            boy.style.opacity = 0;
+            boy.style.transition = "all 1s ease-out";
+
+            girl.style.display = "block";
+        }, 4500);
+        setTimeout(() => {
+            heart.style.opacity = 0;
+            heart.style.bottom = 50 + "%";
+            heart.style.transition = "all 1s ease-out";
+
+            heart2.style.display = "block";
+        }, 6500);
+        setTimeout(() => {
+            heart2.style.animation = "heartAni .7s ease-in-out alternate infinite";
+        }, 7501);
+        setTimeout(() => {
+            heart2.style.opacity = 0;
+            heart2.style.bottom = 70 + "%";
+            heart2.style.transition = "all 1.5s ease-out";
+        }, 11000);
+        setTimeout(() => {
+            firstScreen.style.opacity = 0;
+            firstScreen.style.transition = "all .7s ease-out";
+            secondScreen.style.display = "block";
+            setTimeout(() => {
+                mic.style.animation ="pulse1 .7s ease alternate infinite";
+                // line.style.animation ="pulse .7s ease alternate infinite";
+            }, 1510);
+        }, 12500);
+
+        tapDiv.addEventListener("click", () => {
+            line.style.opacity = 0;
+            line.style.transition = "all .5s";
+            tapDiv.style.display = "none";
+
+            startDetection()
+        })
+
+        function startDetection() {
+            console.log("start blow.....");
+            navigator.mediaDevices.getUserMedia({ audio: true })
+                .then(stream => {
+                    const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                    const analyser = audioContext.createAnalyser();
+                    const microphone = audioContext.createMediaStreamSource(stream);
+                    const scriptProcessor = audioContext.createScriptProcessor(256, 1, 1);
+
+                    analyser.smoothingTimeConstant = 0.8;
+                    analyser.fftSize = 1024;
+
+                    microphone.connect(analyser);
+                    analyser.connect(scriptProcessor);
+                    scriptProcessor.connect(audioContext.destination);
+
+                    scriptProcessor.onaudioprocess = function () {
+                        const array = new Uint8Array(analyser.frequencyBinCount);
+                        analyser.getByteFrequencyData(array);
+                        const average = array.reduce((a, b) => a + b, 0) / array.length;
+
+                        if (average > 50) {
+                            console.log("average", average);
+
+                            setTimeout(() => {
+                                mic.style.opacity = 0;
+                                activate.style.opacity = 0;
+                                activate.style.transition = "all .7s linear"
+                                mic.style.transition = "all .7s linear"
+                            }, 500);
+
+                            setTimeout(() => {
+                                // bond.style.opacity = 0;
+                                bond.style.top = -25 + "%";
+                                bond.style.transition = "all 1s ease";
+
+                                plain.style.display = "block";
+                            }, 1000);
+
+                            setTimeout(() => {
+                                lastScreen.style.display = "block";
+                            }, 3100);
+                            setTimeout(() => {
+                                cta.style.animation ="pulse .7s ease alternate infinite";
+                            }, 3810);
+
+
+                        } else {
+                            // document.getElementById('status').textContent = 'Not Detecting';
+                        }
+                    };
+                })
+                .catch(err => console.error('Error accessing the microphone: ' + err));
+        }
+
+
+
+
+
+    })
+
+    // transform: translate(-40px, -140px);
+    // transform: translate(-65px, -110px) rotate(29deg); 
+</script>
+
+</html>

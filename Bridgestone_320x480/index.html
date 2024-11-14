@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bridgestone</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        overflow: hidden;
+    }
+
+    .main .firstScreen {
+        width: 320px;
+        height: 480px;
+        overflow: hidden;
+    }
+
+    @keyframes pulse {
+        0% {
+            transform: scale(1);
+        }
+
+        100% {
+            transform: scale(1.1);
+        }
+    }
+
+    @keyframes divAni {
+        0% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+    @keyframes tyreMove {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        100% {
+            transform: rotate(-360deg);
+        }
+    }
+
+    @keyframes divMove {
+        0% {
+            left: -2870px;
+        }
+
+        100% {
+            left: 0;
+        }
+    }
+
+    @keyframes tyre3 {
+        0% {
+            opacity: 0;
+        }
+
+        70% {
+            opacity: 0;
+            bottom: 200px;
+        }
+
+        100% {
+            opacity: 1;
+            bottom: 215px;
+        }
+    }
+
+    @keyframes text1last {
+        0% {
+            opacity: 0;
+        }
+
+        50% {
+            opacity: 0;
+            right: -200px;
+        }
+
+        100% {
+            opacity: 1;
+            right: 0;
+        }
+    }
+
+    @keyframes vBtn {
+        0% {
+            opacity: 0;
+        }
+
+        90% {
+            opacity: 0;
+            transform: scale(.5);
+        }
+
+        100% {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    #closeVid {
+        position: absolute;
+        right: 0px;
+        top: 0px;
+        width: 22px;
+        z-index: 99999;
+        cursor: pointer;
+    }
+
+    #close {
+        position: absolute;
+        right: 0px;
+        top: 0px;
+        width: 22px;
+        z-index: 99999;
+        cursor: pointer;
+    }
+</style>
+
+<body>
+    <div class="main" id="main"
+        style="position: absolute;width: 320px;height: 480px;overflow: hidden;left: 0;right: 0;top: 0;bottom: 0;margin: auto;">
+        <div class="firstScreen" id="firstScreen" style="overflow: hidden;">
+            <div id="moveDiv" style="position: absolute;width: 3200px;height: 100%;left: 0px;overflow: hidden;">
+                <img src="./images/greyROAD.png" style="position: absolute;width: 100%;height: 100%;bottom: 0;" alt="">
+            </div>
+
+            <div id="textDiv" style="position: absolute;width: 100%;height: 100%;">
+                <img src="./images/lets begin your  Most Comfortable  journey!.png"
+                    style="position: absolute;top: 87px;width: 270px;left: 0;right: 0;margin: 0 auto;" alt="">
+                <img src="./images/button.png"
+                    style="position: absolute;left: 0;right: 0;margin: 0 auto;bottom: 75px;width:150px;animation: pulse .5s ease alternate infinite;"
+                    alt="">
+            </div>
+
+            <div id="carDiv" style="position: absolute;width: 100%;height: 100%;">
+                <img id="car" src="./images/carNew.png" style="position: absolute;bottom: 100px;width: 330px;left: 0;"
+                    alt="">
+                <!-- <img id="car" src="./images/car-old.png" style="position: absolute;bottom: 90px;width: 330px;left: 0;"
+                    alt=""> -->
+                <img class="tyre" id="tyreLeft" src="./images/TYRE.png"
+                    style="position: absolute;left: 62px;width: 43px;bottom: 132px;" alt="">
+                <img class="tyre" id="tyreRight" src="./images/TYRE.png"
+                    style="position: absolute;right: 50px;width: 40px;bottom: 135px;" alt="">
+            </div>
+            <div id="carDivNew" style="display: none; position: absolute;width: 100%;height: 100%;">
+                <img src="./images/car-old.png" style="position: absolute;bottom: 90px;width: 330px;" alt="">
+                <img class="" src="./images/TYRE.png" style="position: absolute;left: 55px;width: 50px;bottom: 125px;"
+                    alt="">
+                <img class="" src="./images/TYRE.png" style="position: absolute;right: 36px;width: 43px;bottom: 132px;"
+                    alt="">
+            </div>
+
+            <a href="https://www.bridgestone.co.in/passenger-tyres/turanza-tyres/turanza6i" target="_blank">
+                <img src="./images/Vector Smart Object.png"
+                    style="z-index: 9999; position: absolute;left: 0;top: 0px;width: 80px;animation: logo 1s ease;"
+                    alt="">
+                <img src="./images/BTN.png"
+                    style="z-index: 9999; position: absolute;right: -10px;bottom: -5px;width:170px;animation: logo1 1s ease;"
+                    alt="">
+            </a>
+            <img id="text2" src="./images/Did you even feel  the uneven road_.png"
+                style="display: none; position: absolute;left: 0;right: 0;margin: 0 auto;top: 90px;width: 220px;animation: divAni .7s ease-in-out;"
+                alt="">
+            <img id="text3" src="./images/power.png"
+                style="display: none; position: absolute;left: 0;right: 0;margin: 0 auto;top: 90px;width: 200px;animation: divAni .7s ease-in-out;"
+                alt="">
+        </div>
+        <audio id="myAudio" src="./images/audio_turanzaCUT.mp3" muted></audio>
+        <div id="tapDiv" style="position: absolute;width: 100%;height: 100%;top: 0;"></div>
+
+        <div id="lastScreen"
+            style="display: none; top: 0; position: absolute;width: 100%;height: 100%;overflow: hidden;animation: divAni .7s linear;">
+
+            <a href="https://www.bridgestone.co.in/passenger-tyres/turanza-tyres/turanza6i" target="_blank">
+                <img src="./images/bglast.png"
+                    style="top: 0; position: absolute;width: 100%;height: 100%;object-fit: cover;" alt="">
+                <img src="./images/Vector Smart Object.png" style="position: absolute;left: 0;top: 0px;width: 65px;"
+                    alt="">
+                <img src="./images/BTN.png" style="position: absolute;right: -20px;bottom: -15px;width: 160px;" alt="">
+                <img src="./images/text1LastScreen.png"
+                    style="position: absolute;left: 0px;right: 0;margin: 0 auto; width: 65%; top: 65px;animation: text1last 1.5s ease;"
+                    alt="">
+                <!-- <img src="./images/features.png"
+                    style="position: absolute;width: 100%;height: auto;bottom: 76px;animation: features 3s ease;"
+                    alt=""> -->
+                <img src="./images/mostComfor.png"
+                    style="position: absolute;left: 0px;right: 0;margin: 0 auto; bottom: 215px;width: 60%; animation: tyre3 2s ease;"
+                    alt="">
+                <!-- <img id="cta" src="./newImg/KnowMore.png"
+                style="position: absolute;left: 25px;width: 150px;bottom: 60px;animation: cta 3.2s ease;" alt=""> -->
+            </a>
+            <img id="vidBtn" src="./images/WatchVideo.png"
+                style="position: absolute;right:0px;left: 0;margin: 0 auto; width: 130px;z-index: 999; bottom: 60px;animation: vBtn 2.7s ease;"
+                alt="">
+        </div>
+
+        <div id="vScreen"
+            style="top: 0; display: none; position: absolute;width: 100%;height: 100%;z-index: 9999999; background-color: rgba(000, 000, 000, 1);">
+
+
+            <a href="https://www.bridgestone.co.in/passenger-tyres/turanza-tyres/turanza6i" target="_blank">
+                <img src="./images/lastscreen.png" style="position: absolute;width: 100%;height: 100%;" alt="">
+                <img src="./images/Vector Smart Object.png" style="position: absolute;left: 0;top: 0px;width: 65px;"
+                    alt="">
+                <img src="./images/BTN.png" style="position: absolute;right: -20px;bottom: -15px;width: 160px;" alt="">
+            </a>
+
+            <video id="myVid" src="https://beta.andbeyond.media/abm-direct/RichMedia/video/tyre1.mp4" controls
+                playsinline
+                style="position: absolute;width: 100%;left: 0;top:0px;right: 0;margin: auto; bottom: 0;top: -80px;"></video>
+
+            <img id="closeVid"
+                src="https://cache-ssl.celtra.com/api/static/ve67ae1362e/runner/clazzes/CreativeUnit/close-up.svg"
+                alt="Close Button">
+        </div>
+
+        <img id="close"
+            src="https://cache-ssl.celtra.com/api/static/ve67ae1362e/runner/clazzes/CreativeUnit/close-up.svg"
+            alt="Close Button">
+    </div>
+
+</body>
+<script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+        const close = document.getElementById("close");
+        const main = document.getElementById("main");
+        const firstScreen = document.getElementById("firstScreen");
+        const tapDiv = document.getElementById("tapDiv");
+        const textDiv = document.getElementById("textDiv");
+        const carDiv = document.getElementById("carDiv");
+        const carDivNew = document.getElementById("carDivNew");
+        const moveDiv = document.getElementById("moveDiv");
+        const tyreLeft = document.getElementById("tyreLeft");
+        const tyreRight = document.getElementById("tyreRight");
+        const car = document.getElementById("car");
+        const tyre = document.querySelectorAll(".tyre");
+
+        const lastScreen = document.getElementById("lastScreen");
+        const vidBtn = document.getElementById("vidBtn");
+        const closeVid = document.getElementById('closeVid');
+        const vScreen = document.getElementById('vScreen');
+        const startBtn = document.getElementById('startBtn');
+        const myAudio = document.getElementById('myAudio');
+        const text3 = document.getElementById('text3');
+        const text2 = document.getElementById('text2');
+        // const main = document.querySelectorAll(".main")
+
+        tapDiv.addEventListener("click", function () {
+            tapFunction();
+        })
+
+
+        vidBtn.addEventListener("click", () => {
+            console.log("click video button..... ");
+            vScreen.style.display = "block";
+            myVid.style.display = "block";
+            myVid.play();
+            myVid.muted = false;
+        })
+
+        closeVid.addEventListener("click", () => {
+            console.log("click on close video");
+            myVid.style.display = "none";
+            vScreen.style.display = "none";
+            myVid.pause();
+            myVid.muted = true;
+        })
+
+        close.addEventListener("click", () => {
+            main.style.display = "none";
+            myAudio.muted = true;
+            myAudio.pause()
+        })
+
+        function tapFunction() {
+            myAudio.muted = false;
+            myAudio.play()
+            moveDiv.style.animation = "divMove 12s linear infinite";
+            textDiv.style.opacity = 0;
+            textDiv.style.transition = "all .5s linear";
+            console.log("click...");
+            tyre.forEach((item) => {
+                item.style.animation = "tyreMove 1.4s linear infinite";
+            })
+            setTimeout(() => {
+                text2.style.display = "block";
+            }, 2000);
+            setTimeout(() => {
+                text2.style.opacity = 0;
+                text2.style.transition = "all .7s linear"
+            }, 4500);
+
+            setTimeout(() => {
+                console.log("go to 4000 ....");
+                moveDiv.style.animationPlayState = "paused";
+                tyre.forEach((item) => {
+                    item.style.animationPlayState = "paused";
+                })
+
+            }, 7000);
+            setTimeout(() => {
+                car.style.transition = "all .7s ease-in-out";
+                car.style.width = 1050 + "px";
+                car.style.left = -84 + "px";
+                car.style.bottom = -27 + "px";
+
+                tyreLeft.style.width = 150 + "px";
+                tyreLeft.style.left = 108 + "px";
+                tyreLeft.style.bottom = 64 + "px";
+                tyreLeft.style.transition = "all .7s ease-in-out";
+                text3.style.display = "block";
+                myAudio.muted = true;
+            myAudio.pause()
+            }, 7001);
+
+            setTimeout(() => {
+                tyreRight.style.opacity = 0;
+                // tyreRight.style.transition = "all .7s"
+            }, 7050);
+            setTimeout(() => {
+                lastScreen.style.display = "block";
+                firstScreen.style.opacity = 0;
+                firstScreen.style.transition = "all .7s linear";
+                setTimeout(() => {
+                    vidBtn.style.animation = "pulse .6s ease-in-out alternate infinite";
+                }, 2710);
+            }, 9500);
+        }
+
+
+    })
+</script>
+
+</html>

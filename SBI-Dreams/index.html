@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blow Detection</title>
+    <style>
+        #status {
+            font-size: 2em;
+            margin-top: 20px;
+        }
+
+        #afterBlowDetected {
+            font-size: 2em;
+            margin-top: 20px;
+            color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Blow into the Microphone</h1>
+    <button id="startButton">Start</button>
+    <!-- <div id="status">Not Detecting</div> -->
+    <div id="afterBlowDetected" style="display: none;">Done all functions</div>
+    <script>
+        var afterBlowDetected = document.getElementById("afterBlowDetected");
+
+        document.getElementById('startButton').addEventListener('click', startDetection);
+
+        function startDetection() {
+            navigator.mediaDevices.getUserMedia({ audio: true })
+                .then(stream => {
+                    const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                    const analyser = audioContext.createAnalyser();
+                    const microphone = audioContext.createMediaStreamSource(stream);
+                    const scriptProcessor = audioContext.createScriptProcessor(256, 1, 1);
+
+                    analyser.smoothingTimeConstant = 0.8;
+                    analyser.fftSize = 1024;
+
+                    microphone.connect(analyser);
+                    analyser.connect(scriptProcessor);
+                    scriptProcessor.connect(audioContext.destination);
+
+                    scriptProcessor.onaudioprocess = function () {
+                        const array = new Uint8Array(analyser.frequencyBinCount);
+                        analyser.getByteFrequencyData(array);
+                        const average = array.reduce((a, b) => a + b, 0) / array.length;
+
+                        if (average > 130) {  // Threshold for detecting blowing sound
+                            // document.getElementById('status').textContent = 'Blowing Detected!';
+                            afterBlowDetected.style.display = 'block';
+                            console.log("average", average);
+                        } else {
+                            // document.getElementById('status').textContent = 'Not Detecting';
+                        }
+                    };
+                })
+                .catch(err => console.error('Error accessing the microphone: ' + err));
+        }
+    </script>
+</body>
+
+</html>

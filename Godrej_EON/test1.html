@@ -1,0 +1,1049 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+    <title>Godrej Washing Machine</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        overflow: hidden;
+        font-family: "Poppins", sans-serif;
+    }
+
+    .main {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        overflow: hidden;
+    }
+
+    .firstScreen {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        position: absolute;
+
+    }
+
+    #close {
+        position: absolute;
+        right: 1px;
+        top: 1px;
+        width: 27px;
+        z-index: 9999;
+        cursor: pointer;
+    }
+
+
+    @keyframes pulse {
+        0% {
+            transform: scale(1);
+        }
+
+        100% {
+            transform: scale(.95);
+        }
+    }
+
+    @keyframes divAni {
+        0% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+
+    .cube-parent-container {
+        width: 100%;
+        height: 230px;
+        margin: 0;
+        position: absolute;
+        bottom: 15%;
+    }
+
+    .cubeSwiper .swiper-slide img {
+        width: 100%;
+        object-fit: cover;
+    }
+
+    .cubeSwiper .pagination-container {
+        padding-top: 25px;
+        width: 100%;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 100px 1fr;
+        grid-template-rows: 1fr;
+        grid-column-gap: 0px;
+        grid-row-gap: 0px;
+        position: absolute;
+        top: 250px;
+        transform: scale(0.8);
+    }
+
+    .pagination-container {
+        position: relative;
+        top: -25px;
+    }
+
+    .cubeSwiper .cube-pagination-fraction {
+        color: rgba(255, 0, 255, 0.8);
+        font-size: 18px;
+        font-weight: 700;
+        margin-top: 15px;
+        text-align: center;
+        position: relative;
+    }
+
+    .swiper-button-next,
+    .swiper-button-prev {
+        color: #fff;
+        width: calc(var(--swiper-navigation-size)/ 44 * 6);
+        font-size: 12px;
+        font-weight: bolder;
+    }
+
+    .swiper-button-next:after,
+    .swiper-button-prev:after {
+        font-size: 12px;
+        font-weight: bolder;
+        padding: 7px 9px;
+        border-radius: 20px;
+
+    }
+
+    .swiper-button-prev {
+        left: var(--swiper-navigation-sides-offset, 19px);
+        position: absolute;
+        top: -200px;
+    }
+
+    .swiper-button-next {
+        right: var(--swiper-navigation-sides-offset, 20px);
+        position: absolute;
+        top: -200px;
+    }
+
+    .swiper-pagination-bullets.swiper-pagination-horizontal {
+        bottom: var(--swiper-pagination-bottom, -10px);
+    }
+
+    .swiper {
+        width: 240px;
+        height: 300px;
+        position: relative;
+        /* overflow: scroll; */
+    }
+
+    .swiper-pagination-bullet {
+        width: 12px;
+        height: 12px;
+    }
+
+
+    @keyframes logo {
+        0% {
+            opacity: 0;
+        }
+
+        50% {
+            opacity: 0;
+            top: 0;
+        }
+
+        100% {
+            opacity: 1;
+            top: 20px;
+        }
+    }
+
+    @keyframes logo1 {
+        0% {
+            opacity: 0;
+        }
+
+        65% {
+            opacity: 0;
+            top: 60px;
+        }
+
+        100% {
+            opacity: 1;
+            top: 75px;
+        }
+    }
+
+    @keyframes text1 {
+        0% {
+            opacity: 0;
+        }
+
+        75% {
+            opacity: 0;
+            transform: scale(0);
+        }
+
+        100% {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    @keyframes text2 {
+        0% {
+            opacity: 0;
+        }
+
+        90% {
+            opacity: 0;
+            bottom: -20px;
+        }
+
+        100% {
+            opacity: 1;
+            bottom: 10px;
+        }
+    }
+
+    @keyframes lDetecText {
+        0% {
+            opacity: 0;
+        }
+
+        80% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+    @keyframes location1 {
+        0% {
+            opacity: 0;
+        }
+
+        75% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+
+    }
+
+    @keyframes opaAni {
+        0% {
+            opacity: 1;
+        }
+
+        100% {
+            opacity: 0;
+        }
+    }
+
+    @keyframes waterMove {
+        0% {
+            opacity: 1;
+            left: -150%;
+        }
+
+        100% {
+            opacity: 1;
+            left: -70%;
+        }
+    }
+
+    @keyframes waterBottom {
+        0% {
+            opacity: 1;
+            bottom: -54px;
+        }
+
+        100% {
+            opacity: 1;
+            bottom: 2px;
+        }
+    }
+
+    @keyframes waterMoveLeftRight {
+        0% {
+            transform: translate(-20px, -2px);
+        }
+
+        100% {
+            transform: translate(20px, 2px);
+        }
+    }
+
+    @keyframes waterMoveLeftRight1 {
+        0% {
+            transform: translate(-2px, -2px);
+        }
+
+        100% {
+            transform: translate(2px, 2px);
+        }
+    }
+
+    @keyframes meterMumbai {
+        0% {
+            transform: rotate(0);
+        }
+
+        100% {
+            transform: rotate(-82deg);
+        }
+    }
+
+    @keyframes rotate360 {
+        0% {
+            transform: rotate(0);
+        }
+
+        100% {
+            transform: rotate(360deg);
+
+        }
+    }
+
+
+    @keyframes suit {
+        0% {
+            transform: translate(-150px, 230px) scale(0.1);
+        }
+
+        100% {
+            transform: translate(0px, 0px) scale(1);
+        }
+    }
+
+    @keyframes WhiteW {
+        0% {
+            transform: translate(-100px, -190px) scale(0.1);
+        }
+
+        100% {
+            transform: translate(0px, 0px) scale(1);
+        }
+    }
+
+    @keyframes BlueClean {
+        0% {
+            transform: translate(70px, -180px) scale(0.1);
+        }
+
+        100% {
+            transform: translate(0px, 0px) scale(1);
+        }
+    }
+
+    @keyframes tShirt {
+        0% {
+            transform: translate(80px, 230px) scale(0.1);
+        }
+
+        100% {
+            transform: translate(0px, 0px) scale(1);
+        }
+    }
+
+    @keyframes yellowW {
+        0% {
+            top: 45%;
+            transform: scale(.1);
+        }
+
+        100% {
+            top: 25%;
+            transform: scale(1);
+        }
+    }
+
+    @keyframes girlTop {
+        0% {
+            top: 50%;
+            left: 70px;
+            transform: scale(.1);
+        }
+
+        100% {
+            top: 46%;
+            left: 20px;
+            transform: scale(1);
+        }
+    }
+
+    @keyframes GreenN {
+        0% {
+            top: 50%;
+            left: 70px;
+            transform: scale(.1);
+        }
+
+        100% {
+            top: 41%;
+            left: 35%;
+            transform: scale(1);
+        }
+    }
+
+    @keyframes starOpacity {
+        0% {
+            opacity: .3;
+        }
+
+        100% {
+            opacity: .9;
+        }
+    }
+
+    @keyframes fe {
+        0% {
+            right: -200px;
+            opacity: 0;
+        }
+
+        100% {
+            right: 0;
+            opacity: 1;
+        }
+    }
+
+    @keyframes cta {
+        0% {
+            opacity: 0;
+        }
+
+        75% {
+            opacity: 0;
+            bottom: -100px;
+        }
+
+        100% {
+            opacity: 1;
+            bottom: 1%;
+        }
+    }
+
+    @keyframes text11 {
+        0% {
+            opacity: 0;
+        }
+
+        70% {
+            opacity: 0;
+            transform: scale(0);
+        }
+
+        100% {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    @keyframes text111 {
+        0% {
+            opacity: 0;
+        }
+
+        65% {
+            opacity: 0;
+            top: 9%;
+        }
+
+        100% {
+            opacity: 1;
+            top: 10%;
+        }
+    }
+</style>
+
+<body>
+    <div class="main" id="main">
+
+        <img src="./newImg/slice.png" style="position: absolute;width: 100%;height: 100%;left: 0;top: 0;" alt="">
+        <a href="https://www.godrej.com/p/appliances/Fully-Automatic-Front-Load-Washing-Machines/Godrej-Eon-8-Kg-Fully-Automatic-Front-Load-Washing-Machine-keeps-you-clothes-looking-new-with-steam-wash-WFEON-CEL-8014-IEBT-SLSR"
+            target="_blank">
+            <img src="./newImg/godrejlogo.png"
+                style="position: absolute;top: 20px;left: 0;right: 0;margin: 0 auto;width: 200px;animation: logo 1s ease-out;z-index: 99;"
+                alt="">
+        </a>
+        <div class="firstScreen" id="firstScreen">
+
+            <div id="waterMoving"
+                style="position: absolute;left: 0;width: 70%;height: 250px;bottom: 100px;overflow: hidden;">
+                <img src="./newImg/pipe.png" style="position: absolute;top: 10px;left: -10%;height: 15px;width: 200px;"
+                    alt="">
+                <img id="waterinpipe" src="./newImg/waterinpipe1.png"
+                    style="display: none; position: absolute;top: 9px;left: -70%;height: 12px;" alt="">
+            </div>
+
+            <img src="./newImg/machin1.png"
+                style="position: absolute;bottom:90px;left: 0;right: 0;margin: 0 auto;width: 300px;" alt="">
+            <img src="./newImg/toplogo.png"
+                style="position: absolute;top: 75px;left: 0;right: 0;margin: 0 auto;width: 230px;animation: logo1 1.5s ease-out;"
+                alt="">
+
+            <div id="waterInMachineDiv"
+                style="display: none; border-radius: 50%; position: absolute;left: -11px;right: 0;margin: 0 auto;bottom: 226px;width: 110px;height: 110px;overflow: hidden;">
+
+                <div id="waterInMachine"
+                    style="position: absolute;left: 0px;right: 0;margin: 0 auto;bottom: 0px;width: 110px;height: 110px;overflow: hidden;">
+                    <img id="bottomAppear" src="./newImg/circle.png"
+                        style="position: absolute;width: 110px;bottom: 0;left: 0px;right: 0;margin: 0 auto;bottom: 0px;"
+                        alt="">
+                    <img id="durtyWater" src="./newImg/WATER.png"
+                        style="position: absolute;width: 190px;bottom: 0;left: -30px;right: 0;margin: 0 auto;bottom: 31px;"
+                        alt="">
+                    <img id="durtyClothBunch" src="./newImg/durtyClothBunch.png"
+                        style="display: none; position: absolute;right: 0px;left: 0;margin: 0 auto; bottom: 0px;width: 110px;animation: divAni .7s linear;"
+                        alt="">
+                </div>
+
+                <img src="./newImg/GLASS.png"
+                    style="position: absolute;width: 110px;bottom: 0;left: 0px;right: 0;margin: 0 auto;bottom: 0px;z-index: 99;"
+                    alt="">
+            </div>
+
+            <div id="screenOneText"
+                style="position: absolute;left: 0;right: 0;margin: 0 auto;width: 100%;height: 100%;">
+                <img src="./newImg/AI technology  that senses water  turbidity.png"
+                    style="position: absolute;top: 130px;left: 0;right: 0;margin: 0 auto;width: 250px;animation: text1 2s ease-out;"
+                    alt="">
+                <img id="experience" src="./newImg/experience.png"
+                    style="position: absolute;bottom: 10px;left: 0;right: 0;margin: 0 auto;width: 80%;animation: text2 2.5s ease-out;"
+                    alt="">
+            </div>
+
+            <div id="meterDiv"
+                style="display: none; position: absolute;left: 0;right: 0;margin: 0 auto;width: 200px;height: 140px;top: 140px;animation: divAni .5s linear;">
+                <img src="./newImg/meter.png"
+                    style="width: 200px; position: absolute;left: 0;right: 0;margin: 0 auto;bottom: 0;" alt="">
+                <img id="meterMumbai" src="./images/Meter STICK.png"
+                    style="position: absolute;bottom: 20px;left: 0;right: 0;margin: 0 auto;width: 20px;transform-origin: bottom;"
+                    alt="">
+            </div>
+
+        </div>
+        <div id="map" style="height: 500px;"></div>
+
+        <p id="location" style="opacity: 0;">Detecting location...</p>
+
+        <div id="locations"
+            style="display: none; position: absolute;left: 0;right: 0;margin: 0 auto;width: 100%;height: 100%;animation: divAni .7s linear;">
+            <img id="lc" class="lc" src="./images/Location detected_.png"
+                style="position: absolute;top: 120px;left: 0;right: 0;margin: 0 auto;width: 210px;" alt="">
+
+            <img id="mhShow" src="./images/Location 2.png"
+                style="display: none; position: absolute;top: 155px;left: 0;right: 0;margin: 0 auto;width: 180px;animation:location1 2s linear;"
+                alt="">
+            <img id="dhShow" src="./images/Location 1.png"
+                style="display: none; position: absolute;top: 155px;left: 0;right: 0;margin: 0 auto;width: 180px;animation:location1 2s linear;"
+                alt="">
+        </div>
+
+        <div id="secondClickDiv" style="position: absolute;width: 100%;height: 100%;left: 0;top: 0; display: none;">
+            <img id="washBtn" src="./newImg/wash.png"
+                style="position: absolute;left: 0;right: 0;margin: 0 auto;bottom: 10px;width: 250px;" alt="">
+        </div>
+
+        <div id="cleanCloths"
+            style="display: none; position: absolute;width: 100%;height: 100%;animation: clothsClean 1s ease-in-out;">
+            <img id="yellow" src="./newImg/ClothesClean/Yellow Clean.png"
+                style="display: none; position: absolute;top: 25%;left: 0;right: 0;margin: 0 auto;width: 240px;animation: yellowW .7s linear;"
+                alt="">
+            <img id="suit" src="./newImg/ClothesClean/Suit Clean.png"
+                style="display: none; position: absolute;top: 10%;right: 0;width: 130px;animation: suit 1s linear;"
+                alt="">
+            <img id="tshart" src="./newImg/ClothesClean/Tshirt Clean.png"
+                style="display: none; position: absolute;top: 11%;left: 0;width: 150px;animation: tShirt 1s linear;"
+                alt="">
+            <img id="girl" src="./newImg/ClothesClean/Girl Clean.png"
+                style="display: none; position: absolute;top: 46%;left: 20px;width: 170px;animation: girlTop .5s linear;"
+                alt="">
+            <img id="green" src="./newImg/ClothesClean/Green Clean.png"
+                style="display: none; position: absolute;top: 41%;left: 35%;right: 0;margin: 0 auto; width: 200px;animation: GreenN .4s linear;"
+                alt="">
+            <img id="white" src="./newImg/ClothesClean/White Clean.png"
+                style="display: none; position: absolute;bottom: 3%;right: 0;width: 180px;animation: WhiteW .7s linear;"
+                alt="">
+            <img id="blueE" src="./newImg/ClothesClean/Blue Clean.png"
+                style="display: none; position: absolute;bottom: 3%;left: 0;width: 180px;animation: BlueClean .9s linear;"
+                alt="">
+        </div>
+
+        <div id="stars" style="display: none; position: absolute;width: 100%;height: 100%;animation: divAni .5s ease;">
+            <img class="star" src="./newImg/Star.png"
+                style="mix-blend-mode: plus-lighter; position: absolute;right: 0;top: 20%;animation: star .8s ease-in-out alternate infinite;"
+                alt="">
+            <img class="star" src="./newImg/Star.png"
+                style="mix-blend-mode: plus-lighter; position: absolute;left: 0;top: 55%;animation: star .8s ease-in-out alternate infinite;"
+                alt="">
+        </div>
+
+        <div id="features" style="display: none; position: absolute;width: 100%;height: 100%;">
+            <img id="f1" src="./newImg/Feature 1.png"
+                style="position: absolute;left: 0;right: 0;margin: 0 auto;top: 20%;width: 80%;animation:fe .7s ease-in-out;"
+                alt="">
+            <img id="f2" src="./newImg/Feature 2.png"
+                style="display: none; position: absolute;left: 0;right: 0;margin: 0 auto;top: 20%;width: 80%;animation:fe .7s ease-in-out;"
+                alt="">
+            <img id="f3" src="./newImg/Feature 3.png"
+                style="display: none; position: absolute;left: 0;right: 0;margin: 0 auto;top: 20%;width: 80%;animation:fe .7s ease-in-out;"
+                alt="">
+            <img id="f4" src="./newImg/Feature 4.png"
+                style="display: none; position: absolute;left: 0;right: 0;margin: 0 auto;top: 20%;width: 80%;animation:fe .7s ease-in-out;"
+                alt="">
+        </div>
+
+        <div id="tapDiv" style="position: absolute;width: 100%;height: 100%;top: 0;"></div>
+
+        <div id="lastScreen"
+            style="display: none; position: absolute;width: 100%;height: 100%;top: 0;left: 0;animation: divAni 0.7s linear;">
+            <a href="https://www.godrej.com/p/appliances/Fully-Automatic-Front-Load-Washing-Machines/Godrej-Eon-8-Kg-Fully-Automatic-Front-Load-Washing-Machine-keeps-you-clothes-looking-new-with-steam-wash-WFEON-CEL-8014-IEBT-SLSR"
+                target="_blank">
+                <img src="./newImg/slice.png" style="position: absolute;width: 100%;height: 100%;left: 0;top: 0;"
+                    alt="">
+                <img src="./newImg/toplogo.png"
+                    style="position: absolute;top: 10%;left: 0;right: 0;margin: 0 auto;width: 220px;animation: text111 1.5s ease-out;"
+                    alt="">
+                <img src="./images/Elegance meets Efficiency.png"
+                    style="position: absolute;top: 17%;left: 0;right: 0;margin: 0 auto;width: 300px;animation: text11 2s ease-out;"
+                    alt="">
+                <img id="cta" src="./images/Learn more.png"
+                    style="position: absolute;left: 0;right: 0;margin: 0 auto;bottom: 1%;width: 200px;animation: cta 2.5s ease-out;"
+                    alt="">
+            </a>
+            <video id="myVid" src="https://beta.andbeyond.media/abm-direct/RichMedia/video/GodrejEon.mp4" controls muted
+                p style="position: absolute;width: 320px;top: 22%;left: 0;right: 0;margin: 0 auto;"></video>
+
+            <figure class="cube-parent-container" id="slider">
+
+                <div class="swiper cubeSwiper">
+                    <div class="swiper-wrapper">
+
+                        <div class="swiper-slide">
+                            <img src="./images/Banner 1.png"
+                                style="width: 240px;position: absolute;left: 0;right: 0;margin: 0 auto;" />
+                        </div>
+
+                        <div class="swiper-slide">
+                            <img src="./images/Banner 2.png"
+                                style="width: 240px;position: absolute;left: 0;right: 0;margin: 0 auto;" />
+                        </div>
+
+                        <div class="swiper-slide">
+                            <img src="./images/Banner 3.png"
+                                style="width: 240px;position: absolute;left: 0;right: 0;margin: 0 auto;" />
+                        </div>
+
+                        <div class="swiper-slide">
+                            <img src="./images/Banner 4.png"
+                                style="width: 240px;position: absolute;left: 0;right: 0;margin: 0 auto;" />
+                        </div>
+                    </div>
+                </div>
+                <div class="pagination-container" style="opacity: 0;">
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                </div>
+            </figure>
+
+        </div>
+
+        <img id="close"
+            src="https://cache-ssl.celtra.com/api/static/ve67ae1362e/runner/clazzes/CreativeUnit/close-up.svg"
+            alt="Close Button">
+    </div>
+    <!-- <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAPCSDHZi3bybp8y3Ban0EIwsiOKcXxh34&libraries=places"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const close = document.getElementById("close");
+            const main = document.getElementById("main");
+            const firstScreen = document.getElementById("firstScreen");
+
+            var mhShow = document.getElementById("mhShow");
+            var dhShow = document.getElementById("dhShow");
+
+            const tapDiv = document.getElementById("tapDiv");
+            const experience = document.getElementById("experience");
+            const screenOneText = document.getElementById("screenOneText");
+            const lc = document.getElementById("lc");
+
+            const waterinpipe = document.getElementById("waterinpipe");
+            const durtyWater = document.getElementById("durtyWater");
+
+            const bottomAppear = document.getElementById("bottomAppear");
+            const meterMumbai = document.getElementById("meterMumbai");
+            const meterDiv = document.getElementById("meterDiv");
+            const locations = document.getElementById("locations");
+            const secondClickDiv = document.getElementById("secondClickDiv");
+            const washBtn = document.getElementById("washBtn");
+
+            const durtyClothBunch = document.getElementById("durtyClothBunch");
+            const cleanCloths = document.getElementById("cleanCloths");
+
+            const yellow = document.getElementById("yellow");
+            const suit = document.getElementById("suit");
+            const tshart = document.getElementById("tshart");
+            const girl = document.getElementById("girl");
+            const green = document.getElementById("green");
+            const white = document.getElementById("white");
+            const blueE = document.getElementById("blueE");
+
+            const stars = document.getElementById('stars');
+            const lastScreen = document.getElementById('lastScreen');
+            const star = document.querySelectorAll(".star");
+
+            const f1 = document.getElementById('f1');
+            const f2 = document.getElementById('f2');
+            const f3 = document.getElementById('f3');
+            const f4 = document.getElementById('f4');
+
+            setTimeout(() => {
+                experience.style.animation = "pulse .6s ease alternate infinite";
+            }, 2501);
+
+
+            tapDiv.addEventListener("click", function () {
+                locationDetection();
+            })
+
+
+
+
+            const map = L.map('map').setView([20.5937, 78.9629], 5); // Set initial view to India
+
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(map);
+
+            function showNearbyShops(latitude, longitude) {
+                // You can use Overpass API to fetch nearby shops from OpenStreetMap
+                const overpassUrl = `https://overpass-api.de/api/interpreter?data=[out:json];node["shop"="electrical"](around:5000,${latitude},${longitude});out;`;
+
+                fetch(overpassUrl)
+                    .then(response => response.json())
+                    .then(data => {
+                        const shopsElement = document.getElementById('shops');
+                        shopsElement.innerHTML = '';
+
+                        data.elements.forEach(shop => {
+                            const shopItem = document.createElement('div');
+                            shopItem.textContent = shop.tags.name || 'Unnamed Shop';
+                            shopsElement.appendChild(shopItem);
+
+                            L.marker([shop.lat, shop.lon]).addTo(map)
+                                .bindPopup(shop.tags.name || 'Unnamed Shop')
+                                .openPopup();
+                        });
+                    })
+                    .catch(error => console.error(error));
+            }
+            function mumbaiLocation1() {
+                // Example coordinates for Mumbai
+                // map.style.display = "block";
+                const latitude = 19.0760;
+                const longitude = 72.8777;
+                map.setView([latitude, longitude], 13);
+                showNearbyShops(latitude, longitude);
+            }
+
+            function delhiLocation1() {
+                // Example coordinates for Delhi
+                const latitude = 28.7041;
+                const longitude = 77.1025;
+                map.setView([latitude, longitude], 13);
+                showNearbyShops(latitude, longitude);
+            }
+
+
+            mhShow.addEventListener('click', mumbaiLocation1);
+            dhShow.addEventListener('click', delhiLocation1);
+
+
+            function rotationSlide() {
+                var swiper = new Swiper(".cubeSwiper", {
+                    effect: "slide",
+                    grabCursor: true,
+                    speed: 1500,
+                    spaceBetween: 1,
+                    autoplay: false,
+                    slidesPerView: 1,
+                    loop: true,
+                    autoplay: {
+                        delay: 2000,
+                        disableOnInteraction: false
+                    },
+
+                    pagination: {
+                        el: ".swiper-pagination",
+                        clickable: true,
+                    },
+                    navigation: {
+                        nextEl: '.swiper-button-next',
+                        prevEl: '.swiper-button-prev',
+                    },
+                });
+            }
+
+            function mumbaiLocation() {
+                mhShow.style.display = "block";
+                locations.style.display = "block";
+                dhShow.style.display = "none";
+
+                setTimeout(() => {
+                    waterinpipeF();
+                }, 1000);
+            }
+
+            function delhiLocation() {
+                mhShow.style.display = "none";
+                dhShow.style.display = "block";
+                locations.style.display = "block";
+
+                setTimeout(() => {
+                    waterinpipeF();
+                }, 1000);
+            }
+
+
+            function waterinpipeF() {
+                tapDiv.style.display = "none";
+                setTimeout(() => {
+                    waterinpipe.style.display = "block";
+                    waterinpipe.style.animation = "waterMove 2s linear";
+                }, 2000);
+                setTimeout(() => {
+                    waterInMachine.style.animation = "waterBottom 1s linear"
+                }, 2500);
+                setTimeout(() => {
+                    waterInMachineDiv.style.display = "block";
+                    durtyWater.style.animation = "waterMoveLeftRight 1s 1.3s ease-in-out alternate infinite";
+                    bottomAppear.style.animation = "waterMoveLeftRight1 1s 1.3s ease-in-out alternate infinite";
+                }, 3200);
+                setTimeout(() => {
+                    meterDiv.style.display = "block";
+                    locations.style.opacity = 0;
+                    locations.style.transition = "all .5s linear";
+                }, 5000);
+                setTimeout(() => {
+                    meterMumbai.style.transform = "rotate(-78deg)";
+                    meterMumbai.style.transition = "all .7s linear";
+                    meterMumbai.style.bottom = 28 + "px";
+                    meterMumbai.style.left = 19 + "px"
+                }, 5500);
+
+                setTimeout(() => {
+                    secondClickDiv.style.display = "block";
+                    setTimeout(() => {
+                        washBtn.style.animation = "pulse 1s ease-in-out alternate infinite";
+                    }, 500);
+                }, 6000);
+
+            }
+
+            secondClickDiv.addEventListener("click", () => {
+                console.log("click on wash btn....");
+                durtyClothBunch.style.display = "block";
+                washBtn.style.opacity = 0;
+                washBtn.style.transition = "all .5s linear";
+                meterDiv.style.opacity = 0;
+                meterDiv.style.transition = "all .5s linear";
+
+                features.style.display = "block";
+                setTimeout(() => {
+                    f1.style.opacity = 0;
+                    f1.style.transition = "all .5s linear";
+                    f1.style.left = -200 + "px";
+
+                    f2.style.display = "block";
+                }, 2000);
+                setTimeout(() => {
+                    f2.style.opacity = 0;
+                    f2.style.transition = "all .5s linear";
+                    f2.style.left = -200 + "px";
+
+                    f3.style.display = "block";
+                }, 4000);
+                setTimeout(() => {
+                    f3.style.opacity = 0;
+                    f3.style.transition = "all .5s linear";
+                    f3.style.left = -200 + "px";
+
+                    f4.style.display = "block";
+                }, 6000);
+                setTimeout(() => {
+                    f4.style.opacity = 0;
+                    f4.style.transition = "all .5s linear";
+                    f4.style.left = -200 + "px";
+                }, 8000);
+
+                setTimeout(() => {
+                    durtyWater.style.opacity = 0;
+                    bottomAppear.style.opacity = 0;
+                    durtyClothBunch.style.animation = "rotate360 .15s linear infinite";
+                    durtyClothBunch.style.filter = "blur(5px)";
+                }, 701);
+                setTimeout(() => {
+                    durtyClothBunch.style.animationPlayState = "paused";
+                    durtyClothBunch.style.opacity = 0;
+                    durtyClothBunch.style.transition = "all .5s";
+                    cleanCloths.style.display = "block";
+                    setTimeout(() => {
+                        yellow.style.display = "block";
+                        blueE.style.display = "block";
+                    }, 100);
+                    setTimeout(() => {
+                        suit.style.display = "block";
+                        white.style.display = "block";
+                    }, 200);
+                    setTimeout(() => {
+                        girl.style.display = "block"
+                        tshart.style.display = "block";
+                    }, 300);
+                    setTimeout(() => {
+                        green.style.display = "block";
+                    }, 400);
+                    waterInMachineDiv.style.transition = "all .5s";
+                    waterInMachineDiv.style.opacity = 0;
+                }, 9500);
+                setTimeout(() => {
+                    stars.style.display = "block";
+
+
+
+                    setTimeout(() => {
+                        stars.style.animation = "pulse .75s ease-in-out alternate infinite";
+                        star.forEach((item) => {
+                            item.style.animation = "starOpacity .7s ease-in-out alternate infinite"
+                        })
+                    }, 700);
+                }, 11500);
+
+                setTimeout(() => {
+                    lastScreen.style.display = "block";
+                    stars.style.opacity = 0;
+                    stars.style.transition = "all .5s";
+                    cleanCloths.style.transition = "all .5s";
+                    cleanCloths.style.opacity = 0;
+
+
+                    setTimeout(() => {
+                        rotationSlide();
+                        myVid.muted = false;
+                        myVid.play();
+                        rotationSlide()
+                    }, 1500);
+
+                    setTimeout(() => {
+                        cta.style.animation = "pulse .7s ease alternate infinite";
+                    }, 2510);
+                }, 15500);
+            })
+
+            function locationDetection() {
+                console.log("start.....");
+                tapDiv.style.display = "none";
+                async function fetchLocationDetails(latitude, longitude) {
+                    const apiKey = '323f3d91e8884693b2648bd5bfb34a68';
+                    const url = `https://api.opencagedata.com/geocode/v1/json?q=${latitude}+${longitude}&key=${apiKey}`;
+
+                    try {
+                        const response = await fetch(url);
+                        const result = await response.json();
+                        console.log("result:", result);
+                        return result;
+                    } catch (error) {
+                        console.error(error);
+                        return null;
+                    }
+                }
+
+                function updateLocationDisplay(state) {
+                    const locationElement = document.getElementById('location');
+                    if (state && typeof state === 'string') {
+                        if (state.toLowerCase() === "maharashtra") {
+                            locationElement.textContent = "Your location is Maharashtra.";
+
+                            setTimeout(() => {
+                                mumbaiLocation()
+                                // showPlacesInMumbai.style.display = "block";
+                            }, 700);
+
+                        } else if (state.toLowerCase() === "delhi") {
+                            locationElement.textContent = "Your location is Delhi.";
+
+                            setTimeout(() => {
+                                delhiLocation()
+                                // showPlacesInDelhi.style.display = "block";
+                            }, 700);
+                        } else {
+                            locationElement.textContent = `Your location is ${state}.`;
+                        }
+                    } else {
+                        locationElement.textContent = "Unable to determine your state.";
+                    }
+                }
+
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(async (position) => {
+                        const latitude = position.coords.latitude;
+                        const longitude = position.coords.longitude;
+
+                        const locationData = await fetchLocationDetails(latitude, longitude);
+
+                        if (locationData && locationData.results.length > 0) {
+                            const components = locationData.results[0].components;
+                            const state = components.state;
+                            updateLocationDisplay(state);
+                        } else {
+                            document.getElementById('location').textContent = "Unable to determine your state.";
+                        }
+                    }, () => {
+                        document.getElementById('location').textContent = "Unable to retrieve your location.";
+                    });
+                } else {
+                    document.getElementById('location').textContent = "Geolocation is not supported by this browser.";
+                }
+
+                setTimeout(() => {
+                    screenOneText.style.opacity = 0;
+                    screenOneText.style.transition = "all .5s ease-in-out";
+                }, 500);
+            }
+
+
+
+
+            close.addEventListener("click", () => {
+                main.style.display = "none";
+                window.parent.document.body.style.overflow = "scroll";
+            });
+        });
+
+    </script>
+</body>
+
+</html>

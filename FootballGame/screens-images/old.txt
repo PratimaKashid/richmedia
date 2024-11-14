@@ -1,0 +1,780 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+
+    <title>Euro Kids</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            overflow: hidden;
+        }
+
+        .main-div {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+        }
+
+
+        @keyframes floatingMan {
+            0% {
+
+                left: -105px;
+            }
+
+            100% {
+                left: 55px;
+            }
+
+        }
+
+        .dashLine {
+            position: absolute;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+            bottom: 21%;
+            width: 3%;
+            transform-origin: bottom center;
+        }
+
+        .man {
+            animation: manStart .8s ease;
+        }
+
+        @keyframes manStart {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+
+        }
+
+        @keyframes person {
+            0% {
+                left: -50%;
+            }
+
+            100% {
+                left: 50%;
+            }
+        }
+
+        .nexd-close {
+            position: absolute;
+            box-sizing: border-box;
+            padding: 10px;
+            width: 45px;
+            height: 45px;
+            top: 0px;
+            right: 0px;
+        }
+
+        .nexd-close div {
+            color: rgb(255, 255, 255);
+            border: 2px solid rgb(255, 255, 255);
+            border-radius: 50%;
+            background: rgba(33, 33, 33, 0.5);
+            position: relative;
+            text-align: center;
+            width: 100%;
+            height: 100%;
+            box-sizing: border-box;
+            font-family: Arial;
+            font-size: 18px;
+            line-height: 23px;
+        }
+
+        .countdown {
+            font-size: 28px;
+            font-weight: bolder;
+            color: #fff;
+            position: absolute;
+            right: 28px;
+            top: -3px;
+            padding: 10px;
+            border-radius: 50%;
+            width: 35px;
+            height: 35px;
+            text-align: center;
+        }
+
+        .goal {
+            font-size: 38px;
+            font-weight: bolder;
+            color: #fff;
+            position: absolute;
+            left: 83px;
+            bottom: 57px;
+            padding: 10px;
+            border-radius: 50%;
+            width: 35px;
+            height: 35px;
+            text-align: center;
+            text-shadow: 7px 1px 0px #112faa;
+            font-family: "Poppins", sans-serif;
+
+        }
+
+        .colorgraph {
+            width: 0;
+            height: 23px;
+            position: absolute;
+            top: 23%;
+            left: 0;
+        }
+
+        .percentageRect {
+            position: absolute;
+            top: 13.5%;
+            left: 5px;
+            width: 38px;
+        }
+
+        .percentageRect1 {
+            position: absolute;
+            top: 13.5%;
+            left: 40px;
+            width: 38px;
+        }
+
+        .percentageRect2 {
+            position: absolute;
+            top: 13.5%;
+            left: 80px;
+            width: 38px;
+        }
+
+        .percentageRect3 {
+            position: absolute;
+            top: 13.5%;
+            left: 118px;
+            width: 38px;
+        }
+
+        .percentageRect4 {
+            position: absolute;
+            top: 13.5%;
+            left: 153px;
+            width: 38px;
+        }
+
+        .percentageRect5 {
+            position: absolute;
+            top: 13.5%;
+            left: 190px;
+            width: 38px;
+        }
+
+        /* animations */
+        @keyframes playNowBtn {
+            0% {
+                transform: scale(1);
+            }
+
+            20% {
+                transform: scale(.9);
+            }
+
+            50% {
+                transform: scale(1);
+            }
+
+            70% {
+                transform: scale(.9);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+
+        @keyframes LOGOA {
+            0% {
+                top: 5%;
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+                top: 10%;
+            }
+        }
+
+        @keyframes textOne {
+            0% {
+                opacity: 0;
+            }
+
+            50% {
+                transform: scale(0);
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes textTwo {
+            0% {
+                opacity: 0;
+                left: -100px;
+            }
+
+            100% {
+                opacity: 1;
+                left: 0;
+            }
+        }
+
+        @keyframes divAni {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes textThree {
+            0% {
+                opacity: 0;
+            }
+
+            45% {
+                opacity: 0;
+                right: -100px;
+            }
+
+            100% {
+                opacity: 1;
+                right: 0;
+            }
+        }
+
+        #player iframe {
+            width: 90%;
+            height: 210px;
+        }
+
+        #player {
+            height: 210px;
+        }
+
+        @keyframes cta {
+            0% {
+                transform: scale(0);
+                opacity: 0;
+            }
+
+            50% {
+                opacity: 0;
+                transform: scale(0);
+            }
+
+            100% {
+                transform: scale(1);
+                transform: scale(1);
+            }
+        }
+
+        .cta {
+            animation: cta 2s ease;
+        }
+
+        @keyframes ctaPulse {
+            0% {
+                transform: scale(1);
+            }
+
+            100% {
+                transform: scale(.9);
+            }
+        }
+
+        .screen1text3 {
+            animation: textThree 1.4s ease;
+        }
+    </style>
+
+<body>
+
+    <div class="main-div" id="main_div">
+
+        <div id="startDiv" style="width: 100%;height: 100%;position: absolute; overflow: hidden;">
+            <img src="./screens-images/bg1.png" style="position: absolute;width: 100%;height: 100%;object-fit: cover;"
+                alt="">
+            <img src="./screens-images/logo.png"
+                style="width: 30%; position: absolute;left: 0;right: 0;margin: 0 auto;top: 10%;animation: LOGOA 1s ease;"
+                alt="">
+            <img id="screen1text" src="./screens-images/tet1.png"
+                style="position: absolute;width: 80%; left: 0;right: 0;margin: 0 auto; top: 40%;animation: textOne 1.5s ease;"
+                alt="">
+            <img id="screen1text2" src="./screens-images/ready.png"
+                style="display: none; position: absolute;width: 80%; left: 0;right: 0;margin: 0 auto; top: 38%;animation: textTwo .7s ease;"
+                alt="">
+            <img id="screen1text3" class="screen1text3" src="./screens-images/letsgo.png"
+                style="display: none; position: absolute;width: 70%; left: 0;right: 0;margin: 0 auto; top: 60%;" alt="">
+        </div>
+
+        <div id="loadSecondImages"
+            style="width: 100%;height: 100%;position: absolute; overflow: hidden;display: none;animation: divAni .7s ease;">
+
+            <div class="container-inner-one" style=" position: absolute;width: 100%;height: 100%;">
+                <img src="./screens-images/GameScreens.png" style="position: absolute;width: 100%;height: 100%;" alt="">
+
+
+            </div>
+
+            <div class="container-ground" id="container-ground"
+                style="display: none;position: absolute; width: 100%; height: 100%;">
+
+                <img src="./screens-images/GameScreens.png" style="height: 100%;width: 100%;position: absolute;" alt="">
+
+                <img src="./screens-images/net.png"
+                    style="position: absolute;left: 0;right: 0;margin: 0 auto;width: 75%;top: 40%;" alt="">
+
+                <div style="position: absolute;left: 10px;width: 100px;height: 100px;top: 7%;">
+                    <img src="./screens-images/sec.png" style="position: absolute;right: 10px;top:0; width: 70px;"
+                        alt="">
+                    <div id="countdown" class="countdown"></div>
+                </div>
+
+                <!-- <div style="position: absolute;right: 10px;width: 100px;height: 100px;top: 7%;">
+                    <img src="./screens-images/goal.png" style="position: absolute;right: 10px;top:0; width: 70px;"
+                        alt="">
+                   
+                </div> -->
+
+
+                <img class="man" id="Man" src="./screens-images/keeeper.png"
+                    style="top: 45%;width: 100px; position: absolute;left: 0;right: 0;margin: 0 auto;animation: person 3s linear alternate infinite;"
+                    alt="">
+
+                <img class="dashLine" id="dashLine" src="./screens-images/arrow.png" alt="">
+
+                <img class="Football_img" id="Football_img" src="./screens-images/football.png" alt=""
+                    style="position: absolute;bottom: 15%;left: 0;right: 0;margin: 0 auto;width: 100px;">
+                <img id="dragTxt" src="./screens-images/drag.png"
+                    style="position: absolute;width: 80%;left: 0;right: 0;margin: 0 auto;bottom: 4%;" alt="">
+
+                <div style="position: absolute;top: 18.8%;left: 0;width: 220px;height: 23px;opacity: 0;">
+                    <img id="zeroTxt" class="percentageRect" src="./screens-images/0.png" alt="">
+                    <img id="twoTxt" class="percentageRect1" src="./screens-images/20.png" alt=""
+                        style="display: none;">
+                    <img id="fourTxt" class="percentageRect2" src="./screens-images/40.png" alt=""
+                        style="display: none;">
+                    <img id="sixTxt" class="percentageRect3" src="./screens-images/60.png" alt=""
+                        style="display: none;">
+                    <img id="eigntTxt" class="percentageRect4" src="./screens-images/80.png" alt=""
+                        style="display: none;">
+                    <img id="tenTxt" class="percentageRect5" src="./screens-images/100.png" alt=""
+                        style="display: none;">
+                </div>
+
+            </div>
+        </div>
+
+        <!-- after game end -->
+        <div id="afterCompletion" style="position: absolute;width: 100%;height: 100%;display: none;">
+            <div style="position: absolute;width: 100%;height: 100%;opacity: .9;background-color: #000;"></div>
+            <div id="finishFull"
+                style="position: absolute;width: 340px;height: 350px;left: 0;right: 0;margin: auto;top: 0;bottom: 0;">
+                <img src="./screens-images/conrats.png"
+                    style="position: absolute;width: 100%;left: 0;right: 0;margin: auto;top: 0;bottom: 0;" alt="">
+                <div id="goal" class="goal"></div>
+            </div>
+        </div>
+
+        <!-- final screen -->
+        <div id="lastScreen" style="position: absolute;width: 100%;height: 100%;display: none;">
+            <a href="https://www.uefa.com/euro2024/" target="_blank">
+                <img src="./screens-images/lastscreen.png"
+                    style="position: absolute;width: 100%;height: 100%;object-fit: cover;" alt="">
+                <img src="./screens-images/logo.png"
+                    style="width: 23%; position: absolute;left: 0;right: 0;margin: 0 auto;top: 1%;" salt="">
+
+                <div
+                    style="position: absolute;top: 51%;display: flex;justify-content: center;align-items: center;width: 100%; animation: divAni 1s ease;">
+                    <img src="./screens-images/a.png" style="width: 65px;height: 78px;" alt="">
+                    <img src="./screens-images/b.png" style="width: 65px;height: 78px;" alt="">
+                    <img src="./screens-images/c.png" style="width: 65px;height: 78px;" alt="">
+                    <img src="./screens-images/d.png" style="width: 65px;height: 78px;" alt="">
+                    <img src="./screens-images/e.png" style="width: 65px;height: 78px;" alt="">
+                </div>
+
+                <img id="cta" class="cta" src="./screens-images/watchnow.png"
+                    style="position: absolute;left: 0;right: 0;margin: 0 auto;top: 64%;width: 160px;" alt="">
+            </a>
+            <video id="player1" class="vframe" src="./screens-images/videoplayback.mp4" autoplay muted controls
+                style="position: absolute;top: 19%;width: 90%;height: 210px; left: 0;right: 0;margin: 0 auto;">
+            </video>
+
+        </div>
+
+        <!-- close btn -->
+        <div class="nexd-close" id="nexdClose">
+            <div
+                style="color: rgb(255, 255, 255); border: 2px solid rgb(255, 255, 255); border-radius: 50%; background: rgba(33, 33, 33, 0.5); position: relative; text-align: center; width: 100%; height: 100%; box-sizing: border-box; font-family: Arial; font-size: 18px; line-height: 23px;">
+                ×
+            </div>
+        </div>
+
+    </div>
+
+
+    <script>
+
+        let main_div = document.getElementById("main_div");
+        let Man = document.getElementById("Man");
+        let dashLine = document.getElementById("dashLine");
+        const Football_img = document.getElementById('Football_img');
+        const nexdClose = document.getElementById("nexdClose");
+        const container = document.querySelector(".container")
+        const container_inner = document.querySelector(".container-inner-one")
+        const container_ground = document.getElementById("container-ground")
+        let dragTxt = document.getElementById("dragTxt");
+        let player1 = document.getElementById("player1");
+
+        var screen1text = document.getElementById("screen1text")
+        var screen1text2 = document.getElementById("screen1text2")
+        var screen1text3 = document.getElementById("screen1text3")
+        var startDiv = document.getElementById("startDiv")
+        var ctaPulse = document.getElementById("ctaPulse")
+        var goal = document.getElementById("goal")
+
+        setTimeout(() => {
+            screen1text.style.opacity = 0;
+
+            screen1text.style.opacity = "all .7s";
+            screen1text2.style.display = "block";
+            screen1text3.style.display = "block";
+            setTimeout(() => {
+                screen1text3.style.animation = "ctaPulse .7s ease alternate infinite";
+            }, 200);
+
+
+        }, 4500);
+
+        nexdClose.addEventListener("click", () => {
+            main_div.style.display = "none";
+            player1.muted = true;
+            player1.pause();
+        })
+
+        screen1text3.addEventListener("click", function () {
+            setTimeout(() => {
+                startDiv.style.opacity = "0"
+                startDiv.style.transition = "all .7s"
+                loadSecondImages.style.display = "block";
+
+                playGame();
+
+                setTimeout(() => {
+                    Man.style.animation = "floatingMan 3.5s ease-in-out infinite alternate";
+                }, 2000);
+            }, 200);
+        })
+
+
+        function playGame() {
+            container_ground.style.display = "block"
+            container_inner.style.display = "none";
+            setTimeout(() => {
+                dragTxt.style.opacity = 0;
+                dragTxt.style.transition = "all .5s"
+            }, 3000);
+
+            countDown()
+
+            callback()
+        }
+
+        function countDown() {
+            var countdownElement = document.getElementById("countdown");
+            for (var i = 10; i >= 1; i--) {
+                (function (count) {
+                    setTimeout(function () {
+                        countdownElement.textContent = count;
+                    }, (10 - count) * 1000);
+                })(i);
+            }
+
+            // final two screens block
+            setTimeout(() => {
+                lastTwoScreens()
+            }, 10000);
+        }
+
+        function lastTwoScreens() {
+            afterCompletion.style.display = "block"
+            setTimeout(() => {
+                lastScreen.style.display = "block";
+                player1.muted = false;
+                player1.play();
+                setTimeout(() => {
+                    cta.style.animation = "ctaPulse .7s ease alternate infinite";
+                }, 2100);
+            }, 3500);
+        }
+
+
+        let counter = 0;
+        let touchstartX = 0
+        let touchendX = 0
+        const newPosition = counter + (counter * 5);
+
+        let touchCounter = 0;
+        
+
+        function callback() {
+            dashLine.style.display = "block";
+
+            Football_img.addEventListener('touchstart', e => {
+
+                touchstartX = e.changedTouches[0].screenX;
+                // touchCounter++;
+                // console.log("touchCounter:", touchCounter);
+                e.preventDefault();
+                const touchTarget = document.elementFromPoint(e.touches[0].clientX, e.touches[0].clientY);
+                if (Football_img === touchTarget) {
+                    touchCounter++; // Increment touch counter
+                    goal.textContent = `Football dragged: ${touchCounter} times`;
+                    console.log("touchCounter :", touchCounter);
+                }
+
+                goal.textContent = `${touchCounter - 1}`;
+            });
+
+            Football_img.addEventListener('touchmove', e => {
+
+                touchendX = e.changedTouches[0].screenX;
+                // console.log(touchendX);
+                if (touchendX < touchstartX) {
+                    if (counter > 0 && counter <= 30) {
+                        dashLine.style.transform = `rotate(${counter}deg)`;
+                        dashLine.style.transition = "all .5s"
+
+                        rightMove();
+                        setTimeout(() => {
+                            dashLine.style.opacity = "0"
+                        }, 500);
+                        setTimeout(() => {
+                            dashLine.style.transform = `rotate(0deg)`;
+                            dashLine.style.opacity = "1"
+                        }, 2400);
+                    }
+                    counter++;
+                }
+
+                if (touchendX > touchstartX) {
+                    if (counter < 0 && counter >= -30) {
+                        dashLine.style.transform = `rotate(${counter}deg)`;
+                        dashLine.style.transition = "all .5s"
+                        // console.log("touchstartX", touchstartX);
+                        leftMove();
+                        setTimeout(() => {
+                            dashLine.style.opacity = "0"
+                        }, 500);
+                        setTimeout(() => {
+                            dashLine.style.transform = `rotate(0deg)`;
+                            dashLine.style.opacity = "1"
+                        }, 2400);
+
+                    }
+                    counter--;
+                }
+
+                if (touchendX == touchstartX) {
+                    if (counter == 0 && counter == 0) {
+                        dashLine.style.transform = `rotate(${counter}deg)`;
+                        dashLine.style.transition = "all .5s"
+
+                        centerMove();
+                        setTimeout(() => {
+                            dashLine.style.opacity = "0"
+                        }, 500);
+                        setTimeout(() => {
+                            dashLine.style.transform = `rotate(0deg)`;
+                            dashLine.style.opacity = "1"
+                        }, 2400);
+                    }
+                }
+
+            });
+        }
+
+        function rightMove() {
+            const newPosition = counter + (counter * 5);
+
+            Football_img.style.transition = "all 1s";
+            Football_img.style.bottom = "45%";
+            detectBottomChange();
+            Football_img.style.transform = "scale(0.3)";
+            Football_img.style.left = `${newPosition}px`;
+            setTimeout(() => {
+                Football_img.style.opacity = 0;
+                Football_img.style.display = "none";
+            }, 999);
+            setTimeout(() => {
+                // Football_img.style.transition = "all 1s";
+                Football_img.style.bottom = "15%";
+                Football_img.style.transform = "scale(1)";
+                Football_img.style.left = 0;
+                Football_img.style.right = 0;
+                Football_img.style.margin = "0 auto";
+                Football_img.style.opacity = 1;
+                Football_img.style.display = "block";
+            }, 1500);
+        }
+
+        function leftMove() {
+            const newPosition = counter - (counter * 5);
+
+            Football_img.style.transition = "all 1s";
+            Football_img.style.bottom = "45%";
+            detectBottomChange();
+            Football_img.style.transform = "scale(0.3)";
+            Football_img.style.right = `${newPosition}px`;
+            setTimeout(() => {
+                Football_img.style.opacity = 0;
+                Football_img.style.display = "none";
+            }, 999);
+            setTimeout(() => {
+                // Football_img.style.transition = "all 1s";
+                Football_img.style.bottom = "15%";
+                Football_img.style.transform = "scale(1)";
+                Football_img.style.left = 0;
+                Football_img.style.right = 0;
+                Football_img.style.margin = "0 auto";
+                Football_img.style.opacity = 1;
+                Football_img.style.display = "block";
+            }, 1500);
+        }
+
+        function centerMove() {
+            Football_img.style.transition = "all 1s";
+            Football_img.style.bottom = "60%";
+            detectBottomChange();
+            Football_img.style.transform = "scale(0.3)";
+            setTimeout(() => {
+                Football_img.style.opacity = 0;
+                Football_img.style.display = "none";
+            }, 999);
+            setTimeout(() => {
+                // Football_img.style.transition = "all 1s";
+                Football_img.style.bottom = "15%";
+                Football_img.style.transform = "scale(1)";
+                Football_img.style.left = 0;
+                Football_img.style.right = 0;
+                Football_img.style.margin = "0 auto";
+                Football_img.style.opacity = 1;
+                Football_img.style.display = "block";
+            }, 1500);
+
+        }
+
+        let bottomChangeCounter = 0;
+        let throwAttempts = 0;
+        const maxAttempts = 3;
+
+        function detectBottomChange() {
+            if (throwAttempts < maxAttempts) {
+                if (Football_img.style.bottom === "45%" || Football_img.style.bottom === "60%") {
+                    bottomChangeCounter++;
+                    throwAttempts++; // Increment attempts on valid throw
+
+
+                    // console.log("bottomChangeCounter", bottomChangeCounter);
+
+                    switch (bottomChangeCounter) {
+                        case 1:
+                            displayElement("twoTxt");
+                            bottomChangeCounter = 1;
+                            // console.log("maxAttempts", maxAttempts);
+                            break;
+                        case 2:
+                            displayElement("fourTxt");
+                            bottomChangeCounter = 2;
+                            // console.log("maxAttempts", maxAttempts);
+                            break;
+                        case 3:
+                            displayElement("sixTxt");
+                            bottomChangeCounter = 3;
+                            // console.log("maxAttempts", maxAttempts);
+                            break;
+                        case 4:
+                            displayElement("eightTxt");
+                            bottomChangeCounter = 4;
+                            break;
+                        case 5:
+                            displayElement("tenTxt");
+                            bottomChangeCounter = 5;
+                            break;
+                        default:
+                            resetElements();
+                            bottomChangeCounter = 0;
+                            break;
+                    }
+                } else {
+                    bottomChangeCounter = 0;
+                }
+            }
+        }
+
+        // Function to display element and hide others
+        function displayElement(elementId) {
+            const elements = ["twoTxt", "fourTxt", "sixTxt", "eightTxt", "tenTxt", "zeroTxt"];
+            elements.forEach(id => {
+                const element = document.getElementById(id);
+                if (element) {
+                    if (id === elementId) {
+                        element.style.display = "block";
+                    } else {
+                        element.style.display = "none";
+                    }
+                }
+            });
+        }
+
+        // Function to reset all elements to hidden
+        function resetElements() {
+            const elements = ["twoTxt", "fourTxt", "sixTxt", "eightTxt", "tenTxt", "zeroTxt"];
+            elements.forEach(id => {
+                const element = document.getElementById(id);
+                element.style.display = "none";
+            });
+        }
+
+
+
+    </script>
+
+</body>
+
+</html>

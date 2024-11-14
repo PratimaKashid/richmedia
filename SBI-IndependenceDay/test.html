@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+    <title>SBI</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        overflow: hidden;
+    }
+
+    .main {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+    }
+
+    .firstScreen,
+    .aapl_inner {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        position: absolute;
+
+    }
+
+    #close {
+        position: absolute;
+        right: 1px;
+        top: 1px;
+        width: 30px;
+        z-index: 99999;
+        cursor: pointer;
+    }
+
+    @keyframes logo {
+        0% {
+            opacity: 0;
+            left: -50px;
+            transform: skew(30deg);
+            /* transform: skew(-0.06turn, 18deg); */
+        }
+
+        50% {
+            transform: skew(-30deg);
+        }
+
+        100% {
+            opacity: 1;
+            left: 10px;
+            transform: skew(0);
+        }
+    }
+
+    @keyframes Celebrating {
+        0% {
+            opacity: 0;
+        }
+
+        60% {
+            opacity: 0;
+            top: 30%;
+        }
+
+        100% {
+            top: 0;
+            opacity: 1;
+        }
+    }
+
+    @keyframes DivMoveAni {
+        0% {
+            opacity: 0;
+            top: 90%;
+        }
+
+        100% {
+            top: 0;
+            opacity: 1;
+        }
+    }
+
+    @keyframes updown {
+        0% {
+            transform: translateY(0);
+        }
+
+        100% {
+            transform: translateY(5px);
+        }
+    }
+
+    @keyframes ActivateMic {
+        0% {
+            opacity: 0;
+        }
+
+        85% {
+            opacity: 0;
+            bottom: -3%;
+        }
+
+        100% {
+            opacity: 1;
+            bottom: 1%;
+        }
+    }
+
+    .divAni {
+        animation: DivMoveAni 1.5s;
+    }
+
+    @keyframes tap {
+        0% {
+            opacity: 0;
+        }
+
+        85% {
+            opacity: 0;
+            transform: scale(0);
+        }
+
+        100% {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    @keyframes hand {
+        0% {
+            opacity: 0;
+        }
+
+        80% {
+            opacity: 0;
+            /* transform: scale(0); */
+        }
+
+        100% {
+            opacity: 1;
+        }
+
+    }
+
+    @keyframes pulse {
+        0% {
+            /* opacity: 0; */
+            transform: scale(1);
+        }
+
+        100% {
+            /* opacity: 1; */
+            transform: scale(.95);
+        }
+    }
+
+    @keyframes offer {
+        0% {
+            width: 200px;
+            top: 0;
+        }
+
+        100% {
+            width: 100%;
+            top: 15%;
+        }
+    }
+
+    .tap {
+        animation: tap 2s linear;
+    }
+</style>
+
+<body>
+    <div class="main" id="main">
+        <div class="firstScreen" id="firstScreen">
+            <img src="./newImages/BG.png" style="position: absolute;width: 100%;height: 100%;" alt="Background">
+
+            <div id="bigBalloon"
+                style="position: absolute;top: 0; width: 100%;height: 100%;animation: Celebrating 2.5s linear;">
+                <img src="./newImages/Celebrating.png"
+                    style="position: absolute;top: 11%;width: 60%;left: 0;right: 0;margin: 0 auto;z-index: 99;"
+                    alt="Celebrating">
+                <img id="start-btn" src="./newImages/Balloon.png"
+                    style="position: absolute;bottom: 13%;width: 65%;left: 0;right: 0;margin: 0 auto;"
+                    alt="Start Button">
+            </div>
+
+            <div id="featuresMain" style="display: none; position: absolute;width: 100%;height: 100%;top: 0;">
+                <img src="./newImages/Clouds.png"
+                    style="width: 100%; position: absolute;left: 0;right: 0;margin: 0 auto;bottom: 0%;" alt="">
+
+                <div id="featureOneDiv" class="divAni"
+                    style="display: none; position: absolute;width: 100%;height: 100%;top: 0;">
+                    <img id="offerOne" src="./newImages/Offer1.png"
+                        style="position: absolute;width: 200px;left: 0;top: -30%;bottom: 0;right: 0;margin: auto;"
+                        alt="">
+                    <img id="balloon1" src="./newImages/Balloon_1.png"
+                        style="position: absolute;width: 230px;left: 0;top: 0;bottom: 0;right: 0;margin: auto;" alt="">
+                    <img src="./newImages/hand.png"
+                        style="width: 10%; position: absolute;left: 0;right: 0;margin: auto;top: 0;bottom: 0;animation: hand 2.5s linear;"
+                        alt="">
+                </div>
+
+                <div id="fullFeature" style="display: none; position: absolute;width: 100%;height: 100%;top: 0;">
+                    <img id="backButton" src="./newImages/Back.png"
+                        style="position: absolute;left: 0;bottom: 20%;width: 70px;z-index: 99;" alt="">
+
+                    <img id="cta" src="./newImages/cta.png"
+                        style="width: 38%; position: absolute;left: 0;right: 0;margin: 0 auto;bottom: 5%;animation: tap 2s linear;"
+                        alt="">
+                </div>
+
+                <div id="featureTwoDiv" class="divAni"
+                    style="display: none; position: absolute;width: 100%;height: 100%;top: 0;">
+                    <img id="offerTwo" src="./newImages/Offer2.png"
+                        style="position: absolute;width: 200px;left: 0;top: -30%;bottom: 0;right: 0;margin: auto;" alt="">
+                    <img id="balloon2" src="./newImages/Balloon_2.png"
+                        style="position: absolute;width: 230px;left: 0;top: 0;bottom: 0;right: 0;margin: auto;" alt="">
+                    <img src="./newImages/hand.png"
+                        style="width: 10%; position: absolute;left: 0;right: 0;margin: auto;top: 0;bottom: 0;animation: hand 2.5s linear;"
+                        alt="">
+                </div>
+
+                <div id="featureThreeDiv" class="divAni"
+                    style="display: none; position: absolute;width: 100%;height: 100%;top: 0;">
+                    <img id="offerThree" src="./newImages/Offer3.png"
+                        style="position: absolute;width: 200px;left: 0;top: -30%;bottom: 0;right: 0;margin: auto;" alt="">
+                    <img id="balloon3" src="./newImages/Balloon_3.png"
+                        style="position: absolute;width: 230px;left: 0;top: 0;bottom: 0;right: 0;margin: auto;" alt="">
+                    <img src="./newImages/hand.png"
+                        style="width: 10%; position: absolute;left: 0;right: 0;margin: auto;top: 0;bottom: 0;animation: hand 2.5s linear;"
+                        alt="">
+                </div>
+
+                <img id="tap" class="tap" src="./newImages/TapText.png"
+                    style="width: 80%; position: absolute;left: 0;right: 0;margin: 0 auto;bottom: 5%;" alt="">
+            </div>
+
+            <img src="./newImages/Birds.png" style="position: absolute;left: 10px;bottom: 35%;width: 16%;" alt="">
+            <img src="./newImages/Birds.png" style="position: absolute;right: 10px;top: 20%;width: 16%;" alt="">
+
+            <img src="./newImages/LOGO.png"
+                style="position: absolute;left: 10px;top: 10px;width: 180px;animation: logo 1s ease-in-out;" alt="Logo">
+
+            <img id="activateMic" src="./newImages/ActivateText.png"
+                style="position: absolute;width: 49%;bottom: 1%;left: 0;right: 0;margin: 0 auto;animation: ActivateMic 3s ease;"
+                alt="">
+
+            <img id="close"
+                src="https://cache-ssl.celtra.com/api/static/ve67ae1362e/runner/clazzes/CreativeUnit/close-up.svg"
+                alt="Close Button">
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const close = document.getElementById("close");
+            const main = document.getElementById("main");
+            const startBtn = document.getElementById('start-btn');
+            const bigBalloon = document.getElementById('bigBalloon');
+            const activateMic = document.getElementById('activateMic');
+
+            const featuresMain = document.getElementById('featuresMain');
+            const featureOneDiv = document.getElementById('featureOneDiv');
+            const featureTwoDiv = document.getElementById('featureTwoDiv');
+            const featureThreeDiv = document.getElementById('featureThreeDiv');
+
+            const fullFeature = document.getElementById('fullFeature');
+            const tap = document.getElementById('tap');
+
+            const balloon1 = document.getElementById('balloon1');
+            const balloon2 = document.getElementById('balloon2');
+            const balloon3 = document.getElementById('balloon3');
+
+            const backButton = document.getElementById('backButton');
+            const offerOne = document.getElementById('offerOne');
+            const offerTwo = document.getElementById('offerTwo');
+            const offerThree = document.getElementById('offerThree');
+
+            let timeoutIds = [];
+            function clearRotationTimeouts() {
+                timeoutIds.forEach(timeoutId => clearTimeout(timeoutId));
+                timeoutIds = [];
+            }
+
+            backButton.addEventListener("click", function () {
+                featuresMain.style.display = "none";
+                featureOneDiv.style.display = "none";
+                featureTwoDiv.style.display = "none";
+                featureThreeDiv.style.display = "none";
+                console.log("click on back button");
+
+                setTimeout(() => {
+                    
+                    rotation()
+                }, 1000);
+
+                fullFeature.style.display = "none"
+                // featureOneDiv.style.display = "none"
+                tap.style.opacity = 1;
+                tap.style.display = "block";
+
+                offerOne.style.width = 200 + "px";
+                offerOne.style.top = -30 + "%";
+                balloon1.style.display ="block";
+
+                offerTwo.style.width = 200 + "px";
+                offerTwo.style.top = -30 + "%";
+                balloon2.style.display ="block";
+                setTimeout(() => {
+                    featuresMain.style.display ="block"
+                }, 500);
+            })
+
+            close.addEventListener("click", () => {
+                main.style.display = "none";
+            });
+            setTimeout(() => {
+                startBtn.style.animation = "updown .9s linear alternate infinite";
+            }, 2501);
+
+            // startBtn.addEventListener("click", function () {
+            //     afterSpeechDetection()
+            // })
+
+            featureOneDiv.addEventListener("click", function () {
+                console.log("click on first");
+                featureOneDiv.style.animation = ""
+                $("#balloon1").hide('explode', { pieces: 150 }, 1000);
+                tap.style.opacity = 0;
+                tap.style.transition = "all .5s";
+                fullFeature.style.display = "block"
+
+                setTimeout(() => {
+                    tap.style.display = "none";
+
+                    offerOne.style.width = 100 + "%";
+                    offerOne.style.top = 15 + "%";
+                    offerOne.style.transition = "all .7s linear";
+                }, 501);
+
+                clearRotationTimeouts();
+            })
+
+            featureTwoDiv.addEventListener("click", function () {
+                featureOneDiv.style.display ="none"
+                console.log("click on 2");
+                featureOneDiv.style.animation = ""
+                $("#balloon2").hide('explode', { pieces: 150 }, 1000);
+                tap.style.opacity = 0;
+                tap.style.transition = "all .5s";
+                fullFeature.style.display = "block"
+
+                setTimeout(() => {
+                    tap.style.display = "none";
+
+                    offerTwo.style.width = 100 + "%";
+                    offerTwo.style.top = 15 + "%";
+                    offerTwo.style.transition = "all .7s linear";
+                }, 501);
+
+                clearRotationTimeouts();
+            })
+
+            featureThreeDiv.addEventListener("click", function () {
+                console.log("click on 3");
+                tap.style.opacity = 0;
+                tap.style.transition = "all .5s";
+                setTimeout(() => {
+                    tap.style.display = "none";
+                }, 501);
+            })
+
+            function rotation() {
+                featuresMain.style.display = "block";
+
+                setTimeout(() => {
+                    tap.style.animation = "pulse .7s ease alternate infinite";
+                }, 2010);
+
+                featureOneDiv.style.display = "block";
+                featureOneDiv.style.top = 0;
+                timeoutIds.push(setTimeout(() => {
+                    featureOneDiv.style.top = -85 + "%";
+                    featureOneDiv.style.transition = "all 1s linear";
+                }, 3000));
+                timeoutIds.push(setTimeout(() => {
+                    featureTwoDiv.style.display = "block";
+                    featureTwoDiv.style.top = 0;
+                    featureOneDiv.style.display = "none";
+                }, 4000));
+                timeoutIds.push(setTimeout(() => {
+                    featureTwoDiv.style.top = -85 + "%";
+                    featureTwoDiv.style.transition = "all 1s linear";
+                }, 7000));
+                timeoutIds.push(setTimeout(() => {
+                    featureThreeDiv.style.display = "block";
+                    featureThreeDiv.style.top = 0;
+                    featureTwoDiv.style.display = "none";
+                }, 8000));
+                timeoutIds.push(setTimeout(() => {
+                    featureThreeDiv.style.top = -85 + "%";
+                    featureThreeDiv.style.transition = "all 1s linear";
+                }, 11000));
+                timeoutIds.push(setTimeout(() => {
+                    featureThreeDiv.style.display = "none";
+                    rotation();
+                }, 12000));
+
+            }
+            function afterSpeechDetection() {
+                // alert("Success! 'Jai Hind' detected.");
+                console.log("Function executed after detecting 'Jai Hind'");
+                bigBalloon.style.top = -95 + "%";
+                bigBalloon.style.transition = "all 1.5s linear";
+                setTimeout(() => {
+                    activateMic.style.opacity = 0;
+                    activateMic.style.transition = "all .5s linear";
+                    rotation()
+                }, 1000);
+                setTimeout(() => {
+                    bigBalloon.style.display = "none";
+                }, 1501);
+
+            }
+
+            function speechDetection() {
+                const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+                if (!SpeechRecognition) {
+                    alert("Your browser does not support Speech Recognition.");
+                    return;
+                }
+
+                const recognition = new SpeechRecognition();
+
+                recognition.continuous = true;
+                recognition.interimResults = true;
+                recognition.lang = 'en-US';
+
+                recognition.onresult = (event) => {
+                    let interimTranscript = '';
+                    let finalTranscript = '';
+
+                    for (let i = 0; i < event.results.length; i++) {
+                        const transcript = event.results[i][0].transcript.toLowerCase();
+                        if (event.results[i].isFinal) {
+                            finalTranscript += transcript;
+                        } else {
+                            interimTranscript += transcript;
+                        }
+
+                        if (transcript.includes('jai hind') || transcript.includes('jay hind')) {
+                            console.log("Detected 'Jai Hind' or 'Jay Hind'");
+                            afterSpeechDetection();
+                        }
+                    }
+
+                    console.log(`Interim: ${interimTranscript}`);
+                    console.log(`Final: ${finalTranscript}`);
+                };
+
+                recognition.onerror = (event) => {
+                    console.error("Speech recognition error detected: " + event.error);
+                };
+
+                startBtn.addEventListener('click', () => {
+                    recognition.start();
+                    console.log("Listening for speech...");
+
+                    // Stop recognition after 2 seconds
+                    setTimeout(() => {
+                        recognition.stop();
+                        console.log("Stopped listening after 2 seconds");
+                    }, 6000);
+                });
+            }
+
+            speechDetection();
+        });
+    </script>
+</body>
+
+</html>

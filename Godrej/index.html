@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+
+    <title>Godrej</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        overflow: hidden;
+    }
+
+    .main {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+    }
+
+    .firstScreen,
+    .aapl_inner {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        position: absolute;
+
+    }
+
+    #close {
+        position: absolute;
+        right: 1px;
+        top: 1px;
+        width: 30px;
+        z-index: 99999;
+        cursor: pointer;
+    }
+
+
+
+    @keyframes moveDiv {
+        0% {
+            top: -1500px;
+        }
+
+        100% {
+            top: 0;
+        }
+    }
+
+    @keyframes moveDiv1 {
+        0% {
+            top: -300px;
+        }
+
+        100% {
+            top: 0;
+        }
+    }
+
+    .dragAbleImg,
+    .heartImg {
+        top: 0px;
+        position: absolute;
+        width: 135px;
+        left: 45px;
+        cursor: grab;
+    }
+    .heartImg{
+        top: 0px;
+        position: absolute;
+        width: 105px;
+        left: 60px;
+        cursor: grab;
+    }
+
+    #BagImages {
+        top: 0px;
+        position: absolute;
+        width: 100px;
+        left: 75px;
+        cursor: grab;
+    }
+
+    .dragAbleImg:active,
+    .heartImg:active {
+        cursor: grabbing;
+    }
+
+    #dropDiv {
+        position: absolute;
+        width: 140px;
+        height: 400px;
+        right: 20px;
+        /* background-color: lightgray;
+            border: 2px dashed #000; */
+        top: 0;
+        bottom: 0;
+        margin: auto;
+    }
+
+
+
+
+
+    @keyframes ac {
+        0% {
+            opacity: 0;
+        }
+
+        80% {
+            opacity: 0;
+            top: 19%;
+        }
+
+        100% {
+            opacity: 1;
+            top: 23%;
+        }
+    }
+
+    @keyframes ref {
+        0% {
+            opacity: 0;
+        }
+
+        90% {
+            opacity: 0;
+            top: 34%;
+        }
+
+        100% {
+            opacity: 1;
+            top: 38%;
+        }
+    }
+
+
+    @keyframes text4 {
+        0% {
+            opacity: 0;
+        }
+
+        30% {
+            opacity: 0;
+            transform: scale(0);
+        }
+
+        100% {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    @keyframes text3 {
+        0% {
+            opacity: 0;
+        }
+
+        65% {
+            opacity: 0;
+            transform: scale(0);
+        }
+
+        100% {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    @keyframes pulse {
+        0% {
+            transform: scale(1);
+        }
+
+        100% {
+            transform: scale(.95);
+        }
+    }
+
+    @keyframes divAni {
+        0% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+    #timer {
+        /* text-align: center; */
+        top: 0px;
+        font-size: 24px;
+        position: absolute;
+        right: 16px;
+        font-weight: bolder;
+        color: #fff;
+    }
+
+    .timer {
+        /* text-align: center; */
+        top: 0px;
+        font-size: 24px;
+        position: absolute;
+        right: 16px;
+        font-weight: bolder;
+        color: #fff;
+    }
+
+    #count {
+        top: 55px;
+        font-size: 35px;
+        position: absolute;
+        right: 50px;
+        font-weight: bolder;
+        color: black;
+        left: 35px;
+    }
+
+    #countF {
+        top: 111px;
+        font-size: 35px;
+        position: absolute;
+        right: 50px;
+        font-weight: bolder;
+        color: black;
+        left: 42px;
+    }
+
+    @keyframes vid {
+        0% {
+            opacity: 0;
+        }
+
+        90% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+
+    .popUp {
+        background-color: rgba(0, 0, 0, .8);
+        animation: divAni .5s linear;
+    }
+
+    .cube-parent-container {
+        width: 100%;
+        height: 200px;
+        /* max-width: 600px; */
+        margin: 0;
+        /* margin-top: 270px; */
+        position: absolute;
+        bottom: 90px;
+    }
+
+    .cubeSwiper .swiper-slide {
+        aspect-ratio: 1/1;
+    }
+
+    .cubeSwiper .swiper-slide img {
+        width: 100%;
+        /* height: 480px; */
+        object-fit: cover;
+    }
+
+    .cubeSwiper .pagination-container {
+        padding-top: 25px;
+        width: 320px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 100px 1fr;
+        grid-template-rows: 1fr;
+        grid-column-gap: 0px;
+        grid-row-gap: 0px;
+        position: absolute;
+        z-index: 999;
+        top: 250px;
+        transform: scale(0.8);
+    }
+
+    .pagination-container {
+        position: relative;
+        top: -25px;
+    }
+
+
+    .cubeSwiper .cube-pagination-fraction {
+        color: rgba(255, 0, 255, 0.8);
+        font-size: 18px;
+        font-weight: 700;
+        margin-top: 15px;
+        text-align: center;
+        position: relative;
+    }
+
+    .swiper-button-next,
+    .swiper-button-prev {
+        color: #fff;
+        width: calc(var(--swiper-navigation-size)/ 44 * 6);
+        font-size: 12px;
+        font-weight: bolder;
+    }
+
+    .swiper-button-next:after,
+    .swiper-button-prev:after {
+        font-size: 12px;
+        font-weight: bolder;
+        /* background-color: rgba(237, 237, 237, 0.6); */
+        padding: 7px 9px;
+        border-radius: 20px;
+
+    }
+
+    .swiper-button-prev {
+        left: var(--swiper-navigation-sides-offset, 19px);
+        position: absolute;
+        top: -110px;
+    }
+
+    .swiper-button-next {
+        right: var(--swiper-navigation-sides-offset, 20px);
+        position: absolute;
+        top: -110px;
+    }
+
+    .swiper-pagination-bullets.swiper-pagination-horizontal {
+        bottom: var(--swiper-pagination-bottom, -10px);
+    }
+
+    .swiper {
+        width: 320px;
+        position: relative;
+        /* top: 120px; */
+        z-index: 999;
+        height: 200px;
+    }
+
+    .swiper-pagination-bullet {
+        width: 12px;
+        height: 12px;
+    }
+
+    @keyframes fly {
+        0% {
+            transform: translate(0, 0) rotate(0deg);
+        }
+
+        50% {
+            transform: translate(-400px, -100px);
+        }
+
+        51% {
+            transform: translate(500px, 300) rotate(-180deg);
+        }
+
+        52% {
+            transform: translate(-500px, -300px);
+
+        }
+
+        100% {
+            transform: translate(0px, 600px)rotate(-180deg);
+        }
+    }
+
+    /* @keyframes fly {
+        0%{
+        right: 20px;
+        top: 90px;
+        transform: rotate(0deg);
+    }
+    28%{
+            transform: rotate(0deg);
+
+        }
+        29%{
+            transform: rotate(-180deg);
+        }
+        30%{
+            right: 390px;
+            top: 250px;
+            transform: rotate(-180deg);
+        }
+        70%{
+            top: 0;
+        }
+        100%{
+            top: 300px;
+            right: 50px;
+        }
+       
+
+     }  */
+    @keyframes dropAnimation {
+        0% {
+            transform: scale(1);
+        }
+
+        50% {
+            transform: scale(1.1);
+        }
+
+        100% {
+            transform: scale(1);
+        }
+    }
+
+    .drop-animate {
+        animation: dropAnimation 0.5s ease-in-out;
+    }
+</style>
+
+<body>
+    <div class="main" id="main">
+        <div class="firstScreen" id="firstScreen">
+            <img src="./images/screen1/bg.gif" style="position: absolute;width: 100%;height: 100%;object-fit: cover;"
+                alt="Background">
+
+            <img id="playBtn" src="./images/screen1/letsplay.png"
+                style="position: absolute;right: 30px;bottom: 16%; width: 160px;animation: text4 1.2s ease;" alt="">
+
+            <img src="./images/screen1/output-onlinegiftools.gif"
+                style="position: absolute;width: 90px;animation: fly 10s linear infinite;right: 20px;top: 90px;" alt="">
+        </div>
+
+        <!-- main game div start -->
+        <div id="screen2" style="position: absolute;width: 100%;height: 100%;display: none;">
+            <div id="screen22" style="position: absolute;width: 100%;height: 100%;">
+                <img src="./images/screen2/bg.png" style="position: absolute;width: 100%;height: 100%;"
+                    alt="Background">
+                <img id="belt" src="./images/screen2/belt.png"
+                    style="position: absolute;top: -450px;left: 0;width: 250px;animation: moveDiv1 17s linear infinite;"
+                    alt="">
+
+                <div id="allImag"
+                    style="position: absolute;width: 230px;height: 1500px;animation: moveDiv 12s linear infinite;">
+                    <div id="cleaningImg">
+                        <img id="dragAbleImg1" class="dragAbleImg" src="./images/screen2/ac1.png" draggable="true"
+                            style="top:0px;">
+                        <img id="dragAbleImg2" class="dragAbleImg" src="./images/screen2/ac2.png" draggable="true"
+                            style="top: 710px;">
+                        <img id="dragAbleImg3" class="dragAbleImg" src="./images/screen2/ac3.png" draggable="true"
+                            style="top:990px;">
+                    </div>
+
+                    <div id="heartImg">
+                        <img id="heartImg1" class="heartImg" src="./images/screen2/ref1.png" draggable="true"
+                            style="top: 250px;">
+                        <img id="heartImg2" class="heartImg" src="./images/screen2/ref2.png" draggable="true"
+                            style="top: 1070px;">
+                    </div>
+
+                    <div id="BagImages" style="position: absolute;">
+                        <img id="heartImg11" class="heartImg01" src="./images/screen2/bag1.png" draggable="true"
+                            style="top: 75px;position: absolute;width: 80px;">
+                        <img id="heartImg22" class="heartImg01" src="./images/screen2/bag2.png" draggable="true"
+                            style="top: 575px;position: absolute;width: 80px;">
+                        <img id="heartImg23" class="heartImg01" src="./images/screen2/bag3.png" draggable="true"
+                            style="top: 805px;position: absolute;width: 80px;">
+                        <img id="heartImg24" class="heartImg01" src="./images/screen2/bag4.png" draggable="true"
+                            style="top: 1380px;position: absolute;width: 80px;">
+                    </div>
+                </div>
+
+                <div id="dropDiv">
+                    <img id="trolly" src="./images/screen2/drag.png"
+                        style="position: absolute;right: 0;width: 140px;z-index: 9;top: 0;bottom: 0;margin: auto;"
+                        alt="">
+                </div>
+
+                <div style="position: absolute;width: 100px;height: 100px;right: 20px;top: 50px;">
+                    <img src="./images/screen2/timer.png" style="position: absolute;right: 0;width: 50px;" alt="">
+                    <p id="timer10" class="timer">10</p>
+                    <p id="timer9" style="display: none;" class="timer">9</p>
+                    <p id="timer8" style="display: none;" class="timer">8</p>
+                    <p id="timer7" style="display: none;" class="timer">7</p>
+                    <p id="timer6" style="display: none;" class="timer">6</p>
+                    <p id="timer5" style="display: none;" class="timer">5</p>
+                    <p id="timer4" style="display: none;" class="timer">4</p>
+                    <p id="timer3" style="display: none;" class="timer">3</p>
+                    <p id="timer2" style="display: none;" class="timer">2</p>
+                    <p id="timer1" style="display: none;" class="timer">1</p>
+                    <p id="timer0" style="display: none;" class="timer">0</p>
+                </div>
+            </div>
+        </div>
+        <!-- main game div start -->
+
+        <div id="popup" class="popUp" style="display: none; position: absolute;width: 100%;height: 100%; ">
+            <div style=" position: absolute;width: 100%;height: 100%; background: rgba(33, 33, 33, 0.5);"></div>
+            <div style="position: absolute;width: 300px;height: 210px; top: 0;bottom: 0;left: 0;right: 0;margin: auto;">
+                <img src="./images/screen2/popup.png" style="position: absolute;width: 300px;" alt="">
+                <p id="count">0</p>
+                <p id="countF">0</p>
+
+            </div>
+        </div>
+        <div id="tapDiv" style="position: absolute;width: 100%;height: 100%;"></div>
+
+
+        <!-- final screen -->
+        <div id="lastScreen"
+            style="display: none; position: absolute;width: 100%;height: 100%;animation: divAni .7s linear;">
+            <a href="https://www.godrej.com/appliances/eonvogue" target="_blank" style="z-index: 9999;">
+            <img src="./images/lastpage/bg.png" style="position: absolute;width: 100%;height: 100%;" alt="">
+
+                <img src="./images/lastpage/touchwood.png"
+                    style="position: absolute;width: 280px;bottom: 40px;left: 0;right: 0;margin: 0 auto;animation: text4 1.2s ease;"
+                    alt="">
+                <img id="cta" src="./images/lastpage/knowmore.png"
+                    style="position: absolute;width: 160px;bottom: 5px;left: 0;right: 0;margin: 0 auto;animation: text3 1.6s ease;"
+                    alt="">
+
+            </a>
+
+            <video id="myVid" src="https://beta.andbeyond.media/abm-direct/RichMedia/video/videoplayback.mp4" controls
+            autoplay muted
+            style="z-index: 99; position: absolute;width: 90%;height: 200px;left: 0;right: 0;margin: 0 auto;top: 27%;animation: vid 1.5s linear;"></video>
+
+            <figure class="cube-parent-container">
+                <!-- Swiper -->
+                <div class="swiper cubeSwiper">
+                    <div class="swiper-wrapper">
+                        <!-- begin slides -->
+
+                        <div class="swiper-slide">
+                            <img alt="Hail Barkus!" src="./images/lastpage/Cr1.png"
+                                style="width: 210px;margin-left: 67px;margin-top: 30px;" />
+                        </div>
+
+                        <div class="swiper-slide">
+                            <img alt="Hail Barkus!" src="./images/lastpage/cr4.png"
+                                style="width: 85px;margin-left: 120px" />
+                        </div>
+
+                        <div class="swiper-slide">
+                            <img alt="Hail Barkus!" src="./images/lastpage/cr2.png"
+                                style="width: 210px;margin-left: 67px;margin-top: 30px;" />
+                        </div>
+
+                        <div class="swiper-slide">
+                            <img alt="Hail Barkus!" src="./images/lastpage/cr5.png"
+                                style="width: 90px;margin-left: 120px;" />
+                        </div>
+
+                        <div class="swiper-slide">
+                            <img alt="Hail Barkus!" src="./images/lastpage/cr3.png"
+                                style="width: 210px;margin-left: 67px;margin-top: 30px;" />
+                        </div>
+
+
+
+                        <!-- end slides -->
+                    </div>
+                </div>
+                <div class="pagination-container">
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                    <!-- <div class="swiper-pagination"></div> -->
+                </div>
+            </figure>
+           
+
+
+          
+        </div>
+
+        <img id="close"
+            src="https://cache-ssl.celtra.com/api/static/ve67ae1362e/runner/clazzes/CreativeUnit/close-up.svg"
+            alt="Close Button">
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const close = document.getElementById("close");
+            const main = document.getElementById("main");
+            const playBtn = document.getElementById("playBtn");
+            const tapDiv = document.getElementById("tapDiv");
+            const firstScreen = document.getElementById("firstScreen");
+            const screen2 = document.getElementById("screen2");
+            const myVid = document.getElementById('myVid');
+            const belt = document.getElementById('belt');
+            const allImag = document.getElementById('allImag');
+
+            const ac1 = document.getElementById('ac1');
+            const ac2 = document.getElementById('ac2');
+            const ac3 = document.getElementById('ac3');
+            const ac4 = document.getElementById('ac4');
+            const ac5 = document.getElementById('ac5');
+            const popup = document.getElementById('popup');
+
+            const timer10 = document.getElementById('timer10');
+            const timer9 = document.getElementById('timer9');
+            const timer8 = document.getElementById('timer8');
+            const timer7 = document.getElementById('timer7');
+            const timer6 = document.getElementById('timer6');
+            const timer5 = document.getElementById('timer5');
+            const timer4 = document.getElementById('timer4');
+            const timer3 = document.getElementById('timer3');
+            const timer2 = document.getElementById('timer2');
+            const timer1 = document.getElementById('timer1');
+            const timer0 = document.getElementById('timer0');
+            const cta = document.getElementById('cta');
+            const trolly = document.getElementById('trolly');
+
+            const lastScreen = document.getElementById('lastScreen');
+
+            function startTimer() {
+                setTimeout(() => {
+                    timer10.style.display = "none";
+                    timer9.style.display = "block";
+                }, 1000);
+                setTimeout(() => {
+                    timer9.style.display = "none";
+                    timer8.style.display = "block";
+                }, 2000);
+                setTimeout(() => {
+                    timer8.style.display = "none";
+                    timer7.style.display = "block";
+                }, 3000);
+                setTimeout(() => {
+                    timer7.style.display = "none";
+                    timer6.style.display = "block";
+                }, 4000);
+                setTimeout(() => {
+                    timer6.style.display = "none";
+                    timer5.style.display = "block";
+                }, 5000);
+                setTimeout(() => {
+                    timer5.style.display = "none";
+                    timer4.style.display = "block";
+                }, 6000);
+                setTimeout(() => {
+                    timer4.style.display = "none";
+                    timer3.style.display = "block";
+                }, 7000);
+                setTimeout(() => {
+                    timer3.style.display = "none";
+                    timer2.style.display = "block";
+                }, 8000);
+                setTimeout(() => {
+                    timer2.style.display = "none";
+                    timer1.style.display = "block";
+                }, 9000);
+                setTimeout(() => {
+                    timer1.style.display = "none";
+                    timer0.style.display = "block";
+                }, 10000);
+            }
+
+            function rotateOne() {
+                var swiper = new Swiper(".cubeSwiper", {
+
+                    effect: "slide",
+                    grabCursor: true,
+                    speed: 2000,
+                    spaceBetween: 10,
+                    // autoplay: false,
+                    loop: true,
+                    autoplay: {
+                        delay: 3000,
+                        disableOnInteraction: false
+                    },
+
+                    // prev next buttons
+                    pagination: {
+                        el: ".swiper-pagination",
+                        clickable: true,
+                    },
+                    navigation: {
+                        nextEl: '.swiper-button-next',
+                        prevEl: '.swiper-button-prev',
+                    },
+                });
+            }
+            function rotation() {
+                ac5.style.display = "none"
+                setTimeout(() => {
+                    ac1.style.opacity = 0;
+                    ac1.style.transition = "all .6s";
+                    ac2.style.display = "block"
+                    ac2.style.opacity = 1;
+                }, 2500);
+                setTimeout(() => {
+                    ac2.style.opacity = 0;
+                    ac2.style.transition = "all .6s";
+                    ac3.style.display = "block"
+                    ac3.style.opacity = 1;
+                }, 5000);
+                setTimeout(() => {
+                    ac3.style.opacity = 0;
+                    ac3.style.transition = "all .6s";
+                    ac4.style.display = "block"
+                    ac4.style.opacity = 1;
+                }, 7500);
+                setTimeout(() => {
+                    ac4.style.opacity = 0;
+                    ac4.style.transition = "all .6s";
+                    ac5.style.display = "block"
+                    ac5.style.opacity = 1;
+
+                    ac1.style.display = "none"
+                    ac2.style.display = "none"
+                    ac3.style.display = "none"
+                    ac4.style.display = "none"
+
+                }, 10000);
+                setTimeout(() => {
+                    ac5.style.opacity = 0;
+                    ac5.style.transition = "all .6s";
+                    ac1.style.display = "block"
+                    ac1.style.opacity = 1;
+                    rotation();
+                }, 12500);
+            }
+
+            var timerElement = document.getElementById("timer");
+            var countElement = document.getElementById("count");
+            var countElementF = document.getElementById("countF");
+            var timer;
+            var timeLeft = 10;
+            var droppedCount = 0;
+            var droppedCountF = 0;
+
+            setTimeout(() => {
+                playBtn.style.animation = "pulse .7s ease alternate infinite";
+            }, 1300);
+            tapDiv.addEventListener("click", function () {
+                playGame()
+            })
+            function playGame() {
+                console.log("start Game..");
+                tapDiv.style.display = "none";
+                firstScreen.style.opacity = 0;
+                firstScreen.style.transition = "all .7s linear";
+                screen2.style.display = "block";
+
+                setTimeout(() => {
+                    //AC
+                    document.querySelectorAll('.dragAbleImg').forEach(function (img) {
+
+                        startTimer()
+
+                        img.addEventListener('touchstart', function (event) {
+                            event.preventDefault();
+                            const touch = event.touches[0];
+                            const offsetX = touch.clientX - img.offsetLeft;
+                            const offsetY = touch.clientY - img.offsetTop;
+
+                            const moveAt = (touchEvent) => {
+                                const currentX = touchEvent.touches[0].clientX - offsetX;
+                                const currentY = touchEvent.touches[0].clientY - offsetY;
+                                img.style.left = currentX + 'px';
+                                img.style.top = currentY + 'px';
+                            };
+
+                            const endDrag = (touchEvent) => {
+                                document.removeEventListener('touchmove', moveAt);
+                                document.removeEventListener('touchend', endDrag);
+
+                                const dropDiv = document.getElementById('dropDiv');
+                                const dropDivRect = dropDiv.getBoundingClientRect();
+                                const imgRect = img.getBoundingClientRect();
+
+                                if (imgRect.right > dropDivRect.left && imgRect.left < dropDivRect.right &&
+                                    imgRect.bottom > dropDivRect.top && imgRect.top < dropDivRect.bottom) {
+                                    // img.style.display = 'none'; // Hide the image if it is dropped in dropDiv
+                                    img.style.opacity = 0; // Hide the image if it is dropped in dropDiv
+                                    // img.style.transition = "all .4s linear" // Hide the image if it is dropped in dropDiv
+                                    droppedCount++;
+                                    countElement.textContent = droppedCount;
+                                    console.log("counter :", droppedCount);
+
+                                    dropDiv.classList.add('drop-animate');
+                                    dropDiv.addEventListener('animationend', () => {
+                                        dropDiv.classList.remove('drop-animate');
+                                    }, { once: true });
+
+                                }
+                            };
+
+                            document.addEventListener('touchmove', moveAt);
+                            document.addEventListener('touchend', endDrag);
+                        });
+                    });
+
+                    //freez
+                    document.querySelectorAll('.heartImg').forEach(function (img) {
+                        img.addEventListener('touchstart', function (event) {
+                            event.preventDefault();
+                            const touch = event.touches[0];
+                            const offsetX = touch.clientX - img.offsetLeft;
+                            const offsetY = touch.clientY - img.offsetTop;
+
+                            const moveAt = (touchEvent) => {
+                                const currentX = touchEvent.touches[0].clientX - offsetX;
+                                const currentY = touchEvent.touches[0].clientY - offsetY;
+                                img.style.left = currentX + 'px';
+                                img.style.top = currentY + 'px';
+                            };
+
+                            const endDrag = (touchEvent) => {
+                                document.removeEventListener('touchmove', moveAt);
+                                document.removeEventListener('touchend', endDrag);
+
+                                const dropDiv = document.getElementById('dropDiv');
+                                const dropDivRect = dropDiv.getBoundingClientRect();
+                                const imgRect = img.getBoundingClientRect();
+
+                                if (imgRect.right > dropDivRect.left && imgRect.left < dropDivRect.right &&
+                                    imgRect.bottom > dropDivRect.top && imgRect.top < dropDivRect.bottom) {
+                                    // img.style.display = 'none'; // Hide the image if it is dropped in dropDiv
+                                    img.style.opacity = 0; // Hide the image if it is dropped in dropDiv
+                                    // img.style.transition = "all .4s linear"
+                                    img.style.animation = "pause"
+
+                                    droppedCountF++;
+                                    countElementF.textContent = droppedCountF;
+                                    console.log("counter :", droppedCountF);
+
+                                    dropDiv.classList.add('drop-animate');
+                                    dropDiv.addEventListener('animationend', () => {
+                                        dropDiv.classList.remove('drop-animate');
+                                    }, { once: true });
+                                }
+                            };
+
+                            document.addEventListener('touchmove', moveAt);
+                            document.addEventListener('touchend', endDrag);
+                        });
+                    });
+                }, 700);
+
+                setTimeout(() => {
+
+                    belt.style.animation = "pause";
+
+                    allImag.style.animation = "pause";
+
+                    dropDiv.style.opacity = 0;
+                    dropDiv.style.transition = "all .7s linear";
+
+                    popup.style.display = "block";
+
+                    setTimeout(() => {
+                        popup.style.opacity = 0;
+                        popup.style.transition = "all .7s linear";
+                        lastScreen.style.display = "block";
+
+                        setTimeout(() => {
+                            cta.style.animation = "pulse .7s ease alternate infinite";
+                        }, 1700);
+
+                    }, 2500);
+
+                    setTimeout(() => {
+                        rotateOne()
+                    }, 3000);
+
+                    setTimeout(() => {
+                        myVid.muted = false;
+                    }, 3300);
+
+                }, 10900);
+
+            }
+
+
+
+            close.addEventListener("click", () => {
+                main.style.display = "none";
+                myVid.muted = true;
+                myVid.pause;
+            });
+        })
+    </script>
+</body>
+
+</html>

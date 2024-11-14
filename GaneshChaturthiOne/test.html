@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        overflow: hidden;
+        font-family: "Poppins", sans-serif;
+    }
+
+    .main {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        overflow: hidden;
+    }
+
+    @keyframes boxMove {
+        0% {
+            left: 5%;
+        }
+
+        100% {
+            left: 60%;
+        }
+    }
+
+    @keyframes moveTopToBottomProduct {
+        0% {
+            bottom: 85%;
+            width: 120px;
+        }
+
+        100% {
+            bottom: 15%;
+            width: 50px;
+        }
+    }
+</style>
+
+<body>
+    <div class="main" id="main">
+        <div id="box"
+            style="position: absolute;width: 145px;height: 110px;left: 10%;bottom: 10%;animation: boxMove 1.5s ease-in-out alternate infinite;">
+            <img id="top" src="./images/Box/top.png"
+                style="position: absolute;left: 0;right: 0;margin: 0 auto;top: 0;width: 120px;" alt="">
+            <img id="bottom" src="./images/Box/bottom.png"
+                style="position: absolute;left: 0;right: 0;margin: 0 auto;top: 17px;width: 140px;" alt="">
+        </div>
+        <div id="product"
+            style="position: absolute;width: 100%;height: 100%;left: 0;right: 0;margin: auto;bottom: 0;top: 0;">
+            <img id="feta" src="./images/Clothes/feta.png"
+                style="display: none; width: 50px; position: absolute;left: 0;right: 0;margin: 0 auto;bottom: 15%;animation: moveTopToBottomProduct 1.5s ease-out;"
+                alt="">
+
+            <img id="material" src="./images/Clothes/material.png"
+                style="display: none; width: 50px; position: absolute;left: 0;right: 0;margin: 0 auto;bottom: 15%;animation: moveTopToBottomProduct 1.5s ease-out;"
+                alt="">
+
+            <img id="kids" src="./images/Clothes/kids.png"
+                style="display: none; width: 50px; position: absolute;left: 0;right: 0;margin: 0 auto;bottom: 15%;animation: moveTopToBottomProduct 1.5s ease-out;"
+                alt="">
+
+            <img id="sari" src="./images/Clothes/sari.png"
+                style="display: none; width:50px; position: absolute;left: 0;right: 0;margin: 0 auto;bottom: 15%;animation: moveTopToBottomProduct 1.5s ease-out;"
+                alt="">
+        </div>
+
+        <div id="tapDiv" style="position: absolute;width: 100%;height: 100%;"></div>
+    </div>
+</body>
+<script>
+    const box = document.getElementById("box")
+    const tapDiv = document.getElementById("tapDiv")
+
+    const feta = document.getElementById("feta")
+    const material = document.getElementById("material")
+    const kids = document.getElementById("kids")
+    const sari = document.getElementById("sari")
+
+    // function isColliding(box, feta) {
+    //         const boxRect = box.getBoundingClientRect();
+    //         const fetaRect = feta.getBoundingClientRect();
+
+    //         return !(boxRect.right < fetaRect.left ||
+    //                  boxRect.left > fetaRect.right ||
+    //                  boxRect.bottom < fetaRect.top ||
+    //                  boxRect.top > fetaRect.bottom);
+    //     }
+
+    //     function checkCollision() {
+    //         if (isColliding(box, feta)) {
+    //             feta.style.display = "block";
+    //         } else {
+    //             feta.style.display = "none";
+    //         }
+    //         requestAnimationFrame(checkCollision);
+    //     }
+    function checkCollision(e){
+        const rect = e.clientX
+        console.log("rect :", rect);
+    }
+
+        tapDiv.addEventListener("click", () => {
+            console.log("click.....");
+            feta.style.display = "block";
+            checkCollision();
+        });
+
+
+</script>
+
+</html>

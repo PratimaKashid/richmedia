@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Increment Kick</title>
+    <style>
+        .textFontFamily {
+            position: absolute;
+            left: 50px;
+            top: 160px;
+            font-size: 25px;
+            font-weight: bold;
+            color: #000000;
+        }
+    </style>
+</head>
+<body>
+    <div id="kick" class="textFontFamily">0</div>
+
+    <script>
+        function incrementKick() {
+            // Get the element
+            var kickElement = document.getElementById('kick');
+
+            // Get the current value, parse it as an integer
+            var currentValue = parseInt(kickElement.textContent);
+
+            // Increment the value by 3
+            var newValue = currentValue + 1;
+
+            // Update the element's text content
+            kickElement.textContent = newValue;
+        }
+
+        // Set the interval to call incrementKick every 2 seconds (2000 milliseconds)
+        setInterval(incrementKick, 2000);
+    </script>
+</body>
+</html>

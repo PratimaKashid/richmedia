@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+    <title>Godrej Wasning Machine</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        overflow: hidden;
+    }
+
+    .main {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+    }
+
+    .firstScreen,
+    .aapl_inner {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        position: absolute;
+
+    }
+
+    #close {
+        position: absolute;
+        right: 1px;
+        top: 1px;
+        width: 30px;
+        z-index: 99999;
+        cursor: pointer;
+    }
+
+    @keyframes ActivateMic {
+        0% {
+            opacity: 0;
+        }
+
+        80% {
+            opacity: 0;
+            transform: scale(0);
+        }
+
+        100% {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    @keyframes taptext {
+        0% {
+            opacity: 0;
+        }
+
+        90% {
+            opacity: 0;
+            transform: scale(0);
+        }
+
+        100% {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    @keyframes pulse {
+        0% {
+            transform: scale(1);
+        }
+
+        100% {
+            transform: scale(.95);
+        }
+    }
+
+    @keyframes logo {
+        0% {
+            opacity: 0;
+            top: -200px;
+        }
+
+        100% {
+            top: 20px;
+            opacity: 1;
+        }
+    }
+
+    @keyframes t1 {
+        0% {
+            opacity: 0;
+        }
+
+        70% {
+            opacity: 0;
+            top: 9%;
+        }
+
+        100% {
+            top: 13%;
+            opacity: 1;
+        }
+    }
+
+    @keyframes machine1 {
+        0% {
+            opacity: 0;
+        }
+
+        70% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+    @keyframes s1 {
+        0% {
+            opacity: 0;
+        }
+
+        80% {
+            opacity: 0;
+            left: 200px;
+        }
+
+        100% {
+            opacity: 1;
+            left: 0;
+        }
+    }
+
+    @keyframes saytext {
+        0% {
+            opacity: 0;
+        }
+
+        70% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+    @keyframes divAni {
+        0% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+    @keyframes durstyCloth {
+        0% {
+            transform: translate(0, 0);
+            width: 180px;
+        }
+
+        50% {
+            width: 270px;
+        }
+
+        100% {
+            transform: translate(-120px, -230px);
+            width: 50px;
+        }
+    }
+
+    @keyframes aaa {
+        0% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+    @keyframes rotate360 {
+        0% {
+            transform: rotate(0);
+        }
+
+        100% {
+            transform: rotate(360deg);
+
+        }
+    }
+
+
+    @keyframes newLooking {
+        0% {
+            top: 10%;
+        }
+
+        100% {
+            top: 13%;
+
+        }
+    }
+
+    @keyframes star {
+        0% {
+            transform: scale(1);
+        }
+
+        100% {
+            transform: scale(1.05);
+        }
+    }
+
+    @keyframes ls {
+        0% {
+            left: 100%;
+            opacity: 0;
+        }
+
+        100% {
+            left: 0;
+            opacity: 1;
+        }
+    }
+
+    @keyframes name {
+        0% {
+            opacity: 0;
+        }
+
+        70% {
+            opacity: 0;
+            transform: scale(0);
+        }
+
+        100% {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    @keyframes LSP {
+        0% {
+            opacity: 0;
+        }
+
+        70% {
+            opacity: 0;
+            right: -200px;
+        }
+
+        100% {
+            opacity: 1;
+            right: 30px;
+        }
+    }
+
+    @keyframes machine11 {
+        0% {
+            opacity: 0;
+        }
+
+        75% {
+            opacity: 0;
+            right: -150px;
+        }
+
+        100% {
+            opacity: 1;
+            right: 20px;
+        }
+    }
+
+    @keyframes machine111 {
+        0% {
+            opacity: 0;
+        }
+
+        75% {
+            opacity: 0;
+            left: -150px;
+        }
+
+        100% {
+            opacity: 1;
+            left: 20px;
+        }
+    }
+
+    @keyframes person {
+        0% {
+            opacity: 0;
+        }
+
+        75% {
+            opacity: 0;
+            bottom: -100px;
+        }
+
+        100% {
+            opacity: 1;
+            bottom: 5px;
+        }
+    }
+
+    @keyframes clothsClean {
+        0% {
+            /* transform: translate(0, 0) */
+            top: 53%;
+            transform: scale(0);
+            opacity: 0;
+        }
+
+        100% {
+            /* transform: translate(20px, 30px); */
+            top: 25%;
+            transform: scale(1);
+            opacity: 1;
+        }
+    }
+
+    @keyframes suit {
+        0% {
+            opacity: 0;
+            transform: translate(-130px, 250px) scale(0);
+        }
+
+        100% {
+            opacity: 1;
+            transform: translate(0, 0) scale(1);
+        }
+    }
+
+    @keyframes tshart {
+        0% {
+            opacity: 0;
+            transform: translate(130px, 250px) scale(0);
+        }
+
+        100% {
+            opacity: 1;
+            transform: translate(0, 0) scale(1);
+        }
+    }
+
+    @keyframes girl {
+        0% {
+            opacity: 0;
+            transform: translate(90px, 40px) scale(0);
+        }
+
+        100% {
+            opacity: 1;
+            transform: translate(0, 0) scale(1);
+        }
+    }
+
+    @keyframes green {
+        0% {
+            transform: translate(-90px, -40px) scale(0);
+            opacity: 0;
+        }
+
+        100% {
+            transform: translate(0, 0) scale(1);
+            opacity: 1;
+        }
+    }
+
+    @keyframes white {
+        0% {
+            transform: translate(-90px, -160px) scale(0);
+            opacity: 0;
+        }
+
+        100% {
+            transform: translate(0, 0) scale(1);
+            opacity: 1;
+        }
+    }
+
+    @keyframes blue {
+        0% {
+            transform: translate(110px, -180px) scale(0);
+            opacity: 0;
+        }
+
+        100% {
+            transform: translate(0, 0) scale(1);
+            opacity: 1;
+        }
+    }
+</style>
+
+<body>
+    <div class="main" id="main">
+        <div class="firstScreen" id="firstScreen">
+            <img src="./images/bg.png" style="position: absolute;width: 100%;height: 100%;" alt="Background">
+
+
+            <img src="./images/logo.png"
+                style="position: absolute;left: 0;right: 0;margin: 0 auto;top: 20px;width: 280px;animation: logo 1s ease-in-out;"
+                alt="">
+
+
+            <div id="closeMachineDiv" style="position: absolute;width: 100%;height: 100%;left: 0;">
+                <img src="./images/text1p1.png"
+                    style="position: absolute;left: 80px;right: 0;margin: 0 auto;top: 13%;width: 210px;animation: t1 1.3s ease-in-out;"
+                    alt="">
+
+                <img src="./images/Png/MachineClose.png"
+                    style="position: absolute;left: 0;right: 0;margin: 0 auto;bottom: 80px;width: 260px;animation: machine1 1.6s ease-in-out;"
+                    alt="">
+            </div>
+
+            <div id="openMachineDiv"
+                style="display: none; position: absolute;width: 350px;height: 450px;left: 0;bottom: 0;right: 0;margin: 0 auto;">
+                <img id="openMachine" src="./images/Png/MachineOpen.png"
+                    style="position: absolute;left: 0px;right: 0;margin: 0 auto;bottom: 60px;width: 350px;" alt="">
+
+                <img id="machineWithCloths" src="./images/Png/Machine Clothes.png"
+                    style="display: none; position: absolute;left: 0;right: 0;margin: 0 auto;bottom: 80px;width: 260px;"
+                    alt="">
+            </div>
+
+
+
+            <div id="firstScreen"
+                style="position: absolute;width: 100%;height: 100%;left: 0;animation: s1 1.9s ease-in-out;">
+                <!-- <img id="durtyClothBunch" src="./images/durtyClothBunch.png"
+                    style="position: absolute;right: 17px;bottom: -1%;width: 180px;" alt=""> -->
+                <div style="position: absolute;left: 0;right: 0;margin: 0 auto;bottom: 0;width: 350px;height: 450px;">
+                    <img id="blue" src="./images/durtyCloths/Blue Dirty.png"
+                        style="position: absolute;right: 17px;bottom: 38px;width: 140px;animation: ble 1s .5s ease-in-out;"
+                        alt="">
+                    <img id="suit" src="./images/durtyCloths/Suit Dirty.png"
+                        style="position: absolute;right: 62px;bottom: 98px;width: 120px;animation: su 1s .7s ease-in-out;"
+                        alt="">
+                    <img id="girlD" src="./images/durtyCloths/Girl Dirty.png"
+                        style="position: absolute;right: 54px;bottom: 66px;width: 100px;animation: gg 1s .5s ease-in-out;"
+                        alt="">
+                    <img id="tshirt" src="./images/durtyCloths/Tshirt Dirty.png"
+                        style="position: absolute;right: 24px;bottom: 86px;width: 140px;animation: tsh 1s .3s ease-in-out;"
+                        alt="">
+                    <img id="whiteD" src="./images/durtyCloths/White Dirty.png"
+                        style="position: absolute;right: 37px;bottom: -3px;width: 140px;animation: whi 1s .2s ease-in-out;"
+                        alt="">
+                    <img id="greenD" src="./images/durtyCloths/Green Dirty.png"
+                        style="position: absolute;right: 55px;bottom: 32px;width: 140px;animation: gree 1s .1s ease-in-out;"
+                        alt="">
+                    <img id="yellowD" src="./images/durtyCloths/Yellow Dirty.png"
+                        style="position: absolute;right: 30px;bottom: 45px;width: 110px;animation: yellowD 1s ease-in-out;"
+                        alt="">
+                </div>
+
+                <img id="circleCloths" src="./images/Png/Clothesmachine.png"
+                    style="display: none; position: absolute;left: 0;right: 0;margin: 0 auto;bottom: 193px;width: 160px;animation: aaa .3s ease-in-out;"
+                    alt="">
+
+                <img id="halfBucket" src="./images/Png/Bucket.png"
+                    style="position: absolute;right: 10px;bottom: 1%;width: 200px;" alt="">
+                <img id="fullBucket" src="./images/Png/Bucket Full.png"
+                    style="display: none; position: absolute;right: 10px;bottom: 1%;width: 200px;" alt="">
+            </div>
+
+
+            <img id="newlookingCloths" src="./images/newlookingCloths.png"
+                style="display:  none; position: absolute;left: 0;right: 0;margin: 0 auto;top: 13%;width: 250px;animation: newLooking 1s ease">
+
+            <img id="closeMachine" src="./images/Png/MachineClose.png"
+                style="display: none; position: absolute;left: 0;right: 0;margin: 0 auto;bottom: 80px;width: 260px;"
+                alt="">
+
+            <div id="cleanCloths" style="display: none; position: absolute;width: 100%;height: 100%;">
+                <img src="./images/ClothesClean/Yellow Clean.png"
+                    style="position: absolute;top: 25%;left: 0;right: 0;margin: 0 auto;width: 240px;animation: clothsClean .9s ease-in-out;"
+                    alt="">
+                <img src="./images/ClothesClean/Suit Clean.png"
+                    style="position: absolute;top: 10%;right: 0;width: 130px;animation: suit 1.1s ease-in-out;" alt="">
+                <img src="./images/ClothesClean/Tshirt Clean.png"
+                    style="position: absolute;top: 11%;left: 0;width: 150px;animation: tshart 1s ease-in-out;" alt="">
+                <img src="./images/ClothesClean/Girl Clean.png"
+                    style="position: absolute;top: 46%;left: 20px;width: 170px;animation: girl .9s ease-in-out;" alt="">
+                <img src="./images/ClothesClean/Green Clean.png"
+                    style="position: absolute;top: 41%;left: 35%;right: 0;margin: 0 auto; width: 200px;animation: green .9s ease-in-out;"
+                    alt="">
+                <img src="./images/ClothesClean/White Clean.png"
+                    style="position: absolute;bottom: 3%;right: 0;width: 180px;animation: white 1s ease-in-out;" alt="">
+                <img src="./images/ClothesClean/Blue Clean.png"
+                    style="position: absolute;bottom: 3%;left: 0;width: 180px;animation: blue .8s ease-in-out;" alt="">
+            </div>
+
+            <div id="stars" style="display: none; position: absolute;width: 100%;height: 100%;">
+                <img src="./images/Png/Star.png"
+                    style="mix-blend-mode: plus-lighter; position: absolute;right: 0;top: 20%;animation: star .8s ease-in-out alternate infinite;"
+                    alt="">
+                <img src="./images/Png/Star.png"
+                    style="mix-blend-mode: plus-lighter; position: absolute;left: 0;top: 55%;animation: star .8s ease-in-out alternate infinite;"
+                    alt="">
+            </div>
+
+
+
+            <div id="tapdiv"
+                style="display: none; position: absolute;width: 100%;height: 100%;z-index: 99;background-color: rgba(0, 0, 0, .8);animation: divAni .7s ease;">
+                <img src="./images/SayCleanTheCloths.png"
+                    style="position: absolute;left: 0;right: 0;margin: 0 auto;top: 19%;width: 280px;animation: saytext 1.3s ease;"
+                    alt="">
+
+                <img id="activateMic" src="./images/ActivateText.png"
+                    style="display: none; position: absolute;width: 100px;bottom: 12%;left: 0;right: 0;margin: 0 auto;"
+                    alt="">
+                <img id="dactivateMic" src="./images/deAtext.png"
+                    style=" position: absolute;width: 100px;bottom: 12%;left: 0;right: 0;margin: 0 auto;animation: ActivateMic 1.7s ease;"
+                    alt="">
+                <img id="tapText" src="./images/tapText.png"
+                    style="position: absolute;width: 170px;bottom: 5%;left: 0;right: 0;margin: 0 auto;animation: taptext 2.2s ease;"
+                    alt="">
+
+            </div>
+
+
+
+            <div id="lastScreen"
+                style="display: none; position: absolute;left: 0;right: 0;margin: 0 auto;width: 100%;height: 100%;animation: ls 1s ease-in-out;">
+                <a href="https://www.godrej.com/appliances/Washing-Machines?utm_source=google_search&utm_medium=cpl&utm_campaign=Godrej_Pure_WM_Search_Brand_Exact_Sep-23&utm_term=brand_pure_wm&utm_content=godrej_washing_machine&utm_source=google&utm_medium=cpc&utm_campaign=&adgroupid=157914666127&keyword=godrej%20washing%20machine&device=c&placement=&matchtype=e&gad_source=1&gclid=EAIaIQobChMI9pD7mPf2hgMVTsVMAh04qwtbEAAYASAAEgKMyfD_BwE"
+                    target="_blank">
+                    <img src="./images/bg.png" style="position: absolute;width: 100%;height: 100%;" alt="Background">
+                    <img src="./images/logo.png"
+                        style="position: absolute;left: 0;right: 0;margin: 0 auto;top: 10px;width: 280px;" alt="">
+                    <img src="./images/Text/Name.png"
+                        style="position: absolute;width: 100%;height: 60px; top: 270px;animation: name 1.7s ease-in-out;"
+                        alt="">
+                    <img src="./images/lastPage_newLooking.png"
+                        style="position: absolute;width: 180px; top: 340px;right: 30px; animation: LSP 2.2s ease-in-out;"
+                        alt="">
+                    <img src="./images/Png/MachineClose.png"
+                        style="position: absolute;right: 20px;bottom: 55px;width: 140px;animation: machine11 2.6s ease-in-out;"
+                        alt="">
+                    <img src="./images/Png/Person.png"
+                        style="position: absolute;left: 20px;bottom: 60px;width: 160px;animation: machine111 2.6s ease-in-out;"
+                        alt="">
+                    <img id="cta" src="./images/Png/cta.png"
+                        style="position: absolute;left: 0;right: 0;margin: 0 auto;bottom: 5px;width: 180px;animation: person 3s ease-in-out;"
+                        alt="">
+                </a>
+                <video id="myVid" src="https://beta.andbeyond.media/abm-direct/RichMedia/video/wm.mp4" controls muted
+                    autoplay
+                    style="position: absolute;left: 0;right: 0;margin:  0 auto; top:70px;width: 320px;"></video>
+
+            </div>
+
+
+
+            <img id="close"
+                src="https://cache-ssl.celtra.com/api/static/ve67ae1362e/runner/clazzes/CreativeUnit/close-up.svg"
+                alt="Close Button">
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            window.parent.document.body.style.overflow = "hidden";
+            const close = document.getElementById("close");
+            const main = document.getElementById("main");
+
+            const activateMic = document.getElementById('activateMic');
+            const dactivateMic = document.getElementById('dactivateMic');
+
+
+            const myVid = document.getElementById('myVid');
+            const cta = document.getElementById('cta');
+
+            const tapdiv = document.getElementById('tapdiv');
+            const closeMachineDiv = document.getElementById('closeMachineDiv');
+            const openMachineDiv = document.getElementById('openMachineDiv');
+            const tapText = document.getElementById('tapText');
+            const durtyClothBunch = document.getElementById('durtyClothBunch');
+            const halfBucket = document.getElementById('halfBucket');
+            const fullBucket = document.getElementById('fullBucket');
+            const machineWithCloths = document.getElementById('machineWithCloths');
+            const newlookingCloths = document.getElementById('newlookingCloths');
+            const cleanCloths = document.getElementById('cleanCloths');
+            const closeMachine = document.getElementById('closeMachine');
+            const firstScreen = document.getElementById('firstScreen');
+            const stars = document.getElementById('stars');
+            const lastScreen = document.getElementById('lastScreen');
+
+
+            var yellowD = document.getElementById("yellowD")
+            var greenD = document.getElementById("greenD")
+            var whiteD = document.getElementById("whiteD")
+            var tshirt = document.getElementById("tshirt")
+            var girlD = document.getElementById("girlD")
+            var suit = document.getElementById("suit")
+            var blue = document.getElementById("blue")
+
+            let timeoutIds = [];
+            function clearRotationTimeouts() {
+                timeoutIds.forEach(timeoutId => clearTimeout(timeoutId));
+                timeoutIds = [];
+            }
+
+            close.addEventListener("click", () => {
+                main.style.display = "none";
+                myVid.muted = true;
+                myVid.pause;
+                window.parent.document.body.style.overflow = "scroll";
+            });
+
+            setTimeout(() => {
+                closeMachineDiv.style.opacity = 0;
+                closeMachineDiv.style.transition = "all .7s linear";
+
+                openMachineDiv.style.display = "block";
+                tapdiv.style.display = "block";
+            }, 3200);
+
+
+
+            function afterSpeechDetection() {
+
+                console.log("Function executed after detecting 'Jai Hind'");
+
+                setTimeout(() => {
+                    tapdiv.style.opacity = 0;
+                    tapdiv.style.transition = "all .5s linear";
+
+                    // durtyClothBunch.style.animation = "durstyCloth 2s ease-in-out";
+
+                    halfBucket.style.display = "none";
+                    fullBucket.style.display = "block";
+                    // durtyClothBunch.style.transform ="translate(-84px, -173px)";
+                    // durtyClothBunch.style.transition ="all 1s";
+
+                    setTimeout(() => {
+                        circleCloths.style.display = "block";
+                        machineWithCloths.style.display = "block";
+                        openMachine.style.display = "none";
+
+                        durtyClothBunch.style.animationPlayState = "paused";
+                        durtyClothBunch.style.display = "none";
+
+                        setTimeout(() => {
+                            circleCloths.style.animation = "rotate360 .2s linear infinite"
+                        }, 200);
+
+                        setTimeout(() => {
+                            newlookingCloths.style.display = "block";
+
+                            setTimeout(() => {
+                                circleCloths.style.animationPlayState = "paused";
+                                circleCloths.style.display = "none";
+
+                                fullBucket.style.opacity = 0;
+                                fullBucket.style.transition = "all .5s"
+
+                            }, 1200);
+                            setTimeout(() => {
+                                cleanCloths.style.display = "block";
+                                closeMachine.style.display = "block";
+
+                                setTimeout(() => {
+                                    stars.style.display = "block"
+                                }, 1000);
+                                setTimeout(() => {
+                                    lastScreen.style.display = "block";
+                                    tapdiv.style.display = "none";
+                                    setTimeout(() => {
+                                        myVid.muted = false;
+                                        myVid.play;
+                                    }, 1100);
+                                    setTimeout(() => {
+                                        cta.style.animation = "pulse .7s ease alternate infinite";
+                                    }, 3200);
+
+                                }, 3800);
+                            }, 1800);
+
+                        }, 2200);
+
+                        setTimeout(() => {
+                            newlookingCloths.style.opacity = 0;
+                            newlookingCloths.style.transition = "all .5s";
+                        }, 4700);
+
+                    }, 2000);
+                }, 800);
+            }
+
+            function speechDetection() {
+                const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+                if (!SpeechRecognition) {
+                    alert("Your browser does not support Speech Recognition.");
+                    return;
+                }
+
+                const recognition = new SpeechRecognition();
+
+                recognition.continuous = true;
+                recognition.interimResults = true;
+                recognition.lang = 'en-US';
+
+                recognition.onresult = (event) => {
+                    let interimTranscript = '';
+                    let finalTranscript = '';
+
+                    for (let i = 0; i < event.results.length; i++) {
+                        const transcript = event.results[i][0].transcript.toLowerCase();
+                        if (event.results[i].isFinal) {
+                            finalTranscript += transcript;
+                        } else {
+                            interimTranscript += transcript;
+                        }
+
+                        if (transcript.includes('clean the cloths') || transcript.includes('clean the cloth')) {
+                            // console.log("Detected 'Jai Hind' or 'Jay Hind'");
+                            afterSpeechDetection();
+                        }
+                    }
+
+                    console.log(`Interim: ${interimTranscript}`);
+                    console.log(`Final: ${finalTranscript}`);
+                };
+
+                recognition.onerror = (event) => {
+                    console.error("Speech recognition error detected: " + event.error);
+                };
+
+                tapdiv.addEventListener('click', () => {
+                    recognition.start();
+                    console.log("Listening for speech...");
+
+                    dactivateMic.style.display = "none";
+                    // tapdiv.style.display = "none";
+                    activateMic.style.display = "block";
+                    tapText.style.opacity = 0;
+                    tapText.style.transition = "all .5s ease-in-out";
+
+                    setTimeout(() => {
+                        recognition.stop();
+                        console.log("Stopped listening after 2 seconds");
+                    }, 8000);
+                });
+            }
+
+            speechDetection();
+        });
+    </script>
+
+</body>
+
+</html>

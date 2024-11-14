@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TATA-NEXON</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        overflow: hidden;
+    }
+
+    .main {
+        width: 320px;
+        height: 480px;
+        position: absolute;
+        margin: auto;
+        /* background-color: aqua; */
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        overflow: hidden;
+    }
+
+    .screen-one {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
+
+    @keyframes scale {
+        0% {
+            transform: scale(1);
+        }
+
+        100% {
+            transform: scale(1.1);
+        }
+    }
+
+    @keyframes hand {
+        0% {
+            transform: translate(-20px, 0px);
+        }
+
+        20% {
+            transform: translate(71px, 10px)scale(1);
+        }
+
+        25% {
+            transform: translate(71px, 10px)scale(.9);
+        }
+
+        30% {
+            transform: translate(71px, 10px)scale(1);
+        }
+
+        40% {
+            transform: translate(113px, -50px);
+        }
+
+        45% {
+            transform: translate(113px, -50px)scale(1);
+        }
+
+        50% {
+            transform: translate(113px, -50px)scale(.9);
+        }
+
+        60% {
+            transform: translate(187px, -50px);
+        }
+
+        65% {
+            transform: translate(187px, -50px)scale(1);
+        }
+
+        70% {
+            transform: translate(187px, -50px)scale(.9);
+        }
+
+        80% {
+            transform: translate(240px, 2px);
+        }
+
+        85% {
+            transform: translate(240px, 2px)scale(1);
+        }
+
+        90% {
+            transform: translate(240px, 2px)scale(.9);
+        }
+
+        100% {
+            transform: translate(320px, 2px);
+        }
+    }
+
+    @keyframes carAni {
+        0% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+    @keyframes smartLeft {
+        0% {
+            /* left: 100%; */
+            opacity: 0;
+        }
+
+        65% {
+            opacity: 0;
+        }
+
+        66% {
+            opacity: 1;
+            left: 320px;
+        }
+
+        100% {
+            left: 0;
+            opacity: 1;
+        }
+    }
+
+    @keyframes cta {
+        0% {
+            transform: scale(1);
+        }
+
+        100% {
+            transform: scale(1.1);
+        }
+    }
+
+    @keyframes backBtn {
+        0% {
+            opacity: 0;
+        }
+
+        90% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+</style>
+
+<body>
+    <div class="main" id="main">
+        <div class="screen-one">
+            <img src="./images/BG.png" style="position: absolute;width: 100%;height: 100%;" alt="">
+            <img src="./images/LOGO.png"
+                style="position: absolute;margin: 0 auto;left: 0;right: 0;top: 25px;width: 290px;" alt="">
+            <img src="./images/NEXON Big Text.png"
+                style="position: absolute;margin: 0 auto;left: 0;right: 0;top: 50px;width: 200px;" alt="">
+            <img src="./images/text2.png"
+                style="position: absolute;margin: 0 auto;left: 0;right: 0;bottom: 85px;width: 250px;" alt="">
+            <img src="./images/TAP TO CHOOSE.png"
+                style="position: absolute;margin: 0 auto;left: 0;right: 0;bottom: 45px;width: 130px;animation: scale .58s ease-in-out alternate infinite;"
+                alt="">
+        </div>
+        <div id="tapDiv" style="position: absolute;width: 100%;height: 100%;"></div>
+
+        <div class="screen-two" id="screenTwo" style="position: absolute;width: 100%;height: 100%;display: none;">
+            <img src="./images/Screen 2/bg.png" style="position: absolute;width: 100%;height: 100%;" alt="">
+            <img src="./images/LOGO.png"
+                style="position: absolute;margin: 0 auto;left: 0;right: 0;top: 25px;width: 290px;" alt="">
+            <img src="./images/NEXON Big Text.png"
+                style="position: absolute;margin: 0 auto;left: 0;right: 0;top: 50px;width: 200px;" alt="">
+
+            <div style="position: absolute;bottom: 0;width: 100%;height: 100%;">
+                <img id="emptyKnob" src="./images/Knob O.png"
+                    style="position: absolute;width: 230px;left: 0;right: 0;margin: 0 auto;bottom: 0;" alt="">
+
+
+                <div id="smart"
+                    style="position: absolute;left: 31px;bottom: 51px;width: 50px;height: 72px;transform: rotate(33deg);">
+                </div>
+                <div id="pure"
+                    style="position: absolute;left: 86px;bottom:108px;width: 50px;height: 79px;transform: rotate(65deg);">
+                </div>
+                <div id="creative"
+                    style="position: absolute;right: 100px;bottom:108px;width: 50px;height: 79px;transform: rotate(114deg);">
+                </div>
+                <div id="fearless"
+                    style="position: absolute;right: 31px;bottom: 51px;width: 50px;height: 82px; transform: rotate(-19deg);">
+                </div>
+
+
+
+                <div id="smart-color" style="display: none;">
+                    <a href="https://cars.tatamotors.com/nexon/ice.html" target="_blank">
+                        <img src="./images/Screen 2/Knob SMART.png"
+                            style="position: absolute;width: 230px;left: 0;right: 0;margin: 0 auto;bottom: 0;" alt="">
+                        <img src="./images/Screen 2/Car White.png"
+                            style="position: absolute;left: 0;right: 0;margin: 0 auto;top: 157px;width: 280px;animation: carAni .5s linear;"
+                            alt="">
+                        <img src="./images/ScreenEnd/SMART.png"
+                            style="position: absolute;left: 0;width: 320px;height: 480px;animation: smartLeft 3s;"
+                            alt="">
+                        <img src="./images/LOGO.png"
+                            style="position: absolute;margin: 0 auto;left: 0;right: 0;top: 25px;width: 290px;" alt="">
+                        <img id="cta-smart" src="./images/ScreenEnd/Know more.png"
+                            style="display: none; position: absolute;left: 0;right: 0;margin: 0 auto;bottom: 131px;width: 75px;animation: cta .7s ease-in-out alternate infinite;"
+                            alt="">
+                    </a>
+                    <img id="back" src="./images/ScreenEnd/back button.png"
+                        style="position: absolute;left: 2px;top: 3px;width: 30px;animation: backBtn 3.5s ease;" alt="">
+                </div>
+
+                <div id="pure-color" style="display: none;">
+                    <a href="https://cars.tatamotors.com/nexon/ice.html" target="_blank">
+                        <img src="./images/Screen 2/Knob PURE.png"
+                            style="position: absolute;width: 230px;left: 0;right: 0;margin: 0 auto;bottom: 0;" alt="">
+                        <img src="./images/Screen 2/Car Silver.png"
+                            style="position: absolute;left: 0;right: 0;margin: 0 auto;top: 157px;width: 280px;animation: carAni .5s linear;"
+                            alt="">
+                        <img src="./images/ScreenEnd/PURE.png"
+                            style="position: absolute;left: 0;width: 320px;height: 480px;animation: smartLeft 3s;"
+                            alt="">
+                        <img src="./images/LOGO.png"
+                            style="position: absolute;margin: 0 auto;left: 0;right: 0;top: 25px;width: 290px;" alt="">
+                        <img id="cta-pure" src="./images/ScreenEnd/Know more.png"
+                            style="display: none; position: absolute;left: 0;right: 0;margin: 0 auto;bottom: 131px;width: 75px;animation: cta .7s ease-in-out alternate infinite;"
+                            alt="">
+                    </a>
+                    <img id="back-pure" src="./images/ScreenEnd/back button.png"
+                        style="position: absolute;left: 2px;top: 3px;width: 30px;animation: backBtn 3.5s ease;" alt="">
+                </div>
+
+                <div id="creative-color" style="display: none;">
+                    <a href="https://cars.tatamotors.com/nexon/ice.html" target="_blank">
+                        <img src="./images/Screen 2/Knob CREATIVE.png"
+                            style="position: absolute;width: 230px;left: 0;right: 0;margin: 0 auto;bottom: 0;" alt="">
+                        <img src="./images/Screen 2/Knob CREATIVE.png"
+                            style="position: absolute;width: 230px;left: 0;right: 0;margin: 0 auto;bottom: 0;" alt="">
+                        <img src="./images/Screen 2/Car Green.png"
+                            style="position: absolute;left: 0;right: 0;margin: 0 auto;top: 157px;width: 280px;animation: carAni .5s linear;"
+                            alt="">
+                        <img src="./images/ScreenEnd/Creative.png"
+                            style="position: absolute;left: 0;width: 320px;height: 480px;animation: smartLeft 3s;"
+                            alt="">
+                        <img src="./images/LOGO.png"
+                            style="position: absolute;margin: 0 auto;left: 0;right: 0;top: 25px;width: 290px;" alt="">
+                        <img id="cta-creative" src="./images/ScreenEnd/Know more.png"
+                            style="display: none; position: absolute;left: 0;right: 0;margin: 0 auto;bottom: 131px;width: 75px;animation: cta .7s ease-in-out alternate infinite;"
+                            alt="">
+                    </a>
+                    <img id="back-creative" src="./images/ScreenEnd/back button.png"
+                        style="position: absolute;left: 2px;top: 3px;width: 30px;animation: backBtn 3.5s ease;" alt="">
+                </div>
+
+                <div id="fearless-color" style="display: none;">
+                    <a href="https://cars.tatamotors.com/nexon/ice.html" target="_blank">
+                        <img src="./images/Screen 2/Knob FEARLESS.png"
+                            style="position: absolute;width: 230px;left: 0;right: 0;margin: 0 auto;bottom: 0;" alt="">
+                        <img src="./images/Screen 2/Knob FEARLESS.png"
+                            style="position: absolute;width: 230px;left: 0;right: 0;margin: 0 auto;bottom: 0;" alt="">
+                        <img src="./images/Screen 2/Car Blue.png"
+                            style="position: absolute;left: 0;right: 0;margin: 0 auto;top: 157px;width: 280px;animation: carAni .5s linear;"
+                            alt="">
+                        <img src="./images/ScreenEnd/fearless.png"
+                            style="position: absolute;left: 0;width: 320px;height: 480px;animation: smartLeft 3s;"
+                            alt="">
+                        <img src="./images/LOGO.png"
+                            style="position: absolute;margin: 0 auto;left: 0;right: 0;top: 25px;width: 290px;" alt="">
+                        <img id="cta-fearless" src="./images/ScreenEnd/Know more.png"
+                            style="display: none; position: absolute;left: 0;right: 0;margin: 0 auto;bottom: 131px;width: 75px;animation: cta .7s ease-in-out alternate infinite;"
+                            alt="">
+                    </a>
+                    <img id="back-fearless" src="./images/ScreenEnd/back button.png"
+                        style="position: absolute;left: 2px;top: 3px;width: 30px;animation: backBtn 3.5s ease;" alt="">
+                </div>
+
+
+
+                <img id="handIcon" src="./images/Hand.png"
+                    style="position: absolute;width: 18px;bottom: 60px;animation: hand 4s infinite;" alt="">
+
+            </div>
+        </div>
+
+        <img id="close" src="./images/close.svg"
+            style="position: absolute;width: 20px;top: 2px;right: 2px;z-index: 9999999;" alt="">
+    </div>
+</body>
+<script>
+    const closeAll = document.getElementById("close");
+    const main = document.getElementById("main");
+    const tapDiv = document.getElementById("tapDiv");
+    const screenTwo = document.getElementById("screenTwo");
+    const handIcon = document.getElementById("handIcon");
+
+    const emptyKnob = document.getElementById("emptyKnob");
+    const smart = document.getElementById("smart");
+    const pure = document.getElementById("pure");
+    const creative = document.getElementById("creative");
+    const fearless = document.getElementById("fearless");
+
+    const smartColor = document.getElementById("smart-color");
+    const pureColor = document.getElementById("pure-color");
+    const creativeColor = document.getElementById("creative-color");
+    const fearlessColor = document.getElementById("fearless-color");
+    const backPure = document.getElementById("back-pure");
+    const backCreative = document.getElementById("back-creative");
+    const backFearless = document.getElementById("back-fearless");
+
+    const ctaSmart = document.getElementById("cta-smart");
+    const ctaPure = document.getElementById("cta-pure");
+    const ctaCreative = document.getElementById("cta-creative");
+    const ctaFearless = document.getElementById("cta-fearless");
+
+    back.addEventListener("click", () => {
+        smartColor.style.display = "none";
+        handIcon.style.display = "block";
+        ctaSmart.style.display = "none";
+    })
+    backPure.addEventListener("click", () => {
+        pureColor.style.display = "none";
+        handIcon.style.display = "block";
+        ctaPure.style.display = "none"
+    })
+    backCreative.addEventListener("click", () => {
+        creativeColor.style.display = "none";
+        handIcon.style.display = "block";
+        ctaCreative.style.display = "none"
+    })
+    backFearless.addEventListener("click", () => {
+        fearlessColor.style.display = "none";
+        handIcon.style.display = "block";
+        ctaFearless.style.display = "none"
+    })
+
+    smart.addEventListener("click", () => {
+        smartColor.style.display = "block";
+        pureColor.style.display = "none";
+        creativeColor.style.display = "none";
+        fearlessColor.style.display = "none";
+        setTimeout(() => {
+            ctaSmart.style.display = "block";
+            ctaPure.style.display = "none"
+            ctaCreative.style.display = "none"
+            ctaFearless.style.display = "none"
+        }, 3200);
+    })
+    pure.addEventListener("click", () => {
+        pureColor.style.display = "block";
+        smartColor.style.display = "none";
+        creativeColor.style.display = "none";
+        fearlessColor.style.display = "none";
+        setTimeout(() => {
+            ctaPure.style.display = "block";
+            ctaCreative.style.display = "none"
+            ctaFearless.style.display = "none"
+            ctaSmart.style.display = "none";
+        }, 3200);
+    })
+    creative.addEventListener("click", () => {
+        creativeColor.style.display = "block";
+        smartColor.style.display = "none";
+        pureColor.style.display = "none";
+        fearlessColor.style.display = "none";
+        setTimeout(() => {
+            ctaCreative.style.display = "block";
+            ctaPure.style.display = "none";
+            ctaFearless.style.display = "none"
+            ctaSmart.style.display = "none";
+        }, 3200);
+    })
+    fearless.addEventListener("click", () => {
+        fearlessColor.style.display = "block";
+        smartColor.style.display = "none";
+        pureColor.style.display = "none";
+        creativeColor.style.display = "none";
+        setTimeout(() => {
+            ctaFearless.style.display = "block";
+            ctaPure.style.display = "none";
+            ctaCreative.style.display = "none"
+            ctaSmart.style.display = "none";
+        }, 3200);
+    })
+
+
+    closeAll.addEventListener("click", () => {
+        main.style.display = "none"
+    })
+
+    tapDiv.addEventListener("click", () => {
+        console.log("click.....");
+        tapDiv.style.display = "none";
+        screenTwo.style.display = "block";
+    })
+    smart.addEventListener("click", () => {
+        console.log("smart");
+        handIcon.style.display = "none"
+    })
+    pure.addEventListener("click", () => {
+        console.log("pure");
+        handIcon.style.display = "none"
+    })
+    creative.addEventListener("click", () => {
+        console.log("creative");
+        handIcon.style.display = "none"
+    })
+    fearless.addEventListener("click", () => {
+        console.log("fearless");
+        handIcon.style.display = "none"
+    })
+</script>
+
+</html>

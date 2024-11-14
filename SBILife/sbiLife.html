@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SBI Life</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            overflow: hidden;
+            /* font-family: "Poppins", sans-serif; */
+        }
+
+        .main {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            overflow: hidden;
+        }
+
+        .firstScreen {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            position: absolute;
+
+        }
+
+        #close {
+            position: absolute;
+            right: 1px;
+            top: 1px;
+            width: 27px;
+            z-index: 9999;
+            cursor: pointer;
+        }
+
+        #dragElement {
+            position: absolute;
+            right: 0;
+            left: 0;
+            margin: 0 auto;
+            width: 46%;
+            touch-action: none;
+            /* Prevent default touch actions */
+            transition: transform 0.5s ease;
+            z-index: 999;
+            top: -13%;
+            /* Transition for smooth movement */
+        }
+
+        @keyframes ani1 {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes ani2 {
+            0% {
+                opacity: 0;
+            }
+
+            70% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes logoAni {
+
+            0%,
+            20% {
+                opacity: 0;
+                transform: scale(.2);
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        @keyframes logoAni2 {
+            0% {
+                opacity: 0;
+            }
+
+            50% {
+                transform: scale(.2);
+                opacity: 0;
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        @keyframes logoAni3 {
+            0% {
+                opacity: 0;
+            }
+
+            70% {
+                transform: scale(.2);
+                opacity: 0;
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        @keyframes logoAni4 {
+            0% {
+                opacity: 0;
+            }
+
+            80% {
+                transform: scale(.2);
+                opacity: 0;
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        @keyframes circle {
+            0% {
+                transform: scale(.2);
+                opacity: 0;
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        @keyframes one {
+
+            0%,
+            40% {
+                left: -50px;
+                opacity: 0;
+            }
+
+            100% {
+                left: 10px;
+                opacity: 1;
+            }
+        }
+
+        @keyframes two {
+
+            0%,
+            40% {
+                right: -50px;
+                opacity: 0;
+            }
+
+            100% {
+                right: 10px;
+                opacity: 1;
+            }
+        }
+
+        @keyframes three {
+
+            0%,
+            60% {
+                transform: scale(.8);
+                opacity: 0;
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        @keyframes cta {
+
+            0%,
+            70% {
+                bottom: 20px;
+                opacity: 0;
+            }
+
+            100% {
+                bottom: 50px;
+                opacity: 1;
+            }
+        }
+
+        @keyframes cta1 {
+
+            0%,
+            80% {
+                /* bottom: 20px; */
+                opacity: 0;
+            }
+
+            100% {
+                /* bottom: 50px; */
+                opacity: 1;
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            100% {
+                transform: scale(1.1);
+            }
+        }
+
+        @keyframes moveAni {
+            0% {
+                left: 150px;
+            }
+
+            100% {
+                left: -150px;
+            }
+        }
+
+        @keyframes player {
+            0% {
+                transform: scale(0);
+                opacity: 0;
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        @keyframes player1 {
+
+            0%,
+            80% {
+                transform: scale(0);
+                opacity: 0;
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+        @keyframes t2 {
+            0%{
+                opacity: 0;
+                right: -300px;
+            }
+            100%{
+                opacity: 1;
+                right: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main" id="main">
+        <div id="startScreen" style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;">
+            <img src="./screen1/bg.png"
+                style="position: absolute;width: 100%;height: 100%;top: 0;left: 0;object-fit: cover;" alt="">
+
+            <div id=""
+                style="position: absolute;width: 100%;height: 100%;display: flex;flex-direction: column;align-items: center;justify-content: space-evenly;">
+                <img src="./newimages/SBI LOGO.png" style="width: 40%;animation: logoAni 1s ease-out;" alt="">
+                <img src="./newimages/Line 1.png" style="width: 40%;animation: logoAni 1.3s ease-out;" alt="">
+                <img src="./newimages/Paralympics Logo.png" style="width: 40%;animation: logoAni2 1.6s ease-out;"
+                    alt="">
+                <img src="./screen1/Karo poore apne iraade, apno se kiye sabhi vaadey.png"
+                    style="width: 78%;animation: logoAni3 2.3s ease-out;" alt="">
+
+                <div id="player"
+                    style="width: 130px;height: 180px; display: flex;flex-direction: column;align-items: center;">
+                    <img id="p1" src="./newimages/Player 1.png" style=" width: 130px;animation: player1 2.7s ease-out;"
+                        alt="">
+                    <img id="p2" src="./newimages/Player 2.png"
+                        style="display: none; width: 130px;animation: player .5s ease-out;" alt="">
+                    <img id="p3" src="./newimages/Player 3.png"
+                        style="display: none; width: 130px;animation: player .5s ease-out;" alt="">
+                    <img id="p4" src="./newimages/Player 4.png"
+                        style="display: none; width: 130px;animation: player .5s ease-out;" alt="">
+                </div>
+            </div>
+
+        </div>
+
+        <div class="firstScreen" id="firstScreen" style="display: none;animation: ani1 1s ease;">
+            <img src="./images/BG Ground.png"
+                style="position: absolute;width: 100%;height: 112%;left: 0;object-fit: cover;bottom: 0;" alt="">
+            <img id="target" src="./images/Archery.png"
+                style="z-index: 9; position: absolute;left: 0;right: 0;margin: auto;top: 10%;bottom: 0;width: 130px;animation: ani1 1.5s ease-out;"
+                alt="">
+
+            <div id="setText"
+                style="position: absolute;width: 100%;height: 100%;top: 0;bottom: 0;left: 0;background-color: rgba(000, 000, 000, .7)">
+                <img id="text1" src="./newimages/Tap to hit the target on time.png"
+                    style="position: absolute;left: 0;right: 0;margin:0 auto;bottom: 12%;width: 80%;z-index: 91; ;animation: ani1 1s ease-out;"
+                    alt="">
+                <img id="text2" src="./newimages/To achieve Jeet everytime.png"
+                    style="display: none; position: absolute;left: 0;right: 0;margin:0 auto;bottom: 12%;width: 80%;z-index: 91;animation: t2 .5s ease-out;"
+                    alt="">
+            </div>
+
+
+            <div style="position: absolute;width: 100%;height: 100%;top: 0;left: 0;animation: ani2 2s ease-out;">
+                <img id="dragElement" src="./images/Archery12.png" style="display: none;" alt="Draggable Image">
+                <img id="arrow" src="./images/Arrow.png"
+                    style="position: absolute;right:-40%; top: 90%;bottom: 0;margin:0 auto;width: 50%;transform: rotate(29deg);z-index: 999;"
+                    alt="">
+            </div>
+
+        </div>
+        <div id="tapDiv" style="position: absolute;width: 100%;height: 100%;top: 0;left: 0;z-index: 9999;"></div>
+        <div id="jeet"
+            style=" display:none; position: absolute;width: 100%;height: 100%;top: 0;left: 0;animation: ani1 .5s ease;background-color: rgba(000, 000, 000, .8);">
+            <!-- <img src="./screen1/bg.png"
+                style="position: absolute;width: 100%;height: 100%;top: 0;left: 0;object-fit: cover;" alt=""> -->
+            <img id="" src="./images/Jeet Iradon Ki.png"
+                style=" position: absolute;left: 0;right: 0;margin:auto;top: 0;bottom: 0;width: 75%;animation: circle 1s ease-in-out;"
+                alt="">
+        </div>
+
+        <div id="lastScreen"
+            style="display: none; position: absolute;width: 100%;height: 100%;top: 0;left: 0;animation: ani1 .5s ease;">
+            <a href="https://www.sbilife.co.in/" target="_blank" rel="noopener noreferrer">
+                <img src="./screen1/bg.png"
+                    style="position: absolute;width: 100%;height: 100%;top: 0;left: 0;object-fit: cover;" alt="">
+                <img src="./newimages/Bubbles BG.png"
+                    style="position: absolute;width: 100%;height: 100%;top: 0;left: 0;object-fit: cover;" alt="">
+                <img src="./newimages/SBI LOGO.png"
+                    style="position: absolute;left: 10px;top: 35px;width: 150px;animation: one 1s ease;" alt="">
+                <img src="./newimages/Paralympics Logo.png"
+                    style="position: absolute;right: 10px;top: 35px;width: 70px;animation: two 1s ease" alt="">
+
+                <!-- <img src="./screen1/Sports Icons.png"
+                    style="position: absolute;left: 0;right: 0;margin: 0 auto;bottom: 110px;width: 340px;animation: three 1.5s ease;"
+                    alt=""> -->
+                <img src="./newimages/TextEnd.png"
+                    style="position: absolute;left: 0px;right: 0;margin: 0 auto;bottom: -50px;width: 100%;animation: three 1.5s ease;"
+                    alt="">
+                <!-- <img src="./images/Jeet Iradon Ki.png"
+                    style="position: absolute;left: 20px;right: 0;margin: 0 auto;bottom: 230px;width: 200px;animation: three 1.5s ease;"
+                    alt=""> -->
+                <img src="./lastScreen/Olympics.png"
+                    style="position: absolute;left: 0;right: 100px;margin: 0 auto; bottom: 15px;width: 100px;animation: cta1 2s ease;"
+                    alt="">
+                <img id="cta" src="./newimages/Know more.png"
+                    style="position: absolute;left: 0;right: 0;margin: 0 auto; bottom: 50px;width: 150px;animation: cta 2s ease;"
+                    alt="">
+
+                <!-- <img src="./lastScreen/Olympics.png"
+                    style="position: absolute;left: 0;right: 280px;margin: 0 auto; top: 280px;width: 100px;animation: cta1 2s ease;"
+                    alt="">
+                <img src="./lastScreen/Olympics.png"
+                    style="transform: scaleX(-1);position: absolute;right: 20px;margin: 0 auto; top: 280px;width: 100px;animation: cta1 2s ease;"
+                    alt=""> -->
+            </a>
+            <video id="myVid" src="./lastScreen/videoplayback.mp4" controls muted
+                style="display: none;width: 100%;; position: absolute;left: 0;right: 0;margin: 0 auto;top: 20%;"></video>
+        </div>
+        <img id="close"
+            src="https://cache-ssl.celtra.com/api/static/ve67ae1362e/runner/clazzes/CreativeUnit/close-up.svg"
+            alt="Close Button">
+    </div>
+
+</body>
+<script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+
+        const close = document.getElementById("close");
+        const jeet = document.getElementById("jeet");
+        const cta = document.getElementById("cta");
+        const main = document.getElementById("main");
+        const firstScreen = document.getElementById("firstScreen");
+        const dragElement = document.getElementById('dragElement');
+        const target = document.getElementById('target');
+        const arrow = document.getElementById('arrow');
+        const startScreen = document.getElementById('startScreen');
+        const setText = document.getElementById('setText');
+        const lastScreen = document.getElementById('lastScreen');
+        const myVid = document.getElementById('myVid');
+        const tapDiv = document.getElementById('tapDiv');
+        const p1 = document.getElementById('p1');
+        const p2 = document.getElementById('p2');
+        const p3 = document.getElementById('p3');
+        const p4 = document.getElementById('p4');
+        const text2 = document.getElementById('text2');
+        const text1 = document.getElementById('text1');
+
+        window.parent.document.body.style.overflow = "hidden";
+
+        function rotation() {
+            setTimeout(() => {
+                p1.style.opacity = 0;
+                p1.style.transition = "all .4s linear";
+                p1.style.display = "none"
+                p2.style.display = "block";
+            }, 1200);
+            setTimeout(() => {
+                // p1.style.opacity = 0;
+                // p1.style.transition = "all .4s linear";
+                p2.style.display = "none"
+                p3.style.display = "block";
+            }, 2400);
+            setTimeout(() => {
+                // p1.style.opacity = 0;
+                // p1.style.transition = "all .4s linear";
+                p3.style.display = "none"
+                p4.style.display = "block";
+            }, 3600);
+        }
+        setTimeout(() => {
+            rotation();
+        }, 2700);
+
+        tapDiv.addEventListener("click", () => {
+            // transform: translate(-65px, -110px) rotate(29deg); 
+            arrow.style.transform = "translate(-305px, -270px) rotate(29deg)";
+            arrow.style.transition = "all .5s ease";
+            arrow.style.width = 25 + "%";
+            setTimeout(() => {
+                dragElement.style.right = -500 + "px";
+                dragElement.style.transition = "all .4s linear";
+                dragElement.style.opacity = 0;
+                tapDiv.style.display = "none";
+            }, 550);
+            setTimeout(() => {
+                target.style.animationPlayState = "paused";
+                target.style.zIndex = "auto"
+            }, 550);
+            setTimeout(() => {
+                jeet.style.display = "block";
+                arrow.style.display = "none";
+                setText.style.display = "none";
+            }, 2000);
+            setTimeout(() => {
+                jeet.style.opacity = 0;
+                jeet.style.transition = "all .7s linear";
+                firstScreen.style.opacity = 0;
+                // firstScreen.style.transition = "all .7s linear";
+            }, 5000);
+            setTimeout(() => {
+                lastScreen.style.display = "block";
+                setTimeout(() => {
+                    myVid.style.display = "block";
+                    myVid.play();
+                    myVid.muted = false;
+                }, 1500);
+                setTimeout(() => {
+                    cta.style.animation = "pulse .7s ease alternate infinite"
+                }, 2010);
+            }, 5300);
+        })
+
+        close.addEventListener("click", () => {
+            main.style.display = "none";
+            window.parent.document.body.style.overflow = "scroll";
+            myVid.pause();
+            myVid.muted = true;
+        });
+
+        setTimeout(() => {
+            // dragFun();
+            dragFunNew();
+        }, 8500);
+
+        function dragFunNew() {
+
+            firstScreen.style.display = "block";
+            startScreen.style.opacity = 0;
+            startScreen.style.transition = "all 1s";
+
+            setTimeout(() => {
+                text1.style.opacity = 0;
+                text1.style.left = -300 + "px";
+                text1.style.transition = "all .5s linear"
+
+                text2.style.display = "block";
+            }, 2000);
+            setTimeout(() => {
+                setText.style.left = -300 + "px"
+                setText.style.transition ="all  .7s linear";
+                setText.style.opacity = 0;
+            }, 4500);
+            setTimeout(() => {
+                target.style.animation = "moveAni 1.7s ease-in-out alternate infinite";
+                dragElement.style.display = "block";
+            }, 5000);
+        }
+
+        function dragFun() {
+
+            firstScreen.style.display = "block";
+            startScreen.style.opacity = 0;
+            startScreen.style.transition = "all 1s";
+            let startX, startY, initialX, initialY;
+
+            setTimeout(() => {
+                target.style.animation = "moveAni 1.5s ease-in-out alternate infinite";
+            }, 1200);
+            // Add event listeners for touch events
+            dragElement.addEventListener('touchstart', touchStart);
+            dragElement.addEventListener('touchmove', touchMove);
+            dragElement.addEventListener('touchend', touchEnd);
+
+            function touchStart(e) {
+                // Prevent default behavior
+                e.preventDefault();
+
+                // Get the initial touch coordinates
+                startX = e.touches[0].clientX;
+                startY = e.touches[0].clientY;
+
+                // Get the initial element position
+                const rect = dragElement.getBoundingClientRect();
+                initialX = rect.left;
+                initialY = rect.top;
+
+                // Disable transition during dragging
+                dragElement.style.transition = 'none';
+            }
+
+            function touchMove(e) {
+                // Prevent default behavior
+                e.preventDefault();
+
+                // Calculate the new position
+                const deltaX = e.touches[0].clientX - startX;
+                const deltaY = e.touches[0].clientY - startY;
+
+                // Set the new position of the element
+                dragElement.style.left = initialX + deltaX + 'px';
+                dragElement.style.top = initialY + deltaY + 'px';
+            }
+
+            function touchEnd(e) {
+                // dragElement.style.width = 60 + "%";
+                // Re-enable the transition for a smooth snap effect
+                dragElement.style.transition = 'transform 0.5s ease';
+
+                target.style.width = 150 + "px";
+                target.style.transition = "all .3s linear";
+
+                setTimeout(() => {
+
+                    arrow.style.transform = "translate(-295px, -160px) rotate(29deg)";
+                    arrow.style.transition = "all .5s linear";
+                    arrow.style.width = 25 + "%";
+
+                    // dragElement.style.right = -50 + "%";
+                    dragElement.style.left = 700 + "px";
+                    dragElement.style.transition = "all .4s linear"
+                    dragElement.style.opacity = 0;
+                    setText.style.transition = "all .4s linear";
+                    setText.style.opacity = 0;
+
+                }, 500);
+                setTimeout(() => {
+                    jeet.style.display = "block";
+                }, 2000);
+
+                setTimeout(() => {
+                    jeet.style.transition = "all .4s linear";
+                    jeet.style.opacity = 0;
+                    jeet.style.transform = "scale(2)";
+
+                    firstScreen.style.transition = "all .4s linear";
+                    firstScreen.style.opacity = 0;
+
+                    lastScreen.style.display = "block";
+                    setTimeout(() => {
+                        myVid.style.display = "block";
+                        myVid.play();
+                        myVid.muted = false;
+                    }, 1500);
+                    setTimeout(() => {
+                        cta.style.animation = "pulse .7s ease alternate infinite"
+                    }, 2010);
+                }, 5000);
+
+            }
+        }
+
+    })
+
+    // transform: translate(-40px, -140px);
+    // transform: translate(-65px, -110px) rotate(29deg); 
+</script>
+
+</html>

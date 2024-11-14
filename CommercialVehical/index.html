@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <title>Commercial-Vehicle</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        overflow: hidden;
+    }
+
+    .main {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        overflow: hidden;
+    }
+
+    .firstScreen {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        position: absolute;
+
+    }
+
+    #close {
+        position: absolute;
+        right: 1px;
+        top: 1px;
+        width: 30px;
+        z-index: 99999;
+        cursor: pointer;
+    }
+
+    @keyframes logo {
+        0% {
+            left: -150px;
+            opacity: 0;
+        }
+
+        100% {
+            left: 10px;
+            opacity: 1;
+        }
+    }
+
+    @keyframes roadMove {
+        0% {
+            left: 0;
+        }
+
+        100% {
+            left: -15328px;
+        }
+    }
+
+    @keyframes smImg {
+        0% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+    @keyframes tempo {
+        0% {
+            opacity: 0;
+        }
+
+        49% {
+            opacity: 0;
+        }
+
+        50% {
+            opacity: 1;
+            left: -400px;
+        }
+
+        100% {
+            opacity: 1;
+            left: -50px;
+        }
+    }
+
+    @keyframes text1 {
+        0% {
+            opacity: 0;
+        }
+
+        80% {
+            opacity: 0;
+            left: -100px;
+        }
+
+        100% {
+            opacity: 1;
+            left: 30px;
+        }
+    }
+
+    @keyframes text2 {
+        0% {
+            opacity: 0;
+        }
+
+        80% {
+            opacity: 0;
+            right: -100px;
+        }
+
+        100% {
+            opacity: 1;
+            right: 30px;
+        }
+    }
+
+    @keyframes taptext {
+        0% {
+            opacity: 0;
+        }
+
+        30% {
+            opacity: 0;
+            transform: scale(0);
+        }
+
+        100% {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    @keyframes taptext1 {
+        0% {
+            opacity: 0;
+        }
+
+        50% {
+            opacity: 0;
+            transform: scale(0);
+        }
+
+        100% {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    @keyframes popUp {
+        0% {
+            opacity: 0;
+            transform: scale(0);
+        }
+
+        100% {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    @keyframes popUp1 {
+
+        0%,
+        40% {
+            opacity: 0;
+            transform: scale(0);
+        }
+
+        100% {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    @keyframes handIcon {
+        0% {
+            opacity: 0;
+            /* transform: scale(0); */
+        }
+
+        70% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+            /* transform: scale(1); */
+        }
+    }
+
+    @keyframes pulse {
+        0% {
+            transform: scale(1);
+        }
+
+        100% {
+            transform: scale(1.1);
+        }
+    }
+
+    @keyframes movewheel {
+        0% {
+            transform: rotate(0);
+        }
+
+        100% {
+            transform: rotate(2800deg);
+        }
+    }
+
+    @keyframes cta {
+        0% {
+            opacity: 0;
+        }
+
+        80% {
+            opacity: 0;
+            bottom: -50px;
+        }
+
+        100% {
+            opacity: 1;
+            bottom: 20px;
+        }
+    }
+
+    .hand {
+        animation: pulse .5s ease-in-out alternate infinite;
+    }
+
+    @keyframes lastScreen {
+        0% {
+            right: -200%;
+        }
+
+        100% {
+            right: 0;
+        }
+    }
+
+    @keyframes opac {
+        0% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+
+
+    .cube-parent-container {
+        width: 100%;
+        margin: 0;
+        position: absolute;
+        bottom: 80px;
+        height: 180px;
+    }
+
+    .cubeSwiper .swiper-slide {
+        aspect-ratio: 1/1;
+    }
+
+    .cubeSwiper .swiper-slide img {
+        width: 100%;
+        object-fit: cover;
+    }
+
+    .cubeSwiper .pagination-container {
+        padding-top: 25px;
+        width: 100%;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 100px 1fr;
+        grid-template-rows: 1fr;
+        grid-column-gap: 0px;
+        grid-row-gap: 0px;
+        position: absolute;
+        top: 250px;
+        transform: scale(0.8);
+    }
+
+    .pagination-container {
+        position: relative;
+        top: -25px;
+    }
+
+    .cubeSwiper .cube-pagination-fraction {
+        color: rgba(255, 0, 255, 0.8);
+        font-size: 18px;
+        font-weight: 700;
+        margin-top: 15px;
+        text-align: center;
+        position: relative;
+    }
+
+    .swiper-button-next,
+    .swiper-button-prev {
+        color: #fff;
+        width: calc(var(--swiper-navigation-size)/ 44 * 6);
+        font-size: 12px;
+        font-weight: bolder;
+    }
+
+    .swiper-button-next:after,
+    .swiper-button-prev:after {
+        font-size: 12px;
+        font-weight: bolder;
+        padding: 7px 9px;
+        border-radius: 20px;
+
+    }
+
+    .swiper-button-prev {
+        left: var(--swiper-navigation-sides-offset, 19px);
+        position: absolute;
+        top: -200px;
+    }
+
+    .swiper-button-next {
+        right: var(--swiper-navigation-sides-offset, 20px);
+        position: absolute;
+        top: -200px;
+    }
+
+    .swiper-pagination-bullets.swiper-pagination-horizontal {
+        bottom: var(--swiper-pagination-bottom, -10px);
+    }
+
+    .swiper {
+        width: 320px;
+        position: relative;
+    }
+
+    .swiper-pagination-bullet {
+        width: 12px;
+        height: 12px;
+    }
+</style>
+
+<body>
+    <div class="main" id="main">
+
+        <div class="firstScreen" id="firstScreen">
+            <div id="screenOne" style="position: absolute;width: 15328px;height: 100%;">
+                <img src="./images/road.png" style="position: absolute; bottom: 0;left: 0;width: 100%;height: 100%;"
+                    alt="">
+
+
+                <img id="comfort" src="./images/Comfort.png"
+                    style="position: absolute;left: 500px;right: 20px; bottom: 90px;width: 85px;" alt="">
+                <img id="performance" src="./images/Performance.png"
+                    style="position: absolute;left: 1000px;bottom: 90px;width: 85px;" alt="">
+                <img id="safety" src="./images/Safety.png"
+                    style="position: absolute;left: 1500px;bottom: 90px;width: 85px;" alt="">
+                <img id="saving" src="./images/Saving.png"
+                    style="position: absolute;left: 2000px;bottom: 90px;width: 85px;" alt="">
+
+            </div>
+
+            <div id="MyImg" style="position: absolute;width: 100%;height: 100%;left: 0;">
+                <div id="MyImg1" style="position: absolute;width: 100%;height: 100%;left: 0;">
+                    <img id="tempo" src="./images/Jeeto.png"
+                        style="z-index: 999; position: absolute;left: -50px;right: 0;margin: 0 auto;bottom: 90px;width: 300px;animation: tempo 1.5s linear;"
+                        alt="">
+
+                </div>
+                <div id="wheels"
+                    style="position: absolute;bottom: 90px;width: 300px;left: -50px;right: 0;margin: 0 auto;z-index: 9991;animation: tempo 1.5s linear;">
+                    <img id="t1" src="./newImg/Tyre.png" style="position: absolute;left: 47px;bottom: -3px;width: 45px;"
+                        alt="">
+                    <img id="t2" src="./newImg/Tyre.png"
+                        style="position: absolute;right: 10px;bottom: -3px;width: 45px;" alt="">
+                </div>
+
+                <div id="popUp" style="position: absolute;width: 100%;height: 100%;left: 0;">
+                    <img id="pop1" src="./newImg/PopUp Comfort.png"
+                        style="display: none; position: absolute;width: 100%;height: 60px;top: 20%;animation: popUp .4s linear;"
+                        alt="">
+                    <img id="pop2" src="./newImg/PopUp Performence.png"
+                        style="display: none; position: absolute;width: 100%;height: 60px;top: 20%;animation: popUp .4s linear;"
+                        alt="">
+                    <img id="pop3" src="./newImg/PopUp Safety.png"
+                        style="display: none; position: absolute;width: 100%;height: 60px;top: 20%;animation: popUp .4s linear;"
+                        alt="">
+                    <img id="pop4" src="./newImg/PopUp Saving.png"
+                        style="display: none; position: absolute;width: 100%;height: 60px; top: 20%;animation: popUp .4s linear;"
+                        alt="">
+
+                    <!-- <img id="greenTick" src="./newImg/GreenTick.png"
+                        style="display: none; position: absolute;width: 60px;top: 40%; left: 0;right: 0;margin: 0 auto;animation: popUp1 .6s linear;"
+                        alt=""> -->
+
+                </div>
+            </div>
+
+            <img src="./images/LOGO.png"
+                style="position: absolute;left: 10px;top: 10px;width: 240px;animation: logo 1s ease-in-out;">
+
+            <img id="text1" src="./images/Mileaga.png"
+                style="position: absolute;left: 30px;width: 270px;top: 200px;animation: text1 2s ease;" alt="">
+            <img id="text2" src="./images/Mazbuti.png"
+                style="position: absolute;right: 30px;width: 270px;top: 241px;animation: text2 2s ease" alt="">
+
+            <img id="TapText" src="./images/tapText.png"
+                style="display: none; position: absolute;left: 0;right: 0;margin: 0 auto;top: 220px;width: 290px;animation: taptext 1s ease;"
+                alt="">
+            <img id="start" src="./images/EngineStart.png"
+                style="display: none; position: absolute;left: 0;right: 0;margin: 0 auto;bottom: 20px;width: 80px;animation: taptext1 1.3s ease;"
+                alt="">
+            <img id="hand" class="hand" src="./newImg/Tapicon.png"
+                style="display: none; position: absolute;left: 0;right: 0;margin: 0 auto;bottom: 0;width: 40px;" alt="">
+        </div>
+
+
+        <div id="tapDiv" style="position: absolute;width: 100%;height: 100%;"></div>
+
+        <div id="lastScreen" style="position: absolute;width: 100%;height: 100%; left: 0;display: none;">
+            <video id="myvid" src="https://beta.andbeyond.media/abm-direct/RichMedia/video/MahindraJeetoPlus_Hindi.mp4"
+                controls autoplay muted
+                style="position: absolute;top: 65px;width: 92%;left: 0;right: 0;margin: 0 auto;animation: lastScreen .5s ease-in-out;"></video>
+            <a href="https://mahindralastmilemobility.com/jeeto-strong-diesel-cargo" target="_blank">
+                <img id="cta" src="./newImg/Know More.png"
+                    style="position: absolute;left: 0;right: 0;margin: 0 auto;bottom: 20px;width: 160px;animation: cta 2s linear;"
+                    alt="">
+            </a>
+            <div id="lastScreen1" style="position: absolute;width: 100%;height: 100%; display: none;">
+                <img src="./newImg/Black BG.png"
+                    style="position: absolute;left: 25px;top: 45%;width: 130px;animation: opac .7s ease;" alt="">
+                <img id="whiteCircle" src="./newImg/White.png"
+                    style="position: absolute;left: 37px;top: 46.3%;width: 50px;animation: opac .7s ease;" alt="">
+                <img id="redCircle" src="./newImg/Red.png"
+                    style="position: absolute;left: 95px;top: 46.3%;width: 50px;animation: opac .7s ease;" alt="">
+                <img class="view360" src="./newImg/Black BG.png"
+                    style="position: absolute;right: 25px;top: 45%;width: 130px;height: 69px;animation: opac .7s ease;"
+                    alt="">
+                <img class="view360" id="" src="./newImg/IMG Icon.png"
+                    style="position: absolute;right: 65px;top: 47.3%;width: 50px;animation: opac .7s ease;" alt="">
+
+                <a href="https://mahindralastmilemobility.com/jeeto-strong-diesel-cargo" target="_blank">
+                    <img id="whiteTempo" src="./newImg/Jeeto White.png"
+                        style="position: absolute;left: -150px;width: 330px;bottom: 90px;animation: opac .7s ease;"
+                        alt="">
+                    <img id="redTempo" src="./newImg/Jeeto Red.png"
+                        style="position: absolute;right: -150px;width: 330px;bottom: 90px;animation: opac .7s ease;"
+                        alt="">
+                    <img src="./newImg/Choose color.png"
+                        style="position: absolute;left: 25px;top: 57%;width: 120px;animation: opac .7s ease;" alt="">
+                    <img src="./newImg/Gallery.png"
+                        style="position: absolute;right: 60px;top: 57%;width: 70px;animation: opac .7s ease;" alt="">
+                </a>
+
+                <figure class="cube-parent-container" id="slider" style="display: none;">
+
+                    <div class="swiper cubeSwiper">
+                        <div class="swiper-wrapper">
+
+                            <div class="swiper-slide">
+                                <img src="./newImg/Gallery Photos/6.png"
+                                    style="width: 280px;position: absolute;left: 0;right: 0;margin: 0 auto;bottom: 160px" />
+                            </div>
+
+                            <div class="swiper-slide">
+                                <img src="./newImg/Gallery Photos/1.png"
+                                    style="width: 280px;position: absolute;left: 0;right: 0;margin: 0 auto;" />
+                            </div>
+
+                            <div class="swiper-slide">
+                                <img src="./newImg/Gallery Photos/2.png"
+                                    style="width: 280px;position: absolute;left: 0;right: 0;margin: 0 auto;" />
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="./newImg/Gallery Photos/3.png"
+                                    style="width: 280px;position: absolute;left: 0;right: 0;margin: 0 auto;" />
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="./newImg/Gallery Photos/4.png"
+                                    style="width: 280px;position: absolute;left: 0;right: 0;margin: 0 auto;" />
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="./newImg/Gallery Photos/5.png"
+                                    style="width: 280px;position: absolute;left: 0;right: 0;margin: 0 auto;" />
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <div class="pagination-container">
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div>
+                    </div>
+                </figure>
+            </div>
+        </div>
+
+        <img id="close"
+            src="https://cache-ssl.celtra.com/api/static/ve67ae1362e/runner/clazzes/CreativeUnit/close-up.svg">
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        var close = document.getElementById("close");
+        var main = document.getElementById("main");
+        var screenOne = document.getElementById("screenOne");
+        var text1 = document.getElementById("text1");
+        var text2 = document.getElementById("text2");
+        var TapText = document.getElementById("TapText");
+        var start = document.getElementById("start");
+        var hand = document.getElementById("hand");
+        var tapDiv = document.getElementById("tapDiv");
+        var MyImg = document.getElementById("MyImg");
+        var pop1 = document.getElementById("pop1");
+        var pop2 = document.getElementById("pop2");
+        var pop3 = document.getElementById("pop3");
+        var pop4 = document.getElementById("pop4");
+        var popUp = document.getElementById("popUp");
+        var wheels = document.getElementById("wheels");
+        // var greenTick = document.getElementById("greenTick");
+        var greenTick1 = document.getElementById("greenTick1");
+        var greenTick2 = document.getElementById("greenTick2");
+        var greenTick3 = document.getElementById("greenTick3");
+        var t1 = document.getElementById("t1");
+        var t2 = document.getElementById("t2");
+        var myvid = document.getElementById("myvid");
+        var lastScreen = document.getElementById("lastScreen");
+        var whiteCircle = document.getElementById("whiteCircle");
+        var redCircle = document.getElementById("redCircle");
+        var cta = document.getElementById("cta");
+        var whiteTempo = document.getElementById("whiteTempo");
+        var redTempo = document.getElementById("redTempo");
+        var lastScreen1 = document.getElementById("lastScreen1");
+        var view360 = document.querySelectorAll(".view360");
+        var slider = document.getElementById("slider");
+
+
+        t1.style.animation = "movewheel 15s linear infinite";
+        t2.style.animation = "movewheel 15s linear infinite";
+
+        setTimeout(() => {
+            t1.style.animationPlayState = "paused";
+            t2.style.animationPlayState = "paused";
+        }, 1500);
+
+        tapDiv.addEventListener("click", function () {
+
+            setTimeout(() => {
+                screenOne.style.animation = "roadMove 70s linear";
+                t1.style.animationPlayState = "running";
+                t2.style.animationPlayState = "running";
+            }, 200);
+
+            TapText.style.opacity = 0;
+            TapText.style.transition = "all .7s";
+            start.style.transition = "all .7s";
+            start.style.opacity = 0;
+            hand.style.transition = "all .7s";
+            hand.style.opacity = 0;
+            PlayPuse()
+            setTimeout(() => {
+                myvid.muted = false;
+                myvid.play();
+            }, 16200);
+        });
+
+
+        function PlayPuse() {
+            setTimeout(() => {
+                screenOne.style.animationPlayState = "paused";
+
+                t1.style.animationPlayState = "paused";
+                t2.style.animationPlayState = "paused";
+
+                pop1.style.display = "block";
+
+            }, 1250);
+            setTimeout(() => {
+                screenOne.style.animationPlayState = "running";
+                t1.style.animationPlayState = "running";
+                t2.style.animationPlayState = "running";
+
+            }, 1650);
+            setTimeout(() => {
+                pop1.style.opacity = "0"
+                pop1.style.transition = "all .5s"
+            }, 2290);
+            setTimeout(() => {
+                screenOne.style.animationPlayState = "paused";
+                t1.style.animationPlayState = "paused";
+                t2.style.animationPlayState = "paused";
+
+                pop2.style.display = "block";
+                PlayPuse()
+
+            }, 3950);
+            setTimeout(() => {
+                pop2.style.opacity = "0"
+                pop2.style.transition = "all .5s"
+
+            }, 4950);
+
+            setTimeout(() => {
+                screenOne.style.animationPlayState = "running";
+                pop3.style.display = "block";
+            }, 7500);
+            setTimeout(() => {
+                pop3.style.opacity = "0"
+                pop3.style.transition = "all .3s"
+
+            }, 8500);
+
+            setTimeout(() => {
+                pop4.style.display = "block";
+            }, 11100);
+
+            setTimeout(() => {
+                pop4.style.opacity = "0"
+                pop4.style.transition = "all .3s";
+
+            }, 14000);
+
+            setTimeout(() => {
+                screenOne.style.animation = "none";
+                MyImg.style.left = 550 + "px";
+                MyImg.style.transition = "all 1.5s linear";
+            }, 14500);
+
+
+            setTimeout(() => {
+                lastScreen.style.display = "block";
+
+                setTimeout(() => {
+                    lastScreen1.style.display = "block";
+                }, 1000);
+                setTimeout(() => {
+                    cta.style.animation = "pulse .5s ease-in-out alternate infinite"
+                }, 2010);
+            }, 15800);
+
+
+        }
+
+        redCircle.addEventListener("click", () => {
+            console.log("click on red");
+            whiteTempo.style.display = "block"
+            redTempo.style.display = "block"
+            slider.style.display = "none";
+            redTempo.style.right = 20 + "px";
+            redTempo.style.transition = "all .8s ease-in-out";
+            whiteTempo.style.left = -330 + "px";
+            whiteTempo.style.transition = "all .8s ease-in-out";
+
+        })
+        whiteCircle.addEventListener("click", () => {
+            console.log("click on red");
+            whiteTempo.style.display = "block"
+            redTempo.style.display = "block"
+            slider.style.display = "none";
+            whiteTempo.style.left = 20 + "px";
+            whiteTempo.style.transition = "all .8s ease-in-out";
+            redTempo.style.right = -330 + "px";
+            redTempo.style.transition = "all .8s ease-in-out";
+        })
+
+        view360.forEach(function (element) {
+            element.addEventListener("click", function () {
+
+                redTempo.style.display = "none"
+                whiteTempo.style.display = "none";
+                slider.style.display = "block";
+
+                var swiper = new Swiper(".cubeSwiper", {
+                    effect: "slide",
+                    grabCursor: true,
+                    speed: 1500,
+                    spaceBetween: 10,
+                    // autoplay: false,
+                    loop: true,
+                    autoplay: {
+                        delay: 2000,
+                        disableOnInteraction: false
+                    },
+
+                    pagination: {
+                        el: ".swiper-pagination",
+                        clickable: true,
+                    },
+                    navigation: {
+                        nextEl: '.swiper-button-next',
+                        prevEl: '.swiper-button-prev',
+                    },
+                });
+
+            });
+        });
+
+
+        window.parent.document.body.style.overflow = "hidden";
+
+        close.addEventListener("click", () => {
+            main.style.display = "none";
+            myvid.muted = true;
+            myvid.pause();
+            window.parent.document.body.style.overflow = "scroll";
+        });
+
+        setTimeout(() => {
+            text1.style.left = -300 + "px";
+            text1.style.transition = "all .7s linear";
+            text2.style.right = -300 + "px";
+            text2.style.transition = "all .7s linear";
+            TapText.style.display = "block";
+            start.style.display = "block";
+        }, 4000);
+
+        setTimeout(() => {
+            text1.style.display = "none";
+            text2.style.display = "none";
+        }, 4700);
+
+        setTimeout(() => {
+            hand.style.display = "block";
+        }, 5300);
+
+        var tempo = document.getElementById("tempo");
+        var comfort = document.getElementById("comfort");
+        var performance = document.getElementById("performance");
+        var safety = document.getElementById("safety");
+        var saving = document.getElementById("saving");
+
+        var img1 = document.createElement("img");
+        img1.src = "./images/Comfort.png";
+        img1.style.position = "absolute";
+        img1.style.display = "none";
+        img1.style.right = 0;
+        img1.style.left = -52 + "px";
+        img1.style.margin = "0 auto";
+        img1.style.width = 60 + "px";
+        img1.style.bottom = 173 + "px";
+        MyImg.appendChild(img1);
+
+        var img2 = document.createElement("img");
+        img2.src = "./images/Performance.png";
+        img2.style.position = "absolute";
+        img2.style.display = "none";
+        img2.style.right = 0;
+        img2.style.left = -167 + "px";
+        img2.style.margin = "0 auto";
+        img2.style.width = 60 + "px";
+        img2.style.bottom = 171 + "px";
+        MyImg.appendChild(img2);
+
+        var img3 = document.createElement("img");
+        img3.src = "./images/Safety.png";
+        img3.style.position = "absolute";
+        img3.style.display = "none";
+        img3.style.right = 0;
+        img3.style.left = -283 + "px";
+        img3.style.margin = "0 auto";
+        img3.style.width = 60 + "px";
+        img3.style.bottom = 175 + "px";
+        MyImg.appendChild(img3);
+
+        var img4 = document.createElement("img");
+        img4.src = "./images/Saving.png";
+        img4.style.position = "absolute";
+        img4.style.display = "none";
+        img4.style.right = 0;
+        img4.style.left = -105 + "px";
+        img4.style.margin = "0 auto";
+        img4.style.width = 60 + "px";
+        img4.style.bottom = 219 + "px";
+        MyImg.appendChild(img4);
+
+        function checkCollision(rect1, rect2) {
+            return !((rect1.right) < rect2.left ||
+                rect1.left > rect2.right ||
+                rect1.bottom < rect2.top ||
+                rect1.top > rect2.bottom);
+        }
+
+        function update() {
+            var tempoRect = tempo.getBoundingClientRect();
+            var comfortRect = comfort.getBoundingClientRect();
+            var performanceRect = performance.getBoundingClientRect();
+            var safetyRect = safety.getBoundingClientRect();
+            var savingRect = saving.getBoundingClientRect();
+
+            if (checkCollision(tempoRect, comfortRect)) {
+                img1.style.display = "block";
+                img1.style.animation = "smImg .4s linear";
+                comfort.style.opacity = 0;
+                comfort.style.transition = "all .3s";
+            }
+
+            if (checkCollision(tempoRect, performanceRect)) {
+                performance.style.opacity = 0;
+                performance.style.transition = "all .3s";
+                img2.style.display = "block";
+                img2.style.animation = "smImg .4s linear";
+            }
+
+            if (checkCollision(tempoRect, safetyRect)) {
+                safety.style.opacity = 0;
+                safety.style.transition = "all .3s";
+
+                img3.style.display = "block";
+                img3.style.animation = "smImg .4s linear";
+            }
+
+            if (checkCollision(tempoRect, savingRect)) {
+                img4.style.display = "block";
+                saving.style.opacity = 0;
+                saving.style.transition = "all .3s";
+                img4.style.animation = "smImg .4s linear";
+            }
+
+            requestAnimationFrame(update);
+        }
+
+        update();
+    </script>
+
+</body>
+
+</html>

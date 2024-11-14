@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <title>Godrej Washing Machine</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        overflow: hidden;
+        font-family: "Poppins", sans-serif;
+    }
+
+    .main {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        overflow: hidden;
+    }
+
+    .firstScreen {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        position: absolute;
+
+    }
+
+    #close {
+        position: absolute;
+        right: 1px;
+        top: 1px;
+        width: 27px;
+        z-index: 9999;
+        cursor: pointer;
+    }
+
+
+    @keyframes pulse {
+        0% {
+            transform: scale(1);
+        }
+
+        100% {
+            transform: scale(.92);
+        }
+    }
+
+    @keyframes divAni {
+        0% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+
+    .cube-parent-container {
+        width: 100%;
+        height: 230px;
+        margin: 0;
+        position: absolute;
+        bottom: 15%;
+    }
+
+    .cubeSwiper .swiper-slide img {
+        width: 100%;
+        object-fit: cover;
+    }
+
+    .cubeSwiper .pagination-container {
+        padding-top: 25px;
+        width: 100%;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 100px 1fr;
+        grid-template-rows: 1fr;
+        grid-column-gap: 0px;
+        grid-row-gap: 0px;
+        position: absolute;
+        top: 250px;
+        transform: scale(0.8);
+    }
+
+    .pagination-container {
+        position: relative;
+        top: -25px;
+    }
+
+    .cubeSwiper .cube-pagination-fraction {
+        color: rgba(255, 0, 255, 0.8);
+        font-size: 18px;
+        font-weight: 700;
+        margin-top: 15px;
+        text-align: center;
+        position: relative;
+    }
+
+    .swiper-button-next,
+    .swiper-button-prev {
+        color: #fff;
+        width: calc(var(--swiper-navigation-size)/ 44 * 6);
+        font-size: 12px;
+        font-weight: bolder;
+    }
+
+    .swiper-button-next:after,
+    .swiper-button-prev:after {
+        font-size: 12px;
+        font-weight: bolder;
+        padding: 7px 9px;
+        border-radius: 20px;
+
+    }
+
+    .swiper-button-prev {
+        left: var(--swiper-navigation-sides-offset, 19px);
+        position: absolute;
+        top: -200px;
+    }
+
+    .swiper-button-next {
+        right: var(--swiper-navigation-sides-offset, 20px);
+        position: absolute;
+        top: -200px;
+    }
+
+    .swiper-pagination-bullets.swiper-pagination-horizontal {
+        bottom: var(--swiper-pagination-bottom, -10px);
+    }
+
+    .swiper {
+        width: 240px;
+        height: 300px;
+        position: relative;
+        /* overflow: scroll; */
+    }
+
+    .swiper-pagination-bullet {
+        width: 12px;
+        height: 12px;
+    }
+
+
+    @keyframes logo {
+        0% {
+            opacity: 0;
+        }
+
+        50% {
+            opacity: 0;
+            top: 0;
+        }
+
+        100% {
+            opacity: 1;
+            top: 20px;
+        }
+    }
+
+    @keyframes text1 {
+        0% {
+            opacity: 0;
+        }
+
+        65% {
+            opacity: 0;
+            top: 9%;
+        }
+
+        100% {
+            opacity: 1;
+            top: 11%;
+        }
+    }
+
+    @keyframes text111 {
+        0% {
+            opacity: 0;
+        }
+
+        65% {
+            opacity: 0;
+            top: 9%;
+        }
+
+        100% {
+            opacity: 1;
+            top: 10%;
+        }
+    }
+
+    @keyframes text11 {
+        0% {
+            opacity: 0;
+        }
+
+        70% {
+            opacity: 0;
+            transform: scale(0);
+        }
+
+        100% {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    @keyframes text2 {
+        0% {
+            opacity: 0;
+        }
+
+        75% {
+            opacity: 0;
+            transform: scale(0);
+        }
+
+        100% {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    @keyframes text3 {
+        0% {
+            opacity: 0;
+        }
+
+        90% {
+            opacity: 0;
+            transform: scale(0);
+        }
+
+        100% {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    @keyframes machine {
+        0% {
+            opacity: 0;
+        }
+
+        85% {
+            opacity: 0;
+            /* transform: scale(0); */
+        }
+
+        100% {
+            opacity: 1;
+            /* transform: scale(1); */
+        }
+    }
+
+    @keyframes location1 {
+        0% {
+            opacity: 0;
+        }
+
+        80% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+
+    }
+
+    @keyframes waterDivMU {
+        0% {
+            opacity: 0;
+        }
+
+        74% {
+            opacity: 0;
+        }
+
+        75% {
+            opacity: 1;
+            bottom: -200px;
+        }
+
+        100% {
+            opacity: 1;
+            bottom: 0;
+        }
+
+    }
+
+    @keyframes meterDiv {
+        0% {
+            opacity: 0;
+        }
+
+        84% {
+            opacity: 0;
+        }
+
+        85% {
+            opacity: 1;
+            bottom: 0px;
+        }
+
+        100% {
+            opacity: 1;
+            bottom: 23%;
+        }
+    }
+
+    @keyframes waterText {
+        0% {
+            opacity: 0;
+        }
+
+        30% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+    @keyframes fe {
+        0% {
+            opacity: 0;
+        }
+
+        40% {
+            opacity: 0;
+            transform: scale(0);
+        }
+
+        100% {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    @keyframes cta {
+        0% {
+            opacity: 0;
+        }
+
+        75% {
+            opacity: 0;
+            bottom: -100px;
+        }
+
+        100% {
+            opacity: 1;
+            bottom: 1%;
+        }
+    }
+
+    @keyframes rotateAni {
+        0% {
+            transform: rotate(0);
+        }
+
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+</style>
+
+<body>
+    <div class="main" id="main">
+
+        <img src="./images/BG.png" style="position: absolute;width: 100%;height: 100%;left: 0;top: 0;" alt="">
+        <a href="https://www.godrej.com/p/appliances/Fully-Automatic-Front-Load-Washing-Machines/Godrej-Eon-8-Kg-Fully-Automatic-Front-Load-Washing-Machine-keeps-you-clothes-looking-new-with-steam-wash-WFEON-CEL-8014-IEBT-SLSR"
+            target="_blank">
+            <img src="./images/LOGO.png"
+                style="position: absolute;top: 20px;left: 0;right: 0;margin: 0 auto;width: 230px;animation: logo 1s ease-out;z-index: 99;"
+                alt="">
+        </a>
+        <div class="firstScreen" id="firstScreen">
+
+            <div id="textScreenOne" style="position: absolute;width: 100%;height: 100%;">
+                <img src="./images/Rectangle 2.png" style="position: absolute;width: 100%;height: 180px;bottom: 0;"
+                    alt="">
+                <img src="./images/EON Cresta.png"
+                    style="position: absolute;top: 11%;left: 0;right: 0;margin: 0 auto;width: 250px;animation: text1 1.5s ease-out;"
+                    alt="">
+                <img src="./images/AI technology  that senses water  turbidity.png"
+                    style="position: absolute;top: 19%;left: 0;right: 0;margin: 0 auto;width: 250px;animation: text2 2.2s ease-out;"
+                    alt="">
+
+                <img id="tapText" src="./images/EXPERIENCE AI POWERED  EON CRESTA.png"
+                    style="position: absolute;bottom: 10px;left: 0;right: 0;margin: 0 auto;width: 260px;animation: text3 3.4s ease-out;"
+                    alt="">
+            </div>
+
+            <img src="./images/Machine.png"
+                style="position: absolute;bottom:80px;left: 0;right: 0;margin: 0 auto;width: 250px;animation: machine 2.8s linear;"
+                alt="">
+            <img id="waterInMachine" src="./images/Water in Machine.png"
+                style="display: none; position: absolute;left: 0;right: 0;margin: 0 auto;bottom: 210px;width: 135px;animation: divAni 0.7s linear;"
+                alt="">
+            <img id="clothsInMachine" src="./images/Clothes in Machine.png"
+                style="display: none; position: absolute;left: 0;right: 0;margin: 0 auto;bottom: 210px;width: 135px;animation: divAni 0.7s linear;"
+                alt="">
+
+            <img src="./images/LOGO.png"
+                style="position: absolute;top: 20px;left: 0;right: 0;margin: 0 auto;width: 230px;animation: logo 1s ease-out;"
+                alt="">
+
+        </div>
+        <p id="location" style="opacity: 0;">Detecting location...</p>
+
+        <!-- for Mumbai location -->
+        <div id="mhShow" style="position: absolute;width: 100%;height: 100%;display: none;">
+            <img src="./images/Location detected_.png"
+                style="position: absolute;top: 75px;left: 0;right: 0;margin: 0 auto;width: 250px;" alt="">
+            <img src="./images/Location 2.png"
+                style="position: absolute;top: 120px;left: 0;right: 0;margin: 0 auto;width: 210px;animation:location1 1.5s linear;"
+                alt="">
+
+
+            <div id="waterDivMumbai"
+                style="position: absolute;width: 100%;height: 100%;animation:waterDivMU 3s ease-out;bottom: 0;">
+                <img src="./images/Dirty water.png" style="position: absolute;width: 100%;bottom: 0;height: 397px;"
+                    alt="">
+                <img src="./images/Water.png" style="position: absolute;width: 100%;bottom: 320px;" alt="">
+            </div>
+
+            <div id="meterDiv"
+                style="position: absolute;width: 300px;height: 250px;bottom: 23%;left: 0;right: 0;margin: 0 auto;animation: meterDiv 4s linear;">
+                <img src="./images/Quality meter NO STICK.png"
+                    style="position: absolute;bottom: 30px;left: 0;right: 0;margin: 0 auto;width: 240px;" alt="">
+                <img id="meterMumbai" src="./images/Meter STICK.png"
+                    style="position: absolute;bottom: 58px;left: 0;right: 0;margin: 0 auto;width: 20px;transform-origin: bottom;"
+                    alt="">
+                <!-- transform: rotate(-72deg); -->
+            </div>
+
+            <img id="waterText1" src="./images/Water turbidity in  your area is high.png"
+                style="display: none; position: absolute;bottom: 12%;left: 0;right: 0;margin: 0 auto;width: 280px;animation:waterText .7s linear;"
+                alt="">
+
+        </div>
+
+        <!-- for Delhi location -->
+        <div id="dhShow" style="position: absolute;width: 100%;height: 100%;display: none;">
+            <img src="./images/Location detected_.png"
+                style="position: absolute;top: 75px;left: 0;right: 0;margin: 0 auto;width: 250px;" alt="">
+            <img src="./images/Location 1.png"
+                style="position: absolute;top: 120px;left: 0;right: 0;margin: 0 auto;width: 210px;animation:location1 1.5s linear;"
+                alt="">
+
+            <div id="waterDivMumbai"
+                style="position: absolute;width: 100%;height: 100%;animation:waterDivMU 3s ease-out;bottom: 0;">
+                <img src="./images/Water Box.png" style="position: absolute;width: 100%;bottom: 0;height: 397px;"
+                    alt="">
+                <img src="./images/Water.png" style="position: absolute;width: 100%;bottom: 320px;" alt="">
+            </div>
+
+            <div id="meterDiv"
+                style="position: absolute;width: 300px;height: 250px;bottom: 23%;left: 0;right: 0;margin: 0 auto;animation: meterDiv 4s linear;">
+                <img src="./images/Quality meter NO STICK.png"
+                    style="position: absolute;bottom: 30px;left: 0;right: 0;margin: 0 auto;width: 240px;" alt="">
+                <img id="meterDelhi" src="./images/Meter STICK.png"
+                    style="position: absolute;bottom: 58px;left: 0;right: 0;margin: 0 auto;width: 20px;transform-origin: bottom;"
+                    alt="">
+            </div>
+
+            <img id="waterText2" src="./images/Water turbidity in  your area is LOW.png"
+                style="display: none; position: absolute;bottom: 12%;left: 0;right: 0;margin: 0 auto;width: 280px;animation:waterText 1s linear;"
+                alt="">
+
+        </div>
+        <img id="timer1" src="./images/one.png"
+            style="display: none; position: absolute;bottom: 8%;left: 0;right: 0;margin: 0 auto;width: 80px;animation:waterText 1s linear;"
+            alt="">
+        <img id="timer2" src="./images/two.png"
+            style="display: none; position: absolute;bottom: 8%;left: 0;right: 0;margin: 0 auto;width: 80px;" alt="">
+        <img id="timer3" src="./images/three.png"
+            style="display: none; position: absolute;bottom: 8%;left: 0;right: 0;margin: 0 auto;width: 80px;" alt="">
+        <img id="timer4" src="./images/four.png"
+            style="display: none; position: absolute;bottom: 8%;left: 0;right: 0;margin: 0 auto;width: 80px;" alt="">
+        <img id="timer5" src="./images/five.png"
+            style="display: none; position: absolute;bottom: 8%;left: 0;right: 0;margin: 0 auto;width: 80px;" alt="">
+        <img id="timer6" src="./images/six.png"
+            style="display: none; position: absolute;bottom: 8%;left: 0;right: 0;margin: 0 auto;width: 80px;" alt="">
+        <img id="timer7" src="./images/seven.png"
+            style="display: none; position: absolute;bottom: 8%;left: 0;right: 0;margin: 0 auto;width: 80px;" alt="">
+        <img id="timer8" src="./images/eight.png"
+            style="display: none; position: absolute;bottom: 8%;left: 0;right: 0;margin: 0 auto;width: 80px;" alt="">
+        <img id="timer9" src="./images/nine.png"
+            style="display: none; position: absolute;bottom: 8%;left: 0;right: 0;margin: 0 auto;width: 80px;" alt="">
+        <img id="timer10" src="./images/ten.png"
+            style="display: none; position: absolute;bottom: 8%;left: 0;right: 0;margin: 0 auto;width: 80px;" alt="">
+
+        <img id="timer21" src="./images/one.png"
+            style="display: none; position: absolute;bottom: 8%;left: 0;right: 0;margin: 0 auto;width: 80px;animation:waterText 1s linear;"
+            alt="">
+        <img id="timer22" src="./images/two.png"
+            style="display: none; position: absolute;bottom: 8%;left: 0;right: 0;margin: 0 auto;width: 80px;" alt="">
+        <img id="timer23" src="./images/three.png"
+            style="display: none; position: absolute;bottom: 8%;left: 0;right: 0;margin: 0 auto;width: 80px;" alt="">
+        <img id="timer24" src="./images/four.png"
+            style="display: none; position: absolute;bottom: 8%;left: 0;right: 0;margin: 0 auto;width: 80px;" alt="">
+        <img id="timer25" src="./images/five.png"
+            style="display: none; position: absolute;bottom: 8%;left: 0;right: 0;margin: 0 auto;width: 80px;" alt="">
+
+        <a href="https://www.godrej.com/p/appliances/Fully-Automatic-Front-Load-Washing-Machines/Godrej-Eon-8-Kg-Fully-Automatic-Front-Load-Washing-Machine-keeps-you-clothes-looking-new-with-steam-wash-WFEON-CEL-8014-IEBT-SLSR"
+            target="_blank">
+            <div id="feature" style="display: none; position: absolute;width: 100%;height: 100%;top: 0;left: 0;">
+                <img id="f1" src="./images/Feature 1.png"
+                    style="position: absolute;left: 0;right: 0;margin: 0 auto;top: 11%;width: 55%;animation: fe .7s ease-out;"
+                    alt="">
+                <img id="f2" src="./images/Feature 2.png"
+                    style="display: none; position: absolute;left: 0;right: 0;margin: 0 auto;top: 11%;width: 55%;animation: fe .7s ease-out;"
+                    alt="">
+                <img id="f3" src="./images/Feature 3.png"
+                    style="display: none; position: absolute;left: 0;right: 0;margin: 0 auto;top: 11%;width: 55%;animation: fe .7s ease-out;"
+                    alt="">
+                <img id="f4" src="./images/Feature 4.png"
+                    style="display: none; position: absolute;left: 0;right: 0;margin: 0 auto;top: 11%;width: 55%;animation: fe .7s ease-out;"
+                    alt="">
+            </div>
+        </a>
+        <div id="tapDiv" style="position: absolute;width: 100%;height: 100%;top: 0;"></div>
+
+        <div id="lastScreen"
+            style="display: none; position: absolute;width: 100%;height: 100%;top: 0;left: 0;animation: divAni 0.7s linear;">
+            <a href="https://www.godrej.com/p/appliances/Fully-Automatic-Front-Load-Washing-Machines/Godrej-Eon-8-Kg-Fully-Automatic-Front-Load-Washing-Machine-keeps-you-clothes-looking-new-with-steam-wash-WFEON-CEL-8014-IEBT-SLSR"
+                target="_blank">
+                <img src="./images/EON Cresta.png"
+                    style="position: absolute;top: 10%;left: 0;right: 0;margin: 0 auto;width: 220px;animation: text111 1.5s ease-out;"
+                    alt="">
+                <img src="./images/Elegance meets Efficiency.png"
+                    style="position: absolute;top: 17%;left: 0;right: 0;margin: 0 auto;width: 300px;animation: text11 2s ease-out;"
+                    alt="">
+                <img id="cta" src="./images/Learn more.png"
+                    style="position: absolute;left: 0;right: 0;margin: 0 auto;bottom: 1%;width: 200px;animation: cta 2.5s ease-out;"
+                    alt="">
+            </a>
+            <video id="myVid" src="https://beta.andbeyond.media/abm-direct/RichMedia/video/GodrejEon.mp4" controls muted
+                p style="position: absolute;width: 320px;top: 22%;left: 0;right: 0;margin: 0 auto;"></video>
+
+            <figure class="cube-parent-container" id="slider">
+
+                <div class="swiper cubeSwiper">
+                    <div class="swiper-wrapper">
+
+                        <div class="swiper-slide">
+                            <img src="./images/Banner 1.png"
+                                style="width: 240px;position: absolute;left: 0;right: 0;margin: 0 auto;" />
+                        </div>
+
+                        <div class="swiper-slide">
+                            <img src="./images/Banner 2.png"
+                                style="width: 240px;position: absolute;left: 0;right: 0;margin: 0 auto;" />
+                        </div>
+
+                        <div class="swiper-slide">
+                            <img src="./images/Banner 3.png"
+                                style="width: 240px;position: absolute;left: 0;right: 0;margin: 0 auto;" />
+                        </div>
+
+                        <div class="swiper-slide">
+                            <img src="./images/Banner 4.png"
+                                style="width: 240px;position: absolute;left: 0;right: 0;margin: 0 auto;" />
+                        </div>
+                    </div>
+                </div>
+                <div class="pagination-container" style="opacity: 0;">
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                </div>
+            </figure>
+
+        </div>
+
+        <img id="close"
+            src="https://cache-ssl.celtra.com/api/static/ve67ae1362e/runner/clazzes/CreativeUnit/close-up.svg"
+            alt="Close Button">
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const close = document.getElementById("close");
+            const main = document.getElementById("main");
+            const firstScreen = document.getElementById("firstScreen");
+            const tapDiv = document.getElementById("tapDiv");
+
+            var mhShow = document.getElementById("mhShow");
+            var dhShow = document.getElementById("dhShow");
+
+            var textScreenOne = document.getElementById("textScreenOne");
+            var meterMumbai = document.getElementById("meterMumbai");
+            var meterDelhi = document.getElementById("meterDelhi");
+            var waterText1 = document.getElementById("waterText1");
+            var waterText2 = document.getElementById("waterText2");
+
+            var timer1 = document.getElementById("timer1");
+            var timer2 = document.getElementById("timer2");
+            var timer3 = document.getElementById("timer3");
+            var timer4 = document.getElementById("timer4");
+            var timer5 = document.getElementById("timer5");
+            var timer6 = document.getElementById("timer6");
+            var timer7 = document.getElementById("timer7");
+            var timer8 = document.getElementById("timer8");
+            var timer9 = document.getElementById("timer9");
+            var timer10 = document.getElementById("timer10");
+
+            var timer21 = document.getElementById("timer21");
+            var timer22 = document.getElementById("timer22");
+            var timer23 = document.getElementById("timer23");
+            var timer24 = document.getElementById("timer24");
+            var timer25 = document.getElementById("timer25");
+
+            function timerOne() {
+                timer1.style.display = "block";
+                setTimeout(() => {
+                    timer1.style.display = "none";
+                    timer2.style.display = "block";
+                }, 800);
+                setTimeout(() => {
+                    timer2.style.display = "none";
+                    timer3.style.display = "block";
+                }, 1600);
+                setTimeout(() => {
+                    timer3.style.display = "none";
+                    timer4.style.display = "block";
+                }, 2400);
+                setTimeout(() => {
+                    timer4.style.display = "none";
+                    timer5.style.display = "block";
+                }, 3200);
+                setTimeout(() => {
+                    timer5.style.display = "none";
+                    timer6.style.display = "block";
+                }, 4000);
+                setTimeout(() => {
+                    timer6.style.display = "none";
+                    timer7.style.display = "block";
+                }, 4800);
+                setTimeout(() => {
+                    timer7.style.display = "none";
+                    timer8.style.display = "block";
+                }, 5600);
+                setTimeout(() => {
+                    timer8.style.display = "none";
+                    timer9.style.display = "block";
+                }, 6400);
+                setTimeout(() => {
+                    timer9.style.display = "none";
+                    timer10.style.display = "block";
+                }, 7200);
+                // setTimeout(() => {
+                //     timer10.style.display = "none"
+                // }, 8000);
+            }
+
+            function timerTwo() {
+                timer21.style.display = "block";
+                setTimeout(() => {
+                    timer21.style.display = "none";
+                    timer22.style.display = "block";
+                }, 1000);
+                setTimeout(() => {
+                    timer22.style.display = "none";
+                    timer23.style.display = "block";
+                }, 2000);
+                setTimeout(() => {
+                    timer23.style.display = "none";
+                    timer24.style.display = "block";
+                }, 3000);
+                setTimeout(() => {
+                    timer24.style.display = "none";
+                    timer25.style.display = "block";
+                }, 4000);
+            }
+
+            var f1 = document.getElementById("f1");
+            var f2 = document.getElementById("f2");
+            var f3 = document.getElementById("f3");
+            var f4 = document.getElementById("f4");
+            var lastScreen = document.getElementById("lastScreen");
+            var cta = document.getElementById("cta");
+            var myVid = document.getElementById("myVid");
+            var waterInMachine = document.getElementById("waterInMachine");
+            var clothsInMachine = document.getElementById("clothsInMachine");
+            var tapText = document.getElementById("tapText");
+
+            tapDiv.addEventListener("click", function () {
+                locationDetection();
+            })
+            setTimeout(() => {
+                tapText.style.animation = "pulse .6s ease alternate infinite";
+            }, 3410);
+
+            function mumbaiLocation() {
+                mhShow.style.display = "block";
+                dhShow.style.display = "none";
+                setTimeout(() => {
+                    waterInMachine.style.display = "block"
+                }, 1300);
+                setTimeout(() => {
+                    meterMumbai.style.transform = "rotate(-68deg)";
+                    meterMumbai.style.transition = "all 1s ease-in-out";
+                    meterMumbai.style.bottom = 64 + "px";
+                    setTimeout(() => {
+                        waterText1.style.display = "block";
+                    }, 1000);
+                }, 4500);
+                setTimeout(() => {
+                    mhShow.style.opacity = 0;
+                    mhShow.style.transition = "all .6s linear";
+
+                    timerOne();
+                    clothsInMachine.style.display = "block";
+                    setTimeout(() => {
+                        clothsInMachine.style.animation = "rotateAni .4s linear infinite";
+                    }, 800);
+                    setTimeout(() => {
+                        clothsInMachine.style.animationPlayState = "paused"
+                    }, 8000);
+                }, 7500);
+                setTimeout(() => {
+                    features();
+                }, 8500);
+
+            }
+
+            function delhiLocation() {
+                mhShow.style.display = "none";
+                dhShow.style.display = "block";
+                setTimeout(() => {
+                    waterInMachine.style.display = "block"
+                }, 1300);
+                setTimeout(() => {
+                    meterDelhi.style.transform = "rotate(55deg)";
+                    meterDelhi.style.transition = "all 1s ease-in-out";
+                    meterDelhi.style.bottom = 64 + "px";
+                    setTimeout(() => {
+                        waterText2.style.display = "block";
+                    }, 1000);
+                }, 4500);
+                setTimeout(() => {
+                    dhShow.style.opacity = 0;
+                    dhShow.style.transition = "all .6s linear";
+
+                    timerTwo()
+                    clothsInMachine.style.display = "block";
+                    setTimeout(() => {
+                        clothsInMachine.style.animation = "rotateAni .4s linear infinite";
+                    }, 800);
+                    setTimeout(() => {
+                        clothsInMachine.style.animationPlayState = "paused"
+                    }, 6300);
+                }, 7500);
+                setTimeout(() => {
+                    features();
+                }, 8500);
+
+            }
+
+            function features() {
+                feature.style.display = "block";
+                setTimeout(() => {
+                    f1.style.opacity = 0;
+                    f1.style.transition = "all .5s";
+                    f2.style.display = "block";
+                }, 2500);
+                setTimeout(() => {
+                    f2.style.opacity = 0;
+                    f2.style.transition = "all .5s";
+                    f3.style.display = "block";
+                }, 5000);
+                setTimeout(() => {
+                    f3.style.opacity = 0;
+                    f3.style.transition = "all .5s"
+                    f4.style.display = "block";
+                }, 7500);
+                setTimeout(() => {
+                    firstScreen.style.opacity = 0;
+                    firstScreen.style.transition = "all .7s";
+                    f4.style.opacity = 0;
+                    f4.style.transition = "all .7s";
+
+                    timer10.style.display = "none";
+                    timer25.style.display = "none";
+
+                    setTimeout(() => {
+                        lastScreen.style.display = "block";
+                        setTimeout(() => {
+                            rotationSlide();
+                            myVid.muted = false;
+                            myVid.play();
+                            rotationSlide()
+                        }, 1500);
+
+                        setTimeout(() => {
+                            cta.style.animation = "pulse .7s ease alternate infinite";
+                        }, 2510);
+                    }, 500);
+
+                }, 11000);
+            }
+
+            function rotationSlide() {
+                var swiper = new Swiper(".cubeSwiper", {
+                    effect: "slide",
+                    grabCursor: true,
+                    speed: 1500,
+                    spaceBetween: 1,
+                    autoplay: false,
+                    slidesPerView: 1,
+                    loop: true,
+                    autoplay: {
+                        delay: 2000,
+                        disableOnInteraction: false
+                    },
+
+                    pagination: {
+                        el: ".swiper-pagination",
+                        clickable: true,
+                    },
+                    navigation: {
+                        nextEl: '.swiper-button-next',
+                        prevEl: '.swiper-button-prev',
+                    },
+                });
+            }
+
+            function locationDetection() {
+                console.log("start.....");
+                tapDiv.style.display = "none";
+                async function fetchLocationDetails(latitude, longitude) {
+                    const apiKey = '323f3d91e8884693b2648bd5bfb34a68';
+                    const url = `https://api.opencagedata.com/geocode/v1/json?q=${latitude}+${longitude}&key=${apiKey}`;
+
+                    try {
+                        const response = await fetch(url);
+                        const result = await response.json();
+                        console.log("result:", result);
+                        return result;
+                    } catch (error) {
+                        console.error(error);
+                        return null;
+                    }
+                }
+
+                function updateLocationDisplay(state) {
+                    const locationElement = document.getElementById('location');
+                    if (state && typeof state === 'string') {
+                        if (state.toLowerCase() === "maharashtra") {
+                            locationElement.textContent = "Your location is Maharashtra.";
+
+                            setTimeout(() => {
+                                mumbaiLocation()
+                                // delhiLocation()
+                            }, 700);
+
+                        } else if (state.toLowerCase() === "delhi") {
+                            locationElement.textContent = "Your location is Delhi.";
+
+                            setTimeout(() => {
+                                delhiLocation()
+                            }, 700);
+                        } else {
+                            locationElement.textContent = `Your location is ${state}.`;
+                        }
+                    } else {
+                        locationElement.textContent = "Unable to determine your state.";
+                    }
+                }
+
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(async (position) => {
+                        const latitude = position.coords.latitude;
+                        const longitude = position.coords.longitude;
+
+                        const locationData = await fetchLocationDetails(latitude, longitude);
+
+                        if (locationData && locationData.results.length > 0) {
+                            const components = locationData.results[0].components;
+                            const state = components.state;
+                            updateLocationDisplay(state);
+                        } else {
+                            document.getElementById('location').textContent = "Unable to determine your state.";
+                        }
+                    }, () => {
+                        document.getElementById('location').textContent = "Unable to retrieve your location.";
+                    });
+                } else {
+                    document.getElementById('location').textContent = "Geolocation is not supported by this browser.";
+                }
+
+                setTimeout(() => {
+                    textScreenOne.style.opacity = 0;
+                    textScreenOne.style.transition = "all .5s ease-in-out";
+
+                }, 500);
+            }
+
+            close.addEventListener("click", () => {
+                main.style.display = "none";
+                window.parent.document.body.style.overflow = "scroll";
+            });
+        });
+
+    </script>
+</body>
+
+</html>

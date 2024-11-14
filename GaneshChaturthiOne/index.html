@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <title>Ganesh Chaturathi</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        overflow: hidden;
+        font-family: "Poppins", sans-serif;
+    }
+
+    .main {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        overflow: hidden;
+    }
+
+    .firstScreen {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        position: absolute;
+
+    }
+
+    #close {
+        position: absolute;
+        right: 1px;
+        top: 1px;
+        width: 27px;
+        z-index: 9999;
+        cursor: pointer;
+    }
+
+    @keyframes ganesh {
+        0% {
+            opacity: 0;
+        }
+
+        49% {
+            opacity: 0;
+        }
+
+        50% {
+            opacity: 1;
+            filter: blur(20px);
+        }
+
+        100% {
+            filter: blur(0);
+            opacity: 1;
+        }
+    }
+
+    @keyframes letsCelebrate {
+        0% {
+            opacity: 0;
+        }
+
+        70% {
+            opacity: 0;
+            transform: scale(0);
+        }
+
+        100% {
+            transform: scale(1);
+            opacity: 1;
+        }
+    }
+
+    @keyframes playBtn {
+        0% {
+            opacity: 0;
+        }
+
+        80% {
+            opacity: 0;
+            bottom: 0;
+        }
+
+        100% {
+            bottom: 7%;
+            opacity: 1;
+        }
+    }
+
+    @keyframes hand {
+        0% {
+            opacity: 0;
+        }
+
+        85% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+    @keyframes pulse {
+        0% {
+            transform: scale(1);
+        }
+
+        100% {
+            transform: scale(.92);
+        }
+    }
+
+    @keyframes divAni {
+        0% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+    @keyframes discount {
+        0% {
+            opacity: 0;
+        }
+
+        30% {
+            opacity: 0;
+            transform: scale(0);
+        }
+
+        100% {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    @keyframes text1 {
+        0% {
+            opacity: 0;
+        }
+
+        30% {
+            opacity: 0;
+            left: -200px;
+        }
+
+        100% {
+            opacity: 1;
+            left: 0;
+        }
+    }
+
+    @keyframes text2 {
+        0% {
+            opacity: 0;
+        }
+
+        30% {
+            opacity: 0;
+            right: -200px;
+        }
+
+        100% {
+            opacity: 1;
+            right: 0;
+        }
+    }
+
+    @keyframes text3 {
+        0% {
+            opacity: 0;
+        }
+
+        60% {
+            opacity: 0;
+            top: 60%;
+        }
+
+        100% {
+            opacity: 1;
+            top: 55%;
+        }
+    }
+
+    .cube-parent-container {
+        width: 100%;
+        height: 230px;
+        margin: 0;
+        position: absolute;
+        bottom: 9%;
+    }
+
+    .cubeSwiper .swiper-slide img {
+        width: 100%;
+        object-fit: cover;
+    }
+
+    .cubeSwiper .pagination-container {
+        padding-top: 25px;
+        width: 100%;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 100px 1fr;
+        grid-template-rows: 1fr;
+        grid-column-gap: 0px;
+        grid-row-gap: 0px;
+        position: absolute;
+        top: 250px;
+        transform: scale(0.8);
+    }
+
+    .pagination-container {
+        position: relative;
+        top: -25px;
+    }
+
+    .cubeSwiper .cube-pagination-fraction {
+        color: rgba(255, 0, 255, 0.8);
+        font-size: 18px;
+        font-weight: 700;
+        margin-top: 15px;
+        text-align: center;
+        position: relative;
+    }
+
+    .swiper-button-next,
+    .swiper-button-prev {
+        color: #fff;
+        width: calc(var(--swiper-navigation-size)/ 44 * 6);
+        font-size: 12px;
+        font-weight: bolder;
+    }
+
+    .swiper-button-next:after,
+    .swiper-button-prev:after {
+        font-size: 12px;
+        font-weight: bolder;
+        padding: 7px 9px;
+        border-radius: 20px;
+
+    }
+
+    .swiper-button-prev {
+        left: var(--swiper-navigation-sides-offset, 19px);
+        position: absolute;
+        top: -200px;
+    }
+
+    .swiper-button-next {
+        right: var(--swiper-navigation-sides-offset, 20px);
+        position: absolute;
+        top: -200px;
+    }
+
+    .swiper-pagination-bullets.swiper-pagination-horizontal {
+        bottom: var(--swiper-pagination-bottom, -10px);
+    }
+
+    .swiper {
+        width: 100%;
+        height: 230px;
+        position: relative;
+        /* overflow: scroll; */
+    }
+
+    .swiper-pagination-bullet {
+        width: 12px;
+        height: 12px;
+    }
+    @keyframes cta {
+        0%{
+            opacity: 0;
+        }
+        70%{
+            opacity: 0;
+            bottom: -50px;
+        }
+        100%{
+            opacity: 1;
+            bottom: 2%;
+        }
+    }
+</style>
+
+<body>
+    <div class="main" id="main">
+
+        <div class="firstScreen" id="firstScreen">
+            <img src="./images/BG.png" style="position: absolute;width: 100%;height: 100%;left: 0;top: 0;" alt="">
+
+            <div id="pageOne" style="position: absolute;width: 100%;height: 100%;">
+                <img src="./images/Ganesh.png"
+                    style="position: absolute;left: 0;right: 0;margin: 0 auto;top: 13%;width: 250px;animation: ganesh 1.5s ease-in;"
+                    alt="">
+                <img src="./images/LetsCelebrate.png"
+                    style="position: absolute;left: 0;right: 0;margin: auto;bottom: 20%;width: 75%;animation: letsCelebrate 2s ease-out;"
+                    alt="">
+                <img src="./images/playButton.png"
+                    style="position: absolute;left: 0;right: 0;margin: 0 auto;bottom: 7%;width: 40%;animation: playBtn 2.5s ease-out;"
+                    alt="">
+                <img id="hand" src="./images/hand.png"
+                    style="position: absolute;left: 0;right: 0;margin: 0 auto;bottom: 1%;width: 40px;animation: hand 3s ease-out;"
+                    alt="">
+            </div>
+
+            <div id="pickAndGrabDiv"
+                style="position: absolute;width: 100%;height: 100%;display: none;animation: divAni .7s linear;">
+
+                <div id="timerText"
+                    style="width: 100%; height: 100%;margin: 0 auto;left: 0;right: 0;position: absolute;">
+                    <img src="./images/Pick.png"
+                        style="position: absolute;width: 300px;top: 35%;left: 0;right: 0;margin: 0 auto;" alt="">
+
+                    <img src="./images/Seconds.png"
+                        style="position: absolute;left: 0;right: 0;margin: 0 auto;top: 62%;width: 150px;" alt="">
+
+
+                </div>
+                <div id="timer"
+                    style="width: 120px;height: 160px;margin:0 auto;top: 45%;left: 0;right: 0;position: absolute;">
+                    <img src="./images/Timer/Clock.png"
+                        style="position: absolute;left: 0;right: 0;margin: 0 auto;top: 0px;width: 100px;" alt="">
+                    <img id="ten" src="./images/Timer/zero.png"
+                        style="width: 60px; position: absolute;margin: auto;top: -20px;bottom: 0;left: 0;right: 0;"
+                        alt="">
+                    <img id="nine" src="./images/Timer/09.png"
+                        style="display:none; width: 60px; position: absolute;margin: auto;top: -20px;bottom: 0;left: 0;right: 0;"
+                        alt="">
+                    <img id="eight" src="./images/Timer/08.png"
+                        style="display:none; width: 60px; position: absolute;margin: auto;top: -20px;bottom: 0;left: 0;right: 0;"
+                        alt="">
+                    <img id="seven" src="./images/Timer/07.png"
+                        style="display:none; width: 60px; position: absolute;margin: auto;top: -20px;bottom: 0;left: 0;right: 0;"
+                        alt="">
+                    <img id="six" src="./images/Timer/06.png"
+                        style="display:none; width: 60px; position: absolute;margin: auto;top: -20px;bottom: 0;left: 0;right: 0;"
+                        alt="">
+                    <img id="five" src="./images/Timer/05.png"
+                        style="display:none; width: 60px; position: absolute;margin: auto;top: -20px;bottom: 0;left: 0;right: 0;"
+                        alt="">
+                    <img id="four" src="./images/Timer/04.png"
+                        style="display:none; width: 60px; position: absolute;margin: auto;top: -20px;bottom: 0;left: 0;right: 0;"
+                        alt="">
+                    <img id="three" src="./images/Timer/03.png"
+                        style="display:none; width: 60px; position: absolute;margin: auto;top: -20px;bottom: 0;left: 0;right: 0;"
+                        alt="">
+                    <img id="two" src="./images/Timer/02.png"
+                        style="display:none; width: 60px; position: absolute;margin: auto;top: -20px;bottom: 0;left: 0;right: 0;"
+                        alt="">
+                    <img id="one" src="./images/Timer/01.png"
+                        style="display:none; width: 52px; position: absolute;margin: auto;top: -20px;bottom: 0;left: 0;right: 0;"
+                        alt="">
+                    <img id="zero" src="./images/Timer/zero.png"
+                        style="display:none; width: 60px; position: absolute;margin: auto;top: -20px;bottom: 0;left: 0;right: 0;"
+                        alt="">
+                </div>
+            </div>
+
+            <div id="product" style="position: absolute;width: 100%;height: 100%;display: none;">
+                <img id="top" src="./images/Box/top.png"
+                    style="position: absolute;left: 0;right: 0;margin: 0 auto;top: 80%;width: 120px;" alt="">
+
+                <div id="fetaDiv" style="position: absolute;width: 100%;height: 100%;">
+                    <img id="feta" src="./images/Clothes/feta.png"
+                        style="width: 120px; position: absolute;left: 0;right: 0;margin: 0 auto;top: 40%;" alt="">
+                </div>
+
+                <div id="materialDiv" style="position: absolute;width: 100%;height: 100%;display: none;">
+                    <img id="material" src="./images/Clothes/material.png"
+                        style="width: 120px; position: absolute;left: 0;right: 0;margin: 0 auto;top: 40%;" alt="">
+                </div>
+
+                <div id="kidsDiv" style="position: absolute;width: 100%;height: 100%;display: none;">
+                    <img id="kids" src="./images/Clothes/kids.png"
+                        style="width: 120px; position: absolute;left: 0;right: 0;margin: 0 auto;top: 40%;" alt="">
+                </div>
+
+                <div id="sariDiv" style="position: absolute;width: 100%;height: 100%;display: none;">
+                    <img id="sari" src="./images/Clothes/sari.png"
+                        style="width: 120px; position: absolute;left: 0;right: 0;margin: 0 auto;top: 40%;" alt="">
+                </div>
+
+                <img id="bottom" src="./images/Box/bottom.png"
+                    style="position: absolute;left: 0;right: 0;margin: 0 auto;top: 82%;width: 140px;" alt="">
+                <img id="finalBox" src="./images/Box/Box Close.png"
+                    style="display: none; position: absolute;left: 0;right: 0;margin: 0 auto;top:79%;width: 120px;"
+                    alt="">
+                <img id="check" src="./images/TICK Green.png"
+                    style="display: none; position: absolute;left: 0;right: 0;margin: 0 auto;top: 81%;width: 50px;"
+                    alt="">
+
+                <div id="DisDiv1" style="position: absolute;width: 100%;height: 100%;display: none;">
+                    <img id="" src="./images/Clothes/Overlay.png"
+                        style="width: 100%;height: 100%;position: absolute;left: 0;right: 0;margin: 0 auto;" alt="">
+                    <img id="" src="./images/Discount 15.png"
+                        style="width: 200px;position: absolute;left: 0;right: 0;margin: auto;top: 0;bottom: 0;animation: discount .7s ease-in-out;"
+                        alt="">
+                </div>
+
+                <div id="DisDiv2" style="position: absolute;width: 100%;height: 100%;display: none;">
+                    <img id="" src="./images/Clothes/Overlay.png"
+                        style="width: 100%;height: 100%;position: absolute;left: 0;right: 0;margin: 0 auto;" alt="">
+                    <img id="" src="./images/Discount 25.png"
+                        style="width: 200px;position: absolute;left: 0;right: 0;margin: auto;top: 0;bottom: 0;animation: discount .7s ease-in-out;"
+                        alt="">
+                </div>
+
+                <div id="DisDiv3" style="position: absolute;width: 100%;height: 100%;display: none;">
+                    <img id="" src="./images/Clothes/Overlay.png"
+                        style="width: 100%;height: 100%;position: absolute;left: 0;right: 0;margin: 0 auto;" alt="">
+                    <img id="" src="./images/Discount 10.png"
+                        style="width: 200px;position: absolute;left: 0;right: 0;margin: auto;top: 0;bottom: 0;animation: discount .7s ease-in-out;"
+                        alt="">
+                </div>
+
+                <div id="DisDiv4" style="position: absolute;width: 100%;height: 100%;display: none;">
+                    <img id="overlay" src="./images/Clothes/Overlay.png"
+                        style="width: 100%;height: 100%;position: absolute;left: 0;right: 0;margin: 0 auto;" alt="">
+                    <img id="" src="./images/Discount 50.png"
+                        style="width: 200px;position: absolute;left: 0;right: 0;margin: auto;top: 0;bottom: 0;animation: discount .7s ease-in-out;"
+                        alt="">
+                </div>
+
+                <img id="congrats" src="./images/Congratulations!!.png"
+                    style="display: none; position: absolute;width: 100%;top: 13%;animation: discount .7s ease-in-out;"
+                    alt="">
+            </div>
+
+            <div id="tapDiv" style="position: absolute;width: 100%;height: 100%;"></div>
+        </div>
+
+
+        <div id="lastScreen"
+            style="display: none; position: absolute;width: 100%;height: 100%;animation: divAni 1s linear; overflow: hidden;animation: divAni .7s linear;">
+            <img src="./images/BG.png" style="position: absolute;width: 100%;height: 100%;left: 0;top: 0;" alt="">
+            <img src="./images/Video.png"
+                style="position: absolute;top: 10%;left: 0;right: 0;margin: 0 auto;width: 320px;" alt="">
+            <a href="https://www.andbeyond.media/" target="_blank">
+                <img src="./images/Text/Lets celebrate.png"
+                    style="position: absolute;top: 40%;left: 0;right: 0;margin: 0 auto;width: 200px;animation: text1 1s ease-in-out;"
+                    alt="">
+                <img src="./images/Text/Ganesh Chaturthi.png"
+                    style="position: absolute;top: 45%;left: 0;right: 0;margin: 0 auto;width: 250px;animation: text2 1s ease-in-out;"
+                    alt="">
+                <img src="./images/Text/with our Offers.png"
+                    style="position: absolute;top: 55%;left: 0;right: 0;margin: 0 auto;width: 160px;animation: text3 1.3s ease-in-out;"
+                    alt="">
+            </a>
+
+
+            <figure class="cube-parent-container" id="slider">
+
+                <div class="swiper cubeSwiper">
+                    <div class="swiper-wrapper">
+
+                        <div class="swiper-slide">
+                            <img src="./images/Banners/Layer 1.png"
+                                style="width: 130px;position: absolute;left: 0;right: 0;margin: 0 auto;" />
+                        </div>
+
+                        <div class="swiper-slide">
+                            <img src="./images/Banners/Layer 2.png"
+                                style="width: 130px;position: absolute;left: 0;right: 0;margin: 0 auto;" />
+                        </div>
+
+                        <div class="swiper-slide">
+                            <img src="./images/Banners/Layer 3.png"
+                                style="width: 130px;position: absolute;left: 0;right: 0;margin: 0 auto;" />
+                        </div>
+
+                        <div class="swiper-slide">
+                            <img src="./images/Banners/Layer 4.png"
+                                style="width: 130px;position: absolute;left: 0;right: 0;margin: 0 auto;" />
+                        </div>
+
+                        <div class="swiper-slide">
+                            <img src="./images/Banners/Layer 5.png"
+                                style="width: 130px;position: absolute;left: 0;right: 0;margin: 0 auto;" />
+                        </div>
+
+                        <div class="swiper-slide">
+                            <img src="./images/Banners/Layer 6.png"
+                                style="width: 130px;position: absolute;left: 0;right: 0;margin: 0 auto;" />
+                        </div>
+
+                    </div>
+                </div>
+                <div class="pagination-container" style="opacity: 0;">
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                </div>
+            </figure>
+            <a href="https://www.andbeyond.media/" target="_blank">
+                <img id="cta" src="./images/Shop Now.png"
+                    style="position: absolute;width: 150px;left: 0;right: 0;margin: 0 auto;bottom: 2%;animation: cta 1.9s ease-out;" alt="">
+            </a>
+        </div>
+
+        <img id="close"
+            src="https://cache-ssl.celtra.com/api/static/ve67ae1362e/runner/clazzes/CreativeUnit/close-up.svg"
+            alt="Close Button">
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const close = document.getElementById("close");
+            const main = document.getElementById("main");
+            const firstScreen = document.getElementById("firstScreen");
+            const cta = document.getElementById("cta");
+            const hand = document.getElementById("hand");
+            const tapDiv = document.getElementById("tapDiv");
+            const pickAndGrabDiv = document.getElementById("pickAndGrabDiv");
+            const pageOne = document.getElementById("pageOne");
+            const timerText = document.getElementById("timerText");
+            const timer = document.getElementById("timer");
+
+            const ten = document.getElementById("ten");
+            const nine = document.getElementById("nine");
+            const eight = document.getElementById("eight");
+            const seven = document.getElementById("seven");
+            const six = document.getElementById("six");
+            const five = document.getElementById("five");
+            const four = document.getElementById("four");
+            const three = document.getElementById("three");
+            const two = document.getElementById("two");
+            const one = document.getElementById("one");
+            const zero = document.getElementById("zero");
+
+            const fetaDiv = document.getElementById("fetaDiv");
+            const feta = document.getElementById("feta");
+            const DisDiv1 = document.getElementById("DisDiv1");
+            const DisDiv2 = document.getElementById("DisDiv2");
+            const DisDiv3 = document.getElementById("DisDiv3");
+            const DisDiv4 = document.getElementById("DisDiv4");
+
+            const material = document.getElementById("material");
+            const materialDiv = document.getElementById("materialDiv");
+            const kids = document.getElementById("kids");
+            const kidsDiv = document.getElementById("kidsDiv");
+
+            const sari = document.getElementById("sari");
+            const sariDiv = document.getElementById("sariDiv");
+            const finalBox = document.getElementById("finalBox");
+            const check = document.getElementById("check");
+            const bottom = document.getElementById("bottom");
+            const top = document.getElementById("top");
+            const congrats = document.getElementById("congrats");
+            const overlay = document.getElementById("overlay");
+            const product = document.getElementById("product");
+            const lastScreen = document.getElementById("lastScreen");
+
+            var swiper = new Swiper(".cubeSwiper", {
+                effect: "slide",
+                grabCursor: true,
+                speed: 1500,
+                spaceBetween: 30,
+                //autoplay: false,
+                slidesPerView: 3,
+                loop: true,
+                autoplay: {
+                    delay: 2000,
+                    disableOnInteraction: false
+                },
+
+                pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true,
+                },
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+            });
+
+
+            window.parent.document.body.style.overflow = "hidden";
+
+            setTimeout(() => {
+                hand.style.animation = "pulse .5s ease alternate infinite";
+            }, 3001);
+
+
+            function rotation() {
+                setTimeout(() => {
+                    timerText.style.opacity = 0;
+                    timerText.style.transition = "all .5s linear"
+                }, 2500);
+                setTimeout(() => {
+                    timer.style.top = 10 + "%";
+                    timer.style.transition = "all 0.7s ease-in-out";
+                }, 3000);
+                setTimeout(() => {
+                    product.style.display = "block";
+                    feta.style.animation = "pulse .6s ease alternate infinite";
+                }, 4200);
+                setTimeout(() => {
+                    ten.style.display = "none";
+                    nine.style.display = "block";
+                }, 5200);
+                setTimeout(() => {
+                    nine.style.display = "none";
+                    eight.style.display = "block";
+                }, 6700);
+                setTimeout(() => {
+                    seven.style.display = "block";
+                    eight.style.display = "none";
+                }, 8300);
+                setTimeout(() => {
+                    six.style.display = "block";
+                    seven.style.display = "none";
+                }, 9300);
+                setTimeout(() => {
+                    five.style.display = "block";
+                    six.style.display = "none";
+                }, 10700);
+                setTimeout(() => {
+                    four.style.display = "block";
+                    five.style.display = "none";
+                }, 11900);
+                setTimeout(() => {
+                    three.style.display = "block";
+                    four.style.display = "none";
+                }, 12600);
+                setTimeout(() => {
+                    two.style.display = "block";
+                    three.style.display = "none";
+                }, 13900);
+                setTimeout(() => {
+                    one.style.display = "block";
+                    two.style.display = "none";
+                }, 15300);
+                setTimeout(() => {
+                    zero.style.display = "block";
+                    one.style.display = "none";
+                }, 16900);
+                setTimeout(() => {
+                    timer.style.opacity = 0;
+                    timer.style.transition = "all .5s linear";
+                }, 17500);
+                setTimeout(() => {
+                    product.style.opacity = 0;
+                    product.style.transition = "all .5s ease-in-out";
+                }, 18500);
+            }
+
+            tapDiv.addEventListener("click", () => {
+                console.log("click.....");
+                tapDiv.style.display = "none";
+                pageOne.style.opacity = 0;
+                pageOne.style.transition = "all .7s linear";
+                pickAndGrabDiv.style.display = "block";
+                // product.style.display ="block";
+                rotation();
+            })
+
+            fetaDiv.addEventListener("click", () => {
+                feta.style.top = 80.5 + "%";
+                feta.style.width = 50 + "px"
+                feta.style.transition = "all 1s ease-in-out";
+
+                setTimeout(() => {
+                    DisDiv1.style.display = "block";
+                    feta.style.animationPlayState = "paused"
+                }, 1000);
+                setTimeout(() => {
+                    DisDiv1.style.opacity = 0;
+                    DisDiv1.style.transform = "scale(2)";
+                    DisDiv1.style.transition = "all .5s";
+                }, 2500);
+                setTimeout(() => {
+                    DisDiv1.style.display = "none";
+                    materialDiv.style.display = "block";
+                    material.style.animation = "pulse .6s ease alternate infinite";
+                }, 3000);
+            })
+
+            materialDiv.addEventListener("click", () => {
+                material.style.top = 80.8 + "%";
+                material.style.width = 50 + "px"
+                material.style.transition = "all 1s ease-in-out";
+
+                setTimeout(() => {
+                    DisDiv2.style.display = "block";
+                    material.style.animationPlayState = "paused";
+                }, 1000);
+                setTimeout(() => {
+                    DisDiv2.style.opacity = 0;
+                    DisDiv2.style.transform = "scale(2)";
+                    DisDiv2.style.transition = "all .5s";
+                }, 2500);
+                setTimeout(() => {
+                    DisDiv2.style.display = "none";
+                    kidsDiv.style.display = "block";
+                    kids.style.animation = "pulse .6s ease alternate infinite";
+                }, 3000);
+            })
+            kidsDiv.addEventListener("click", () => {
+                kids.style.top = 81 + "%";
+                kids.style.width = 50 + "px"
+                kids.style.transition = "all 1s ease-in-out";
+
+                setTimeout(() => {
+                    DisDiv3.style.display = "block";
+                    kids.style.animationPlayState = "paused"
+                }, 1000);
+                setTimeout(() => {
+                    DisDiv3.style.opacity = 0;
+                    DisDiv3.style.transform = "scale(2)";
+                    DisDiv3.style.transition = "all .5s";
+                }, 2500);
+                setTimeout(() => {
+                    DisDiv3.style.display = "none";
+                    sariDiv.style.display = "block";
+                    sari.style.animation = "pulse .6s ease alternate infinite";
+                }, 3000);
+                setTimeout(() => {
+                    lastScreen.style.display = "block";
+                }, 6500);
+            })
+            sariDiv.addEventListener("click", () => {
+                sari.style.top = 81 + "%";
+                sari.style.width = 50 + "px"
+                sari.style.transition = "all 1s ease-in-out";
+
+                setTimeout(() => {
+                    DisDiv4.style.display = "block";
+                    congrats.style.display = "block";
+                    overlay.style.opacity = 0;
+                    overlay.style.transition = "all .5s";
+                    sari.style.animationPlayState = "paused"
+                }, 1000);
+
+                setTimeout(() => {
+                    // DisDiv4.style.display ="none";
+                    finalBox.style.display = "block";
+                    check.style.display = "block";
+                    bottom.style.display = "none";
+                    top.style.display = "none";
+
+                }, 3000);
+                setTimeout(() => {
+                    lastScreen.style.display = "block";
+                    setTimeout(() => {
+                        cta.style.animation = "pulse .5s ease alternate infinite";
+                    }, 2000);
+                }, 3500);
+
+            })
+
+
+            close.addEventListener("click", () => {
+                main.style.display = "none";
+                window.parent.document.body.style.overflow = "scroll";
+            });
+        });
+
+    </script>
+</body>
+
+</html>

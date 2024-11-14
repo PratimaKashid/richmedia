@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+    }
+
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100vw;
+        height: 100vh;
+    }
+
+    .field {
+        width: 800px;
+        height: 500px;
+        border: 1px solid #ccc;
+        position: relative;
+    }
+
+    .goalkeeper {
+        width: 50px;
+        height: 100px;
+        background-color: #000;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .ball {
+        width: 30px;
+        height: 30px;
+        background-color: red;
+        border-radius: 50%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        animation: moveBall 5s infinite linear;
+    }
+
+    @keyframes moveBall {
+        0% {
+            top: 50%;
+            left: calc(20% + 80% * random());
+        }
+
+        100% {
+            top: calc(20% + 80% * random());
+            left: calc(20% + 80% * random());
+        }
+    }
+
+    .goal {
+        width: 100px;
+        height: 50px;
+        background-color: #fff;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+</style>
+
+<body>
+    <div class="container">
+        <div class="field">
+            <div class="goalkeeper"></div>
+            <div class="ball"></div>
+            <div class="goal"></div>
+        </div>
+        <button id="start-game">Start Game</button>
+    </div>
+</body>
+<script>
+    const startButton = document.getElementById('start-game');
+    const goalkeeper = document.querySelector('.goalkeeper');
+    const ball = document.querySelector('.ball');
+    const goal = document.querySelector('.goal');
+    const scoreDisplay = document.createElement('span'); // Create a span element to display score
+
+    let isGameStarted = false;
+    let score = 0;
+
+    startButton.addEventListener('click', () => {
+        isGameStarted = true;
+    });
+
+    function moveGoalkeeper(event) {
+        if (!isGameStarted) return;
+
+        const goalkeeperX = goalkeeper.offsetLeft;
+        const mouseX = event.clientX - goalkeeper.parentElement.offsetLeft;
+
+        const distance = mouseX - goalkeeperX;
+        const maxMovement = goalkeeper.parentElement.offsetWidth - goalkeeper.offsetWidth; // Limit movement within field bounds
+
+        // Restrict goalkeeper movement to stay within the field
+        const newLeft = Math.max(0, Math.min(maxMovement, goalkeeperX + distance / 2));
+        goalkeeper.style.left = `${newLeft}px`;
+    }
+
+    function checkForGoal() {
+        if (!isGameStarted) return;
+
+        const ballRect = ball.getBoundingClientRect();
+        const goalRect = goal.getBoundingClientRect();
+
+        // Check if ball collides with the goal area (considering some buffer space)
+        if (
+            ballRect.right + 5 > goalRect.left &&
+            ballRect.left - 5 < goalRect.right &&
+            ballRect.bottom + 5 > goalRect.top
+        ) {
+            score++; // Increment score if ball enters goal
+            updateScoreDisplay();
+            resetBallPosition(); // Reset ball position after goal
+        }
+    }
+
+    function updateScoreDisplay() {
+        scoreDisplay.textContent = `Score: ${score}`;
+        if (!scoreDisplay.parentElement) {
+            document.body.appendChild(scoreDisplay); // Add score display to the body
+        }
+    }
+
+    function resetBallPosition() {
+        ball.style.top = `${Math.random() * 80}%`; // Randomize starting position within playable area (80% height)
+        ball.style.left = `${Math.random() * 80}%`; // Randomize starting position within playable area (80% width)
+    }
+
+    window.addEventListener('mousemove', moveGoalkeeper); // Attach moveGoalkeeper function to mousemove event
+    setInterval(checkForGoal, 10); // Check for goal collision every 10 milliseconds
+    updateScoreDisplay(); // Initialize score display
+
+</script>
+
+</html>

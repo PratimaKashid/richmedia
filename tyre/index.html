@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        /* transition: ; */
+    }
+
+    body {
+        overflow: hidden;
+    }
+    @keyframes move {
+        0%{
+            left: -500px;
+        }
+        100%{
+            left: 100px;
+        }
+    }
+</style>
+
+<body>
+    <div class="main"
+        style="overflow: hidden; position: absolute;top: 0;left: 0;right: 0;top: 0;bottom: 0;margin: auto;background-color: #333;width: 100%;height: 100%;">
+        
+        <div style="position: absolute;width: 300px;height: 140px;left: 100px; top: 40%;animation: move 2s ease-out;">
+            <img src="./img/car.png" style="position: absolute;width: 300px;" alt="">
+                <img src="./img/Layer 3.png" style="position: absolute;right: 64px;top: 69px;width: 67px;" alt="">
+
+                <img id="t1" class="tyre" src="./img/Layer 31.png" style="position: absolute;right: 80px;top: 81px;width: 43px;" alt="">
+                <img id="t2" class="tyre" src="./img/Layer 30 copy.png" style="display: none; position: absolute;right: 80px;top: 82px;width: 45px;" alt="">
+                <img id="t3" class="tyre" src="./img/Layer 30 copy 2.png" style="display: none; position: absolute;right: 80px;top: 82px;width: 45px;" alt="">
+                <img id="t4" class="tyre" src="./img/Layer 30 copy 3.png" style="display: none; position: absolute;right: 80px;top: 82px;width: 45px;" alt="">
+        </div>
+    </div>
+
+</body>
+<script>
+    var t1 = document.getElementById("t1")
+    var t2 = document.getElementById("t2")
+    var t3 = document.getElementById("t3")
+    var t4 = document.getElementById("t4")
+var tyre = document.querySelectorAll(".tyre")
+    setTimeout(() => {
+        rotation()
+        setTimeout(() => {
+            tyre.forEach((item)=>{
+                item.style.opacity = 0;
+                item.style.transition = "all .5s linear";
+            })
+        }, 1600);
+    }, 400);
+
+    function rotation() {
+        setTimeout(() => {
+            t1.style.display = "none";
+            t2.style.display = "block";
+        }, 100);
+        
+        setTimeout(() => {
+            t2.style.display = "none";
+            t3.style.display = "block";
+        }, 200);
+        setTimeout(() => {
+            t3.style.display = "none";
+            t4.style.display = "block";
+        }, 300);
+        setTimeout(() => {
+            t4.style.display = "none";
+            t1.style.display = "block";
+            rotation()
+        }, 400);
+
+    }
+</script>
+
+</html>

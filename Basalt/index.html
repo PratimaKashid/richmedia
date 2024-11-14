@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <title>Basalt</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        overflow: hidden;
+        font-family: "Poppins", sans-serif;
+    }
+
+    .main {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        overflow: hidden;
+    }
+
+    #camera-section {
+        height: 150%;
+        width: 150%;
+        position: absolute;
+        left: 0;
+        top: 0px;
+        bottom: 0;
+        right: 0;
+        margin: auto;
+        object-fit: cover;
+    }
+
+    #video {
+        width: 100%;
+        height: 100%;
+    }
+
+    #youtube-section {
+        position: absolute;
+        top: 0px;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        z-index: 99991;
+        animation: vid 1.5s ease-in-out;
+    }
+
+    @keyframes vid {
+        0% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+    #youtube-video {
+        width: 100%;
+        height: 100%;
+        max-width: 560px;
+        max-height: 315px;
+        top: 130px;
+        border: none;
+        position: absolute;
+    }
+
+    button {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        padding: 10px 20px;
+        font-size: 16px;
+    }
+
+    #close {
+        position: absolute;
+        right: 1px;
+        top: 1px;
+        width: 27px;
+        z-index: 9999;
+        cursor: pointer;
+    }
+
+    @keyframes logo {
+        0% {
+            opacity: 0;
+            top: -100px;
+        }
+
+        100% {
+            opacity: 1;
+            top: 10px;
+        }
+    }
+
+    @keyframes car1 {
+        0% {
+            opacity: 0;
+        }
+
+        60% {
+            opacity: 0;
+            left: -200px;
+        }
+
+        100% {
+            opacity: 1;
+            left: 0;
+        }
+    }
+
+    @keyframes car3 {
+        0% {
+            opacity: 0;
+        }
+
+        80% {
+            opacity: 0;
+            right: -200px;
+        }
+
+        100% {
+            opacity: 1;
+            right: 0;
+        }
+    }
+
+    @keyframes car2 {
+        0% {
+            opacity: 0;
+        }
+
+        70% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+    .playBtn {
+        animation: playBtnAni 2.5s ease-out;
+    }
+
+    @keyframes playBtnAni {
+        0% {
+            opacity: 0;
+        }
+
+        80% {
+            opacity: 0;
+            bottom: -10%;
+        }
+
+        100% {
+            opacity: 1;
+            bottom: 5%;
+        }
+    }
+
+    @keyframes pulse {
+        0% {
+            transform: scale(1);
+        }
+
+        100% {
+            transform: scale(.95);
+        }
+    }
+
+    @keyframes pulse1 {
+        0% {
+            transform: scale(1);
+            opacity: 1;
+        }
+
+        100% {
+            transform: scale(.95);
+            opacity: 0;
+        }
+    }
+
+    @keyframes cta {
+        0% {
+            opacity: 0;
+        }
+
+        70% {
+            left: -150px;
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+            left: 25px;
+        }
+    }
+
+    @keyframes cta1 {
+        0% {
+            opacity: 0;
+        }
+
+        70% {
+            bottom: -150px;
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+            bottom: 7%;
+        }
+    }
+
+    @keyframes gallery {
+        0% {
+            opacity: 0;
+        }
+
+        70% {
+            right: -150px;
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+            right: 25px;
+        }
+    }
+
+
+    .cube-parent-container {
+        width: 100%;
+        height: 260px;
+        margin: auto;
+        position: absolute;
+        top: 0px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+
+    }
+
+    .cubeSwiper .swiper-slide {
+        aspect-ratio: 1/1;
+    }
+
+    .cubeSwiper .swiper-slide img {
+        width: 100%;
+        object-fit: cover;
+    }
+
+    .cubeSwiper .pagination-container {
+        padding-top: 25px;
+        width: 100%;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 100px 1fr;
+        grid-template-rows: 1fr;
+        grid-column-gap: 0px;
+        grid-row-gap: 0px;
+        position: absolute;
+        top: 250px;
+        transform: scale(0.8);
+    }
+
+    .pagination-container {
+        position: relative;
+        top: -25px;
+    }
+
+    .cubeSwiper .cube-pagination-fraction {
+        color: rgba(255, 0, 255, 0.8);
+        font-size: 18px;
+        font-weight: 700;
+        margin-top: 15px;
+        text-align: center;
+        position: relative;
+    }
+
+    .swiper-button-next,
+    .swiper-button-prev {
+        color: #fff;
+        width: calc(var(--swiper-navigation-size)/ 44 * 6);
+        font-size: 12px;
+        font-weight: bolder;
+    }
+
+    .swiper-button-next:after,
+    .swiper-button-prev:after {
+        font-size: 12px;
+        font-weight: bolder;
+        padding: 7px 9px;
+        border-radius: 20px;
+
+    }
+
+    .swiper-button-prev {
+        left: var(--swiper-navigation-sides-offset, 19px);
+        position: absolute;
+        top: -80px;
+    }
+
+    .swiper-button-next {
+        right: var(--swiper-navigation-sides-offset, 20px);
+        position: absolute;
+        top: -80px;
+    }
+
+    .swiper-pagination-bullets.swiper-pagination-horizontal {
+        bottom: var(--swiper-pagination-bottom, -10px);
+    }
+
+    .swiper {
+        width: 320px;
+        position: relative;
+        height: 265px;
+    }
+
+    .swiper-pagination-bullet {
+        width: 12px;
+        height: 12px;
+    }
+
+    @keyframes divAni {
+        0% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+</style>
+
+<body>
+    <div class="main" id="main">
+        <div class="firstScreen" id="firstScreen">
+            <img src="./images/BG.png" style="position: absolute;width: 100%;height: 100%;top: 0;left: 0;" alt="">
+            <img src="./images/LOGO.png"
+                style="position: absolute;left: 0;right: 0;top: 10px;margin: 0 auto; width: 100px;animation: logo 1s ease-out;"
+                alt="">
+            <img src="./images/Car 1.png"
+                style="position: absolute;left: 0;top: 135px;width: 250px;animation: car1 1.5s ease-out;" alt="">
+            <img src="./images/Car 2.png"
+                style="position: absolute;left: 0;right: 0;margin: 0 auto; top: 280px;width: 290px;animation: car2 1.8s ease-out;"
+                alt="">
+            <img src="./images/Car 3.png"
+                style="position: absolute;right: 0;top: 400px;width: 290px;animation: car3 2.1s ease-out;" alt="">
+
+            <div id="camera-section" style="display: none;">
+                <video id="video" autoplay></video>
+            </div>
+
+            <div id="youtube-section" style="display: none;z-index: 999999;">
+                <!-- <img src="./images/cameraBG.png" style="position: absolute;width: 100%;height: 100%;top: 0;left: 0;"
+                    alt=""> -->
+                <img src="./images/Rectangle 6.png" style="position: absolute;width: 100%;height: 85px;bottom: 0;"
+                    alt="">
+                <!-- <img src="./images/Cam top.png" style="position: absolute;width: 100%;top: 0;" alt="">
+                <img id="point" src="./images/Camera point.png"
+                    style="position: absolute;width: 80px;left: 0;right: 0;margin: 0 auto;bottom: 23%;" alt=""> -->
+                <iframe id="youtube-video" width="560" height="315" src="" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+
+                <a href="https://www.citroen.in/register-your-interest" target="_blank">
+                    <img id="cta" src="./images/Know More.png"
+                        style="position: absolute;left: 25px; bottom: 25px;width: 150px;animation: cta 2s ease-out;"
+                        alt="">
+                    <img src="./images/LOGO.png"
+                        style="position: absolute;left: 0;right: 0;top: 10px;margin: 0 auto; width: 100px;" alt="">
+                </a>
+
+                <img id="gallery" src="./images/View Gallery.png"
+                    style="position: absolute; right: 25px; bottom: 25px;width: 150px;z-index: 99; animation: gallery 2s ease-out;"
+                    alt="">
+
+            </div>
+
+            <img id="play-video-btn" class="playBtn" src="./images/AR BTN.png"
+                style="position: absolute;width: 220px;left: 0;right: 0;margin: 0 auto;bottom: 5%;">
+        </div>
+
+        <div id="lastScreen"
+            style="display: none; position: absolute;width: 100%;height: 100%;top: 0; animation: divAni .7s linear;overflow: hidden;z-index: 999;">
+            <a href="https://www.citroen.in/register-your-interest" target="_blank">
+                <img src="./images/BG.png" style="position: absolute;width: 100%;height: 100%;top: 0;left: 0;" alt="">
+
+                <img src="./images/LOGO.png"
+                    style="position: absolute;left: 0;right: 0;top: 10px;margin: 0 auto; width: 100px;" alt="">
+            </a>
+
+            <figure class="cube-parent-container" id="swiperId" style="display: none;">
+                <!-- Swiper -->
+                <div class="swiper cubeSwiper">
+                    <div class="swiper-wrapper">
+                        <!-- begin slides -->
+
+                        <div class="swiper-slide">
+                            <img src="./images/Banner 1.png" style="width: 100%;" />
+                        </div>
+
+                        <div class="swiper-slide">
+                            <img src="./images/Banner 2.png" style="width: 100%;" />
+                        </div>
+
+                        <div class="swiper-slide">
+                            <img src="./images/Banner 3.png" style="width: 100%;" />
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="./images/Banner 4.png" style="width: 100%;" />
+                        </div>
+
+                        <!-- end slides -->
+                    </div>
+                </div>
+                <div class="pagination-container">
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                </div>
+            </figure>
+
+            <a href="https://www.citroen.in/register-your-interest" target="_blank">
+                <img id="cta1" src="./images/Know More.png"
+                    style="position: absolute;left: 0px;right: 0;margin: 0 auto; bottom: 7%;width: 160px;animation: cta1 1s ease-out;"
+                    alt="">
+            </a>
+        </div>
+
+        <img id="close"
+            src="https://cache-ssl.celtra.com/api/static/ve67ae1362e/runner/clazzes/CreativeUnit/close-up.svg"
+            alt="Close Button">
+    </div>
+
+    <script>
+        const close = document.getElementById("close");
+        const main = document.getElementById("main");
+        const firstScreen = document.getElementById("firstScreen");
+        const playVideoBtn = document.getElementById('play-video-btn');
+        const cameraSection = document.getElementById('camera-section');
+        const youtubeSection = document.getElementById('youtube-section');
+        const youtubeVideo = document.getElementById('youtube-video');
+        const gallery = document.getElementById('gallery');
+        const cta = document.getElementById('cta');
+        const cta1 = document.getElementById('cta1');
+        const point = document.getElementById('point');
+        const lastScreen = document.getElementById('lastScreen');
+
+        window.parent.document.body.style.overflow = "hidden";
+
+        setTimeout(() => {
+            playVideoBtn.style.animation = "pulse .6s ease alternate infinite";
+        }, 2510);
+
+        gallery.addEventListener("click", function () {
+            showGallery();
+        })
+        function showGallery() {
+            console.log("click on gallery");
+            lastScreen.style.display = "block";
+            youtubeSection.style.display = "none";
+            youtubeVideo.src = "https://www.youtube.com/embed/OrDkZkr1Ja8";
+
+            setTimeout(() => {
+                cta1.style.animation = "pulse .6s ease alternate infinite";
+            }, 1010);
+
+            swiperId.style.display = "block";
+            var swiper = new Swiper(".cubeSwiper", {
+                effect: "slide",
+                grabCursor: true,
+                speed: 1500,
+                spaceBetween: 10,
+                // autoplay: false,
+                loop: true,
+                autoplay: {
+                    delay: 2000,
+                    disableOnInteraction: false
+                },
+
+                pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true,
+                },
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+            });
+
+        }
+
+
+
+        playVideoBtn.addEventListener('click', () => {
+
+            startCamera();
+
+            cameraSection.style.display = "block";
+
+            setTimeout(() => {
+                playVideoBtn.style.opacity = 0;
+                playVideoBtn.style.transition = "all 1s linear"
+                youtubeSection.style.display = "block";
+                youtubeVideo.src = "https://www.youtube.com/embed/OrDkZkr1Ja8?autoplay=1";
+            }, 2500);
+
+            setTimeout(() => {
+                cta.style.animation = "pulse .6s ease alternate infinite";
+                gallery.style.animation = "pulse .6s ease alternate infinite";
+                // point.style.animation = "pulse1 .7s ease alternate infinite";
+            }, 4510);
+
+        });
+
+
+        async function startCamera() {
+            const constraints = {
+                video: {
+                    facingMode: { exact: "environment" } // Use "environment" for back camera
+                },
+                audio: false
+            };
+
+            try {
+                const stream = await navigator.mediaDevices.getUserMedia(constraints);
+                const video = document.getElementById('video');
+                video.srcObject = stream;
+
+                // Request full screen
+                // if (video.requestFullscreen) {
+                //     video.requestFullscreen();
+                // } else if (video.mozRequestFullScreen) { // Firefox
+                //     video.mozRequestFullScreen();
+                // } else if (video.webkitRequestFullscreen) { // Chrome, Safari, Opera
+                //     video.webkitRequestFullscreen();
+                // } else if (video.msRequestFullscreen) { // IE/Edge
+                //     video.msRequestFullscreen();
+                // }
+            } catch (err) {
+                console.error('Error accessing camera: ', err);
+            }
+        }
+
+        close.addEventListener("click", () => {
+            main.style.display = "none";
+            window.parent.document.body.style.overflow = "scroll";
+
+            youtubeVideo.src = "https://www.youtube.com/embed/OrDkZkr1Ja8";
+        });
+
+    </script>
+</body>
+
+</html>

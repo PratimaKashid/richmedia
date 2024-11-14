@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <title>Bridgestone</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        overflow: hidden;
+        font-family: "Poppins", sans-serif;
+    }
+
+    .main {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+    }
+
+    .firstScreen {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        position: absolute;
+
+    }
+
+    #close {
+        position: absolute;
+        right: 1px;
+        top: 1px;
+        width: 27px;
+        z-index: 99999;
+        cursor: pointer;
+    }
+
+
+    @keyframes pulse {
+        0% {
+            transform: scale(1);
+        }
+
+        100% {
+            transform: scale(.95);
+        }
+    }
+
+    @keyframes divAni {
+        0% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+    @keyframes logo {
+        0% {
+            top: -150px;
+            opacity: 0;
+        }
+
+        80% {
+            opacity: 1;
+            top: 20px;
+            transform: skewX(-30deg);
+        }
+
+        100% {
+            transform: skewX(0deg);
+        }
+    }
+
+    @keyframes text1 {
+        0% {
+            top: -150px;
+            opacity: 0;
+        }
+
+        60% {
+            opacity: 0;
+            filter: blur(50px);
+            top: 50px;
+        }
+
+        100% {
+            top: 120px;
+            opacity: 1;
+            filter: blur(0);
+        }
+    }
+
+    @keyframes tyre {
+        0% {
+            top: -150px;
+            opacity: 0;
+        }
+
+        70% {
+            opacity: 0;
+            filter: blur(50px);
+        }
+
+        100% {
+            opacity: 1;
+            filter: blur(0);
+        }
+    }
+
+    @keyframes comfert {
+        0% {
+            opacity: 0;
+        }
+
+        80% {
+            bottom: -120px;
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+            bottom: 5%;
+        }
+    }
+
+    @keyframes tapTxt {
+        0% {
+            opacity: 0;
+        }
+
+        60% {
+            bottom: -120px;
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+            bottom: 6%;
+        }
+    }
+
+    @keyframes hand {
+        0% {
+            opacity: 0;
+        }
+
+        75% {
+            /* bottom: -120px; */
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+            /* bottom: 6%; */
+        }
+    }
+
+    @keyframes f1 {
+        0% {
+            opacity: 0;
+        }
+
+        60% {
+            opacity: 0;
+            left: -150px;
+        }
+
+        100% {
+            opacity: 1;
+            left: 20px;
+        }
+    }
+
+    @keyframes f2 {
+        0% {
+            opacity: 0;
+        }
+
+        65% {
+            opacity: 0;
+            right: -150px;
+        }
+
+        100% {
+            opacity: 1;
+            right: 20px;
+        }
+    }
+
+    @keyframes f3 {
+        0% {
+            opacity: 0;
+        }
+
+        70% {
+            opacity: 0;
+            left: -150px;
+        }
+
+        100% {
+            opacity: 1;
+            left: 20px;
+        }
+    }
+
+    @keyframes f4 {
+        0% {
+            opacity: 0;
+        }
+
+        75% {
+            opacity: 0;
+            right: -150px;
+        }
+
+        100% {
+            opacity: 1;
+            right: 20px;
+        }
+    }
+
+    @keyframes text1last {
+        0% {
+            opacity: 0;
+        }
+
+        60% {
+            opacity: 0;
+            top: 100px;
+        }
+
+        100% {
+            opacity: 1;
+            top: 130px;
+        }
+    }
+
+    @keyframes tyre2 {
+        0% {
+            opacity: 0;
+        }
+
+        75% {
+            opacity: 0;
+            /* top: 100px; */
+        }
+
+        100% {
+            opacity: 1;
+            /* top: 130px; */
+        }
+    }
+
+    @keyframes tyre3 {
+        0% {
+            opacity: 0;
+        }
+
+        80% {
+            opacity: 0;
+            left: -200px;
+        }
+
+        100% {
+            opacity: 1;
+            left: 10px;
+        }
+    }
+
+    @keyframes cta {
+        0% {
+            opacity: 0;
+        }
+
+        90% {
+            opacity: 0;
+            left: -150px;
+        }
+
+        100% {
+            opacity: 1;
+            left: 10px;
+        }
+    }
+
+    @keyframes features {
+        0% {
+            opacity: 0;
+        }
+
+        85% {
+            opacity: 0;
+            bottom: -150px;
+        }
+
+        100% {
+            opacity: 1;
+            bottom: 0;
+        }
+    }
+
+    @keyframes tyreMOve {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+</style>
+
+<body>
+    <div class="main" id="main">
+
+
+        <div class="firstScreen" id="firstScreen">
+            <img src="./images/bg.png" style="position: absolute;width: 100%;height: 100%;object-fit: cover;"
+                alt="Background">
+
+            <div id="secondScreen"
+                style="position: absolute;left: 0;width: 100%;height: 100%;display: none;animation: divAni 1s ease;">
+                <img src="./images/Overlay.png" style="position: absolute;width: 100%;height: 100%;" alt="">
+                <img id="hand" src="./images/hand.png"
+                    style="position: absolute;left: 0;right: 0;margin: 0 auto;bottom: 20%;width: 40px;z-index: 9;animation: hand 2s ease;"
+                    alt="">
+                <img src="./images/tapText.png"
+                    style="position: absolute;left: 0;right: 0;margin: 0 auto;bottom: 6%;width: 80%;z-index: 9;animation: tapTxt 1.5s ease;"
+                    alt="">
+
+            </div>
+
+            <img src="./images/logo.png"
+                style="position: absolute;left: 0;right: 0;margin: 0 auto;top: 20px;width: 65%;animation: logo 1s ease;"
+                alt="">
+
+            <img id="tyre" src="./images/Tyre.png"
+                style="position: absolute;left: 0;right: 0;margin: auto;top: 7%;bottom: 0;width: 85%;animation: tyre 2.3s ease;"
+                alt="">
+
+            <a href="https://www.bridgestone.co.in/" target="_blank">
+                <div id="text1Div" style="position: absolute;width: 100%;height: 100%;top: 0;left: 0;">
+                    <img src="./images/text1.png"
+                        style="position: absolute;left: 0;right: 0;margin: 0 auto;top: 120px;width: 60%;animation: text1 1.7s ease;"
+                        alt="">
+                    <img src="./images/Comfort.png"
+                        style="position: absolute;left: 0;right: 0;margin: 0 auto;bottom: 5%;width: 75%;animation: comfert 2.8s ease;"
+                        alt="">
+                </div>
+            </a>
+
+        </div>
+
+        <div id="tapDiv" style="display: none; position: absolute;width: 100%;height: 100%;"></div>
+
+        <a href="https://www.bridgestone.co.in/" target="_blank">
+            <div id="screenThree"
+                style="display: none; position: absolute;width: 100%;height: 100%;bottom: 0;left: 0;right: 0;margin: 0 auto;">
+                <img src="./images/f1.png"
+                    style="position: absolute;left: 20px;width: 170px;top: 120px;animation: f1 1.5s ease;" alt="">
+                <img src="./images/f2.png"
+                    style="position: absolute;right: 20px;width: 170px;top: 240px;animation: f2 1.8s ease;" alt="">
+                <img src="./images/f3.png"
+                    style="position: absolute;left: 20px;width: 170px;top: 360px;animation: f3 2.1s ease;" alt="">
+                <img src="./images/f4.png"
+                    style="position: absolute;right: 20px;width: 170px;top: 480px;animation: f4 2.4s ease;" alt="">
+            </div>
+        </a>
+
+        <!-- final screen -->
+        <div id="lastScreen"
+            style="display: none; position: absolute;width: 100%;height: 100%;animation: divAni 1s linear; overflow: hidden;">
+
+            <a href="https://www.bridgestone.co.in/" target="_blank">
+                <img src="./images/bgLastScreen.png"
+                    style="position: absolute;width: 100%;height: 100%;object-fit: cover;" alt="">
+                <img src="./images/logo.png"
+                    style="position: absolute;left: 0;right: 0;margin: 0 auto;top: 20px;width: 65%;" alt="">
+                <img src="./images/text1LastScreen.png"
+                    style="position: absolute;left: 0px;right: 0;margin: 0 auto; width: 85%; top: 130px;animation: text1last 1.5s ease;"
+                    alt="">
+                <img src="./images/tyre2.png"
+                    style="position: absolute;right: 10px;top: 47%;width: 130px;animation: tyre2 2s ease;" alt="">
+                <img src="./images/features.png"
+                    style="position: absolute;width: 100%;height: 150px;bottom: 0;animation: features 3s ease;" alt="">
+                <img src="./images/text2LastScreen.png"
+                    style="position: absolute;left: 10px;bottom: 27%;width: 70%; animation: tyre3 2.5s ease;"
+                    alt="">
+                    <img id="cta" src="./images/cta.png" style="position: absolute;left: 10px;width: 120px;bottom: 138px;animation: cta 3.2s ease;" alt="">
+            </a>
+
+        </div>
+
+
+        <img id="close"
+            src="https://cache-ssl.celtra.com/api/static/ve67ae1362e/runner/clazzes/CreativeUnit/close-up.svg"
+            alt="Close Button">
+    </div>
+
+    <script>
+
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const close = document.getElementById("close");
+            const main = document.getElementById("main");
+            const firstScreen = document.getElementById("firstScreen");
+            const cta = document.getElementById("cta");
+            const lastScreen = document.getElementById('lastScreen');
+            const hand = document.getElementById('hand');
+            const text1Div = document.getElementById('text1Div');
+            const secondScreen = document.getElementById('secondScreen');
+            const screenThree = document.getElementById('screenThree');
+            const tapDiv = document.getElementById('tapDiv');
+            const tyre = document.getElementById('tyre');
+
+            window.parent.document.body.style.overflow = "hidden";
+
+            setTimeout(() => {
+                text1Div.style.left = -90 + "%";
+                text1Div.style.opacity = 0;
+                text1Div.style.transition = "all 1s linear";
+
+                secondScreen.style.display = "block";
+                setTimeout(() => {
+                    hand.style.animation = "pulse .5s ease alternate infinite";
+                    tapDiv.style.display = "block";
+                }, 2010);
+            }, 4000);
+
+            setTimeout(() => {
+                tyre.style.animation = "tyreMOve 3s linear infinite"
+            }, 2350);
+
+            tapDiv.addEventListener("click", () => {
+                console.log("click...");
+                secondScreen.style.left = -90 + "%";
+                secondScreen.style.opacity = 0;
+                secondScreen.style.transition = "all 1s linear";
+                tyre.style.opacity = 0;
+                tyre.style.transition = "all 1s linear";
+
+                screenThree.style.display = "block";
+
+                setTimeout(() => {
+                    screenThree.style.left = -180 + "%";
+                    screenThree.style.opacity = 0;
+                    screenThree.style.transition = "all 1s";
+
+                    lastScreen.style.display = "block";
+                    setTimeout(() => {
+                        cta.style.animation = "pulse .5s ease alternate infinite";
+                    }, 3210);
+                }, 4000);
+
+            })
+
+            close.addEventListener("click", () => {
+                main.style.display = "none";
+                window.parent.document.body.style.overflow = "scroll";
+            });
+        });
+
+    </script>
+</body>
+
+</html>

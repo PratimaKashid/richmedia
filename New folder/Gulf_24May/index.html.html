@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script type="text/javascript">
+        var clickTag = "https://india.gulfoilltd.com/";
+    </script>
+    <script type="text/javascript" src="https://example.com?click=${CLICK_URL}"></script>
+    <title>Gulf</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        overflow: hidden;
+    }
+
+    .main {
+        /* width: 320px;
+        height: 640px; */
+        width: 100%;
+        height: 100%;
+        position: absolute;
+    }
+
+    .firstScreen,
+    .aapl_inner {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        position: absolute;
+
+    }
+
+    #close {
+        position: absolute;
+        right: 1px;
+        top: 1px;
+        width: 30px;
+        z-index: 99999;
+        cursor: pointer;
+    }
+
+    @keyframes logo {
+        0% {
+            opacity: 0;
+            top: -200px;
+        }
+
+        100% {
+            opacity: 1;
+            top: 15px;
+        }
+    }
+
+    div .thunder,
+    canvas {
+        width: 100%;
+        height: 100%;
+    }
+
+    div .thunder {
+        width: 100%;
+        height: 100%;
+        /* background-color: #222; */
+        /* background-image: url("https://drive.google.com/uc?export=view&id=0BzFF7FmbJUo5X0NEUXFVd0NBcWc"); */
+        background-size: cover;
+        background-position: 0 0;
+        background-repeat: no-repeat;
+        position: relative;
+        z-index: 0;
+        opacity: .6;
+    }
+
+    div .thunder:after {
+        content: "";
+        width: 100%;
+        height: 100%;
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.1);
+        z-index: 1;
+        -webkit-animation: thunder-bg 8s infinite;
+        animation: thunder-bg 8s infinite;
+    }
+
+    canvas {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    #canvas3 {
+        z-index: 5;
+    }
+
+    #canvas2 {
+        z-index: 10;
+    }
+
+    #canvas1 {
+        z-index: 100;
+    }
+
+    @-webkit-keyframes thunder-bg {
+        0% {
+            background-color: rgba(34, 34, 34, 0.9);
+        }
+
+        9% {
+            background-color: rgba(34, 34, 34, 0.9);
+        }
+
+        10% {
+            background-color: rgba(59, 59, 59, 0.3);
+        }
+
+        10.5% {
+            background-color: rgba(34, 34, 34, 0.9);
+        }
+
+        80% {
+            background-color: rgba(34, 34, 34, 0.9);
+        }
+
+        82% {
+            background-color: rgba(59, 59, 59, 0.3);
+        }
+
+        83% {
+            background-color: rgba(34, 34, 34, 0.9);
+        }
+
+        83.5% {
+            background-color: rgba(59, 59, 59, 0.3);
+        }
+
+        100% {
+            background-color: rgba(34, 34, 34, 0.9);
+        }
+    }
+
+    @keyframes lady {
+        0% {
+            opacity: 0;
+        }
+
+        50% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+    @keyframes hp {
+        0% {
+            opacity: 0;
+        }
+
+        50% {
+            opacity: 0;
+            right: -100px;
+        }
+
+        100% {
+            opacity: 1;
+            right: 10px;
+        }
+    }
+
+    @keyframes ms {
+        0% {
+            opacity: 0;
+        }
+
+        50% {
+            opacity: 0;
+            left: -100px;
+        }
+
+        100% {
+            opacity: 1;
+            left: -20px;
+        }
+    }
+
+    @keyframes product {
+        0% {
+            opacity: 0;
+            bottom: 80px;
+        }
+
+        100% {
+            opacity: 1;
+            bottom: 100px;
+        }
+    }
+
+    .cta {
+        animation: cta 2s ease;
+    }
+
+    @keyframes cta {
+        0% {
+            opacity: 0;
+        }
+
+        70% {
+            opacity: 0;
+            bottom: 0;
+        }
+
+        100% {
+            opacity: 1;
+            bottom: 40px;
+        }
+    }
+
+    @keyframes cta1 {
+        0% {
+            opacity: 0;
+        }
+
+        90% {
+            opacity: 0;
+            bottom: 0;
+        }
+
+        100% {
+            opacity: 1;
+            bottom: 70px;
+        }
+    }
+
+    @keyframes t1 {
+        0% {
+            opacity: 0;
+        }
+
+        70% {
+            opacity: 0;
+            transform: scale(2);
+        }
+
+        100% {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    @keyframes c1 {
+        0% {
+            opacity: 0;
+        }
+
+        60% {
+            opacity: 0;
+            transform: scale(0);
+        }
+
+        100% {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    @keyframes c2 {
+        0% {
+            opacity: 0;
+        }
+
+        75% {
+            opacity: 0;
+            transform: scale(0);
+        }
+
+        100% {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    @keyframes c3 {
+        0% {
+            opacity: 0;
+        }
+
+        90% {
+            opacity: 0;
+            transform: scale(0);
+        }
+
+        100% {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    @keyframes mist {
+        0% {
+            left: 0;
+        }
+
+        100% {
+            left: -5105px;
+        }
+    }
+
+    @keyframes divAni {
+        0% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+    @keyframes pulse {
+        0% {
+            transform: scale(1);
+        }
+
+        100% {
+            transform: scale(1.07);
+        }
+    }
+
+    @keyframes car1 {
+        0% {
+            transform: scale(1);
+        }
+
+        70% {
+            transform: scale(1);
+        }
+
+        100% {
+            transform: scale(0.98);
+        }
+    }
+
+    #cta {
+        animation: pulse .7s ease alternate infinite;
+    }
+
+    @keyframes tyreRotate {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+</style>
+
+<body>
+    <div class="main" id="main">
+        <div class="firstScreen" id="firstScreen">
+            <img class="hideItem" src="./images/bg1.png"
+                style="position: absolute;width: 100%;height: 100%;object-fit: cover;" alt="">
+
+            <div id="moveBG" style="position: absolute;width: 100%;height: 100%;display: none;">
+                <!-- <marquee> -->
+                <img src="./images/Road.png"
+                    style="position: absolute;left: 0;top: 0px; animation: mist 45s infinite linear;height: 100%;width: 5105px;bottom: 0;"
+                    alt="">
+                <div
+                    style="position: absolute;left: 0;right: 0;margin: 0 auto;width: 320px;bottom: 140px;height: 250px;animation: car1 1.2s linear alternate infinite;">
+                    <img id="car" src="./images/Jeep no tyre.png"
+                        style="display: none; transform-origin: center bottom; position: absolute;left: 0; right: 0;margin: 0 auto;bottom: 0px;width: 250px;"
+                        alt="">
+                    <img id="t1" src="./images/newTyre.png"
+                        style="display: none; position: absolute;left: 65px;bottom: 6px;width: 55px;animation: tyreRotate 1.5s linear infinite;"
+                        alt="">
+                    <img id="t2" src="./images/newTyre.png"
+                        style="display: none; position: absolute;right: 53px;bottom: 8px;width: 50px;animation: tyreRotate 1.5s linear infinite;"
+                        alt="">
+                </div>
+
+                <img id="scootys" src="./images/scooty1.png"
+                    style="display: none; transform-origin: center bottom; position: absolute;left: 0; right: 0;margin: 0 auto;bottom: 140px;width: 250px;animation: car1 1.2s linear alternate infinite;"
+                    alt="">
+                <img id="bike1" src="./images/bike1.png"
+                    style="display: none; transform-origin: center bottom; position: absolute;left: 0; right: 0;margin: 0 auto;bottom: 140px;width: 250px;animation: car1 1.2s linear alternate infinite;"
+                    alt="">
+                <img src="./images/Text.png"
+                    style="position: absolute;left: 0; right: 0;margin: 0 auto;bottom: 60px;width: 85%;" alt="">
+                <!-- </marquee> -->
+            </div>
+
+            <div id="screenOne" style="position: absolute;width: 100%;height: 100%;overflow: hidden;">
+
+                <div class="thunder">
+                    <canvas id="canvas1"></canvas>
+                    <canvas id="canvas2"></canvas>
+                    <canvas id="canvas3"></canvas>
+                    <div class="codex">
+
+                    </div>
+                </div>
+
+                <img class="hideItem" src="./images/text1.png"
+                    style="position: absolute;top: 130px;left: 0;right: 0;margin: 0 auto;width: 310px;animation:t1 1.5s ease;"
+                    alt="">
+                <img id="scootysDiv" class="hideItem c1" src="./images/scootys.png"
+                    style="position: absolute;width: 120px;left: 10px;top: 380px;animation: c1 2s ease;" alt="">
+
+                <img id="bike" class="hideItem c1" src="./images/bike.png"
+                    style="position: absolute;width: 120px;right: 10px;top: 380px;animation: c2 2.3s ease;" alt="">
+
+                <img id="carDiv" class="hideItem c1" src="./images/car.png"
+                    style="position: absolute;width: 120px;right: 0px;top: 280px;left: 0;margin: 0 auto;animation: c3 2.6s ease;"
+                    alt="">
+                <img class="hideItem" src="./images/new1.png"
+                    style="position: absolute;left: 0;right: 0;margin: 0 auto;bottom: 70px;width: 220px;animation: cta1 3s ease;"
+                    alt="">
+            </div>
+
+
+
+            <!-- <div id="carDiv" style="position: absolute;width: 100%;height: 100%;top: 0;"></div> -->
+
+
+            <div id="lastScreen"
+                style="position: absolute;width: 100%;height: 100%;display: none;animation: divAni .5s ease;">
+
+                <a href="javascript:window.open(window.clickTag)">
+                    <img src="./images/BG11.png" style="position: absolute;width: 100%;height: 100%;object-fit: cover;"
+                        alt="">
+                    <img src="./images/ladyImage.png"
+                        style="position: absolute;bottom: 150px;left: 0;right: 0;margin: 0 auto;width: 210px;animation: lady 1.5s ease;"
+                        alt="">
+                    <img src="./images/pandya.png"
+                        style="position: absolute;bottom: 175px;right: 10px;margin: 0 auto;width: 150px;animation: hp 1.5s ease;"
+                        alt="">
+                    <img src="./images/dhoni.png"
+                        style="position: absolute;bottom: 120px;left: -20px;margin: 0 auto;width: 170px;animation: ms 1.5s ease;"
+                        alt="">
+                    <img src="./images/Product.png"
+                        style="position: absolute;bottom: 90px;left: 0;right: 0;margin: 0 auto;width: 95%;animation: product .8s ease;"
+                        alt="">
+
+                    <img id="cta" src="./images/KnowMore.png"
+                        style="position: absolute;left: 0;right: 0;margin: 0 auto;bottom: 40px;width: 165px;" alt="">
+
+                    <img src="./images/LOGO.png"
+                        style="position: absolute;left: 0;right: 0;margin: 0 auto;top: 15px;width: 100px; " alt="">
+                </a>
+                <video id="myVid" src="./images/gulf-edit1.mp4" autoplay muted controls
+                    style="border-radius: 3px; position: absolute; width: 340px;top: 130px;border: 2px solid #fff; left: 0;right: 0;margin:  0 auto;"></video>
+            </div>
+
+            <img src="./images/LOGO.png"
+                style="position: absolute;left: 0;right: 0;margin: 0 auto;top: 15px;width: 100px; animation: logo 1s ease-in-out;"
+                alt="">
+            <img id="close"
+                src="https://cache-ssl.celtra.com/api/static/ve67ae1362e/runner/clazzes/CreativeUnit/close-up.svg">
+        </div>
+
+    </div>
+
+
+
+</body>
+<SCRIPT language='JavaScript1.1'
+    SRC="https://ad.doubleclick.net/ddm/adj/Nxxxx.site-keyname/Byyyyyyy;sz=widthxheight;dc_expa=URL;ord=${CACHEBUSTER};dc_lat=N;dc_rdid=Czzzz;tag_for_child_directed_treatment=I;kw=[keyword];click=${CLICK_URL}?">
+    </SCRIPT>
+<script>
+    var close = document.getElementById("close");
+    var main = document.getElementById("main");
+    var handIcon = document.getElementById("handIcon");
+    var heartDiv1 = document.getElementById("heartDiv1");
+    var SecondScreen = document.getElementById("SecondScreen");
+    var carDiv = document.getElementById("carDiv");
+    var screenOne = document.getElementById("screenOne");
+    var lastScreen = document.getElementById("lastScreen");
+    var cta = document.getElementById("cta");
+    var myVid = document.getElementById("myVid");
+    var scootysDiv = document.getElementById("scootysDiv");
+    var hideItem = document.querySelectorAll(".hideItem")
+    var c1 = document.querySelectorAll(".c1")
+    var car = document.getElementById("car")
+    var scootys = document.getElementById("scootys")
+    var t1 = document.getElementById("t1")
+    var t2 = document.getElementById("t2")
+    var bike1 = document.getElementById("bike1")
+    var thunder = document.querySelector(".thunder")
+
+    var moveBG = document.getElementById("moveBG");
+    setTimeout(() => {
+        c1.forEach(item => {
+
+            item.style.animation = "pulse .7s ease alternate infinite";
+
+        })
+    }, 2650);
+    bike.addEventListener("click", () => {
+
+        setTimeout(() => {
+            moveBG.style.display = "block";
+            bike1.style.display = "block";
+        }, 500);
+
+        hideItem.forEach(item => {
+            item.style.opacity = 0;
+            item.style.transition = "all .7s";
+
+        })
+
+        thunder.style.opacity = 0.3;
+        thunder.style.transition = "all .7s";
+
+        setTimeout(() => {
+            moveBG.style.opacity = 0;
+            moveBG.style.transition = "all .5s";
+            lastScreen.style.display = "block";
+            myVid.muted = false;
+            myVid.play();
+        }, 5000);
+    })
+
+
+    carDiv.addEventListener("click", () => {
+
+        setTimeout(() => {
+            moveBG.style.display = "block";
+            car.style.display = "block";
+            t1.style.display = "block";
+            t2.style.display = "block";
+        }, 500);
+
+        hideItem.forEach(item => {
+            item.style.opacity = 0;
+            item.style.transition = "all .7s";
+
+        })
+
+        thunder.style.opacity = 0.3;
+        thunder.style.transition = "all .7s";
+
+        setTimeout(() => {
+            moveBG.style.opacity = 0;
+            moveBG.style.transition = "all .5s";
+            lastScreen.style.display = "block";
+            myVid.muted = false;
+            myVid.play();
+        }, 5000);
+    })
+
+
+    scootysDiv.addEventListener("click", () => {
+
+        setTimeout(() => {
+            moveBG.style.display = "block";
+            scootys.style.display = "block";
+        }, 500);
+
+        hideItem.forEach(item => {
+            item.style.opacity = 0;
+            item.style.transition = "all .7s";
+
+        })
+
+        thunder.style.opacity = 0.3;
+        thunder.style.transition = "all .7s";
+
+        setTimeout(() => {
+            moveBG.style.opacity = 0;
+            moveBG.style.transition = "all .5s";
+            lastScreen.style.display = "block";
+            myVid.muted = false;
+            myVid.play();
+        }, 5000);
+    })
+
+    close.addEventListener("click", () => {
+        main.style.display = "none";
+        myVid.muted = true;
+        myVid.pause();
+    })
+
+
+    var canvas1 = document.getElementById('canvas1');
+    var canvas2 = document.getElementById('canvas2');
+    var canvas3 = document.getElementById('canvas3');
+    var ctx1 = canvas1.getContext('2d');
+    var ctx2 = canvas2.getContext('2d');
+    var ctx3 = canvas3.getContext('2d');
+
+    var rainthroughnum = 500;
+    var speedRainTrough = 25;
+    var RainTrough = [];
+
+    var rainnum = 500;
+    var rain = [];
+
+    var lightning = [];
+    var lightTimeCurrent = 0;
+    var lightTimeTotal = 0;
+
+    var w = canvas1.width = canvas2.width = canvas3.width = window.innerWidth;
+    var h = canvas1.height = canvas2.height = canvas3.height = window.innerHeight;
+    window.addEventListener('resize', function () {
+        w = canvas1.width = canvas2.width = canvas3.width = window.innerWidth;
+        h = canvas1.height = canvas2.height = canvas3.height = window.innerHeight;
+    });
+
+    function random(min, max) {
+        return Math.random() * (max - min + 1) + min;
+    }
+
+    function clearcanvas1() {
+        ctx1.clearRect(0, 0, w, h);
+    }
+
+    function clearcanvas2() {
+        ctx2.clearRect(0, 0, canvas2.width, canvas2.height);
+    }
+
+    function clearCanvas3() {
+        ctx3.globalCompositeOperation = 'destination-out';
+        ctx3.fillStyle = 'rgba(0,0,0,' + random(1, 30) / 100 + ')';
+        ctx3.fillRect(0, 0, w, h);
+        ctx3.globalCompositeOperation = 'source-over';
+    };
+
+    function createRainTrough() {
+        for (var i = 0; i < rainthroughnum; i++) {
+            RainTrough[i] = {
+                x: random(0, w),
+                y: random(0, h),
+                length: Math.floor(random(1, 230)),
+                opacity: Math.random() * 0.2,
+                xs: random(-2, 2),
+                ys: random(10, 20)
+            };
+        }
+    }
+
+    function createRain() {
+        for (var i = 0; i < rainnum; i++) {
+            rain[i] = {
+                x: Math.random() * w,
+                y: Math.random() * h,
+                l: Math.random() * 1,
+                xs: -4 + Math.random() * 4 + 2,
+                ys: Math.random() * 10 + 10
+            };
+        }
+    }
+
+    function createLightning() {
+        var x = random(100, w - 100);
+        var y = random(0, h / 4);
+
+        var createCount = random(1, 3);
+        for (var i = 0; i < createCount; i++) {
+            single = {
+                x: x,
+                y: y,
+                xRange: random(5, 30),
+                yRange: random(10, 25),
+                path: [{
+                    x: x,
+                    y: y
+                }],
+                pathLimit: random(40, 55)
+            };
+            lightning.push(single);
+        }
+    };
+
+    function drawRainTrough(i) {
+        ctx1.beginPath();
+        var grd = ctx1.createLinearGradient(0, RainTrough[i].y, 0, RainTrough[i].y + RainTrough[i].length);
+        grd.addColorStop(0, "rgba(255,255,255,0)");
+        grd.addColorStop(1, "rgba(255,255,255," + RainTrough[i].opacity + ")");
+
+        ctx1.fillStyle = grd;
+        ctx1.fillRect(RainTrough[i].x, RainTrough[i].y, 1, RainTrough[i].length);
+        ctx1.fill();
+    }
+
+    function drawRain(i) {
+        ctx2.beginPath();
+        ctx2.moveTo(rain[i].x, rain[i].y);
+        ctx2.lineTo(rain[i].x + rain[i].l * rain[i].xs, rain[i].y + rain[i].l * rain[i].ys);
+        ctx2.strokeStyle = 'rgba(174,194,224,0.5)';
+        ctx2.lineWidth = 1;
+        ctx2.lineCap = 'round';
+        ctx2.stroke();
+    }
+
+    function drawLightning() {
+        for (var i = 0; i < lightning.length; i++) {
+            var light = lightning[i];
+
+            light.path.push({
+                x: light.path[light.path.length - 1].x + (random(0, light.xRange) - (light.xRange / 2)),
+                y: light.path[light.path.length - 1].y + (random(0, light.yRange))
+            });
+
+            if (light.path.length > light.pathLimit) {
+                lightning.splice(i, 1);
+            }
+
+            ctx3.strokeStyle = 'rgba(255, 255, 255, .1)';
+            ctx3.lineWidth = 3;
+            if (random(0, 15) === 0) {
+                ctx3.lineWidth = 6;
+            }
+            if (random(0, 30) === 0) {
+                ctx3.lineWidth = 20;
+            }
+
+            ctx3.beginPath();
+            ctx3.moveTo(light.x, light.y);
+            for (var pc = 0; pc < light.path.length; pc++) {
+                ctx3.lineTo(light.path[pc].x, light.path[pc].y);
+            }
+            if (Math.floor(random(0, 30)) === 1) { //to fos apo piso
+                ctx3.fillStyle = 'rgba(255, 255, 255, ' + random(1, 3) / 100 + ')';
+                ctx3.fillRect(0, 0, w, h);
+            }
+            ctx3.lineJoin = 'miter';
+            ctx3.stroke();
+        }
+    };
+
+    function animateRainTrough() {
+        clearcanvas1();
+        for (var i = 0; i < rainthroughnum; i++) {
+            if (RainTrough[i].y >= h) {
+                RainTrough[i].y = h - RainTrough[i].y - RainTrough[i].length * 10;
+                // RainTrough[i].y = h - RainTrough[i].y - RainTrough[i].length * 5;
+            } else {
+                RainTrough[i].y += speedRainTrough;
+            }
+            drawRainTrough(i);
+        }
+    }
+
+    function animateRain() {
+        clearcanvas2();
+        for (var i = 0; i < rainnum; i++) {
+            rain[i].x += rain[i].xs;
+            rain[i].y += rain[i].ys;
+            if (rain[i].x > w || rain[i].y > h) {
+                rain[i].x = Math.random() * w;
+                rain[i].y = -20;
+            }
+            drawRain(i);
+        }
+    }
+
+    function animateLightning() {
+        clearCanvas3();
+        lightTimeCurrent++;
+        if (lightTimeCurrent >= lightTimeTotal) {
+            createLightning();
+            lightTimeCurrent = 0;
+            lightTimeTotal = 200;  //rand(100, 200)
+        }
+        drawLightning();
+    }
+
+    function init() {
+        createRainTrough();
+        createRain();
+        window.addEventListener('resize', createRainTrough);
+    }
+    init();
+
+    function animloop() {
+        animateRainTrough();
+        animateRain();
+        animateLightning();
+        requestAnimationFrame(animloop);
+    }
+    animloop();
+</script>
+
+</html>

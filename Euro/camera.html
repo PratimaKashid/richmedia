@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EVA</title>
+    <style>
+        #canvas {
+            border-radius: 10px;
+        }
+        .color{
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <button id="openCameraButton">Open Camera</button>
+    <button id="captureButton" disabled>Capture</button>
+    <a id="downloadButton" style="display:none;">Download</a>
+    <video id="video" width="640" height="480" autoplay></video>
+    <canvas id="canvas" width="640" height="480"></canvas>
+    <img id="photo" alt="Captured Image" style="display:none;" />
+
+    <div style="display: flex;position: absolute;top: 50px;">
+        <div class="color" style="background-color: red;"></div>
+        <div class="color" style="background-color: cyan;"></div>
+        <div class="color" style="background-color: yellow;"></div>
+        <div class="color" style="background-color: green"></div>
+    </div>
+
+    <!-- TensorFlow.js and BodyPix -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/body-pix"></script>
+
+    <script>
+        let net;
+        let selectedColor = 'rgba(0, 0, 0, 0)';
+
+        async function setupCamera() {
+            const video = document.getElementById('video');
+            const stream = await navigator.mediaDevices.getUserMedia({ video: { width: 640, height: 480 } });
+            video.srcObject = stream;
+            await new Promise((resolve) => video.onloadedmetadata = resolve);
+            return video;
+        }
+
+        async function loadBodyPix() {
+            net = await bodyPix.load();
+        }
+
+        async function segmentBody(video, canvas) {
+            const context = canvas.getContext('2d');
+            const segmentation = await net.segmentPerson(video);
+
+            // Set canvas dimensions to match the video feed
+            canvas.width = video.videoWidth;
+            canvas.height = video.videoHeight;
+
+            context.clearRect(0, 0, canvas.width, canvas.height);
+            context.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+            const shadowOffset = 10;
+
+            const imageData = context.getImageData(0, 0, canvas.width, canvas.height);
+            const data = imageData.data;
+
+            // Create a new canvas for the shadow
+            const shadowCanvas = document.createElement('canvas');
+            shadowCanvas.width = canvas.width;
+            shadowCanvas.height = canvas.height;
+            const shadowContext = shadowCanvas.getContext('2d');
+            shadowContext.drawImage(video, shadowOffset, shadowOffset, canvas.width, canvas.height);
+
+            const shadowImageData = shadowContext.getImageData(0, 0, canvas.width, canvas.height);
+            const shadowData = shadowImageData.data;
+
+            // Apply the shadow effect by making the area outside the person darker
+            for (let i = 0; i < data.length; i += 4) {
+                if (segmentation.data[i / 4] === 0) {
+                    // Copy shadow data to main image data with selected color
+                    data[i] = shadowData[i] * selectedColor[0] / 255;
+                    data[i + 1] = shadowData[i + 1] * selectedColor[1] / 255;
+                    data[i + 2] = shadowData[i + 2] * selectedColor[2] / 255;
+                    data[i + 3] = shadowData[i + 3] * selectedColor[3] / 255;
+                }
+            }
+
+            context.putImageData(imageData, 0, 0);
+        }
+
+        document.getElementById('openCameraButton').addEventListener('click', async function () {
+            await setupCamera();
+            document.getElementById('captureButton').disabled = false;
+        });
+
+        document.getElementById('captureButton').addEventListener('click', async function () {
+            const video = document.getElementById('video');
+            const canvas = document.getElementById('canvas');
+            await segmentBody(video, canvas);
+
+            const dataURL = canvas.toDataURL('image/png');
+            const photo = document.getElementById('photo');
+            photo.src = dataURL;
+            photo.style.display = 'block';
+
+            const downloadButton = document.getElementById('downloadButton');
+            downloadButton.href = dataURL;
+            downloadButton.download = 'captured-image.png';
+            downloadButton.style.display = 'block';
+        });
+
+        // Event listener for color selection
+        const colorDivs = document.querySelectorAll('.color');
+        colorDivs.forEach(colorDiv => {
+            colorDiv.addEventListener('click', () => {
+                selectedColor = window.getComputedStyle(colorDiv).getPropertyValue('background-color');
+            });
+        });
+
+        loadBodyPix();
+    </script>
+</body>
+</html>

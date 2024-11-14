@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *, *:before, *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 100%;
+  background: #333;
+}
+
+#page-wrapper {
+  width: 100%;
+  background: #FFFFFF;
+  padding: 1em;
+  margin: 1em auto;
+  border-top: 5px solid #69c773;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.8);
+}
+
+h1 {
+  margin-top: 0;
+}
+
+p {
+  font-size: 0.9em;
+}
+
+meter {
+  width: 100%;
+  height: 60px;
+  background: #E6E6E6;
+}
+
+table {
+  margin-top: 1em;
+  width: 100%;
+  text-align: center;
+}
+
+button {
+  display: inline-block;
+  border-radius: 3px;
+  border: none;
+  font-size: 0.9rem;
+  padding: 0.4rem 0.8em;
+  background: #69c773;
+  border-bottom: 1px solid #498b50;
+  color: white;
+  -webkit-font-smoothing: antialiased;
+  font-weight: bold;
+  margin: 0 0.25rem;
+  text-align: center;
+}
+
+button:hover, button:focus {
+  opacity: 0.75;
+  cursor: pointer;
+}
+
+button:active {
+  opacity: 1;
+  box-shadow: 0 -3px 10px rgba(0, 0, 0, 0.1) inset;
+}
+
+</style>
+<body>
+    <div id="page-wrapper">
+        <h1>Battery Your Status</h1>
+      
+      
+        <!-- Battery Level Meter -->
+        <meter min="0" low="0.25" max="1" high="0.75" optimum="1" value="0" id="battery-meter"></meter>
+      
+        <!-- Battery Stats -->
+        <table id="battery-stats">
+          <thead>
+            <tr>
+              <th>Battery Level</th>
+              <th>Charging Status</th>
+              <th>Charging Time</th>
+              <th>Discharging Time</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td id="battery-level"></td>
+              <td id="battery-status"></td>
+              <td id="battery-charging"></td>
+              <td id="battery-discharging"></td>
+            </tr>
+          </tbody>
+        </table>
+      
+    </div>
+    <script>
+        // Get the BatteryManager.
+        navigator.getBattery().then(function(battery) {
+
+
+            // Get the battery meter.
+            var batteryMeter = document.getElementById('battery-meter');
+
+            // Get the data cells in the table.
+            var batteryLevel = document.getElementById('battery-level');
+            var batteryStatus = document.getElementById('battery-status');
+            var batteryCharging = document.getElementById('battery-charging');
+            var batteryDischarging = document.getElementById('battery-discharging');
+
+
+            // Update the battery level meter (and table value).
+            function updateBatteryLevel() {
+                batteryMeter.value = battery.level;
+                batteryLevel.innerHTML = (battery.level * 100) + '%';
+                // batteryMeter.value = (battery.level * 100) + '%';
+            }
+
+
+            // Update the battery charging status.
+            function updateBatteryStatus() {
+                if (battery.charging) {
+                    batteryStatus.innerHTML = 'Charging';
+                } else {
+                    batteryStatus.innerHTML = 'Not Charging';
+                }
+            }
+
+
+            // Update the battery charging time value.
+            function updateBatteryChargingTime() {
+                if (battery.chargingTime === Infinity) {
+                    // Not charging.
+                    batteryCharging.innerHTML = '-';
+                } else {
+                    // Charging.
+                    batteryCharging.innerHTML = (Math.floor(battery.chargingTime / 60)) + ' minutes';
+                }
+            }
+
+
+            // Update the battery discharging time value.
+            function updateBatteryDischargingTime() {
+                if (battery.dischargingTime === Infinity) {
+                    // Not discharging.
+                    batteryDischarging.innerHTML = '-';
+                } else {
+                    // Discharging.
+                    batteryDischarging.innerHTML = (Math.floor(battery.dischargingTime / 60)) + ' minutes';
+                    console.log(battery.dischargingTime / 60);
+                }
+            }
+
+
+            // Set initial values and set up event listeners.
+            function init() {
+                // Set initial values.
+                updateBatteryLevel();
+                updateBatteryStatus();
+                updateBatteryChargingTime();
+                updateBatteryDischargingTime();
+
+                // Set up event listeners.
+                battery.addEventListener('levelchange', updateBatteryLevel);
+                battery.addEventListener('chargingchange', updateBatteryStatus);
+                battery.addEventListener('chargingtimechange', updateBatteryChargingTime);
+                battery.addEventListener('dischargingtimechange', updateBatteryDischargingTime);
+            }
+
+
+            // Initialize the app.
+            init();
+
+        }).catch(function(error) {
+            // API not supported.
+            document.getElementById('msg').innerHTML = 'Your browser does not support the Battery Status API :(';
+        });
+    </script>
+</body>
+</script>
+</html>

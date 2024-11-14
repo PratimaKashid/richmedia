@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SKODA ENYAQ</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        overflow: hidden;
+    }
+
+    .main {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        margin: auto;
+        background-color: black;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        overflow: hidden;
+    }
+
+    .screen-one {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
+
+    @keyframes opa {
+        0% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+    @keyframes carMove {
+        0% {
+            bottom: -55%;
+        }
+
+        100% {
+            bottom: 10%;
+        }
+    }
+
+    @keyframes carFrontView {
+        0% {
+            transform: scale(.6);
+            bottom: 0;
+        }
+
+        100% {
+            transform: scale(1);
+            bottom: -30px;
+        }
+    }
+   
+</style>
+
+<body>
+    <div class="main" id="main">
+        <div class="screen-one">
+            <img id="bgMove" src="./images/bg.jpg" style="position: absolute;width: 100%;" alt="">
+            <img src="./images/LOGO.png"
+                style="position: absolute;top: 0px;left: 0;right: 0;margin: 0 auto;width: 100%;height: 100%;" alt="">
+
+            <div id="beforeConnect" style="position: absolute;width: 100%;height: 100%;top: 0;">
+                <img src="./images/TEXT 01.png"
+                    style="position: absolute;top: 0px;left: 0;right: 0;margin: 0 auto;width: 100%;height: 100%;"
+                    alt="">
+                <img src="./images/CHARGE BOLT.png"
+                    style="position: absolute;top: 0px;left: 0;right: 0;margin: 0 auto;width: 100%;height: 100%;"
+                    alt="">
+            </div>
+            <div id="AfterConnect"
+                style="position: absolute;width: 100%;height: 100%;top: 0;display: none;animation: opa .6s ease;">
+                <img src="./images/TEXT 02.png"
+                    style="position: absolute;top: 0px;left: 0;right: 0;margin: 0 auto;width: 100%;height: 100%;"
+                    alt="">
+                <img src="./images/CHARGE BOLT CONNECTED.png"
+                    style="position: absolute;top: 0px;left: 0;right: 0;margin: 0 auto;width: 100%;height: 100%;"
+                    alt="">
+            </div>
+            <div id="carDiv" style="position: absolute;width: 100%;height: 100%;display: none;">
+                <img id="car" src="./images/Skoda Enyaq Top View-1.png"
+                    style="position: absolute;bottom: 10%;left: 0;right: 0;margin: 0 auto;width: 100%;animation: carMove .7s ease-in;"
+                    alt="">
+                <!-- <video src="https://mechcoders.com/wp-content/uploads/2024/09/smoke.mp4" autoplay muted loop style="mix-blend-mode: screen;position: absolute;bottom: -20%;opacity: 20%;left: 0;right: 0;    transform: rotate(90deg);width: 100%;"></video> -->
+            </div>
+
+            <a href="https://www.skoda-auto.com/models/range/enyaq" target="_blank">
+                <img id="carFront" src="./images/Skoda Enyaq Front View.png"
+                    style="display: none; position: absolute;width: 100%;bottom: -30px;left: 0;right: 0;margin: 0 auto;animation: carFrontView .8s ease-in;"
+                    alt="">
+            </a>
+        </div>
+
+
+
+        <img id="close" src="./images/close-up.svg"
+            style="position: absolute;width: 30px;top: 2px;right: 2px;z-index: 9999999;" alt="">
+    </div>
+</body>
+<script>
+    const closeAll = document.getElementById("close");
+    const main = document.getElementById("main");
+    const beforeConnect = document.getElementById("beforeConnect");
+    const AfterConnect = document.getElementById("AfterConnect");
+    const bgMove = document.getElementById("bgMove");
+    const car = document.getElementById("car");
+    const carDiv = document.getElementById("carDiv");
+    const carFront = document.getElementById("carFront");
+
+    bgMove.style.top = -2900 + "px";
+
+    closeAll.addEventListener("click", () => {
+        main.style.display = "none"
+    })
+
+    // connectedCharger();
+    navigator.getBattery().then(battery => {
+
+        function connectedCharger() {
+          
+                beforeConnect.style.opacity = 0;
+                beforeConnect.style.transition = "all .5s";
+
+                AfterConnect.style.display = "block";
+
+            setTimeout(() => {
+
+                AfterConnect.style.opacity = 0;
+                AfterConnect.style.transition = "0.5s";
+                carDiv.style.display = "block";
+                setTimeout(() => {
+                }, 500);
+                setTimeout(() => {
+                    bgMove.style.top = -430 + "px";
+                    bgMove.style.transition = "all 6s linear";
+                    // bgMove.style.animation ="bg-move 6s linear"
+                }, 1000);
+                setTimeout(() => {
+                    car.style.bottom = 100 + "%";
+                    car.style.transition = "all 1s";
+                }, 6500);
+                setTimeout(() => {
+                    carFront.style.display = "block";
+                }, 7150);
+
+            }, 1800);
+        }
+
+        function connectedCharger1() {
+            setTimeout(() => {
+                beforeConnect.style.opacity = 0;
+                beforeConnect.style.transition = "all .5s";
+
+                AfterConnect.style.display = "block";
+            }, 1000);
+
+            setTimeout(() => {
+
+                AfterConnect.style.opacity = 0;
+                AfterConnect.style.transition = "0.5s";
+                carDiv.style.display = "block";
+                setTimeout(() => {
+                }, 500);
+                setTimeout(() => {
+                    // bgMove.style.bottom = -2900 + "px";
+                    // bgMove.style.transition = "all 6s linear";
+                    bgMove.style.top = -430 + "px";
+                    bgMove.style.transition = "all 6s linear";
+                }, 1000);
+                setTimeout(() => {
+                    car.style.bottom = 100 + "%";
+                    car.style.transition = "all 1s";
+                }, 6500);
+                setTimeout(() => {
+                    carFront.style.display = "block";
+                }, 7150);
+
+            }, 2800);
+        }
+
+
+        // Check if the battery is charging on load
+        if (battery.charging) {
+            connectedCharger1();
+            console.log("already connected.....");
+            
+        }
+
+        // Add an event listener to call connectedCharger when charging status changes
+        battery.addEventListener('chargingchange', () => {
+            if (battery.charging) {
+                connectedCharger();
+            }
+        });
+    });
+
+
+
+</script>
+
+</html>

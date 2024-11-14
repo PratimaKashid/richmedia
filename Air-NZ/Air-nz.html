@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <title>Air-NZ</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        overflow: hidden;
+        font-family: "Poppins", sans-serif;
+    }
+
+    .main {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        overflow: hidden;
+    }
+
+    .firstScreen {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        position: absolute;
+
+    }
+
+    #close {
+        position: absolute;
+        right: 1px;
+        top: 1px;
+        width: 27px;
+        z-index: 9999;
+        cursor: pointer;
+    }
+
+    @keyframes logo {
+        0% {
+            opacity: 0;
+        }
+
+        50% {
+            opacity: 0;
+            left: -20px;
+        }
+
+        100% {
+            opacity: 1;
+            left: 10px;
+        }
+    }
+
+    @keyframes plain {
+        0% {
+            opacity: 0;
+        }
+
+        30% {
+            opacity: 0;
+            bottom: -10%;
+        }
+
+        100% {
+            bottom: 40%;
+            opacity: 1;
+        }
+    }
+
+    @keyframes cludes {
+        0% {
+            top: 0;
+        }
+
+        100% {
+            top: 220%;
+        }
+    }
+
+    @keyframes text1 {
+        0% {
+            opacity: 0;
+            /* transform: scale(.3); */
+        }
+
+        30% {
+            opacity: 0;
+            transform: scale(.3);
+        }
+
+        100% {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    @keyframes mic {
+        0% {
+            opacity: 0;
+            /* transform: scale(.5); */
+        }
+
+        70% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+            /* transform: scale(1); */
+        }
+    }
+
+    @keyframes tilt {
+        0% {
+            transform: rotate(3deg);
+        }
+
+        /* 50%{
+            transform: rotate(0deg);
+
+        } */
+        100% {
+            transform: rotate(-3deg);
+
+        }
+    }
+
+    @keyframes singhapur {
+        0% {
+            top: 100%;
+        }
+
+        100% {
+            top: -36%;
+        }
+    }
+
+    @keyframes PE {
+        0% {
+            right: -80%;
+        }
+
+        100% {
+            right: 0%;
+        }
+    }
+
+    @keyframes BE {
+        0% {
+            left: -80%;
+        }
+
+        100% {
+            left: 0%;
+        }
+    }
+
+    @keyframes BPtext {
+        0% {
+            opacity: 0;
+        }
+
+        60% {
+            left: -60%;
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+            left: 0%;
+        }
+    }
+
+    @keyframes PEtext {
+        0% {
+            opacity: 0;
+        }
+
+        60% {
+            right: -60%;
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+            right: 0%;
+        }
+    }
+
+    @keyframes chooseText {
+        0% {
+            opacity: 0;
+        }
+
+        70% {
+            bottom: -50px;
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+            bottom: 10px;
+        }
+    }
+
+    @keyframes tapText1 {
+        0% {
+            opacity: 0;
+        }
+
+        70% {
+            /* bottom: -50px; */
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+            /* bottom: 10px; */
+        }
+    }
+
+    @keyframes divAni {
+        0% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+    @keyframes divAni1 {
+        0% {
+            opacity: 0;
+        }
+        70%{
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+    @keyframes pulse {
+        0% {
+            transform: scale(1);
+        }
+
+        100% {
+            transform: scale(0.95);
+        }
+    }
+
+    .tapIcon {
+        animation: tapText1 1.5s ease-in-out;
+    }
+
+    .cube-parent-container {
+        width: 100%;
+        height: 200px;
+        margin: auto;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+    }
+
+    .cubeSwiper .swiper-slide {
+        aspect-ratio: 1/1;
+    }
+
+    .cubeSwiper .swiper-slide img {
+        width: 100%;
+        object-fit: cover;
+    }
+
+    .cubeSwiper .pagination-container {
+        padding-top: 25px;
+        width: 100%;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 100px 1fr;
+        grid-template-rows: 1fr;
+        grid-column-gap: 0px;
+        grid-row-gap: 0px;
+        position: absolute;
+        top: 250px;
+        transform: scale(0.8);
+    }
+
+    .pagination-container {
+        position: relative;
+        top: -25px;
+    }
+
+    .swiper-slide {
+        margin-right: 20px;
+    }
+
+    .cubeSwiper .cube-pagination-fraction {
+        color: rgba(255, 0, 255, 0.8);
+        font-size: 18px;
+        font-weight: 700;
+        margin-top: 15px;
+        text-align: center;
+        position: relative;
+    }
+
+    .swiper-button-next,
+    .swiper-button-prev {
+        color: #fff;
+        width: calc(var(--swiper-navigation-size)/ 44 * 6);
+        font-size: 12px;
+        font-weight: bolder;
+    }
+
+    .swiper-button-next:after,
+    .swiper-button-prev:after {
+        font-size: 12px;
+        font-weight: bolder;
+        padding: 7px 9px;
+        border-radius: 20px;
+
+    }
+
+    .swiper-button-prev {
+        left: var(--swiper-navigation-sides-offset, 19px);
+        position: absolute;
+        top: -180px;
+    }
+
+    .swiper-button-next {
+        right: var(--swiper-navigation-sides-offset, 20px);
+        position: absolute;
+        top: -180px;
+    }
+
+    .swiper-pagination-bullets.swiper-pagination-horizontal {
+        bottom: var(--swiper-pagination-bottom, -10px);
+    }
+
+    .swiper {
+        width: 320px;
+        position: relative;
+    }
+
+    .swiper-pagination-bullet {
+        width: 12px;
+        height: 12px;
+    }
+
+    @keyframes cta {
+        0% {
+            opacity: 0;
+        }
+
+        50% {
+            opacity: 0;
+            bottom: -10px;
+        }
+
+        100% {
+            opacity: 1;
+            bottom: 40px;
+        }
+    }
+</style>
+
+<body>
+    <div class="main" id="main">
+
+        <div class="firstScreen" id="firstScreen">
+            <img src="./images/BG Sky.png" style="position: absolute;width: 100%;height: 100%;left: 0;top: 0;" alt="">
+
+            <div id="pageOne" style="position: absolute;width: 100%;height: 100%;">
+
+
+
+                <div id="clouds" style="display: block; position: absolute; width: 100%; height: 100%; top: 0%;">
+                    <!-- <img src="./images/clouds png.png" style="position: absolute;top: -70%;left: -23%;" alt=""> -->
+                    <img src="./images/CloudsPNG.png"
+                        style="z-index: 99; position: absolute;bottom: 2%;right: -70%;width: 100%;" alt="">
+                    <img src="./images/clouds png.png" style="position: absolute;top: -150%;left: -23%;" alt="">
+                    <!-- <img src="./images/CloudsPNG.png"
+                        style="z-index: 99; position: absolute;bottom: 100%;right: -60%;width: 100%;" alt=""> -->
+                </div>
+
+                <div id="cloudss" style="display: block; position: absolute; width: 100%; height: 100%; top: 0%;">
+                    <img src="./images/clouds png.png" style="position: absolute;top: -70%;left: -23%;" alt="">
+                    <img src="./images/CloudsPNG.png"
+                        style="z-index: 99; position: absolute;bottom: 2%;right: -70%;width: 100%;" alt="">
+
+                </div>
+
+                <img id="plain" src="./images/AirNZ Plane.png"
+                    style="position: absolute;left: 0;right: 0;margin: 0 auto; bottom: 40%;width: 85%;animation: plain 1.5s ease-in-out;"
+                    alt="">
+
+                <div id="micAndText" style="position: absolute;width: 100%;height: 100%;top: 0;left: 0;display: none;">
+                    <img src="./images/Travel to NewZeland.png"
+                        style="position: absolute;left: 0;right: 0;margin: 0 auto;bottom: 180px;width: 280px;animation: text1 .8s linear;"
+                        alt="">
+
+                    <img id="disable" src="./images/MicrophoneDisabled.png"
+                        style="position: absolute;left: 0;right: 0;margin: 0 auto;bottom: 70px;width: 60px;animation: mic 1s linear;"
+                        alt="">
+
+                    <img id="enable" src="./images/MicrophoneEnabled.png"
+                        style="display: none; position: absolute;left: 0;right: 0;margin: 0 auto;bottom: 70px;width: 60px;"
+                        alt="">
+
+                    <img id="" src="./images/Activate.png"
+                        style="position: absolute;left: 0;right: 0;margin: 0 auto;bottom: 10px;width: 230px;animation: divAni1 1.3s linear;"
+                        alt="">
+
+                    <div id="lefrRightMoveAni"
+                        style="display: none;animation: tilt .7s ease-in-out alternate infinite; transform-origin: bottom;position: absolute;width: 170px;height: 180px;bottom: 100px; left: 0;right: 0;margin: 0 auto;">
+                        <img src="./images/AirFlow1.png"
+                            style="position: absolute;left: 0;bottom: 0px;width: 60px;"
+                            alt="">
+                        <img src="./images/AirFlow1.png"
+                            style="position: absolute;right: 0;bottom: 0px;width: 60px;transform: scaleX(-1);"
+                            alt="">
+                    </div>
+                </div>
+
+                <div id="tapDiv" style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;z-index: 9999;">
+                </div>
+
+                <div id="afterBlowDiv"
+                    style="display: none; position: absolute;top: 0;left: 0;width: 100%;height: 100%;z-index: 99;">
+                    <img src="./images/AirNZ Plane Banner.png"
+                        style="position: absolute;width:95%;left: 0;right: 0;margin: 0 auto;top: -36%;animation: singhapur 1.7s ease-in-out;"
+                        alt="">
+                </div>
+
+                <div id="chooseScreen"
+                    style="display: none; position: absolute;top: 0;left: 0;width: 100%;height: 100%;z-index: 99;animation: divAni .5s linear;">
+
+                    <div id="business" style=" position: absolute;top: 0;left: 0;width: 50%;height: 100%;">
+                        <img src="./images/Rectangle Business.png"
+                            style="position: absolute;width: 100%;left: 0;top: 0;" alt="">
+                        <img src="./images/Business Premier.png"
+                            style="position: absolute;width: 80%;left: 0;top: -10%;right: 0;bottom: 0;margin: auto;animation: BE .7s ease-in-out;"
+                            alt="">
+                        <img id="tapIcon1" src="./images/Business Premier-1.png"
+                            style="position: absolute;width: 140px;left: 0;right: 0;margin: 0 auto;bottom: 80px;animation: BPtext 1s ease-in-out;"
+                            alt="">
+                        <div id="business1" style=" position: absolute;top: 0;left: 0;width: 100%;height: 100%;"></div>
+
+                    </div>
+
+                    <div id="premium" style=" position: absolute;top: 0;right: 0;width: 50%;height: 100%;">
+                        <img src="./images/Rectangle Premium.png"
+                            style="position: absolute;width: 101%;right: 0;top: 0;" alt="">
+                        <img id="" src="./images/Premium Economy.png"
+                            style="position: absolute;width: 90%;left: 0;top: -10%;right: 0;bottom: 0;margin: auto;animation: PE .7s ease-in-out;"
+                            alt="">
+                        <img id="tapIcon" src="./images/Premium Economy-1.png"
+                            style="position: absolute;width: 140px;left: 0;right: 0;margin: 0 auto;bottom: 80px;animation: PEtext 1s ease-in-out;"
+                            alt="">
+                            
+                        <div id="premium1" style="position: absolute;top: 0;right: 0;width: 100%;height: 100%;"></div>
+                    </div>
+                    <img src="./images/Choose Your Class.png"
+                        style="position: absolute;width: 160px;left: 0;right: 0;margin: 0 auto;bottom: 10px;animation: chooseText 1s ease-in-out;"
+                        alt="">
+                    <!-- <img id="tapIcon" class="tapIcon" src="./images/Tap icon.png"
+                        style="position: absolute;width: 25px;left: 43%;bottom: 54px;" alt=""> -->
+
+                </div>
+
+                <div id="businessEconomySlider"
+                    style="display: none; position: absolute;width: 100%;height: 100%;top: 0;left: 0;background-color: #000;z-index: 99;">
+                    <img src="./images/Business Premier-1.png"
+                        style="position: absolute;top: 100px;left: 0;right: 0;margin: 0 auto;width: 250px;z-index: 9; animation: premiumClass 1.5s ease;"
+                        alt="">
+
+                    <figure class="cube-parent-container">
+                        <!-- Swiper -->
+                        <div class="swiper cubeSwiper">
+                            <div class="swiper-wrapper">
+                                <!-- begin slides -->
+
+                                <div class="swiper-slide">
+                                    <img src="./images/Features/b1.png"
+                                        style="width: 95%;left: 0;right: 0;margin: 0 auto;" />
+                                </div>
+
+                                <div class="swiper-slide">
+                                    <img src="./images/Features/b2.png"
+                                        style="width: 95%;left: 0;right: 0;margin: 0 auto;" />
+                                </div>
+
+                                <div class="swiper-slide">
+                                    <img src="./images/Features/b3.png"
+                                        style="width: 95%;left: 0;right: 0;margin: 0 auto;" />
+                                </div>
+
+                                <!-- end slides -->
+                            </div>
+                        </div>
+                        <div class="pagination-container">
+                            <div class="swiper-button-prev"></div>
+                            <div class="swiper-button-next"></div>
+                        </div>
+                    </figure>
+
+                    <a href="https://flightbookings.airnewzealand.com.sg/vbook/actions/search" target="_blank">
+                        <img id="cta" src="./images/Know More.png"
+                            style="position: absolute;width: 150px;left: 0;right: 0;margin: 0 auto;bottom: 40px;animation: cta 1s ease;"
+                            alt="">
+                    </a>
+
+                    <img id="BusinessBack" src="./images/Back.png" style="position: absolute;right: 10px;top: 210px;width: 70px;" alt="">
+                </div>
+                
+                <div id="primiumEconomySlider"
+                style="display: none; position: absolute;width: 100%;height: 100%;top: 0;left: 0;background-color: #000;z-index: 99;">
+                <a href="https://flightbookings.airnewzealand.com.sg/vbook/actions/search" target="_blank">
+                    <img src="./images/Premium Economy-1.png"
+                            style="position: absolute;top: 100px;left: 0;right: 0;margin: 0 auto;width: 250px;z-index: 9; animation: premiumClass 1.5s ease;"
+                            alt="">
+                        </a>
+
+                    <figure class="cube-parent-container">
+                        <!-- Swiper -->
+                        <div class="swiper cubeSwiper">
+                            <div class="swiper-wrapper">
+                                <!-- begin slides -->
+                                
+                                <div class="swiper-slide">
+                                    <img src="./images/Features/p1.png"
+                                    style="width: 95%;left: 0;right: 0;margin: 0 auto;" />
+                                </div>
+                                
+                                <div class="swiper-slide">
+                                    <img src="./images/Features/p2.png"
+                                    style="width: 95%;left: 0;right: 0;margin: 0 auto;" />
+                                </div>
+                                
+                                <div class="swiper-slide">
+                                    <img src="./images/Features/p3.png"
+                                        style="width: 95%;left: 0;right: 0;margin: 0 auto;" />
+                                    </div>
+                                    
+                                <!-- end slides -->
+                            </div>
+                        </div>
+                        <div class="pagination-container">
+                            <div class="swiper-button-prev"></div>
+                            <div class="swiper-button-next"></div>
+                        </div>
+                    </figure>
+
+                    <a href="https://flightbookings.airnewzealand.com.sg/vbook/actions/search" target="_blank">
+                        <img id="cta1" src="./images/Know More.png"
+                        style="position: absolute;width: 150px;left: 0;right: 0;margin: 0 auto;bottom: 40px;animation: cta 1s ease;"
+                        alt="">
+                    </a>
+                    <img id="PrimiumBack" src="./images/Back.png" style="position: absolute;right: 10px;top: 210px;width: 70px;" alt="">
+                </div>
+                
+                <a href="https://flightbookings.airnewzealand.com.sg/vbook/actions/search" target="_blank">
+                    <img id="blackLogo" src="./images/AirNewZealand logo.png"
+                        style="position: absolute;left: 10px;top: 10px;width: 190px; animation: logo 1s ease-in-out;">
+                    <img id="whiteLogo" src="./images/LOGOblack.png"
+                        style="display: none; position: absolute;left: 10px;top: 10px;width: 190px;z-index: 9999;">
+                </a>
+
+            </div>
+
+        </div>
+        <img id="close"
+            src="https://cache-ssl.celtra.com/api/static/ve67ae1362e/runner/clazzes/CreativeUnit/close-up.svg"
+            alt="Close Button">
+    </div>
+</body>
+<script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+
+        const close = document.getElementById("close");
+        const main = document.getElementById("main");
+        const firstScreen = document.getElementById("firstScreen");
+        const micAndText = document.getElementById("micAndText");
+        const clouds = document.getElementById("clouds");
+        const cloudss = document.getElementById("cloudss");
+        const disable = document.getElementById("disable");
+        const enable = document.getElementById("enable");
+        const lefrRightMoveAni = document.getElementById("lefrRightMoveAni");
+        const tapDiv = document.getElementById("tapDiv");
+        const plain = document.getElementById("plain");
+        const afterBlowDiv = document.getElementById("afterBlowDiv");
+        const blackLogo = document.getElementById("blackLogo");
+        const whiteLogo = document.getElementById("whiteLogo");
+        const chooseScreen = document.getElementById("chooseScreen");
+        // const tapIcon = document.getElementById("tapIcon");
+        const business1 = document.getElementById("business1");
+        const premium1 = document.getElementById("premium1");
+        const businessEconomySlider = document.getElementById("businessEconomySlider");
+        const primiumEconomySlider = document.getElementById("primiumEconomySlider");
+        const PrimiumBack = document.getElementById("PrimiumBack");
+        const BusinessBack = document.getElementById("BusinessBack");
+
+        setTimeout(() => {
+            clouds.style.animation = "5s linear 0s infinite normal none running cludes"
+            cloudss.style.animation = "7s linear 0s infinite normal none running cludes"
+        }, 700);
+
+        setTimeout(() => {
+            micAndText.style.display = "block";
+            // clouds.style.animationPlayState = "paused";
+        }, 3000);
+
+        setTimeout(() => {
+            lefrRightMoveAni.style.display = "block";
+        }, 4200);
+
+        tapDiv.addEventListener("click", () => {
+
+            tapDiv.style.display = "none";
+            enable.style.display = "block";
+            disable.style.display = "block";
+
+            setTimeout(() => {
+                startDetection()
+            }, 1000);
+        })
+        BusinessBack.addEventListener("click",()=>{
+            chooseScreen.style.display = "block";
+            chooseScreen.style.opacity = 1;
+            businessEconomySlider.style.display = "none";
+            primiumEconomySlider.style.display = "none";
+
+            business.style.display = "block";
+            business.style.opacity = 1;
+            premium.style.display = "block";
+            premium.style.opacity = 1;
+        })
+        PrimiumBack.addEventListener("click",()=>{
+            chooseScreen.style.display = "block";
+            business.style.display = "block";
+            business.style.opacity = 1;
+            premium.style.display = "block";
+            premium.style.opacity = 1;
+            chooseScreen.style.opacity = 1;
+            businessEconomySlider.style.display = "none";
+            primiumEconomySlider.style.display = "none";
+
+        })
+        premium1.addEventListener("click", function () {
+            premiumFunction();
+        })
+        function premiumFunction() {
+            console.log("premium");
+            clouds.style.opacity = 0;
+            cloudss.style.opacity = 0;
+            chooseScreen.style.opacity = 0;
+            chooseScreen.style.transition = "all .5s";
+
+            primiumEconomySlider.style.display = "block";
+            premium.style.display = "none";
+            business.style.display = "none";
+            chooseScreen.style.display = "none";
+            setTimeout(() => {
+                cta1.style.animation = "pulse .6s ease-in-out alternate infinite";
+            }, 1010);
+            var swiper = new Swiper(".cubeSwiper", {
+                effect: "slide",
+                grabCursor: true,
+                speed: 2000,
+                spaceBetween: 10,
+                // autoplay: false,
+                loop: true,
+                autoplay: {
+                    delay: 3000,
+                    disableOnInteraction: false
+                },
+
+                pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true,
+                },
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+            });
+
+        }
+
+        business1.addEventListener("click", function () {
+            businessFunction();
+        })
+
+        function businessFunction() {
+            console.log("busineass...");
+            clouds.style.opacity = 0;
+            cloudss.style.opacity = 0;
+
+            chooseScreen.style.opacity = 0;
+            chooseScreen.style.transition = "all .5s";
+
+            businessEconomySlider.style.display = "block";
+            premium.style.display = "none";
+            business.style.display = "none";
+            chooseScreen.style.display = "none";
+
+            setTimeout(() => {
+                cta.style.animation = "pulse .6s ease-in-out alternate infinite";
+            }, 1010);
+            var swiper = new Swiper(".cubeSwiper", {
+                effect: "slide",
+                grabCursor: true,
+                speed: 2000,
+                spaceBetween: 10,
+                // autoplay: false,
+                loop: true,
+                autoplay: {
+                    delay: 3000,
+                    disableOnInteraction: false
+                },
+
+                pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true,
+                },
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+            });
+
+        }
+
+
+
+        function startDetection() {
+            console.log("start blow.....");
+            navigator.mediaDevices.getUserMedia({ audio: true })
+                .then(stream => {
+                    const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                    const analyser = audioContext.createAnalyser();
+                    const microphone = audioContext.createMediaStreamSource(stream);
+                    const scriptProcessor = audioContext.createScriptProcessor(256, 1, 1);
+
+                    analyser.smoothingTimeConstant = 0.8;
+                    analyser.fftSize = 1024;
+
+                    microphone.connect(analyser);
+                    analyser.connect(scriptProcessor);
+                    scriptProcessor.connect(audioContext.destination);
+
+                    scriptProcessor.onaudioprocess = function () {
+                        const array = new Uint8Array(analyser.frequencyBinCount);
+                        analyser.getByteFrequencyData(array);
+                        const average = array.reduce((a, b) => a + b, 0) / array.length;
+
+                        if (average > 50) {
+                            clouds.style.opacity = 0;
+                            clouds.style.transition = "all .7s ease-out";
+                            clouds.style.transform = "scale(2)";
+
+                            plain.style.transition = "all .7s ease-out";
+                            plain.style.bottom = 100 + "%";
+
+                            micAndText.style.opacity = 0;
+                            micAndText.style.transition = "all .7s ease-out";
+
+                            console.log("average", average);
+
+                            setTimeout(() => {
+                                afterBlowDiv.style.display = "block";
+                            }, 1000);
+
+                            setTimeout(() => {
+                                // afterBlowDiv.style.opacity = 0; 
+                                afterBlowDiv.style.transition = "all .7s ease-in-out";
+                                afterBlowDiv.style.top = -100 + "%";
+                            }, 6000);
+                            setTimeout(() => {
+                                afterBlowDiv.style.opacity = 0;
+                                chooseScreen.style.display = "block";
+                                whiteLogo.style.display = "block";
+                                setTimeout(() => {
+                                    tapIcon.style.animation = "pulse .6s ease-in-out alternate infinite";
+                                    tapIcon1.style.animation = "pulse .6s ease-in-out alternate infinite";
+                                }, 1010);
+                            }, 7000);
+                        } else {
+                            // document.getElementById('status').textContent = 'Not Detecting';
+                        }
+                    };
+                })
+                .catch(err => console.error('Error accessing the microphone: ' + err));
+        }
+
+
+        close.addEventListener("click", () => {
+            main.style.display = "none";
+            window.parent.document.body.style.overflow = "scroll";
+        });
+
+
+    });
+
+</script>
+
+</html>

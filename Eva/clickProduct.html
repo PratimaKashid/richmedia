@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script type="text/javascript">
+        var clickTag = "https://www.axisbank.com/savings-account/digital-savings-account.html?utm_source=bing&utm_medium=cpc&utm_campaign=dbg_dsa_bing_acopens_brand_bmm_neev_exact&utm_content=dsa_brand_saving&utm_term=axis%20bank%20saving%20account&msclkid=95f2555e7b21174f0a3a33661d594f38";
+    </script>
+    <script type="text/javascript" src="https://example.com?click=${CLICK_URL}"></script>
+    <title>Eva</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        overflow: hidden;
+    }
+
+    .main {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+    }
+
+    .firstScreen,
+    .aapl_inner {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        position: absolute;
+
+    }
+
+    #close {
+        position: absolute;
+        right: 1px;
+        top: 1px;
+        width: 30px;
+        z-index: 99999;
+        cursor: pointer;
+    }
+
+    @keyframes logo {
+        0% {
+            opacity: 0;
+            top: -90px;
+        }
+
+        100% {
+            opacity: 1;
+            top: 0;
+        }
+    }
+
+    @keyframes logo1 {
+        0% {
+            opacity: 0;
+        }
+
+        50% {
+            opacity: 0;
+            transform: scale(0);
+        }
+
+        100% {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    @keyframes headIcon {
+        0% {
+            opacity: 0;
+        }
+
+        50% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+    @keyframes Ellipse {
+        0% {
+            opacity: 0;
+        }
+
+        70% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+    @keyframes CameraIcon {
+        0% {
+            opacity: 0;
+        }
+
+        80% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+    @keyframes b1 {
+
+        0% {
+            opacity: 0;
+            transform: scale(0);
+        }
+
+        100% {
+            transform: scale(1);
+            opacity: 1;
+        }
+    }
+
+    @keyframes b2 {
+        0% {
+            opacity: 0;
+        }
+
+        50% {
+            opacity: 0;
+            transform: scale(0);
+        }
+
+        100% {
+            transform: scale(1);
+            opacity: 1;
+        }
+    }
+
+    @keyframes b3 {
+        0% {
+            opacity: 0;
+        }
+
+        75% {
+            opacity: 0;
+            transform: scale(0);
+        }
+
+        100% {
+            transform: scale(1);
+            opacity: 1;
+        }
+    }
+
+    @keyframes b11 {
+        0% {
+            opacity: 0;
+        }
+
+        30% {
+            opacity: 0;
+            transform: scale(0);
+        }
+
+        100% {
+            transform: scale(1);
+            opacity: 1;
+        }
+    }
+
+    @keyframes b22 {
+        0% {
+            opacity: 0;
+        }
+
+        50% {
+            opacity: 0;
+            transform: scale(0);
+        }
+
+        100% {
+            transform: scale(1);
+            opacity: 1;
+        }
+    }
+
+    @keyframes b33 {
+        0% {
+            opacity: 0;
+        }
+
+        75% {
+            opacity: 0;
+            transform: scale(0);
+        }
+
+        100% {
+            transform: scale(1);
+            opacity: 1;
+        }
+    }
+
+    @keyframes pulse {
+        0% {
+            transform: scale(1);
+        }
+
+        100% {
+            transform: scale(.9);
+        }
+    }
+
+    #videoElement {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        /* width: 100%;
+        height: 100%; */
+        /* object-fit: cover; */
+        z-index: 1;
+        background-color: transparent;
+        width: 100%;
+        height: 100%;
+        /* display: none; */
+    }
+
+    #canvas {
+        /* border-radius: 10px; */
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        /* width: 100%;
+        height: 100%; */
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+    }
+
+    @keyframes rashmikaScreenAni {
+        0% {
+            opacity: 0;
+            bottom: -90%;
+        }
+
+        100% {
+            opacity: 1;
+            bottom: 0;
+        }
+    }
+
+    @keyframes rashmikaText {
+        0% {
+            opacity: 0;
+        }
+
+        60% {
+            opacity: 0;
+            top: 10%;
+        }
+
+        100% {
+            opacity: 1;
+            top: 15%;
+        }
+    }
+
+    @keyframes a1 {
+        0% {
+            opacity: 0;
+        }
+
+        40% {
+            opacity: 0;
+            transform: scale(0);
+        }
+
+        100% {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    @keyframes a2 {
+        0% {
+            opacity: 0;
+        }
+
+        50% {
+            opacity: 0;
+            transform: scale(0);
+        }
+
+        100% {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    @keyframes a3 {
+        0% {
+            opacity: 0;
+        }
+
+        60% {
+            opacity: 0;
+            transform: scale(0);
+        }
+
+        100% {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    @keyframes a4 {
+        0% {
+            opacity: 0;
+        }
+
+        70% {
+            opacity: 0;
+            transform: scale(0);
+        }
+
+        100% {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    @keyframes a5 {
+        0% {
+            opacity: 0;
+        }
+
+        80% {
+            opacity: 0;
+            transform: scale(0);
+        }
+
+        100% {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    @keyframes cta {
+        0% {
+            opacity: 0;
+        }
+
+        85% {
+            opacity: 0;
+            bottom: 0;
+        }
+
+        100% {
+            opacity: 1;
+            bottom: 5%;
+        }
+    }
+
+    @keyframes divAni {
+        0% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+    @keyframes rashmika {
+        0% {
+            transform: rotate(-1deg);
+        }
+
+        100% {
+            transform: rotate(1deg);
+        }
+    }
+</style>
+
+<body>
+    <div class="main" id="main">
+        <div class="firstScreen" id="firstScreen">
+            <img src="./images/BG.png" style="position: absolute;width: 100%;height: 100%;object-fit: cover;" alt="">
+            <img src="./images/LOGO TOP.png"
+                style="z-index: 10; position: absolute;top: 0; width: 100%;height: 92px;animation: logo 1s ease-in-out;"
+                alt="">
+            <img id="text1" src="./images/./Choose your favourite deodorant.png"
+                style="position: absolute;top: 0;bottom: 0;left: 0;right: 0;margin: auto; width: 80%;animation: logo1 1.5s ease-in-out;"
+                alt="">
+
+            <div id="cameraOpenDiv" style="position: absolute;width: 100%;height: 100%;display: none;">
+                <img id="headIcon" src="./images/HEAD Icon.png"
+                    style="z-index: 10; position: absolute;left: -8px;right: 0;margin: 0 auto;top: 20px;width: 40%;animation: headIcon 1s ease;"
+                    alt="">
+
+                <img id="Ellipse" src="./images/Ellipse Big.png"
+                    style="position: absolute;left: 0;right: 0;margin: 0 auto;bottom: 0px;width: 100%;animation: Ellipse 1.5s ease;z-index: 9;"
+                    alt="">
+
+                <div id="camera" style="position: absolute;width: 100%;height: 58%;display: none;top: 5%;">
+                    <video id="videoElement" autoplay muted></video>
+                    <canvas id="canvas"></canvas>
+                </div>
+
+
+                <img id="cameraIcon" src="./images/Camera.png"
+                    style="position: absolute;left: 0;right: 0;margin: 0 auto;bottom: 30px;width: 70px;animation: CameraIcon 2s ease;z-index: 10;"
+                    alt="">
+                <div id="Product" style="position: absolute;width: 100%;height: 100%;">
+                    <img id="sweet" class="selectFood" src="./images/Product with Name/SWEET.png"
+                        style="display: none; z-index: 10; position: absolute;left: 0;right: 0;margin: 0 auto;bottom: 21%;width: 32%;animation: b1 .5s ease;"
+                        alt="">
+                    <img id="doll" class="selectFood" src="./images/Product with Name/DOLL.png"
+                        style="display: none; z-index: 10; position: absolute;left: 30px;bottom: 6%;width: 24%;animation: b2 .8s ease;"
+                        alt="">
+                    <img id="flirt" class="selectFood" src="./images/Product with Name/FLIRT.png"
+                        style="display: none; z-index: 10; position: absolute;right: 20px;margin: 0 auto;bottom: 7%;width: 30%;animation: b3 1.1s ease;"
+                        alt="">
+                    <img id="groove" class="selectFood" src="./images/Product with Name/GROOVE.png"
+                        style="display: none; z-index: 10; position: absolute;left: 0;right: 0;margin: 0 auto;bottom: 22%;width: 39%;animation: b11 .8s ease;"
+                        alt="">
+                    <img id="fresh" class="selectFood" src="./images/Product with Name/FRESH.png"
+                        style="display: none; z-index: 10; position: absolute;left: 5px;bottom: 7%;width: 38%;animation: b22 1.1s ease;"
+                        alt="">
+                    <img id="wild" class="selectFood" src="./images/Product with Name/WILD.png"
+                        style="display: none; z-index: 10; position: absolute;right: 20px;margin: 0 auto;bottom: 7%;width: 30%;animation: b33 1.4s ease;"
+                        alt="">
+                </div>
+
+            </div>
+
+            <!-- final screen -->
+            <a href="https://evagirl.in/deodorants/" target="_blank">
+                <div id="lastScreen" style="position: absolute;width: 100%;height: 100%;display: none;">
+                    <img src="./images/Podium.png"
+                        style="position: absolute; width: 100%;bottom: 0;left: 0;right: 0;margin: 0 auto;" alt="">
+                    <img id="favPerfuem" class="addAnimation"
+                        style="position: absolute;left: 0px;right: 0;margin: 0 auto; bottom: 8%" src="" alt="">
+                    <img id="favText" class="addAnimation"
+                        style="position: absolute;left: 0px;right: 0;margin: 0 auto; top: 24%;width: 50%;" src=""
+                        alt="">
+                </div>
+
+                <div id="rashmikaScreen"
+                    style="position: absolute;width: 100%;height: 100%;display: none;animation: rashmikaScreenAni .7s ease-in-out;">
+                    <img src="./images/Actor EVA.png"
+                        style="transform-origin: bottom center; position: absolute;bottom: 0;left: 0;right: 0;margin: 0 auto;width: 72%;animation: rashmika .9s 1s ease-in-out alternate infinite;"
+                        alt="">
+                    <img src="./images/Sweat it out.png"
+                        style="position: absolute;top: 15%;left: 0;right: 0;margin: 0 auto;width: 75%;animation: rashmikaText 1.3s ease-in-out;"
+                        alt="">
+                </div>
+
+                <div id="FinalScreen"
+                    style="position: absolute;width: 100%;height: 100%;display: none;animation: divAni .5s ease;">
+                    <video src="./images/video.mp4" id="myVid" autoplay muted controls
+                        style="z-index: 9999; position: absolute;top: 16%;border: solid 2px white;width: 95%;height: 220px;left: 0;right: 0;margin: 0 auto;"></video>
+
+                    <div id=""
+                        style="position: absolute;width: 100%;z-index: 9999;display: flex;top: 50%;justify-content: center;">
+                        <img src="./images/doll.png" style="width: 33%;animation: a1 1s ease-in-out;" alt="">
+                        <img src="./images/flirt.png" style="width: 33%;animation: a2 1.2s ease-in-out;" alt="">
+                        <img src="./images/fresh.png" style="width: 33%;animation: a3 1.4s ease-in-out;" alt="">
+                    </div>
+
+                    <div id=""
+                        style="position: absolute;width: 100%;z-index: 9999;display: flex;top: 65%;justify-content: center;">
+                        <img src="./images/wild.png" style="width: 33%;animation: a4 1.6s ease-in-out;" alt="">
+                        <img src="./images/groove.png" style="width: 33%;animation: a5 1.8s ease-in-out;" alt="">
+                    </div>
+
+                    <img id="cta" src="./images/cta.png"
+                        style="position: absolute;left: 0;right: 0;margin: 0 auto;bottom: 5%;width: 45%;animation: cta 2.2s ease;"
+                        alt="">
+                </div>
+            </a>
+
+            <img id="close"
+                src="https://cache-ssl.celtra.com/api/static/ve67ae1362e/runner/clazzes/CreativeUnit/close-up.svg">
+        </div>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/body-pix"></script>
+    <script>
+        var close = document.getElementById("close");
+        var main = document.getElementById("main");
+        var text1 = document.getElementById("text1");
+        var cameraIcon = document.getElementById("cameraIcon");
+        var cameraOpenDiv = document.getElementById("cameraOpenDiv");
+        var Ellipse = document.getElementById("Ellipse");
+        var headIcon = document.getElementById("headIcon");
+        // var Ellipse = document.getElementById("Ellipse");
+
+        var camera = document.getElementById("camera");
+        const videoElement = document.getElementById('videoElement');
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+
+        const sweet = document.getElementById('sweet');
+        const doll = document.getElementById('doll');
+        const flirt = document.getElementById('flirt');
+
+        const groove = document.getElementById('groove');
+        const fresh = document.getElementById('fresh');
+        const wild = document.getElementById('wild');
+
+
+
+        const selectFood = document.querySelectorAll(".selectFood");
+        const lastScreen = document.getElementById("lastScreen");
+        const favImg = document.getElementById("favPerfuem");
+        const Product = document.getElementById("Product");
+        const favText = document.getElementById("favText");
+        var cta = document.getElementById("cta");
+        var myVid = document.getElementById("myVid");
+
+        var rashmikaScreen = document.getElementById("rashmikaScreen");
+        var FinalScreen = document.getElementById("FinalScreen");
+        var cta = document.getElementById("cta");
+
+        let selectedFood = "";
+
+        const foodLargeImages = {
+            "sweet": { "img": "sweet.png", "text": "sweetText.png" },
+            "doll": { "img": "doll.png", "text": "dollText.png" },
+            "flirt": { "img": "flirt.png", "text": "flirtText.png" },
+            "groove": { "img": "groove.png", "text": "grooveText.png" },
+            "fresh": { "img": "fresh.png", "text": "freshText.png" },
+            "wild": { "img": "wild.png", "text": "wildText.png" }
+        };
+
+        function rotation() {
+            sweet.style.display = "block";
+            doll.style.display = "block";
+            flirt.style.display = "block";
+
+            setTimeout(() => {
+                sweet.style.opacity = 0;
+                sweet.style.transition = "all .5s";
+                doll.style.opacity = 0;
+                doll.style.transition = "all .5s";
+                flirt.style.opacity = 0;
+                flirt.style.transition = "all .5s";
+
+
+                groove.style.display = "block";
+                fresh.style.display = "block";
+                wild.style.display = "block";
+            }, 3500);
+
+            setTimeout(() => {
+                sweet.style.display = "none";
+                doll.style.display = "none";
+                flirt.style.display = "none";
+
+                sweet.style.opacity = 1;
+                doll.style.opacity = 1;
+                flirt.style.opacity = 1;
+            }, 4000);
+            setTimeout(() => {
+                groove.style.opacity = 0;
+                groove.style.transition = "all .5s";
+                fresh.style.opacity = 0;
+                fresh.style.transition = "all .5s";
+                wild.style.opacity = 0;
+                wild.style.transition = "all .5s";
+            }, 7000);
+            setTimeout(() => {
+                groove.style.display = "none";
+                fresh.style.display = "none";
+                wild.style.display = "none";
+
+                groove.style.opacity = 1;
+                fresh.style.opacity = 1;
+                wild.style.opacity = 1;
+
+                rotation()
+            }, 7500);
+        }
+
+
+        setTimeout(() => {
+            text1.style.opacity = 0;
+            text1.style.transition = "all .5s";
+            cameraOpenDiv.style.display = "block";
+            setTimeout(() => {
+                rotation()
+            }, 2000);
+            setTimeout(() => {
+                cameraIcon.style.animation = "pulse .7s ease alternate infinite"
+            }, 2010);
+        }, 2500);
+
+
+        sweet.addEventListener("click", () => {
+            Product.style.backgroundColor = "#e96e3c";
+            console.log("click on sweet");
+        })
+        wild.addEventListener("click", () => {
+            Product.style.backgroundColor = "#000";
+            console.log("click on wild");
+        })
+        doll.addEventListener("click", () => {
+            Product.style.backgroundColor = "#cd5273";
+            console.log("click on wild");
+        })
+        flirt.addEventListener("click", () => {
+            Product.style.backgroundColor = "#71a037";
+            console.log("click on wild");
+        })
+        groove.addEventListener("click", () => {
+            Product.style.backgroundColor = "#991a7b";
+            console.log("click on wild");
+        })
+        fresh.addEventListener("click", () => {
+            Product.style.backgroundColor = "#2c98a3";
+            console.log("click on wild");
+        })
+
+        cameraIcon.addEventListener("click", function (e) {
+            startCamera(e);
+
+            Product.style.backgroundColor = "#e96e3c";
+
+            camera.style.display = "block";
+
+            setTimeout(() => {
+                showSelectedProduct()
+                console.log("show selected function:");
+            }, 10500);
+        })
+
+        // show dynamic image click on diffrent color
+        function showSelectedProduct() {
+            // videoElement.srcObject = null;
+
+            selectFood.forEach(element => {
+                element.addEventListener("click", function (e) {
+                    lastScreen.style.display = "block";
+                    Product.style.opacity = 0;
+                    Product.style.transition = "all 0.5s";
+                    camera.style.opacity = 0;
+                    camera.style.transition = "all 0.5s";
+                    Ellipse.style.opacity = 0;
+                    Ellipse.style.transition = "all 0.5s";
+                    cameraIcon.style.opacity = 0;
+                    cameraIcon.style.transition = "all 0.5s";
+                    headIcon.style.opacity = 0;
+                    headIcon.style.transition = "all 0.5s";
+
+                    setTimeout(() => {
+                        lastScreen.style.opacity = 0;
+                        lastScreen.style.transition = "all 0.5s";
+                        rashmikaScreen.style.display = "block"
+                    }, 3500);
+
+                    setTimeout(() => {
+                        rashmikaScreen.style.opacity = 0;
+                        rashmikaScreen.style.transition = "all .5s"
+                        FinalScreen.style.display = "block";
+                        myVid.muted = false;
+                        setTimeout(() => {
+                            cta.style.animation = "pulse .7s ease alternate infinite"
+                        }, 2300);
+                    }, 6000);
+
+                    selectedFood = e.target.id;
+                    console.log("selectedFood :", selectedFood);
+
+                    if (selectedFood in foodLargeImages) {
+                        favImg.src = "./images/" + foodLargeImages[selectedFood].img;
+                        favText.src = "./images/" + foodLargeImages[selectedFood].text;
+                    } else {
+                        favImg.src = ""; // No large image found for the selected food
+                        favText.src = ""; // No text image found for the selected food
+                    }
+                });
+            });
+        }
+
+
+        // Function to start the camera
+        async function startCamera() {
+           
+            const constraints = {
+                video: {
+                    width: { ideal: 1920 },
+                    height: { ideal: 1080 }
+                }
+            };
+
+            try {
+                const stream = await navigator.mediaDevices.getUserMedia(constraints);
+                videoElement.srcObject = stream;
+            } catch (error) {
+                if (error.name === 'OverconstrainedError') {
+                    console.error('Camera configuration is too constrained.');
+                    console.error('Try again with different constraints.');
+                } else {
+                    console.error('Error accessing the camera: ', error);
+                }
+            }
+        }
+
+        // Function to convert a hex color to an rgba object
+        function hexToRgba(hex) {
+            const shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
+            hex = hex.replace(shorthandRegex, function (m, r, g, b) {
+                return r + r + g + g + b + b;
+            });
+
+            const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+            return result ? {
+                r: parseInt(result[1], 16),
+                g: parseInt(result[2], 16),
+                b: parseInt(result[3], 16),
+                a: 255
+            } : null;
+        }
+
+        // Function to apply BodyPix
+        async function applyBodyPix() {
+            const net = await bodyPix.load();
+            videoElement.addEventListener('loadeddata', async () => {
+                setInterval(async () => {
+                    if (videoElement.readyState >= 2) {
+                        const segmentation = await net.segmentPerson(videoElement, {
+                            internalResolution: 'medium',
+                            segmentationThreshold: 0.5
+                        });
+
+                        ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear the canvas
+
+                        const productColor = getComputedStyle(Product).backgroundColor;
+                        const rgbaColor = hexToRgba(rgbToHex(productColor));
+
+                        const mask = bodyPix.toMask(
+                            segmentation,
+                            { r: 0, g: 0, b: 0, a: 0 }, // background color (transparent)
+                            rgbaColor // person color (from Product background color)
+                        );
+
+                        // Draw the mask on the canvas
+                        bodyPix.drawMask(canvas, videoElement, mask, 1, 0, false);
+                    }
+                }, 100);
+            });
+        }
+
+        // Helper function to convert RGB to Hex
+        function rgbToHex(rgb) {
+            const rgbArray = rgb.match(/\d+/g).map(Number);
+            return `#${((1 << 24) + (rgbArray[0] << 16) + (rgbArray[1] << 8) + rgbArray[2]).toString(16).slice(1).toUpperCase()}`;
+        }
+
+        // Event listeners for product clicks
+        sweet.addEventListener("click", () => {
+            Product.style.backgroundColor = "#e96e3c";
+            console.log("click on sweet");
+        });
+        wild.addEventListener("click", () => {
+            Product.style.backgroundColor = "#000";
+            console.log("click on wild");
+        });
+        doll.addEventListener("click", () => {
+            Product.style.backgroundColor = "#cd5273";
+            console.log("click on doll");
+        });
+        flirt.addEventListener("click", () => {
+            Product.style.backgroundColor = "#71a037";
+            console.log("click on flirt");
+        });
+        groove.addEventListener("click", () => {
+            Product.style.backgroundColor = "#991a7b";
+            console.log("click on groove");
+        });
+        fresh.addEventListener("click", () => {
+            Product.style.backgroundColor = "#2c98a3";
+            console.log("click on fresh");
+        });
+
+        // Initialize the camera and apply BodyPix
+        startCamera();
+        applyBodyPix();
+
+
+
+
+        close.addEventListener("click", () => {
+            main.style.display = "none";
+            myVid.muted = true;
+            myVid.pause();
+        })
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .custom-cursor {
+        position: fixed;
+        pointer-events: none;
+        /* Makes sure the image doesn't interfere with mouse events */
+        z-index: 9999;
+        /* Ensure it's above other elements */
+    }
+
+    .container {
+        margin-top: 200px;
+        /* Just for demonstration */
+    }
+</style>
+
+<body>
+    <div class="container">
+        <h1>Move your cursor!</h1>
+    </div>
+    <img src="./images/roller.png" alt="Custom Cursor" style="width: 100px;" class="custom-cursor">
+</body>
+<script>
+    document.addEventListener("mousemove", moveCursor);
+    document.addEventListener("touchmove", moveCursor);
+
+    function moveCursor(e) {
+        var cursor = document.querySelector(".custom-cursor");
+        var x = e.clientX || e.touches[0].clientX;
+        var y = e.clientY || e.touches[0].clientY;
+        cursor.style.left = x + "px";
+        cursor.style.top = y + "px";
+    }
+</script>
+
+</html>

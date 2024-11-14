@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PizzaHut</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        overflow: hidden;
+    }
+
+    .main {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    #close {
+        position: absolute;
+        right: 1px;
+        top: 1px;
+        width: 27px;
+        z-index: 9999;
+        cursor: pointer;
+    }
+
+    @keyframes opaAni {
+        0% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+    @keyframes logo {
+
+        0%,
+        30% {
+            opacity: 0;
+            top: -30px;
+        }
+
+        100% {
+            opacity: 1;
+            top: 20px;
+        }
+    }
+
+    @keyframes text1 {
+
+        0%,
+        50% {
+            opacity: 0;
+            right: -200px;
+        }
+
+        100% {
+            opacity: 1;
+            right: 0;
+        }
+    }
+
+    @keyframes arrow {
+
+        0%,
+        80% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+
+    }
+
+    @keyframes a1 {
+        0% {
+            transform: translateY(-15px);
+            opacity: 0;
+        }
+
+        100% {
+            transform: translateY(0px);
+            opacity: 1;
+        }
+    }
+
+    @keyframes a2 {
+        0% {
+            transform: translateY(15px);
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+            transform: translateY(0px);
+        }
+    }
+
+    #pinchArea {
+        width: 100%;
+        height: 500px;
+        position: absolute;
+        top: 0;
+    }
+
+    @keyframes hand1 {
+
+        0%,
+        80% {
+            left: -100px;
+            opacity: 0;
+        }
+
+        100% {
+            left: -40px;
+            opacity: 1;
+        }
+    }
+
+    @keyframes dipText {
+        0% {
+            scale: 0;
+            opacity: 0;
+        }
+
+        100% {
+            scale: 1;
+            opacity: 1;
+        }
+    }
+
+    @keyframes lastScreen {
+        0% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+    @keyframes skipBtn {
+
+        0%,
+        85% {
+            opacity: 0;
+            right: -85px;
+        }
+
+        100% {
+            opacity: 1;
+            right: 0;
+        }
+    }
+
+    @keyframes myvid {
+
+        0%,
+        75% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+    @keyframes cta {
+
+        0%,
+        85% {
+            opacity: 0;
+            bottom: -85px;
+        }
+
+        100% {
+            opacity: 1;
+            bottom: 5%;
+        }
+    }
+
+    @keyframes jello {
+        0% {
+            transform: scale(1);
+        }
+
+        100% {
+            transform: scale(1.1);
+        }
+    }
+
+    @keyframes cheeseText {
+        0% {
+            right: -100%;
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+            right: 0;
+        }
+    }
+
+    @keyframes pizzas {
+
+        0%,
+        80% {
+            opacity: 0;
+            scale: .8;
+        }
+
+        100% {
+            opacity: 1;
+            scale: 1;
+        }
+    }
+
+    @keyframes mrp {
+
+        0%,
+        85% {
+            opacity: 0;
+            right: -150px;
+        }
+
+        100% {
+            opacity: 1;
+            right: 30px;
+        }
+    }
+
+    @keyframes leap1 {
+        0% {
+            transform: translateY(0);
+        }
+
+        100% {
+            transform: translateY(-10px);
+        }
+    }
+
+    @keyframes tomato {
+        0% {
+            transform: translateY(-10px);
+        }
+
+        100% {
+            transform: translateY(0px);
+        }
+    }
+
+    @keyframes leap2 {
+        0% {
+            transform: translateY(-7px);
+        }
+
+        100% {
+            transform: translateY(0px);
+        }
+    }
+</style>
+
+<body>
+    <div class="main" id="main">
+        <img src="./images/LOGO.png"
+            style="position: absolute;left: 0;right: 0;margin: 0 auto;top: 20px;width: 180px;animation: logo 1s ease-out;z-index: 99;"
+            alt="">
+        <div id="screenOne" style="position: absolute;width: 100%;height: 100%;top: 0;left: 0;">
+            <img id="bg1" src="./images/BG Pizza.png"
+                style="position: absolute;width: 130%;height: 130%;object-fit: cover;bottom: 0;left: 0px;" alt="">
+
+
+            <div id="arrowText"
+                style="position: absolute;left: 0;right: 0;margin: 0 auto; top: 48%;height: 120px;width: 300px;overflow: hidden;">
+                <img src="./images/TEXT Pinch.png"
+                    style="position: absolute;right: 0; width: 270px;top: 0;bottom: 0;margin: auto;animation: text1 1.5s ease-out;"
+                    alt="">
+                <img id="arrowOne" src="./images/Arrow.png"
+                    style="position: absolute;left: 20px;top: 18px;width: 14px;animation: arrow 2.2s ease-out;" alt="">
+                <img id="arrowTwo" src="./images/ArrowBottom.png"
+                    style="position: absolute;left: 20px;bottom: 18px;width: 14px;;animation: arrow 2.2s ease-out;"
+                    alt="">
+            </div>
+
+            <div id="handDiv" style="position: absolute;width: 100%;height: 83%;top: 0;overflow: hidden;display: none;">
+                <img src="./images/TEXT Dip Into.png"
+                    style="position: absolute;left: 0;right: 0;margin: 0 auto; top: 18%;width: 70%;animation: dipText .7s ease-in;"
+                    alt="">
+                <img id="noCheese" src="./images/Pizza No Cheese.png"
+                    style="position: absolute;left: -40px;width: 47%;top: 50%;animation: hand1 2s ease-out;" alt="">
+                <img id="withCheese" src="./images/Pizza Cheese.png"
+                    style="position: absolute;left: -50px;width: 51%;top: 71%;display: none;" alt="">
+            </div>
+        </div>
+
+        <div id="pinchArea"></div>
+
+
+
+
+        <div id="lastScreen"
+            style="display: none; width: 100%;height: 100%;position: absolute;left: 0;margin: 0 auto;animation: lastScreen 1s linear;background-color: #e0e0e0;">
+            <a href="https://www.pizzahut.co.in/?utm_source=google&utm_medium=cpc&utm_campaign=iP_Melts_Search_PR_Exact&utm_content=Brand_Misspell&gad_source=1&gclid=Cj0KCQjwu-63BhC9ARIsAMMTLXRUhV-jnH7S-zi9QzFa82jK-kBdGga_Id2bHaznigbRy7Penzs5suQaAtb5EALw_wcB"
+                target="_blank">
+                <img src="./images/BG End.png"
+                    style="position: absolute;width: 100%;height: 100%;left: 0;object-fit: cover;" alt="">
+
+                <img id="orderNow" src="./images/Order Now.png"
+                    style="position: absolute;left: 0;right: 0;margin: 0 auto;bottom: 5%;width: 50%;animation: cta 2.5s ease-out;"
+                    alt="">
+            </a>
+
+            <img id="skipBtn" src="./images/Skip BTN.png"
+                style="position: absolute;right: 0;top: 10%;width: 15%;animation: skipBtn 1.9s ease-in;" alt="">
+
+            <video id="myVid" src="https://beta.andbeyond.media/abm-direct/RichMedia/video/pizzaHut.mp4" controls muted
+                autoplay
+                style="position: absolute;width: 100%;top: 16%;left: 0; animation: myvid 1.5s ease-in;"></video>
+            <a href="https://www.pizzahut.co.in/?utm_source=google&utm_medium=cpc&utm_campaign=iP_Melts_Search_PR_Exact&utm_content=Brand_Misspell&gad_source=1&gclid=Cj0KCQjwu-63BhC9ARIsAMMTLXRUhV-jnH7S-zi9QzFa82jK-kBdGga_Id2bHaznigbRy7Penzs5suQaAtb5EALw_wcB"
+                target="_blank">
+                <img id="textTwo" src="./images/TEXT CheesePizza.png"
+                    style="display: none; position: absolute;top: 14%;width: 65%;left: 0;right: 0;margin:0 auto;animation: cheeseText 1s ease-in;"
+                    alt="">
+                <img id="price" src="./images/PizzaPrize.png"
+                    style="display: none; position: absolute; width: 30%;right: 30px;top: 40%;animation: mrp 2.5s ease-in-out;"
+                    alt="">
+
+                <div id="topins"
+                    style="position: absolute;width: 100%;height: 100%;top: 0;display: none;animation: opaAni .5s linear;">
+                    <img src="./images/New folder/Leaf-01.png"
+                        style="position: absolute;left: 100px;top: 46%;width: 15%;animation: leap1 1s ease-in-out alternate infinite;"
+                        alt="">
+                    <img src="./images/New folder/Tomato-01.png"
+                        style="position: absolute;right: 20px;top: 53%;width: 15%;animation: tomato 1s ease-in-out alternate infinite;"
+                        alt="">
+                    <img src="./images/New folder/Tomato-02.png"
+                        style="position: absolute;left: 10px;top: 67%;width: 15%;animation: tomato 1s ease-in-out alternate infinite;;"
+                        alt="">
+                    <img src="./images/New folder/Leaf-02.png"
+                        style="position: absolute;left: 100px;top: 76%;width: 11%;animation: leap2 .7s ease-in-out alternate infinite;"
+                        alt="">
+                    <img src="./images/New folder/Leaf-03.png"
+                        style="position: absolute;right: 60px;top: 76%;width: 12%;animation: leap1 1s ease-in-out alternate infinite;"
+                        alt="">
+                </div>
+                <img id="finalPizza" src="./images/PIZZA.png"
+                    style="display: none; position: absolute;width: 80%;left: 0;right: 0;margin: 0 auto;top:53%; animation: pizzas 1.8s ease-in-out;"
+                    alt="">
+            </a>
+        </div>
+
+        <img id="close"
+            src="https://cache-ssl.celtra.com/api/static/ve67ae1362e/runner/clazzes/CreativeUnit/close-up.svg"
+            alt="Close Button">
+    </div>
+
+    <script>
+        const close = document.getElementById("close");
+        const main = document.getElementById("main");
+        let lastScreen = document.getElementById('lastScreen');
+
+        let arrowOne = document.getElementById('arrowOne');
+        let arrowTwo = document.getElementById('arrowTwo');
+        let arrowText = document.getElementById('arrowText');
+        let noCheese = document.getElementById('noCheese');
+        let withCheese = document.getElementById('withCheese');
+        let handDiv = document.getElementById('handDiv');
+        let bg1 = document.getElementById('bg1');
+        let screenOne = document.getElementById('screenOne');
+        let myVid = document.getElementById('myVid');
+        let orderNow = document.getElementById('orderNow');
+        let skipBtn = document.getElementById('skipBtn');
+        let textTwo = document.getElementById('textTwo');
+        let finalPizza = document.getElementById('finalPizza');
+        let price = document.getElementById('price');
+        let topins = document.getElementById('topins');
+
+
+        setTimeout(() => {
+            arrowOne.style.animation = "a1 1.2s ease-in-out infinite";
+            arrowTwo.style.animation = "a2 1.2s ease-in-out infinite";
+        }, 2250);
+
+        function pinchSuccess() {
+            console.log("function start...");
+            bg1.style.width = 110 + "%";
+            bg1.style.height = 110 + "%";
+            bg1.style.transition = "all .7s ease-out";
+            arrowText.style.scale = "0";
+            arrowText.style.opacity = 0;
+            arrowText.style.transition = "all .7s ease-out";
+            setTimeout(() => {
+                handDiv.style.display = "block";
+                setTimeout(() => {
+                    noCheese.style.top = 71 + "%";
+                    noCheese.style.transition = "all .5s linear";
+                    setTimeout(() => {
+                        withCheese.style.display = "block";
+                        noCheese.style.display = "none";
+                        setTimeout(() => {
+                            withCheese.style.top = 55 + "%";
+                            withCheese.style.transition = "all .7s ease-in";
+                            setTimeout(() => {
+                                withCheese.style.left = -200 + "px";
+                                withCheese.style.transition = "all .7s ease-in";
+                                withCheese.style.opacity = 0;
+                            }, 1200);
+                            setTimeout(() => {
+                                screenOne.style.scale = "4";
+                                screenOne.style.opacity = 0;
+                                screenOne.style.transition = "all 1s";
+
+                                lastScreen.style.display = "block";
+
+                                setTimeout(() => {
+                                    orderNow.style.animation = "jello .7s ease-in-out alternate infinite"
+                                }, 100);
+
+                            }, 2000);
+                        }, 100);
+                    }, 501);
+                }, 2050);
+            }, 800);
+        }
+
+       
+        myVid.addEventListener('ended', function () {
+            startLastScreen();
+        });
+
+        skipBtn.addEventListener("click", () => {
+            console.log("click on skip btn.....");
+            startLastScreen()
+        })
+
+        function startLastScreen() {
+            myVid.style.left = -100 + "%";
+            myVid.style.transition = "all .75s ease-in";
+            myVid.muted = true;
+            myVid.pause();
+            skipBtn.style.right = -100 + "px";
+            skipBtn.style.transition = "all .75s"
+            skipBtn.style.opacity = 0;
+            textTwo.style.display = "block";
+            finalPizza.style.display = "block";
+            price.style.display = "block";
+            setTimeout(() => {
+                topins.style.display = "block";
+            }, 3000);
+
+        }
+
+        const pinchArea = document.getElementById('pinchArea');
+
+        let initialDistance = null;
+
+        // Function to calculate the distance between two touch points
+        function calculateDistance(touches) {
+            const deltaX = touches[0].clientX - touches[1].clientX;
+            const deltaY = touches[0].clientY - touches[1].clientY;
+            return Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+        }
+
+        pinchArea.addEventListener('touchstart', function (e) {
+            if (e.touches.length === 2) {
+                initialDistance = calculateDistance(e.touches);
+            }
+        });
+
+        pinchArea.addEventListener('touchmove', function (e) {
+            if (e.touches.length === 2 && initialDistance) {
+                const currentDistance = calculateDistance(e.touches);
+                if (currentDistance < initialDistance - 75) {
+                    alert('Pinch-in gesture detected!');  // Show alert when pinch-in is successful
+                    initialDistance = null;  // Reset after pinch-in
+                    pinchSuccess();
+                }
+            }
+        });
+
+        pinchArea.addEventListener('touchend', function (e) {
+            initialDistance = null; // Reset the initial distance after the gesture ends
+        });
+
+        close.addEventListener("click", () => {
+            main.style.display = "none";
+            myVid.muted = true()
+            myVid.pause();
+        });
+
+    </script>
+</body>
+
+</html>

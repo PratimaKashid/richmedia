@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scratch Card Effect</title>
+  <link rel="stylesheet" href="">
+</head>
+<style>
+    .scratch-card {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.scratch-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: silver; /* Color of the scratch surface */
+}
+
+.scratch-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+</style>
+<body>
+  <div class="scratch-card">
+    <div class="scratch-overlay"></div>
+    <img src="./images/bg1-interior.png" alt="Scratch Card Image" class="scratch-image">
+  </div>
+
+  <script>
+const scratchCard = document.querySelector('.scratch-card');
+const scratchOverlay = document.querySelector('.scratch-overlay');
+
+let isScratching = false;
+
+scratchOverlay.addEventListener('mousedown', startScratch);
+scratchOverlay.addEventListener('mousemove', scratch);
+scratchOverlay.addEventListener('mouseup', endScratch);
+scratchOverlay.addEventListener('mouseleave', endScratch);
+
+function startScratch() {
+  isScratching = true;
+}
+
+function scratch(e) {
+  if (isScratching) {
+    const bounds = scratchCard.getBoundingClientRect();
+    const x = e.clientX - bounds.left;
+    const y = e.clientY - bounds.top;
+
+    const radius = 20; // Adjust the size of the scratch area
+
+    scratchOverlay.style.clipPath = `circle(${radius}px at ${x}px ${y}px)`;
+  }
+}
+
+function endScratch() {
+  isScratching = false;
+}
+  </script>
+</body>
+</html>

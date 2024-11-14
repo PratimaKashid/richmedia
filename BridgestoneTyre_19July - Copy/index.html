@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <title>Bridgestone</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        overflow: hidden;
+        font-family: "Poppins", sans-serif;
+    }
+
+    .main {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        overflow: hidden;
+    }
+
+    .firstScreen {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        position: absolute;
+
+    }
+
+    #close {
+        position: absolute;
+        right: 1px;
+        top: 1px;
+        width: 27px;
+        z-index: 9999;
+        cursor: pointer;
+    }
+
+    #closeVid {
+        position: absolute;
+        right: 20px;
+        top: 135px;
+        width: 30px;
+        z-index: 99999;
+        cursor: pointer;
+    }
+
+
+    @keyframes pulse {
+        0% {
+            transform: scale(1);
+        }
+
+        100% {
+            transform: scale(.95);
+        }
+    }
+
+    @keyframes divAni {
+        0% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+    @keyframes logo {
+        0% {
+            left: -150px;
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+            left: 0px;
+            /* transform: skewX(-30deg); */
+        }
+
+    }
+
+    @keyframes logo1 {
+        0% {
+            right: -150px;
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+            right: -12px;
+            /* transform: skewX(-30deg); */
+        }
+
+    }
+
+    @keyframes text1 {
+        0% {
+            top: -150px;
+            opacity: 0;
+        }
+
+        60% {
+            opacity: 0;
+            filter: blur(50px);
+            top: 100px;
+        }
+
+        100% {
+            top: 160px;
+            opacity: 1;
+            filter: blur(0);
+        }
+    }
+
+    @keyframes text11 {
+        0% {
+            top: -150px;
+            opacity: 0;
+        }
+
+        30% {
+            opacity: 0;
+            filter: blur(50px);
+            top: 100px;
+        }
+
+        100% {
+            top: 160px;
+            opacity: 1;
+            filter: blur(0);
+        }
+    }
+
+    @keyframes tyre {
+        0% {
+            top: -150px;
+            opacity: 0;
+        }
+
+        70% {
+            opacity: 0;
+            filter: blur(50px);
+        }
+
+        100% {
+            opacity: 1;
+            filter: blur(0);
+        }
+    }
+
+    @keyframes comfert {
+        0% {
+            opacity: 0;
+        }
+
+        50% {
+            transform: scale(3);
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    @keyframes comfert1 {
+        0% {
+            opacity: 0;
+        }
+
+        50% {
+            bottom: -120px;
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+            bottom: 15%;
+        }
+    }
+
+    @keyframes tapTxt {
+        0% {
+            opacity: 0;
+        }
+
+        60% {
+            bottom: -120px;
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+            bottom: 6%;
+        }
+    }
+
+    @keyframes hand {
+        0% {
+            opacity: 0;
+        }
+
+        90% {
+            /* bottom: -120px; */
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+            /* bottom: 6%; */
+        }
+    }
+
+    @keyframes f1 {
+        0% {
+            opacity: 0;
+        }
+
+        60% {
+            opacity: 0;
+            left: -150px;
+        }
+
+        100% {
+            opacity: 1;
+            left: 20px;
+        }
+    }
+
+    @keyframes f2 {
+        0% {
+            opacity: 0;
+        }
+
+        65% {
+            opacity: 0;
+            right: -150px;
+        }
+
+        100% {
+            opacity: 1;
+            right: 20px;
+        }
+    }
+
+    @keyframes f3 {
+        0% {
+            opacity: 0;
+        }
+
+        70% {
+            opacity: 0;
+            left: -150px;
+        }
+
+        100% {
+            opacity: 1;
+            left: 20px;
+        }
+    }
+
+    @keyframes f4 {
+        0% {
+            opacity: 0;
+        }
+
+        75% {
+            opacity: 0;
+            right: -150px;
+        }
+
+        100% {
+            opacity: 1;
+            right: 20px;
+        }
+    }
+
+    @keyframes text1last {
+        0% {
+            opacity: 0;
+        }
+
+        60% {
+            opacity: 0;
+            top: 100px;
+        }
+
+        100% {
+            opacity: 1;
+            top: 120px;
+        }
+    }
+
+    @keyframes tyre2 {
+        0% {
+            opacity: 0;
+        }
+
+        75% {
+            opacity: 0;
+            /* top: 100px; */
+        }
+
+        100% {
+            opacity: 1;
+            /* top: 130px; */
+        }
+    }
+
+    @keyframes tyre3 {
+        0% {
+            opacity: 0;
+        }
+
+        80% {
+            opacity: 0;
+            left: -200px;
+        }
+
+        100% {
+            opacity: 1;
+            left: 0px;
+        }
+    }
+
+    @keyframes cta {
+        0% {
+            opacity: 0;
+        }
+
+        90% {
+            opacity: 0;
+            left: -150px;
+        }
+
+        100% {
+            opacity: 1;
+            left: 25px;
+        }
+    }
+
+    @keyframes vBtn {
+        0% {
+            opacity: 0;
+        }
+
+        90% {
+            opacity: 0;
+            bottom: -100px;
+        }
+
+        100% {
+            opacity: 1;
+            bottom: 60px;
+        }
+    }
+
+    @keyframes features {
+        0% {
+            opacity: 0;
+        }
+
+        85% {
+            opacity: 0;
+            /* bottom: -150px; */
+        }
+
+        100% {
+            opacity: 1;
+            /* bottom: 0; */
+        }
+    }
+
+    @keyframes startbtn {
+        0% {
+            opacity: 0;
+        }
+
+        80% {
+            opacity: 0;
+            transform: scale(0);
+        }
+
+        100% {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    @keyframes tyreMOve {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+
+    @keyframes divMove {
+        0% {
+            left: 0;
+        }
+
+        100% {
+            left: -3760px;
+        }
+    }
+
+    @keyframes wheelsRotate {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+
+    @keyframes s1 {
+        0% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+    @keyframes s2 {
+        0% {
+            opacity: 1;
+        }
+
+        100% {
+            opacity: 0;
+        }
+    }
+
+    @keyframes dragText {
+        0% {
+            opacity: 0;
+        }
+
+        80% {
+            opacity: 0;
+            bottom: -30px;
+        }
+
+        100% {
+            opacity: 1;
+            bottom: 3px;
+        }
+    }
+
+    @keyframes newHand {
+        0% {
+            opacity: 0;
+        }
+
+        90% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+
+    #dragBox {
+        width: 130px;
+        height: 130px;
+        text-align: center;
+        /* cursor: grab; */
+        position: absolute;
+        bottom: 55px;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        animation: dB .8s linear;
+        /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+    }
+
+    @keyframes dB {
+        0% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+    @keyframes newHandMove {
+        0% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+
+    ::-webkit-scrollbar {
+        -webkit-appearance: none;
+    }
+
+    @keyframes letsBegin {
+        0% {
+            opacity: 0;
+        }
+
+        50% {
+            opacity: 0;
+            transform: scale(0);
+        }
+
+        100% {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    @keyframes letsBegin1 {
+        0% {
+            opacity: 0;
+        }
+
+        65% {
+            opacity: 0;
+            transform: scale(0);
+        }
+
+        100% {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    @keyframes carDivPulse {
+        0% {
+            /* transform: scale(1) */
+            transform: rotate(0deg);
+        }
+
+        50% {
+            /* transform: scale(0.97); */
+            transform: rotate(-2deg);
+        }
+
+        100% {
+            /* transform: scale(1) */
+            transform: rotate(0deg);
+        }
+    }
+
+    @keyframes carDivPulse1 {
+        0% {
+            /* transform: scale(1) */
+            transform: rotate(0deg);
+        }
+
+        50% {
+            /* transform: scale(0.97); */
+            transform: rotate(2deg);
+        }
+
+        100% {
+            /* transform: scale(1) */
+            transform: rotate(0deg);
+        }
+    }
+
+    @keyframes didYou {
+        0% {
+            opacity: 0;
+            transform: scale(0);
+        }
+
+        100% {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+</style>
+
+<body>
+    <div class="main" id="main">
+
+
+        <div class="firstScreen" id="firstScreen" style="overflow: hidden;">
+
+            <div id="moveDiv" style="position: absolute;width: 3760px;height: 100%;left: 0;overflow: hidden;">
+                <img src="./images/road/road.jpg" style="position: absolute;width: 100%;height: 104%;bottom: 0;" alt="">
+            </div>
+
+            <audio id="myAudio" src="./images/road/car-driving-ambience-6365.mp3" muted loop></audio>
+            <div id="carDiv"
+                style="position: absolute;width: 360px;height: 340px;left: -50px;right: 0;margin: 0 auto;bottom: 10px;">
+                <img src="./images/car.png"
+                    style="position: absolute;bottom: 194px;left: 0;right: 0;margin: 0 auto;width: 350px;" alt="">
+                <img class="tyre" src="./images/tyre.png"
+                    style="position: absolute;left: 59px;bottom: 200px;width: 52px;" alt="">
+                <img class="tyre" src="./images/tyre.png"
+                    style="position: absolute;right: 44px;bottom: 200px;width: 52px;" alt="">
+            </div>
+
+            <div id="firstTwoText"
+                style="position: absolute;width: 100%;height: 100%;left: 0;right: 0;margin: 0 auto;top: 0;">
+                <img src="./images/lets begin your  Most Comfortable  journey!.png"
+                    style="position: absolute;left: 0;right: 0;margin: 0 auto; width: 80%;top: 19%;animation: letsBegin 1.5s ease;"
+                    alt="">
+                <img id="startBtn" src="./images/letsstart.png"
+                    style="position: absolute;left: 0;right: 0;margin: 0 auto; width: 60%;bottom: 12%;animation: letsBegin1 2s ease;"
+                    alt="">
+            </div>
+            <div id="TextTwo"
+                style="display: none; position: absolute;width: 100%;height: 100%;left: 0;right: 0;margin: 0 auto;top: 0;">
+                <img src="./images/Did you even feel  the uneven road_.png"
+                    style="position: absolute;left: 0;right: 0;margin: 0 auto; width: 80%;top: 20%;animation: didYou .7s ease;"
+                    alt="">
+            </div>
+            <div id="TextThree"
+                style="display: none; position: absolute;width: 100%;height: 100%;left: 0;right: 0;margin: 0 auto;top: 0;">
+                <img src="./images/That's the power  of Turanza 6i_.png"
+                    style="position: absolute;left: 0;right: 0;margin: 0 auto; width: 80%;top: 20%;animation: didYou 1s ease;"
+                    alt="">
+            </div>
+
+            <a href="https://www.bridgestone.co.in/" target="_blank">
+                <img src="./images/logoTop.png"
+                    style="z-index: 9999; position: absolute;left: 0;top: 0px;width: 80px;animation: logo 1s ease;"
+                    alt="">
+                <img src="./images/bidgestonelogo.png"
+                    style="z-index: 9999; position: absolute;right: -12px;bottom: -12px;width:170px;animation: logo1 1s ease;"
+                    alt="">
+            </a>
+
+        </div>
+
+
+        <div id="tapDiv" style="position: absolute;width: 100%;height: 100%;"></div>
+
+
+        <div id="lastScreen"
+            style="display: none; position: absolute;width: 100%;height: 100%;animation: divAni 1s linear; overflow: hidden;animation: divAni .7s linear;">
+
+            <a href="https://www.bridgestone.co.in/" target="_blank">
+                <img src="./images/lastBg.png" style="position: absolute;width: 100%;height: 100%;object-fit: cover;"
+                    alt="">
+                <img src="./images/logoTop.png" style="position: absolute;left: 0;top: 0px;width: 80px;" alt="">
+                <img src="./images/bidgestonelogo.png"
+                    style="position: absolute;right: -12px;bottom: -12px;width: 170px;" alt="">
+                <img src="./images/text1LastScreen.png"
+                    style="position: absolute;left: 0px;right: 0;margin: 0 auto; width: 75%; top: 120px;animation: text1last 1.5s ease;"
+                    alt="">
+                <img src="./images/features.png"
+                    style="position: absolute;width: 100%;height: 150px;bottom: 105px;animation: features 3s ease;"
+                    alt="">
+                <img src="./images/mostComfor.png"
+                    style="position: absolute;left: 0px;right: 0;margin: 0 auto; bottom: 36%;width: 80%; animation: tyre3 2.5s ease;"
+                    alt="">
+                <!-- <img id="cta" src="./newImg/KnowMore.png"
+                    style="position: absolute;left: 25px;width: 150px;bottom: 60px;animation: cta 3.2s ease;" alt=""> -->
+            </a>
+            <img id="vidBtn" src="./images/WatchVideo.png"
+                style="position: absolute;right:0px;left: 0;margin: 0 auto; width: 150px;z-index: 999; bottom: 60px;animation: vBtn 3.2s ease;"
+                alt="">
+        </div>
+
+        <div id="vScreen"
+            style="display: none; position: absolute;width: 100%;height: 100%;z-index: 9999999; background-color: rgba(000, 000, 000, 1);">
+
+            <video id="myVid" src="https://beta.andbeyond.media/abm-direct/RichMedia/video/tyre1.mp4" controls
+                playsinline
+                style="position: absolute;width: 100%;left: 0;top:0px;right: 0;margin: auto; bottom: 0;"></video>
+
+            <a href="https://www.bridgestone.co.in/" target="_blank">
+                <img id="cta" src="./images/KnowMore.png"
+                    style="position: absolute;left: 0px;right: 0;margin: 0 auto; width: 150px;bottom: 120px;" alt="">
+            </a>
+
+            <img id="closeVid"
+                src="https://cache-ssl.celtra.com/api/static/ve67ae1362e/runner/clazzes/CreativeUnit/close-up.svg"
+                alt="Close Button">
+        </div>
+
+
+        <img id="close"
+            src="https://cache-ssl.celtra.com/api/static/ve67ae1362e/runner/clazzes/CreativeUnit/close-up.svg"
+            alt="Close Button">
+    </div>
+
+    <script>
+
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const close = document.getElementById("close");
+            const main = document.getElementById("main");
+            const firstScreen = document.getElementById("firstScreen");
+            const tapDiv = document.getElementById("tapDiv");
+            const firstTwoText = document.getElementById("firstTwoText");
+            const carDiv = document.getElementById("carDiv");
+            const tyre = document.querySelectorAll(".tyre");
+            const TextTwo = document.getElementById("TextTwo");
+            const TextThree = document.getElementById("TextThree");
+            const lastScreen = document.getElementById("lastScreen");
+            const cta = document.getElementById("cta");
+            const vidBtn = document.getElementById("vidBtn");
+            const closeVid = document.getElementById('closeVid');
+            const vScreen = document.getElementById('vScreen');
+            const startBtn = document.getElementById('startBtn');
+            const myAudio = document.getElementById('myAudio');
+            setTimeout(() => {
+                startBtn.style.animation = "pulse .7s ease alternate infinite";
+            }, 2001);
+
+            tapDiv.addEventListener("click", () => {
+
+                moveDiv.style.animation = "divMove 20s linear infinite";
+                firstTwoText.style.opacity = 0;
+                firstTwoText.style.transition = "all 0.5s linear";
+                myAudio.muted = false;
+                myAudio.play()
+
+                tyre.forEach((item) => {
+                    item.style.animation = "wheelsRotate 1.5s linear infinite";
+                })
+                setTimeout(() => {
+                    carDiv.style.animation = "carDivPulse .5s linear";
+                }, 3500);
+                setTimeout(() => {
+                    carDiv.style.animation = "carDivPulse1 .5s linear";
+                }, 4600);
+
+                setTimeout(() => {
+                    TextTwo.style.display = "block"
+                    carDiv.style.animation = "carDivPulse .5s linear";
+                }, 8100);
+                setTimeout(() => {
+                    carDiv.style.animation = "carDivPulse1 .5s linear";
+                }, 9200);
+
+                setTimeout(() => {
+                    TextTwo.style.opacity = 0;
+                    TextTwo.style.transition = "all .5s linear";
+                    TextThree.style.display = "block";
+                    carDiv.style.animation = "carDivPulse .5s linear";
+                }, 13600);
+                setTimeout(() => {
+                    carDiv.style.animation = "carDivPulse1 .5s linear";
+                }, 14700);
+
+                setTimeout(() => {
+                    // moveDiv.style.animationPlayState = "paused"
+                    carDiv.style.left = 500 + "px";
+                    carDiv.style.transition = "all 1s ease";
+
+                    TextThree.style.opacity = 0;
+                    TextThree.style.transition = "all 0.5s ease";
+
+                    myAudio.muted = true;
+                    myAudio.pause();
+
+                    setTimeout(() => {
+                        lastScreen.style.display = "block";
+                    }, 800);
+
+                }, 15900);
+
+            })
+
+            vidBtn.addEventListener("click", () => {
+                console.log("click video button..... ");
+                vScreen.style.display = "block";
+                myVid.style.display = "block";
+                myVid.play();
+                myVid.muted = false;
+            })
+
+            closeVid.addEventListener("click", () => {
+                console.log("click on close video");
+                myVid.style.display = "none";
+                vScreen.style.display = "none";
+                myVid.pause();
+                myVid.muted = true;
+            })
+
+
+
+            close.addEventListener("click", () => {
+                main.style.display = "none";
+
+                myVid.pause();
+                myVid.muted = true;
+
+                myAudio.muted = true;
+                myAudio.pause();
+
+                window.parent.document.body.style.overflow = "scroll";
+            });
+        });
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Gesture Interactions - A-Frame & AR.js</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+  <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+  <script src="gesture-detector.js"></script>
+  <!-- <script src="gesture-handler.js"></script> -->
+</head>
+<body>
+  <a-scene arjs embedded renderer="logarithmicDepthBuffer: true;" vr-mode-ui="enabled: false" gesture-detector
+    id="scene">
+    <a-assets>
+      <video id="myVideo" src="https://beta.andbeyond.media/abm-direct/RichMedia/video/Mercedes.mp4" autoplay loop muted
+        playsinline webkit-playsinline></video>
+    </a-assets>
+
+    <a-marker preset="hiro" raycaster="objects: .clickable" emitevents="true" cursor="fuse: false; rayOrigin: mouse;"
+      id="markerA">
+        <a-plane src="#myVideo" position="0 0 0" rotation="-90 0 0" width="2.50" height="1.90"></a-plane>
+    </a-marker>
+    
+    <a-entity camera></a-entity>
+  </a-scene>
+</body>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const myVideo = document.getElementById("myVideo");
+    myVideo.muted = true; // Start muted for autoplay to work
+    myVideo.play().then(() => {
+      myVideo.pause(); // Pause the video initially
+    }).catch((error) => {
+      console.log("Autoplay prevented:", error);
+    });
+    document.querySelector('#markerA').addEventListener('markerFound', () => {
+      myVideo.muted = false; // Unmute when the marker is found
+      myVideo.play(); // Play the video when the marker is found
+    });
+    document.querySelector('#markerA').addEventListener('markerLost', () => {
+      myVideo.pause(); // Pause the video when the marker is lost
+    });
+  });
+</script>
+</html>

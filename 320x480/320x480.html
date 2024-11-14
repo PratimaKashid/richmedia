@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+
+    <script type="text/javascript">
+        var clickTag = "http://cars.tatamotors.com/altroz/ice/edition/racer.html?utm_source=AndBeyondMedia&utm_medium=Banner&utm_campaign=OMD_TML_Altroz_Racer%2BLaunch_June24";
+    </script>
+    <script type="text/javascript" src="https://example.com?click=${CLICK_URL}"></script>
+
+    <title>TATA Altroz</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        overflow: hidden;
+        font-family: "Poppins", sans-serif;
+    }
+
+    .main {
+        width: 320px;
+        height: 480px;
+        position: absolute;
+        overflow: hidden;
+    }
+
+    .firstScreen,
+    .aapl_inner {
+        width: 320px;
+        height: 480px;
+        overflow: hidden;
+        position: absolute;
+
+
+    }
+
+    #close {
+        position: absolute;
+        right: 1px;
+        top: 1px;
+        width: 25px;
+        z-index: 99999;
+        cursor: pointer;
+    }
+
+
+    @keyframes logo {
+        0% {
+            opacity: 0;
+            left: -100px;
+        }
+
+        100% {
+            opacity: 1;
+            left: 10px;
+        }
+    }
+
+    @keyframes logo1 {
+        0% {
+            opacity: 0;
+            right: -100px;
+        }
+
+        100% {
+            opacity: 1;
+            right: 10px;
+        }
+    }
+
+    @keyframes text1 {
+        0% {
+            opacity: 0;
+        }
+
+        50% {
+            opacity: 0;
+            transform: scale(0);
+        }
+
+        100% {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    @keyframes text2 {
+        0% {
+            opacity: 0;
+        }
+
+        70% {
+            opacity: 0;
+            transform: scale(0);
+        }
+
+        100% {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    @keyframes playNow {
+        0% {
+            opacity: 0;
+        }
+
+        80% {
+            opacity: 0;
+            bottom: -100px;
+        }
+
+        100% {
+            opacity: 1;
+            bottom: 3%;
+        }
+    }
+
+    @keyframes pulse {
+        0% {
+            transform: scale(1);
+        }
+
+        100% {
+            transform: scale(.95);
+        }
+    }
+
+    @keyframes divAni {
+        0% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+    @keyframes moveDiv1 {
+        0% {
+            top: -600px;
+        }
+
+        100% {
+            top: 4000px;
+        }
+    }
+
+    .timer {
+        width: 60px;
+        position: absolute;
+        left: 25px;
+        right: 0;
+        margin: 0 auto;
+        color: #fff;
+        font-size: 30px;
+        font-weight: 900;
+        top: 5px;
+    }
+
+    @keyframes car {
+        0% {
+            opacity: 0;
+        }
+
+        50% {
+            opacity: 0;
+            transform: scale(0);
+        }
+
+        100% {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    .cube-parent-container {
+        width: 300px;
+        margin: 0 auto;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        position: absolute;
+        bottom: 20px;
+    }
+
+    .cubeSwiper .swiper-slide {
+        aspect-ratio: 1/1;
+    }
+
+    .cubeSwiper .swiper-slide img {
+        width: 100%;
+        object-fit: cover;
+    }
+
+    .cubeSwiper .pagination-container {
+        padding-top: 25px;
+        width: 100%;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 100px 1fr;
+        grid-template-rows: 1fr;
+        grid-column-gap: 0px;
+        grid-row-gap: 0px;
+        position: absolute;
+        top: 250px;
+        transform: scale(0.8);
+    }
+
+    .pagination-container {
+        position: relative;
+        top: -25px;
+    }
+
+    .cubeSwiper .cube-pagination-fraction {
+        color: rgba(255, 0, 255, 0.8);
+        font-size: 18px;
+        font-weight: 700;
+        margin-top: 15px;
+        text-align: center;
+        position: relative;
+    }
+
+    .swiper-button-next,
+    .swiper-button-prev {
+        color: #fff;
+        width: calc(var(--swiper-navigation-size)/ 44 * 6);
+        font-size: 12px;
+        font-weight: bolder;
+    }
+
+    .swiper-button-next:after,
+    .swiper-button-prev:after {
+        font-size: 12px;
+        font-weight: bolder;
+        padding: 7px 9px;
+        border-radius: 20px;
+
+    }
+
+    .swiper-button-prev {
+        left: var(--swiper-navigation-sides-offset, 19px);
+        position: absolute;
+        top: -90px;
+    }
+
+    .swiper-button-next {
+        right: var(--swiper-navigation-sides-offset, 20px);
+        position: absolute;
+        top: -90px;
+    }
+
+    .swiper-pagination-bullets.swiper-pagination-horizontal {
+        bottom: var(--swiper-pagination-bottom, -10px);
+    }
+
+    .swiper {
+        width: 230px;
+        position: relative;
+    }
+
+    .swiper-pagination-bullet {
+        width: 12px;
+        height: 12px;
+    }
+
+    @keyframes cta {
+        0% {
+            opacity: 0;
+        }
+
+        70% {
+            opacity: 0;
+            bottom: -300px;
+        }
+
+        100% {
+            opacity: 1;
+            bottom: 8px;
+        }
+    }
+
+    @keyframes pulseNew {
+        0% {
+            transform: scale(1);
+        }
+
+        50% {
+            transform: scale(1.2);
+        }
+
+        100% {
+            transform: scale(1);
+        }
+    }
+
+    .pulse {
+        animation: pulseNew .4s;
+    }
+
+    @keyframes tilt {
+
+        0% {
+            transform: rotate(5deg);
+        }
+
+        50% {
+            transform: rotate(0eg);
+        }
+
+        100% {
+            transform: rotate(-5deg);
+        }
+    }
+
+    #featureCount {
+        font-family: "Poppins", sans-serif;
+    }
+</style>
+
+<body>
+    <div class="main" id="main">
+        <div class="firstScreen" id="firstScreen">
+
+            <a href="http://cars.tatamotors.com/altroz/ice/edition/racer.html?utm_source=AndBeyondMedia&utm_medium=Banner&utm_campaign=OMD_TML_Altroz_Racer%2BLaunch_June24" target="_blank">
+                <img src="./images/Screen1/bg.jpg"
+                    style="position: absolute;width: 100%;height: 100%;object-fit: cover;" alt="Background">
+                <img src="./images/logo.png"
+                    style="width: 120px; position: absolute;left: 10px;top: 40px;animation: logo 1s ease;" alt="">
+                <img src="./images/TATA1.png"
+                    style="width: 70px; position: absolute;right: 10px;top: 40px;animation: logo1 1s ease;" alt="">
+                <img src="./images/Screen1/text1.png"
+                    style="width: 80%; position: absolute;left: 0;right: 0;margin: 0 auto; top: 20%;animation: text1 1.5s ease;"
+                    alt="">
+            </a>
+
+            <img src="./images/Screen1/collect.png"
+                style="width: 75%; position: absolute;left: 0;right: 0;margin: 0 auto; bottom: 14%;animation: text2 1.9s ease;"
+                alt="">
+            <img id="playBtn" src="./images/Screen1/playnow.png"
+                style="position: absolute;right: 0px;left: 0;margin: 0 auto; bottom: 3%; width: 200px;animation: playNow 2.3s ease;"
+                alt="">
+
+        </div>
+
+        <a href="http://cars.tatamotors.com/altroz/ice/edition/racer.html?utm_source=AndBeyondMedia&utm_medium=Banner&utm_campaign=OMD_TML_Altroz_Racer%2BLaunch_June24" target="_blank">
+            <div id="screen2" style="position: absolute;width: 100%;height: 100%;display: none;">
+                <div id="screen22" style="position: absolute;width: 100%;height: 100%;">
+                    <img src="./images/bgWhite.png" style="position: absolute;width: 100%;height: 100%;"
+                        alt="Background">
+
+                    <div id="" style="position: absolute;width: 320px;height: 100%;left: 0;right: 0;margin:0 auto;">
+                        <div id="roadDiv"
+                            style="position: absolute;width: 320px;height: 4000px;top: -4000px; left: 0;right: 0;margin:0 auto;">
+                            <img id="road" src="./images/road.png"
+                                style="position: absolute;bottom: -800px;left: 0;width: 300px;height: 8000px; left: 0;right: 0;margin: 0 auto;">
+
+                            <img id="f1" src="./images/f4.png"
+                                style="position: absolute;top: 15%;left: 20px;width: 110px;">
+                            <img id="f2" src="./images/f51.png"
+                                style="position: absolute;top: 3%;right: 30px;width: 110px;">
+                            <img id="f3" src="./images/f1.png"
+                                style="position: absolute;top: -12%;left: 50px;width: 110px;">
+                            <img id="f4" src="./images/f6.png"
+                                style="position: absolute;top: -25%;left: 100px;width: 110px;" alt="">
+                            <img id="f5" src="./images/f2.png"
+                                style="position: absolute;top: -40%;right: 50px;width: 110px;" alt="">
+                            <img id="f6" src="./images/f3.png"
+                                style="position: absolute;top: -55%;right: 50px;width: 110px;" alt="">
+
+                        </div>
+
+                        <img id="myCar" src="./images/NEWIMG/carRace1.png"
+                            style="width: 90px; position: absolute;left: 0px;right: 0;margin: 0 auto;bottom: 20px;"
+                            alt="">
+                            <audio id="myAudio" src="./images/audio.mp3" muted></audio>
+                    </div>
+
+
+                    <div id="popUp1" style="position: absolute;width: 100%;height: 100%;">
+                        <img src="./images/BlackOverlay.png" style="position: absolute;width: 100%;height: 100%;"
+                            alt="">
+                        <img src="./images/tilt.png"
+                            style="width: 240px; position: absolute;top: 0;bottom: 0;left: 0;right: 0;margin: auto;animation: divAni .5s linear;"
+                            alt="">
+                        <img src="./images/motion.png"
+                            style="width: 100px; position: absolute;left: 0;right: 0;margin: 0 auto;top: 12%;animation: tilt .7s .6s ease-in-out alternate infinite;"
+                            alt="">
+                    </div>
+
+
+                    <div id="startTime"
+                        style="position: absolute;top: 5px;width: 70px;display: none;left: 0;right: 0;margin: 0 auto;">
+                        <img src="./images/NEWIMG/timer.png"
+                            style="position: absolute;left: 0;right: 0;margin: 0 auto;width: 70px;" alt="">
+                        <p src="./images/Timer10.png" id="timer10" class="timer" style="left: 20px;">10</p>
+                        <p src="./images/Timer9.png" id="timer9" style="display: none;" class="timer">9</p>
+                        <p src="./images/Timer8.png" id="timer8" style="display: none;" class="timer">8</p>
+                        <p src="./images/Timer7.png" id="timer7" style="display: none;" class="timer">7</p>
+                        <p src="./images/Timer6.png" id="timer6" style="display: none;" class="timer">6</p>
+                        <p src="./images/Timer5.png" id="timer5" style="display: none;" class="timer">5</p>
+                        <p src="./images/Timer4.png" id="timer4" style="display: none;" class="timer">4</p>
+                        <p src="./images/Timer3.png" id="timer3" style="display: none;" class="timer">3</p>
+                        <p src="./images/Timer2.png" id="timer2" style="display: none;" class="timer">2</p>
+                        <p src="./images/Timer1.png" id="timer1" style="display: none;" class="timer">1</p>
+
+                    </div>
+                </div>
+            </div>
+
+            <div id="popUp2" style="display: none; position: absolute;width: 100%;height: 100%;">
+                <img src="./images/BlackOverlay.png" style="position: absolute;width: 100%;height: 100%;" alt="">
+                <img src="./images/NEWIMG/Box.png"
+                    style="width: 75%; position: absolute;top: 0;bottom: 0;left: 0;right: 0;margin: auto;" alt="">
+                <img src="./images/text2.png"
+                    style="width:175px; position: absolute;top: 65px;bottom: 0;left: 0;right: 0;margin: auto;" alt="">
+                <img src="./images/recerText2.png"
+                    style="width: 130px; position: absolute;top: -33px;bottom: 0;left: 0;right: 0;margin: auto;" alt="">
+
+            </div>
+
+            <div id="popUp3" style="display: none; position: absolute;width: 100%;height: 100%;">
+                <img src="./images/BlackOverlay.png" style="position: absolute;width: 100%;height: 100%;" alt="">
+
+                <div
+                    style=" position: absolute;width: 320px;height: 173px;left: 0;right: 0;top: 0;bottom: 0;margin: auto;">
+                    <img src="./images/NEWIMG/Box.png"
+                        style="width: 300px; position: absolute;top: 0;bottom: 0;left: 0;right: 0;margin: auto;" alt="">
+                    <img src="./images/NEWIMG/welldone.png"
+                        style="width: 180px; position: absolute;top: -60px;bottom: 0;left: 0;right: 0;margin: auto;"
+                        alt="">
+                    <div id="featureCount"
+                        style="position: absolute;font-size: 23px;font-weight: bold;text-align: center; color: #fff;top: 92px;line-height: 1.2; left:0px;right: 0;margin: auto;bottom: 0;">
+                    </div>
+                </div>
+            </div>
+
+        </a>
+
+        <div id="tapDiv" style="position: absolute;width: 100%;height: 130px;bottom: 0;"></div>
+
+
+        <div id="lastScreen"
+            style="display: none; position: absolute;width: 100%;height: 100%;animation: divAni .7s linear;">
+            <a href="http://cars.tatamotors.com/altroz/ice/edition/racer.html?utm_source=AndBeyondMedia&utm_medium=Banner&utm_campaign=OMD_TML_Altroz_Racer%2BLaunch_June24" target="_blank">
+
+                <img src="./images/bgBlack.png" style="position: absolute;width: 100%;height: 100%;" alt="">
+                <img src="./images/logo.png"
+                    style="width: 120px; position: absolute;left: 10px;top: 17px;animation: logo 1s ease;" alt="">
+                <img src="./images/TATA1.png"
+                    style="width: 70px; position: absolute;right: 10px;top: 35px;animation: logo1 1s ease;" alt="">
+                <img src="./images/Screen1/text1.png"
+                    style="width: 65%; position: absolute;left: 0;right: 0;margin: 0 auto; top: 13%;animation: text1 1.5s ease;"
+                    alt="">
+
+            </a>
+
+
+            <figure class="cube-parent-container" id="carausal">
+                <div class="swiper cubeSwiper">
+                    <div class="swiper-wrapper">
+
+                        <div class="swiper-slide">
+                            <img src="./images/banner1.png" style="width: 100%;" />
+                        </div>
+
+                        <div class="swiper-slide">
+                            <img src="./images/banner22.png" style="width: 100%;" />
+                        </div>
+
+                        <div class="swiper-slide">
+                            <img src="./images/banner3.png" style="width: 100%;" />
+                        </div>
+
+                        <div class="swiper-slide">
+                            <img src="./images/banner6.png" style="width: 100%;" />
+                        </div>
+
+                        <div class="swiper-slide">
+                            <img src="./images/banner5.png" style="width: 100%;" />
+                        </div>
+
+                        <div class="swiper-slide">
+                            <img src="./images/banner4.png" style="width: 100%;" />
+                        </div>
+
+
+                    </div>
+                </div>
+                <div class="pagination-container">
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                </div>
+            </figure>
+
+            <a href="http://cars.tatamotors.com/altroz/ice/edition/racer.html?utm_source=AndBeyondMedia&utm_medium=Banner&utm_campaign=OMD_TML_Altroz_Racer%2BLaunch_June24" target="_blank">
+                <img src="./images/NEWIMG/car.png"
+                    style="width: 50%;z-index: 99; position: absolute;left: 0;right: 0;margin: 0 auto; top: 27%;animation: car 2.5s ease;transform-origin: center top"
+                    alt="">
+                <img id="cta" src="./images/NEWIMG/booknow.png"
+                    style="z-index: 9999; position: absolute;right: 0px;left: 0;margin: 0 auto; bottom: 8px; width: 150px;animation: cta 2.7s ease;"
+                    alt="">
+
+            </a>
+
+
+        </div>
+
+        <img id="close"
+            src="https://cache-ssl.celtra.com/api/static/ve67ae1362e/runner/clazzes/CreativeUnit/close-up.svg"
+            alt="Close Button">
+    </div>
+
+
+    <script>
+        const close = document.getElementById("close");
+        const main = document.getElementById("main");
+        const playBtn = document.getElementById("playBtn");
+        const tapDiv = document.getElementById("tapDiv");
+        const firstScreen = document.getElementById("firstScreen");
+        const startTime = document.getElementById("startTime");
+        const popUp1 = document.getElementById("popUp1");
+        const popUp2 = document.getElementById("popUp2");
+        const popUp3 = document.getElementById("popUp3");
+        const cta = document.getElementById("cta");
+        const roadDiv = document.getElementById("roadDiv");
+        const myAudio = document.getElementById("myAudio");
+
+
+        const myCar = document.getElementById('myCar');
+        const carausal = document.getElementById('carausal');
+
+        const lastScreen = document.getElementById('lastScreen');
+
+        function startTimer() {
+            setTimeout(() => {
+                timer10.style.display = "none";
+                timer9.style.display = "block";
+            }, 1000);
+            setTimeout(() => {
+                timer9.style.display = "none";
+                timer8.style.display = "block";
+            }, 2000);
+            setTimeout(() => {
+                timer8.style.display = "none";
+                timer7.style.display = "block";
+            }, 3000);
+            setTimeout(() => {
+                timer7.style.display = "none";
+                timer6.style.display = "block";
+            }, 4000);
+            setTimeout(() => {
+                timer6.style.display = "none";
+                timer5.style.display = "block";
+            }, 5000);
+            setTimeout(() => {
+                timer5.style.display = "none";
+                timer4.style.display = "block";
+            }, 6000);
+            setTimeout(() => {
+                timer4.style.display = "none";
+                timer3.style.display = "block";
+            }, 7000);
+            setTimeout(() => {
+                timer3.style.display = "none";
+                timer2.style.display = "block";
+            }, 8000);
+            setTimeout(() => {
+                timer2.style.display = "none";
+                timer1.style.display = "block";
+            }, 9000);
+        }
+
+        function rotateOne() {
+            var swiper = new Swiper(".cubeSwiper", {
+
+                effect: "slide",
+                grabCursor: true,
+                speed: 2000,
+                spaceBetween: 10,
+                loop: true,
+                autoplay: {
+                    delay: 3000,
+                    disableOnInteraction: false
+                },
+
+                pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true,
+                },
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+            });
+        }
+
+        setTimeout(() => {
+            playBtn.style.animation = "pulse .7s ease alternate infinite";
+        }, 2400);
+
+        tapDiv.addEventListener("click", function () {
+            playGame()
+        })
+        function playGame() {
+            let carPosition = 0;
+            let featureCount = 0;
+            let moveInterval = null;
+
+            tapDiv.style.display = "none";
+            firstScreen.style.opacity = 0;
+            firstScreen.style.transition = "all .7s linear";
+
+            screen2.style.display = "block";
+
+            setTimeout(() => {
+                popUp1.style.opacity = 0;
+                popUp1.style.transition = "all .5s linear";
+
+                setTimeout(() => {
+                    roadDiv.style.animation = "moveDiv1 18s linear infinite"
+                    startTime.style.display = "block";
+
+                    setTimeout(() => {
+                            myAudio.muted = false;
+                            myAudio.play();
+                        }, 200);
+
+                    startTimer()
+                    window.addEventListener('deviceorientation', handleOrientation);
+
+                    let tiltThreshold = 10;
+
+                    function handleOrientation(event) {
+                        let tilt = event.gamma;
+
+                        if (tilt < -tiltThreshold) {
+                            startMoving(-20);
+                        } else if (tilt > tiltThreshold) {
+                            startMoving(20);
+                        } else {
+                            stopMoving();
+                        }
+                    }
+
+                    const obstacles = [
+                        { id: 'f1', value: 1 },
+                        { id: 'f2', value: 2 },
+                        { id: 'f3', value: 3 },
+                        { id: 'f4', value: 4 },
+                        { id: 'f5', value: 5 },
+                        { id: 'f6', value: 6 }
+                    ].map(obstacle => ({
+                        element: document.getElementById(obstacle.id),
+                        value: obstacle.value,
+                        touched: false
+                    }));
+
+                    function startMoving(delta) {
+                        if (!moveInterval) {
+                            moveInterval = setInterval(() => moveCar(delta), 100);
+                        }
+                    }
+
+                    function stopMoving() {
+                        if (moveInterval) {
+                            clearInterval(moveInterval);
+                            moveInterval = null;
+                        }
+                    }
+
+                    function moveCar(delta) {
+                        carPosition += delta;
+                        const parentRect = myCar.parentElement.getBoundingClientRect();
+                        const carRect = myCar.getBoundingClientRect();
+
+                        if (carRect.left + delta < parentRect.left) {
+                            carPosition = 0;
+                        } else if (carRect.right + delta > parentRect.right) {
+                            carPosition = parentRect.width - carRect.width;
+                        }
+
+                        myCar.style.left = `${carPosition}px`;
+                        myCar.style.transition = "left 0.25s linear";
+                        checkCollisions();
+                    }
+
+                    function checkCollisions() {
+                        const carRect = myCar.getBoundingClientRect();
+                        obstacles.forEach(obstacle => {
+                            const obstacleRect = obstacle.element.getBoundingClientRect();
+                            if (isColliding(carRect, obstacleRect) && !obstacle.touched) {
+                                featureCount++;
+                                document.getElementById("featureCount").textContent = `YOU COLLECTED ${featureCount}/6 FEATURES `;
+                                obstacle.touched = true;
+                                obstacle.element.style.opacity = 0;
+                                obstacle.element.style.transition = "opacity 0.3s linear";
+                                triggerPulseAnimation();
+                                console.log(`Feature count: ${featureCount}`);
+                            }
+                        });
+                    }
+
+                    function isColliding(rect1, rect2) {
+                        return !(
+                            rect1.top > rect2.bottom ||
+                            rect1.right < rect2.left ||
+                            rect1.bottom < rect2.top ||
+                            rect1.left > rect2.right
+                        );
+                    }
+
+                    function triggerPulseAnimation() {
+                        myCar.classList.add('pulse');
+                        setTimeout(() => {
+                            myCar.classList.remove('pulse');
+                        }, 500);
+                    }
+                    setTimeout(() => {
+                        roadDiv.style.animation = "pause";
+
+                        myAudio.muted = true;
+                        myAudio.pause();
+                    }, 14000);
+
+
+                    setTimeout(() => {
+
+                        if (featureCount === 6) {
+                            popUp2.style.display = "block";
+                            popUp3.style.display = "none"
+                        } else if (featureCount < 6) {
+                            popUp3.style.display = "block"
+                            popUp2.style.display = "none"
+                        }
+
+
+                        setTimeout(() => {
+                            screen2.style.opacity = 0;
+                            screen2.style.transition = "all .7s";
+                            lastScreen.style.display = "block";
+
+                            setTimeout(() => {
+                                cta.style.animation = "pulse .7s ease alternate infinite";
+                            }, 2800);
+                            rotateOne();
+                        }, 2500);
+
+                    }, 14000);
+
+                }, 600);
+
+            }, 3500);
+        }
+
+        close.addEventListener("click", () => {
+            main.style.display = "none";
+            myAudio.pause();
+            myAudio.muted = true;
+        });
+    </script>
+</body>
+
+</html>

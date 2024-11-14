@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #007bff;
+  border-radius: 7px;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+video {
+  width: 220px;
+  /* max-width: 180px; */
+  /* height: 180px; */
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  border: 1px solid red;
+}
+</style>
+<body>
+    <button id="cameraButton">Open Camera</button>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/face-landmarks-detection"></script>
+<script>
+var cameraButton = document.getElementById("cameraButton");
+cameraButton.addEventListener('click', function() {
+    // Check if the browser supports getUserMedia
+    setTimeout(() => {
+        cameraButton.style.opacity = 0;
+        cameraButton.style.transition = "all .5s";
+    }, 100);
+    if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+        // Access the camera
+        navigator.mediaDevices.getUserMedia({ video: true })
+        .then(function(stream) {
+            // Display the video stream in a video element
+            var video = document.createElement('video');
+            video.srcObject = stream;
+            video.autoplay = true;
+            document.body.appendChild(video);
+
+            // Initialize face-api.js
+            initFaceAPI(video);
+        })
+        .catch(function(error) {
+            console.error('Error accessing the camera:', error);
+        });
+    } else {
+        console.error('getUserMedia is not supported in this browser');
+    }
+});
+
+async function initFaceAPI(videoElement) {
+    // Load face detection and facial landmarks models
+    await faceapi.tf.setBackend('webgl');
+    await faceapi.nets.ssdMobilenetv1.loadFromUri('/models');
+    await faceapi.nets.faceLandmark68Net.loadFromUri('/models');
+
+    // Detect face and facial landmarks
+    const detections = await faceapi.detectAllFaces(videoElement).withFaceLandmarks();
+
+    // Extract eye landmarks
+    const leftEye = detections[0].landmarks.getLeftEye();
+    const rightEye = detections[0].landmarks.getRightEye();
+
+    // Calculate aspect ratios of eyes
+    const leftEyeAspectRatio = getEyeAspectRatio(leftEye);
+    const rightEyeAspectRatio = getEyeAspectRatio(rightEye);
+
+    // Set threshold for blink detection
+    const blinkThreshold = 0.3; // Adjust as needed
+
+    // Check if blink is detected
+    if (leftEyeAspectRatio < blinkThreshold && rightEyeAspectRatio < blinkThreshold) {
+        alert("Eye blink detected!");
+    }
+}
+
+function getEyeAspectRatio(eyeLandmarks) {
+    // Calculate eye aspect ratio
+    const eyeWidth = Math.abs(eyeLandmarks[3].x - eyeLandmarks[0].x);
+    const eyeHeight = Math.abs((eyeLandmarks[5].y + eyeLandmarks[4].y) / 2 - (eyeLandmarks[2].y + eyeLandmarks[1].y) / 2);
+    const aspectRatio = eyeWidth / eyeHeight;
+    return aspectRatio;
+}
+</script>
+</html>

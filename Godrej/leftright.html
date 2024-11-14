@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Left and Right</title>
+    <style>
+        body {
+            overflow: hidden;
+            padding: 0;
+            margin: 0;
+        }
+        @keyframes moveDiv {
+            0% {
+                top: -1020px;
+            }
+            100% {
+                top: 0;
+            }
+        }
+        .dragAbleImg, .heartImg {
+            top: 110px;
+            position: absolute;
+            width: 100px;
+            left: 30px;
+            cursor: grab;
+        }
+        .dragAbleImg:active, .heartImg:active {
+            cursor: grabbing;
+        }
+        #dropDiv {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            right: 0;
+            background-color: lightgray;
+            border: 2px dashed #000;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <div style="position: absolute;width: 100%;height: 1020px;overflow: hidden;animation: moveDiv 12s linear infinite;">
+        <div id="cleaningImg">
+            <img id="dragAbleImg1" class="dragAbleImg" src="./CleaningComplete.png" draggable="true" style="top:110px;">
+            <img id="dragAbleImg2" class="dragAbleImg" src="./CleaningComplete.png" draggable="true" style="top: 320px;">
+            <img id="dragAbleImg3" class="dragAbleImg" src="./CleaningComplete.png" draggable="true" style="top:520px;">
+            <img id="dragAbleImg4" class="dragAbleImg" src="./CleaningComplete.png" draggable="true" style="top: 720px;">
+            <img id="dragAbleImg5" class="dragAbleImg" src="./CleaningComplete.png" draggable="true" style="top: 920px;">
+        </div>
+        <div id="heartImg">
+            <img id="heartImg1" class="heartImg" src="./Heart.png" draggable="true" style="top: 0;">
+            <img id="heartImg2" class="heartImg" src="./Heart.png" draggable="true" style="top: 220px;">
+            <img id="heartImg3" class="heartImg" src="./Heart.png" draggable="true" style="top: 420px;">
+            <img id="heartImg4" class="heartImg" src="./Heart.png" draggable="true" style="top: 620px;">
+            <img id="heartImg5" class="heartImg" src="./Heart.png" draggable="true" style="top: 820px;">
+        </div>
+    </div>
+    <div id="dropDiv"></div>
+
+    <script>
+        document.querySelectorAll('.dragAbleImg, .heartImg').forEach(function(img) {
+            img.addEventListener('touchstart', function(event) {
+                event.preventDefault();
+                const touch = event.touches[0];
+                const offsetX = touch.clientX - img.offsetLeft;
+                const offsetY = touch.clientY - img.offsetTop;
+
+                const moveAt = (touchEvent) => {
+                    const currentX = touchEvent.touches[0].clientX - offsetX;
+                    const currentY = touchEvent.touches[0].clientY - offsetY;
+                    img.style.left = currentX + 'px';
+                    img.style.top = currentY + 'px';
+                };
+
+                const endDrag = (touchEvent) => {
+                    document.removeEventListener('touchmove', moveAt);
+                    document.removeEventListener('touchend', endDrag);
+                    
+                    const dropDiv = document.getElementById('dropDiv');
+                    const dropDivRect = dropDiv.getBoundingClientRect();
+                    const imgRect = img.getBoundingClientRect();
+
+                    if (imgRect.right > dropDivRect.left && imgRect.left < dropDivRect.right &&
+                        imgRect.bottom > dropDivRect.top && imgRect.top < dropDivRect.bottom) {
+                        img.style.display = 'none'; // Hide the image if it is dropped in dropDiv
+                    }
+                };
+
+                document.addEventListener('touchmove', moveAt);
+                document.addEventListener('touchend', endDrag);
+            });
+        });
+    </script>
+</body>
+</html>

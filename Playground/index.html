@@ -1,0 +1,1401 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <title>Playground</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        overflow: hidden;
+        font-family: "Poppins", sans-serif;
+        font-weight: bolder;
+    }
+
+    .main {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        overflow: hidden;
+    }
+
+    .firstScreen {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        position: absolute;
+
+    }
+
+    #close {
+        position: absolute;
+        right: 1px;
+        top: 1px;
+        width: 27px;
+        z-index: 9999;
+        cursor: pointer;
+    }
+
+    @keyframes text1LastScren {
+        0% {
+            opacity: 0;
+        }
+
+        30% {
+            opacity: 0;
+            transform: scale(0);
+        }
+
+        100% {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    @keyframes cta {
+        0% {
+            opacity: 0;
+        }
+
+        60% {
+            opacity: 0;
+            transform: scale(0);
+        }
+
+        100% {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    @keyframes pulse {
+        0% {
+            transform: scale(1);
+        }
+
+        100% {
+            transform: scale(1.1);
+        }
+    }
+
+    @keyframes divAni {
+        0% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+    @keyframes logo {
+        0% {
+            opacity: 0;
+            transform: scale(0);
+            top: 0;
+        }
+
+        100% {
+            opacity: 1;
+            transform: scale(1);
+            top: 5%;
+        }
+    }
+
+    @keyframes text1 {
+
+        0%,
+        50% {
+            opacity: 0;
+            transform: scale(0);
+        }
+
+        100% {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    @keyframes text2 {
+
+        0%,
+        80% {
+            opacity: 0;
+            transform: scale(0);
+        }
+
+        100% {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    .cube-parent-container {
+        width: 100%;
+        height: 360px;
+        margin: auto;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 10%;
+        bottom: 0;
+        animation: sliderANi 2.8s linear;
+    }
+
+    @keyframes sliderANi {
+        0% {
+            opacity: 0;
+        }
+
+        80% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+    .cubeSwiper .swiper-slide {
+        aspect-ratio: 1/1;
+    }
+
+    .cubeSwiper .swiper-slide img {
+        width: 100%;
+        object-fit: cover;
+    }
+
+    .cubeSwiper .pagination-container {
+        padding-top: 25px;
+        width: 100%;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 100px 1fr;
+        grid-template-rows: 1fr;
+        grid-column-gap: 0px;
+        grid-row-gap: 0px;
+        position: absolute;
+        /* top: 250px; */
+        transform: scale(0.8);
+    }
+
+    .cubeSwiper .cube-pagination-fraction {
+        color: rgba(255, 0, 255, 0.8);
+        font-size: 18px;
+        font-weight: 700;
+        margin-top: 15px;
+        text-align: center;
+        position: relative;
+    }
+
+    .swiper {
+        width: 100%;
+        position: relative;
+    }
+
+    .swiper-slide {
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    @keyframes rotateIcon {
+        0% {
+            transform: rotate(13deg);
+        }
+
+        100% {
+            transform: rotate(-13deg);
+        }
+    }
+
+    .number {
+        color: black;
+        font-weight: bolder;
+        font-size: 30px;
+        right: 0;
+        margin: auto;
+        top: 8px;
+        bottom: 0;
+        position: absolute;
+        left: 21px;
+    }
+
+    @keyframes moveDiv1 {
+        0% {
+            top: -600px;
+        }
+
+        100% {
+            top: 4000px;
+        }
+    }
+
+    .featureCount {
+        position: absolute;
+        font-size: 26px;
+        font-weight: bolder;
+        text-align: center;
+        color: #000;
+        top: 109px;
+        line-height: 1.2;
+        left: 51px;
+    }
+    @keyframes pulseNew {
+        0% {
+            transform: scale(1);
+        }
+
+        50% {
+            transform: scale(1.2);
+        }
+
+        100% {
+            transform: scale(1);
+        }
+    }
+
+    .pulse {
+        animation: pulseNew .4s;
+    }
+</style>
+
+<body>
+    <div class="main" id="main">
+
+        <div class="firstScreen" id="firstScreen" style="">
+            <img src="./screen1/bg1.png" style="position: absolute;width: 100%;height: 100%;top: 0;left: 0" alt="">
+
+            <div id="startScreen" style="position: absolute;width: 100%;height: 100%;top: 0;">
+                <img src="./screen1/logo.png"
+                    style="position: absolute;width: 200px;top: 5%;left: 0;right: 0;margin: 0 auto;transform-origin: top center; animation: logo 1s;"
+                    alt="">
+                <img src="./screen1/world.png"
+                    style="position: absolute;width: 70%;top: 10%;left: 0;right: 0;margin: 0 auto;transform-origin: top center; animation: text1 2s;"
+                    alt="">
+
+                <figure class="cube-parent-container" id="sliderDiv">
+                    <!-- Swiper -->
+                    <div class="swiper cubeSwiper">
+                        <div class="swiper-wrapper">
+                            <!-- begin slides -->
+
+                            <div class="swiper-slide slideOne">
+                                <img src="./screen1/op.png"
+                                    style="width: 55%;left: 0;right: 0;margin: 0 auto;position: absolute" />
+                            </div>
+
+                            <div class="swiper-slide slideTwo">
+                                <img src="./screen1/power.png"
+                                    style="width: 55%;left: 0;right: 0;margin: 0 auto;position: absolute" />
+                            </div>
+
+                            <div class="swiper-slide slideThree">
+                                <img src="./screen1/dare.png"
+                                    style="width: 55%;left: 0;right: 0;margin: 0 auto;position: absolute" />
+                            </div>
+
+                            <div class="swiper-slide slideFour">
+                                <img src="./screen1/krakens.png"
+                                    style="width: 55%;left: 0;right: 0;margin: 0 auto;position: absolute" />
+                            </div>
+                            <div class="swiper-slide slideOne">
+                                <img src="./screen1/op.png"
+                                    style="width: 55%;left: 0;right: 0;margin: 0 auto;position: absolute" />
+                            </div>
+
+                            <div class="swiper-slide slideTwo">
+                                <img src="./screen1/power.png"
+                                    style="width: 55%;left: 0;right: 0;margin: 0 auto;position: absolute" />
+                            </div>
+
+                            <div class="swiper-slide slideThree">
+                                <img src="./screen1/dare.png"
+                                    style="width: 55%;left: 0;right: 0;margin: 0 auto;position: absolute" />
+                            </div>
+
+                            <div class="swiper-slide slideFour">
+                                <img src="./screen1/krakens.png"
+                                    style="width: 55%;left: 0;right: 0;margin: 0 auto;position: absolute" />
+                            </div>
+                            <div class="swiper-slide slideOne">
+                                <img src="./screen1/op.png"
+                                    style="width: 55%;left: 0;right: 0;margin: 0 auto;position: absolute" />
+                            </div>
+
+                            <div class="swiper-slide slideTwo">
+                                <img src="./screen1/power.png"
+                                    style="width: 55%;left: 0;right: 0;margin: 0 auto;position: absolute" />
+                            </div>
+
+                            <div class="swiper-slide slideThree">
+                                <img src="./screen1/dare.png"
+                                    style="width: 55%;left: 0;right: 0;margin: 0 auto;position: absolute" />
+                            </div>
+
+                            <div class="swiper-slide slideFour">
+                                <img src="./screen1/krakens.png"
+                                    style="width: 55%;left: 0;right: 0;margin: 0 auto;position: absolute" />
+                            </div>
+                            <div class="swiper-slide slideOne">
+                                <img src="./screen1/op.png"
+                                    style="width: 55%;left: 0;right: 0;margin: 0 auto;position: absolute" />
+                            </div>
+
+                            <div class="swiper-slide slideTwo">
+                                <img src="./screen1/power.png"
+                                    style="width: 55%;left: 0;right: 0;margin: 0 auto;position: absolute" />
+                            </div>
+
+                            <div class="swiper-slide slideThree">
+                                <img src="./screen1/dare.png"
+                                    style="width: 55%;left: 0;right: 0;margin: 0 auto;position: absolute" />
+                            </div>
+
+                            <div class="swiper-slide slideFour">
+                                <img src="./screen1/krakens.png"
+                                    style="width: 55%;left: 0;right: 0;margin: 0 auto;position: absolute" />
+                            </div>
+                            <div class="swiper-slide slideOne">
+                                <img src="./screen1/op.png"
+                                    style="width: 55%;left: 0;right: 0;margin: 0 auto;position: absolute" />
+                            </div>
+
+                            <div class="swiper-slide slideTwo">
+                                <img src="./screen1/power.png"
+                                    style="width: 55%;left: 0;right: 0;margin: 0 auto;position: absolute" />
+                            </div>
+
+                            <div class="swiper-slide slideThree">
+                                <img src="./screen1/dare.png"
+                                    style="width: 55%;left: 0;right: 0;margin: 0 auto;position: absolute" />
+                            </div>
+
+                            <div class="swiper-slide slideFour">
+                                <img src="./screen1/krakens.png"
+                                    style="width: 55%;left: 0;right: 0;margin: 0 auto;position: absolute" />
+                            </div>
+                            <div class="swiper-slide slideOne">
+                                <img src="./screen1/op.png"
+                                    style="width: 55%;left: 0;right: 0;margin: 0 auto;position: absolute" />
+                            </div>
+
+                            <div class="swiper-slide slideTwo">
+                                <img src="./screen1/power.png"
+                                    style="width: 55%;left: 0;right: 0;margin: 0 auto;position: absolute" />
+                            </div>
+
+                            <div class="swiper-slide slideThree">
+                                <img src="./screen1/dare.png"
+                                    style="width: 55%;left: 0;right: 0;margin: 0 auto;position: absolute" />
+                            </div>
+
+                            <div class="swiper-slide slideFour">
+                                <img src="./screen1/krakens.png"
+                                    style="width: 55%;left: 0;right: 0;margin: 0 auto;position: absolute" />
+                            </div>
+                            <div class="swiper-slide slideOne">
+                                <img src="./screen1/op.png"
+                                    style="width: 55%;left: 0;right: 0;margin: 0 auto;position: absolute" />
+                            </div>
+
+                            <div class="swiper-slide slideTwo">
+                                <img src="./screen1/power.png"
+                                    style="width: 55%;left: 0;right: 0;margin: 0 auto;position: absolute" />
+                            </div>
+
+                            <div class="swiper-slide slideThree">
+                                <img src="./screen1/dare.png"
+                                    style="width: 55%;left: 0;right: 0;margin: 0 auto;position: absolute" />
+                            </div>
+
+                            <div class="swiper-slide slideFour">
+                                <img src="./screen1/krakens.png"
+                                    style="width: 55%;left: 0;right: 0;margin: 0 auto;position: absolute" />
+                            </div>
+                            <div class="swiper-slide slideOne">
+                                <img src="./screen1/op.png"
+                                    style="width: 55%;left: 0;right: 0;margin: 0 auto;position: absolute" />
+                            </div>
+
+                            <div class="swiper-slide slideTwo">
+                                <img src="./screen1/power.png"
+                                    style="width: 55%;left: 0;right: 0;margin: 0 auto;position: absolute" />
+                            </div>
+
+                            <div class="swiper-slide slideThree">
+                                <img src="./screen1/dare.png"
+                                    style="width: 55%;left: 0;right: 0;margin: 0 auto;position: absolute" />
+                            </div>
+
+                            <div class="swiper-slide slideFour">
+                                <img src="./screen1/krakens.png"
+                                    style="width: 55%;left: 0;right: 0;margin: 0 auto;position: absolute" />
+                            </div>
+                            <div class="swiper-slide slideOne">
+                                <img src="./screen1/op.png"
+                                    style="width: 55%;left: 0;right: 0;margin: 0 auto;position: absolute" />
+                            </div>
+
+                            <div class="swiper-slide slideTwo">
+                                <img src="./screen1/power.png"
+                                    style="width: 55%;left: 0;right: 0;margin: 0 auto;position: absolute" />
+                            </div>
+
+                            <div class="swiper-slide slideThree">
+                                <img src="./screen1/dare.png"
+                                    style="width: 55%;left: 0;right: 0;margin: 0 auto;position: absolute" />
+                            </div>
+
+                            <div class="swiper-slide slideFour">
+                                <img src="./screen1/krakens.png"
+                                    style="width: 55%;left: 0;right: 0;margin: 0 auto;position: absolute" />
+                            </div>
+                            <div class="swiper-slide slideOne">
+                                <img src="./screen1/op.png"
+                                    style="width: 55%;left: 0;right: 0;margin: 0 auto;position: absolute" />
+                            </div>
+
+                            <div class="swiper-slide slideTwo">
+                                <img src="./screen1/power.png"
+                                    style="width: 55%;left: 0;right: 0;margin: 0 auto;position: absolute" />
+                            </div>
+
+                            <div class="swiper-slide slideThree">
+                                <img src="./screen1/dare.png"
+                                    style="width: 55%;left: 0;right: 0;margin: 0 auto;position: absolute" />
+                            </div>
+
+                            <div class="swiper-slide slideFour">
+                                <img src="./screen1/krakens.png"
+                                    style="width: 55%;left: 0;right: 0;margin: 0 auto;position: absolute" />
+                            </div>
+
+
+
+
+                        </div>
+                    </div>
+
+                </figure>
+
+                <img src="./screen1/choose.png"
+                    style="position: absolute;width: 68%;bottom: 10%;left: 0;right: 0;margin: 0 auto;transform-origin: top center; animation: text2 3.5s;"
+                    alt="">
+
+            </div>
+            <div id="overlayDiv"
+                style="display: none; position: absolute;width: 100%;height: 100%;top: 0;left: 0;z-index: 9; animation: divAni .7s linear;background-color: rgba(0, 0, 0, 0.9);">
+                <img id="tiltIcon" src="./Instruction/tilt.png"
+                    style="position: absolute;left: 0;right: 0;margin: 0 auto;top: 30%;width: 80px;" alt="">
+                <img id="" src="./Instruction/tilttext.png"
+                    style="position: absolute;left: 0;right: 0;margin: 0 auto;top: 45%;width: 250px;" alt="">
+            </div>
+        </div>
+
+        <div id="gameDiv"
+            style="display: none; position: absolute;width: 100%;height: 100%;top: 0;left: 0;animation: divAni .5s linear;">
+            <img src="./Gamescreen/gamebg.png"
+                style="position: absolute;width: 100%;height: 100%;top: 0;left: 0;bottom: 0;right: 0;margin: auto;"
+                alt="">
+            <div id="timerDiv"
+                style="display: none; position: absolute;width: 80px;height: 80px;top: 30px;right: 10px;">
+                <img src="./Gamescreen/scre.png"
+                    style="position: absolute;left: 0;right: 0;margin: auto;top: 0;bottom: 0;width: 80px;" alt="">
+
+                <p id="ten" class="number" style="left: 27px;">10</p>
+                <p id="nine" class="number" style="display: none;">09</p>
+                <p id="eight" class="number" style="display: none;">08</p>
+                <p id="seven" class="number" style="display: none;">07</p>
+                <p id="six" class="number" style="display: none;">06</p>
+                <p id="five" class="number" style="display: none;">05</p>
+                <p id="four" class="number" style="left: 20px;display: none;">04</p>
+                <p id="three" class="number" style="display: none;">03</p>
+                <p id="two" class="number" style="display: none;">02</p>
+                <p id="one" class="number" style="left: 22px;display: none;">01</p>
+                <p id="zero" class="number" style="display: none;">00</p>
+
+                <p style="position: absolute;left: 17px;right: 0;margin: auto;top: 39px;bottom: 0;font-size: 18px;">
+                    SECS</p>
+            </div>
+
+            <div id="greenSignal"
+                style="display: none; position: absolute;width: 150px;height: 80px;top: 30px;left: 10px;">
+                <img id="gDotOne" src="./Gamescreen/green.png" style="width: 25px;display: none;position: absolute;"
+                    alt="">
+                <img id="gDotTwo" src="./Gamescreen/green.png"
+                    style="width: 25px;display: none;position: absolute;left: 30px;" alt="">
+                <img id="gDotThree" src="./Gamescreen/green.png"
+                    style="width: 25px;display: none;position: absolute;left: 60px;" alt="">
+            </div>
+
+
+
+        </div>
+
+        <div id="roadDiv"
+            style="position: absolute;width: 320px;height: 4000px;top: -4000px; left: 0;right: 0;margin:0 auto;">
+            <img id="f1" src="./Gamescreen/green.png" style="position: absolute;top: -10%;left: 20px;width: 40px;">
+            <img src="./Gamescreen/red.png" style="position: absolute;top: 0%;left: 10px;width: 40px;">
+            <img src="./Gamescreen/red.png" style="position: absolute;top: -20%;left: 100px;width: 40px;">
+            <img id="f2" src="./Gamescreen/green.png" style="position: absolute;top: -25%;left: 80px;width: 40px;"
+                alt="">
+            <img id="" src="./Gamescreen/red.png" style="position: absolute;top: -40%;right: 50px;width: 40px;" alt="">
+            <img id="f3" src="./Gamescreen/green.png" style="position: absolute;top: -50%;right: 50px;width: 40px;"
+                alt="">
+            <img id="" src="./Gamescreen/red.png" style="position: absolute;top: -55%;right: 0px;width: 40px;" alt="">
+            <img id="" src="./Gamescreen/red.png" style="position: absolute;top: -60%;right: 150px;width: 40px;" alt="">
+            <img id="" src="./Gamescreen/red.png" style="position: absolute;top: -65%;right: 100px;width: 40px;" alt="">
+        </div>
+
+        <!-- logos -->
+        <img id="dareThree" src="./Gamescreen/dare.png"
+            style="display: none; position: absolute;left: 0;right: 0;margin: 0 auto; bottom: 10%;width: 90px;" alt="">
+        <img id="krakensFour" src="./Gamescreen/krakens.png"
+            style="display: none; position: absolute;left: 0;right: 0;margin: 0 auto; bottom: 10%;width: 90px;" alt="">
+        <img id="opOne" src="./Gamescreen/op.png"
+            style="display: none; position: absolute;left: 0;right: 0;margin: 0 auto; bottom: 10%;width: 90px;" alt="">
+        <img id="powertwo" src="./Gamescreen/power.png"
+            style="display: none; position: absolute;left: 0;right: 0;margin: 0 auto; bottom: 10%;width: 90px;" alt="">
+
+        <div id="popUp1"
+            style="display: none; position: absolute;width: 100%;height: 100%;background-color: rgba(0, 0, 0, 0.9);">
+            <div style=" position: absolute;width: 320px;height: 173px;left: 0;right: 0;top: 0;bottom: 0;margin: auto;">
+                <img src="./Instruction/leaderboard2.png"
+                    style="width: 300px; position: absolute;top: 0;bottom: 0;left: 0;right: 0;margin: auto;" alt="">
+
+                <div id="featureCount" class="featureCount" style="">
+                </div>
+            </div>
+        </div>
+        <div id="popUp2"
+            style="display: none; position: absolute;width: 100%;height: 100%;background-color: rgba(0, 0, 0, 0.9);">
+            <div style=" position: absolute;width: 320px;height: 173px;left: 0;right: 0;top: 0;bottom: 0;margin: auto;">
+                <img src="./Instruction/tryagain.png"
+                    style="width: 300px; position: absolute;top: 0;bottom: 0;left: 0;right: 0;margin: auto;" alt="">
+
+
+            </div>
+        </div>
+
+
+        <div id="lastScreen"
+            style="display: none; position: absolute;width: 100%;height: 100%;top: 0;left: 0;animation: divAni .5s ease;">
+            <a href="https://play.google.com/store/apps/details?id=com.amazon.minitv.android.app" target="_blank">
+            <img src="./lastcscreen/bglast.png"
+                style="position: absolute;width: 100%;height: 100%;top: 0;left: 0;" alt="">
+            <img src="./lastcscreen/top.png"
+                style="position: absolute;width: 70%;top: 2%;left: 0;right: 0;margin: 0 auto;animation: text1LastScren 1.5s;"
+                alt="">
+            <img id="cta" src="./lastcscreen/stream.png"
+                style="position: absolute;width: 145px;bottom: 2%;left: 0;right: 0;margin: 0 auto;animation: cta 2.3s;"
+                alt="">
+            </a>
+            <video id="myVideo" src="https://beta.andbeyond.media/abm-direct/RichMedia/video/amzonMini.mp4" controls
+                muted style="position: absolute;width: 320px;top: 27%;left: 0;right: 0;margin: 0 auto;"></video>
+        </div>
+
+        <img id="close"
+            src="https://cache-ssl.celtra.com/api/static/ve67ae1362e/runner/clazzes/CreativeUnit/close-up.svg"
+            alt="Close Button">
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+
+            const close = document.getElementById("close");
+            const main = document.getElementById("main");
+            const cta = document.getElementById("cta");
+            const startScreen = document.getElementById("startScreen");
+            const tiltIcon = document.getElementById("tiltIcon");
+            const overlayDiv = document.getElementById("overlayDiv");
+
+            // const startScreen = document.getElementById("startScreen");
+
+            const slideOne = document.querySelectorAll(".slideOne")
+            const slideTwo = document.querySelectorAll(".slideTwo")
+            const slideThree = document.querySelectorAll(".slideThree")
+            const slideFour = document.querySelectorAll(".slideFour")
+
+            const one = document.getElementById("one");
+            const two = document.getElementById("two");
+            const three = document.getElementById("three");
+            const four = document.getElementById("four");
+            const five = document.getElementById("five");
+            const six = document.getElementById("six");
+            const seven = document.getElementById("seven");
+            const eight = document.getElementById("eight");
+            const nine = document.getElementById("nine");
+            const ten = document.getElementById("ten");
+            const zero = document.getElementById("zero");
+            const timerDiv = document.getElementById("timerDiv");
+            const greenSignal = document.getElementById("greenSignal");
+            const gameDiv = document.getElementById("gameDiv");
+
+            const dareThree = document.getElementById("dareThree");
+            const krakensFour = document.getElementById("krakensFour");
+            const opOne = document.getElementById("opOne");
+            const powertwo = document.getElementById("powertwo");
+
+            const gDotOne = document.getElementById("gDotOne");
+            const gDotTwo = document.getElementById("gDotTwo");
+            const gDotThree = document.getElementById("gDotThree");
+
+            const popUp1 = document.getElementById("popUp1");
+            const popUp2 = document.getElementById("popUp2");
+            const lastScreen = document.getElementById("lastScreen");
+            const myVideo = document.getElementById("myVideo");
+
+
+
+            function coutDown() {
+                setTimeout(() => {
+                    ten.style.display = "none";
+                    nine.style.display = "block";
+                }, 1000);
+                setTimeout(() => {
+                    nine.style.display = "none";
+                    eight.style.display = "block";
+                }, 2000);
+                setTimeout(() => {
+                    eight.style.display = "none";
+                    seven.style.display = "block";
+                }, 3000);
+                setTimeout(() => {
+                    seven.style.display = "none";
+                    six.style.display = "block";
+                }, 4000);
+                setTimeout(() => {
+                    six.style.display = "none";
+                    five.style.display = "block";
+                }, 5000);
+                setTimeout(() => {
+                    five.style.display = "none";
+                    four.style.display = "block";
+                }, 6000);
+                setTimeout(() => {
+                    four.style.display = "none";
+                    three.style.display = "block";
+                }, 7000);
+                setTimeout(() => {
+                    three.style.display = "none";
+                    two.style.display = "block";
+                }, 8000);
+                setTimeout(() => {
+                    two.style.display = "none";
+                    one.style.display = "block";
+                }, 9000);
+                setTimeout(() => {
+                    one.style.display = "none";
+                    zero.style.display = "block";
+                }, 10000);
+
+            }
+
+            slideOne.forEach((one) => {
+                one.addEventListener("click", () => {
+                    console.log("one");
+                    tapOnImage();
+                    setTimeout(() => {
+                        opOne.style.display = "block";
+                        playGame1()
+                    }, 4000);
+                })
+            })
+            slideTwo.forEach((two) => {
+                two.addEventListener("click", () => {
+                    console.log("two");
+                    tapOnImage();
+                    setTimeout(() => {
+                        powertwo.style.display = "block";
+                        playGame2()
+                    }, 4000);
+                })
+            })
+            slideThree.forEach((three) => {
+                three.addEventListener("click", () => {
+                    console.log("three");
+                    tapOnImage();
+                    setTimeout(() => {
+                        dareThree.style.display = "block";
+                        playGame3();
+                    }, 4000);
+                })
+            })
+            slideFour.forEach((four) => {
+                four.addEventListener("click", () => {
+                    console.log("four");
+                    tapOnImage();
+                    setTimeout(() => {
+                        krakensFour.style.display = "block";
+                        playGame4();
+                    }, 4000);
+                })
+            })
+
+            function tapOnImage() {
+
+                setTimeout(() => {
+                    overlayDiv.style.display = "block";
+                }, 1000);
+                setTimeout(() => {
+                    tiltIcon.style.animation = "rotateIcon .7s ease-in-out alternate infinite";
+                }, 600);
+                setTimeout(() => {
+                    overlayDiv.style.opacity = 0;
+                    overlayDiv.style.transition = "all .7s linear";
+
+                    startScreen.style.opacity = 0;
+                    startScreen.style.transition = "all .3s linear";
+
+                    gameDiv.style.display = "block";
+                }, 3500);
+                setTimeout(() => {
+                    overlayDiv.style.display = "none";
+                }, 4200);
+            }
+
+
+            function playGame1() {
+                let carPosition = 0;
+                let featureCount = 0;
+                let moveInterval = null;
+
+                setTimeout(() => {
+
+                    roadDiv.style.animation = "moveDiv1 14s linear infinite";
+                    timerDiv.style.display = "block";
+                    coutDown();
+
+
+                    setTimeout(() => {
+
+                        window.addEventListener('deviceorientation', handleOrientation);
+
+                        let tiltThreshold = 10;
+
+                        function handleOrientation(event) {
+                            let tilt = event.gamma;
+
+                            if (tilt < -tiltThreshold) {
+                                startMoving(-20);
+                            } else if (tilt > tiltThreshold) {
+                                startMoving(20);
+                            } else {
+                                stopMoving();
+                            }
+                        }
+
+                        const obstacles = [
+                            { id: 'f1', value: 1 },
+                            { id: 'f2', value: 2 },
+                            { id: 'f3', value: 3 }
+
+                        ].map(obstacle => ({
+                            element: document.getElementById(obstacle.id),
+                            value: obstacle.value,
+                            touched: false
+                        }));
+
+                        function startMoving(delta) {
+                            if (!moveInterval) {
+                                moveInterval = setInterval(() => moveCar(delta), 100);
+                            }
+                        }
+
+                        function stopMoving() {
+                            if (moveInterval) {
+                                clearInterval(moveInterval);
+                                moveInterval = null;
+                            }
+                        }
+
+                        function moveCar(delta) {
+                            carPosition += delta;
+                            const parentRect = opOne.parentElement.getBoundingClientRect();
+                            const carRect = opOne.getBoundingClientRect();
+
+                            if (carRect.left + delta < parentRect.left) {
+                                carPosition = 0;
+                            } else if (carRect.right + delta > parentRect.right) {
+                                carPosition = parentRect.width - carRect.width;
+                            }
+
+                            opOne.style.left = `${carPosition}px`;
+                            opOne.style.transition = "left 0.10s linear";
+                            checkCollisions();
+                        }
+
+                        function checkCollisions() {
+                            const carRect = opOne.getBoundingClientRect();
+                            obstacles.forEach(obstacle => {
+                                const obstacleRect = obstacle.element.getBoundingClientRect();
+                                if (isColliding(carRect, obstacleRect) && !obstacle.touched) {
+                                    featureCount++;
+                                    document.getElementById("featureCount").textContent = `${featureCount}  `;
+                                    // document.getElementById("featureCount").textContent = `YOU COLLECTED ${featureCount}/6 FEATURES `;
+                                    obstacle.touched = true;
+                                    obstacle.element.style.opacity = 0;
+                                    obstacle.element.style.transition = "opacity 0.3s linear";
+                                    triggerPulseAnimation();
+                                    console.log(`Feature count: ${featureCount}`);
+
+                                    if (featureCount === 1) {
+                                        greenSignal.style.display = "block";
+                                        gDotOne.style.display = "block";
+                                    }
+                                    if (featureCount === 2) {
+                                        gDotTwo.style.display = "block";
+                                    }
+                                    if (featureCount === 3) {
+                                        gDotThree.style.display = "block";
+                                    }
+                                    if (featureCount === null || "") {
+                                        popUp2.style.display = "block";
+                                    }
+                                }
+                            });
+                        }
+
+                        function isColliding(rect1, rect2) {
+                            return !(
+                                rect1.top > rect2.bottom ||
+                                rect1.right < rect2.left ||
+                                rect1.bottom < rect2.top ||
+                                rect1.left > rect2.right
+                            );
+                        }
+
+                        function triggerPulseAnimation() {
+                            opOne.classList.add('pulse');
+                            setTimeout(() => {
+                                opOne.classList.remove('pulse');
+                            }, 500);
+                        }
+                        setTimeout(() => {
+                            // roadDiv.style.animation = "pause";
+                        }, 14000);
+
+                    }, 600);
+
+                }, 500);
+
+                setTimeout(() => {
+                    if (featureCount == null || featureCount === 0) {
+                        popUp2.style.display = "block";
+                        opOne.style.opacity = 0;
+                        opOne.style.transition = "all .3s linear";
+
+                        roadDiv.style.animation = "pause";
+
+                    } else if (featureCount <= 3) {
+                        popUp1.style.display = "block";
+                        opOne.style.opacity = 0;
+                        opOne.style.transition = "all .3s linear"
+                        roadDiv.style.animation = "pause"
+                    }
+                }, 11000);
+                setTimeout(() => {
+                    lastScreenFun();
+                }, 13500);
+            }
+
+
+            function playGame2() {
+                let carPosition = 0;
+                let featureCount = 0;
+                let moveInterval = null;
+
+                setTimeout(() => {
+
+                    roadDiv.style.animation = "moveDiv1 14s linear infinite";
+                    timerDiv.style.display = "block";
+                    coutDown();
+
+
+                    setTimeout(() => {
+
+                        window.addEventListener('deviceorientation', handleOrientation);
+
+                        let tiltThreshold = 10;
+
+                        function handleOrientation(event) {
+                            let tilt = event.gamma;
+
+                            if (tilt < -tiltThreshold) {
+                                startMoving(-20);
+                            } else if (tilt > tiltThreshold) {
+                                startMoving(20);
+                            } else {
+                                stopMoving();
+                            }
+                        }
+
+                        const obstacles = [
+                            { id: 'f1', value: 1 },
+                            { id: 'f2', value: 2 },
+                            { id: 'f3', value: 3 }
+
+                        ].map(obstacle => ({
+                            element: document.getElementById(obstacle.id),
+                            value: obstacle.value,
+                            touched: false
+                        }));
+
+                        function startMoving(delta) {
+                            if (!moveInterval) {
+                                moveInterval = setInterval(() => moveCar(delta), 100);
+                            }
+                        }
+
+                        function stopMoving() {
+                            if (moveInterval) {
+                                clearInterval(moveInterval);
+                                moveInterval = null;
+                            }
+                        }
+
+                        function moveCar(delta) {
+                            carPosition += delta;
+                            const parentRect = powertwo.parentElement.getBoundingClientRect();
+                            const carRect = powertwo.getBoundingClientRect();
+
+                            if (carRect.left + delta < parentRect.left) {
+                                carPosition = 0;
+                            } else if (carRect.right + delta > parentRect.right) {
+                                carPosition = parentRect.width - carRect.width;
+                            }
+
+                            powertwo.style.left = `${carPosition}px`;
+                            powertwo.style.transition = "left 0.10s linear";
+                            checkCollisions();
+                        }
+
+                        function checkCollisions() {
+                            const carRect = powertwo.getBoundingClientRect();
+                            obstacles.forEach(obstacle => {
+                                const obstacleRect = obstacle.element.getBoundingClientRect();
+                                if (isColliding(carRect, obstacleRect) && !obstacle.touched) {
+                                    featureCount++;
+                                    document.getElementById("featureCount").textContent = `${featureCount}  `;
+                                    // document.getElementById("featureCount").textContent = `YOU COLLECTED ${featureCount}/6 FEATURES `;
+                                    obstacle.touched = true;
+                                    obstacle.element.style.opacity = 0;
+                                    obstacle.element.style.transition = "opacity 0.3s linear";
+                                    triggerPulseAnimation();
+                                    console.log(`Feature count: ${featureCount}`);
+
+                                    if (featureCount === 1) {
+                                        greenSignal.style.display = "block";
+                                        gDotOne.style.display = "block";
+                                    }
+                                    if (featureCount === 2) {
+                                        gDotTwo.style.display = "block";
+                                    }
+                                    if (featureCount === 3) {
+                                        gDotThree.style.display = "block";
+                                    }
+                                    if (featureCount === null || "") {
+                                        popUp2.style.display = "block";
+                                    }
+                                }
+                            });
+                        }
+
+                        function isColliding(rect1, rect2) {
+                            return !(
+                                rect1.top > rect2.bottom ||
+                                rect1.right < rect2.left ||
+                                rect1.bottom < rect2.top ||
+                                rect1.left > rect2.right
+                            );
+                        }
+
+                        function triggerPulseAnimation() {
+                            powertwo.classList.add('pulse');
+                            setTimeout(() => {
+                                powertwo.classList.remove('pulse');
+                            }, 500);
+                        }
+                        setTimeout(() => {
+                            // roadDiv.style.animation = "pause";
+                        }, 14000);
+
+                    }, 600);
+
+                }, 500);
+
+                setTimeout(() => {
+                    if (featureCount == null || featureCount === 0) {
+                        popUp2.style.display = "block";
+                        powertwo.style.opacity = 0;
+                        powertwo.style.transition = "all .3s linear";
+                        roadDiv.style.animation = "pause";
+
+                    } else if (featureCount <= 3) {
+                        popUp1.style.display = "block";
+                        powertwo.style.opacity = 0;
+                        powertwo.style.transition = "all .3s linear"
+                        roadDiv.style.animation = "pause"
+                    }
+                }, 10500);
+                setTimeout(() => {
+                    lastScreenFun();
+                }, 13000);
+            }
+
+            function playGame3() {
+                let carPosition = 0;
+                let featureCount = 0;
+                let moveInterval = null;
+
+                setTimeout(() => {
+
+                    roadDiv.style.animation = "moveDiv1 14s linear infinite";
+                    timerDiv.style.display = "block";
+                    coutDown();
+
+
+                    setTimeout(() => {
+
+                        window.addEventListener('deviceorientation', handleOrientation);
+
+                        let tiltThreshold = 10;
+
+                        function handleOrientation(event) {
+                            let tilt = event.gamma;
+
+                            if (tilt < -tiltThreshold) {
+                                startMoving(-20);
+                            } else if (tilt > tiltThreshold) {
+                                startMoving(20);
+                            } else {
+                                stopMoving();
+                            }
+                        }
+
+                        const obstacles = [
+                            { id: 'f1', value: 1 },
+                            { id: 'f2', value: 2 },
+                            { id: 'f3', value: 3 }
+
+                        ].map(obstacle => ({
+                            element: document.getElementById(obstacle.id),
+                            value: obstacle.value,
+                            touched: false
+                        }));
+
+                        function startMoving(delta) {
+                            if (!moveInterval) {
+                                moveInterval = setInterval(() => moveCar(delta), 100);
+                            }
+                        }
+
+                        function stopMoving() {
+                            if (moveInterval) {
+                                clearInterval(moveInterval);
+                                moveInterval = null;
+                            }
+                        }
+
+                        function moveCar(delta) {
+                            carPosition += delta;
+                            const parentRect = dareThree.parentElement.getBoundingClientRect();
+                            const carRect = dareThree.getBoundingClientRect();
+
+                            if (carRect.left + delta < parentRect.left) {
+                                carPosition = 0;
+                            } else if (carRect.right + delta > parentRect.right) {
+                                carPosition = parentRect.width - carRect.width;
+                            }
+
+                            dareThree.style.left = `${carPosition}px`;
+                            dareThree.style.transition = "left 0.10s linear";
+                            checkCollisions();
+                        }
+
+                      
+                        function checkCollisions() {
+                            const carRect = dareThree.getBoundingClientRect();
+                            obstacles.forEach(obstacle => {
+                                const obstacleRect = obstacle.element.getBoundingClientRect();
+                                if (isColliding(carRect, obstacleRect) && !obstacle.touched) {
+                                    featureCount++;
+                                    document.getElementById("featureCount").textContent = `${featureCount}  `;
+                                    // document.getElementById("featureCount").textContent = `YOU COLLECTED ${featureCount}/6 FEATURES `;
+                                    obstacle.touched = true;
+                                    obstacle.element.style.opacity = 0;
+                                    obstacle.element.style.transition = "opacity 0.3s linear";
+                                    triggerPulseAnimation();
+                                    console.log(`Feature count: ${featureCount}`);
+
+                                    if (featureCount === 1) {
+                                        greenSignal.style.display = "block";
+                                        gDotOne.style.display = "block";
+                                    }
+                                    if (featureCount === 2) {
+                                        gDotTwo.style.display = "block";
+                                    }
+                                    if (featureCount === 3) {
+                                        gDotThree.style.display = "block";
+                                    }
+                                    if (featureCount === null || "") {
+                                        popUp2.style.display = "block";
+                                    }
+                                }
+                            });
+                        }
+
+                        function isColliding(rect1, rect2) {
+                            return !(
+                                rect1.top > rect2.bottom ||
+                                rect1.right < rect2.left ||
+                                rect1.bottom < rect2.top ||
+                                rect1.left > rect2.right
+                            );
+                        }
+
+                        function triggerPulseAnimation() {
+                            dareThree.classList.add('pulse');
+                            setTimeout(() => {
+                                dareThree.classList.remove('pulse');
+                            }, 500);
+                        }
+                        setTimeout(() => {
+                            // roadDiv.style.animation = "pause";
+                        }, 14000);
+
+                    }, 600);
+
+                }, 500);
+
+                setTimeout(() => {
+                    if (featureCount == null || featureCount === 0) {
+                        popUp2.style.display = "block";
+                        dareThree.style.opacity = 0;
+                        dareThree.style.transition = "all .3s linear";
+                        roadDiv.style.animation = "pause";
+
+                    } else if (featureCount <= 3) {
+                        popUp1.style.display = "block";
+                        dareThree.style.opacity = 0;
+                        dareThree.style.transition = "all .3s linear"
+                        roadDiv.style.animation = "pause"
+                    }
+                }, 10500);
+                setTimeout(() => {
+                    lastScreenFun();
+                }, 13000);
+            }
+
+
+
+            function playGame4() {
+                let carPosition = 0;
+                let featureCount = 0;
+                let moveInterval = null;
+
+                setTimeout(() => {
+
+                    roadDiv.style.animation = "moveDiv1 14s linear infinite";
+                    timerDiv.style.display = "block";
+                    coutDown();
+
+
+                    setTimeout(() => {
+
+                        window.addEventListener('deviceorientation', handleOrientation);
+
+                        let tiltThreshold = 10;
+
+                        function handleOrientation(event) {
+                            let tilt = event.gamma;
+
+                            if (tilt < -tiltThreshold) {
+                                startMoving(-20);
+                            } else if (tilt > tiltThreshold) {
+                                startMoving(20);
+                            } else {
+                                stopMoving();
+                            }
+                        }
+
+                        const obstacles = [
+                            { id: 'f1', value: 1 },
+                            { id: 'f2', value: 2 },
+                            { id: 'f3', value: 3 }
+
+                        ].map(obstacle => ({
+                            element: document.getElementById(obstacle.id),
+                            value: obstacle.value,
+                            touched: false
+                        }));
+
+                        function startMoving(delta) {
+                            if (!moveInterval) {
+                                moveInterval = setInterval(() => moveCar(delta), 100);
+                            }
+                        }
+
+                        function stopMoving() {
+                            if (moveInterval) {
+                                clearInterval(moveInterval);
+                                moveInterval = null;
+                            }
+                        }
+
+                        function moveCar(delta) {
+                            carPosition += delta;
+                            const parentRect = krakensFour.parentElement.getBoundingClientRect();
+                            const carRect = krakensFour.getBoundingClientRect();
+
+                            if (carRect.left + delta < parentRect.left) {
+                                carPosition = 0;
+                            } else if (carRect.right + delta > parentRect.right) {
+                                carPosition = parentRect.width - carRect.width;
+                            }
+
+                            krakensFour.style.left = `${carPosition}px`;
+                            krakensFour.style.transition = "left 0.10s linear";
+                            // krakensFour.style.transition = "left 0.25s linear";
+                            checkCollisions();
+                        }
+
+                        function checkCollisions() {
+                            const carRect = krakensFour.getBoundingClientRect();
+                            obstacles.forEach(obstacle => {
+                                const obstacleRect = obstacle.element.getBoundingClientRect();
+                                if (isColliding(carRect, obstacleRect) && !obstacle.touched) {
+                                    featureCount++;
+                                    document.getElementById("featureCount").textContent = `${featureCount}  `;
+                                    // document.getElementById("featureCount").textContent = `YOU COLLECTED ${featureCount}/6 FEATURES `;
+                                    obstacle.touched = true;
+                                    obstacle.element.style.opacity = 0;
+                                    obstacle.element.style.transition = "opacity 0.3s linear";
+                                    triggerPulseAnimation();
+                                    console.log(`Feature count: ${featureCount}`);
+
+                                    if (featureCount === 1) {
+                                        greenSignal.style.display = "block";
+                                        gDotOne.style.display = "block";
+                                    }
+                                    if (featureCount === 2) {
+                                        gDotTwo.style.display = "block";
+                                    }
+                                    if (featureCount === 3) {
+                                        gDotThree.style.display = "block";
+                                    }
+                                    if (featureCount === null || "") {
+                                        popUp2.style.display = "block";
+                                    }
+                                }
+                            });
+                        }
+
+                        function isColliding(rect1, rect2) {
+                            return !(
+                                rect1.top > rect2.bottom ||
+                                rect1.right < rect2.left ||
+                                rect1.bottom < rect2.top ||
+                                rect1.left > rect2.right
+                            );
+                        }
+
+                        function triggerPulseAnimation() {
+                            krakensFour.classList.add('pulse');
+                            setTimeout(() => {
+                                krakensFour.classList.remove('pulse');
+                            }, 500);
+                        }
+
+
+                    }, 600);
+
+                }, 500);
+
+                setTimeout(() => {
+                    if (featureCount == null || featureCount === 0) {
+                        popUp2.style.display = "block";
+                        krakensFour.style.opacity = 0;
+                        krakensFour.style.transition = "all .3s linear";
+                        roadDiv.style.animation = "pause";
+
+                    } else if (featureCount <= 3) {
+                        popUp1.style.display = "block";
+                        krakensFour.style.opacity = 0;
+                        krakensFour.style.transition = "all .3s linear"
+                        roadDiv.style.animation = "pause"
+                    }
+                }, 10500);
+                setTimeout(() => {
+                    lastScreenFun();
+                }, 13000);
+            }
+
+
+            function lastScreenFun() {
+                lastScreen.style.display = "block";
+                setTimeout(() => {
+                    myVideo.muted = false;
+                    myVideo.play();
+                }, 2500);
+                setTimeout(() => {
+                    cta.style.animation = "pulse .7s ease-in-out alternate infinite";
+                }, 2310);
+            }
+
+            setTimeout(() => {
+                var swiper = new Swiper(".cubeSwiper", {
+
+                    grabCursor: true,
+                    // autoplay: false,
+                    effect: "creative",
+                    loop: true,
+                    speed: 1000,
+
+                    autoplay: {
+                        delay: 3000,
+                        disableOnInteraction: false
+                    },
+                    creativeEffect: {
+                        prev: {
+                            shadow: true,
+                            translate: ["-100%", 0, -1200],
+                        },
+                        next: {
+                            shadow: true,
+                            translate: ["100%", 0, -1200],
+                        },
+                    },
+                });
+            }, 2000);
+
+            window.parent.document.body.style.overflow = "hidden";
+
+            close.addEventListener("click", () => {
+                main.style.display = "none";
+                myVideo.muted =true;
+                myVideo.pause();
+                window.parent.document.body.style.overflow = "scroll";
+
+            });
+
+
+        })
+    </script>
+</body>
+
+</html>

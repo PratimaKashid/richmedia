@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+
+    <title>Amazon </title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        overflow: hidden;
+        font-family: "Poppins", sans-serif;
+    }
+
+    .main {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+    }
+
+    .firstScreen,
+    .aapl_inner {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        position: absolute;
+
+    }
+
+    #close {
+        position: absolute;
+        right: 1px;
+        top: 1px;
+        width: 30px;
+        z-index: 99999;
+        cursor: pointer;
+    }
+
+
+    @keyframes logo {
+        0% {
+            opacity: 0;
+            top: -80px;
+        }
+
+        100% {
+            opacity: 1;
+            top: 20px;
+        }
+    }
+
+
+    @keyframes text1 {
+        0% {
+            opacity: 0;
+        }
+
+        50% {
+            opacity: 0;
+            transform: scale(0);
+        }
+
+        100% {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    @keyframes text2 {
+        0% {
+            opacity: 0;
+        }
+
+        70% {
+            opacity: 0;
+            transform: scale(0);
+        }
+
+        100% {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    @keyframes playNow {
+        0% {
+            opacity: 0;
+        }
+
+        80% {
+            opacity: 0;
+            bottom: -120px;
+        }
+
+        100% {
+            opacity: 1;
+            bottom: 4%;
+        }
+    }
+
+    @keyframes pulse {
+        0% {
+            transform: scale(1);
+        }
+
+        100% {
+            transform: scale(.95);
+        }
+    }
+
+    @keyframes pulse1 {
+        0% {
+            transform: scale(1);
+        }
+
+        100% {
+            transform: scale(1.05);
+        }
+    }
+
+    @keyframes divAni {
+        0% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+    @keyframes moveDiv1 {
+        0% {
+            top: -600px;
+        }
+
+        100% {
+            top: 4000px;
+        }
+    }
+
+    @keyframes car {
+        0% {
+            opacity: 0;
+        }
+
+        50% {
+            opacity: 0;
+            transform: scale(0);
+        }
+
+        100% {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    @keyframes lastPageH {
+        0% {
+            opacity: 0;
+        }
+
+        50% {
+            opacity: 0;
+            right: -200px;
+        }
+
+        100% {
+            opacity: 1;
+            right: 0;
+        }
+    }
+
+    @keyframes cta {
+        0% {
+            opacity: 0;
+        }
+
+        70% {
+            opacity: 0;
+            bottom: -300px;
+        }
+
+        100% {
+            opacity: 1;
+            bottom: 15px;
+        }
+    }
+
+    @keyframes pulseNew {
+        0% {
+            transform: scale(1);
+        }
+
+        50% {
+            transform: scale(1.2);
+        }
+
+        100% {
+            transform: scale(1);
+        }
+    }
+
+    .pulse {
+        animation: pulseNew .4s;
+    }
+
+    @keyframes tilt {
+
+        0% {
+            transform: rotate(5deg);
+        }
+
+        50% {
+            transform: rotate(0eg);
+        }
+
+        100% {
+            transform: rotate(-5deg);
+        }
+    }
+
+    @keyframes scooter {
+
+        0% {
+            opacity: 0;
+        }
+
+        49% {
+            opacity: 0;
+        }
+
+        80% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+
+    @keyframes logoBG {
+        0% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+    @keyframes rainLast {
+        0% {
+            top: 0;
+        }
+
+        100% {
+            top: 100%;
+        }
+    }
+</style>
+
+<body>
+    <div class="main" id="main">
+        <div class="firstScreen" id="firstScreen">
+            <img src="./img/bg.png" style="position: absolute;width: 100%;height: 100%;object-fit: cover;"
+                alt="Background">
+            <img src="./img/top logo.png"
+                style="width: 100%; position: absolute;left: 00px;top: 20px;animation: logo 1s ease;" alt="">
+
+            <img src="./img/monsoon ready.png"
+                style="width: 70%; position: absolute;left: 0;right: 0;margin: 0 auto; top: 18%;animation: text1 1.3s ease;"
+                alt="">
+            <img src="./img/scooter.png"
+                style="position: absolute;top: 31%;left: 0;right: 0;margin:0 auto;width: 100%;animation: scooter 1.7s ease-in-out"
+                alt="">
+
+            <img src="./img/collect.png"
+                style="width: 70%; position: absolute;left: 0;right: 0;margin: 0 auto; bottom: 13.5%;animation: text2 2.2s ease;"
+                alt="">
+            <img id="playBtn" src="./img/playnow.png"
+                style="position: absolute;right: 0px;left: 0;margin: 0 auto; bottom: 4%; width: 160px;animation: playNow 2.6s ease-in-out;"
+                alt="">
+            <img id="heart" src="./img/heart.png" style="position: absolute;bottom: 0;right: 0;width: 120px;" alt="">
+
+        </div>
+
+        <!-- main game div start -->
+        <div id="screen2" style="position: absolute;width: 100%;height: 100%;display: none;">
+
+            <div id="screen22" style="position: absolute;width: 100%;height: 100%;">
+                <!-- <img src="./images/bg_white.png" style="position: absolute;width: 100%;height: 100%;" alt="Background"> -->
+
+
+                <div id="" style="position: absolute;width: 100%;height: 100%;left: 0;right: 0;margin:0 auto;">
+                    <div id="roadDiv"
+                        style="position: absolute;width: 100%;height: 4000px;top: -4000px; left: 0;right: 0;margin:0 auto;">
+                        <img id="road"
+                            src="https://beta.andbeyond.media/abm-direct/RichMedia/amazon/img/newImg/Road%20LONG.png"
+                            style="position: absolute;bottom: -800px;left: 0;width: 100%;height: 8000px; left: 0;right: 0;margin: 0 auto;">
+
+                        <img id="f1" src="./img/newImg/Parcel 1.png"
+                            style="position: absolute;top: 15%;left: 30px;width: 110px;">
+                        <img id="f2" src="./img/newImg/Parcel 2.png"
+                            style="position: absolute;top: -7%;right: 50px;width: 110px;">
+                        <img id="f3" src="./img/newImg/Parcel 3.png"
+                            style="position: absolute;top: -25%;left: 100px;width: 110px;">
+
+
+                    </div>
+
+                    <img id="myCar" src="./img/newImg/BikeRider.png"
+                        style="width: 90px; position: absolute;left: 0px;right: 0;margin: 0 auto;bottom: 20px;" alt="">
+                    <iframe src="https://beta.andbeyond.media/abm-direct/RichMedia/amazon/rain.html"
+                        style="position: absolute;width: 100%;height: 100%;transform: rotate(15deg);" frameborder="0"></iframe>
+                </div>
+
+
+                <div id="popUp1" style="position: absolute;width: 100%;height: 100%;">
+                    <img src="./img/newImg/Overlay.png" style="position: absolute;width: 100%;height: 100%;" alt="">
+                    <img src="./img/newImg/TILT TextBox.png"
+                        style="width: 260px; position: absolute;top: 0;bottom: 0;left: 0;right: 0;margin: auto;animation: divAni .8s linear;"
+                        alt="">
+                    <img src="./img/newImg/motion.png"
+                        style="position: absolute;left: 0;right: 0;margin: 0 auto;top: 22%;animation: tilt .8s .9s ease-in-out alternate infinite;"
+                        alt="">
+                </div>
+                <img src="./img/newImg/Logo BG.png"
+                    style="width: 180px; position: absolute;left: 0px;right: 0;margin: 0 auto; top: -15px;animation: logoBG .5s ease;"
+                    alt="">
+                <img src="./img/newImg/Logo Last Page.png"
+                    style="width: 125px; position: absolute;left: 0px;right: 0;margin: 0 auto; top: 10px;animation: logoBG .5s ease;"
+                    alt="">
+            </div>
+        </div>
+
+        <div id="popUp2" style="display: none; position: absolute;width: 100%;height: 100%;">
+            <img src="./img/newImg/Overlay.png" style="position: absolute;width: 100%;height: 100%;" alt="">
+            <img src="./img/newImg/Awesome TextBox.png"
+                style="width: 85%; position: absolute;top: 0;bottom: 0;left: 0;right: 0;margin: auto;" alt="">
+            <img src="./img/newImg/Logo BG.png"
+                style="width: 180px; position: absolute;left: 0px;right: 0;margin: 0 auto; top: -15px;animation: logoBG .5s ease;"
+                alt="">
+            <img src="./img/newImg/Logo Last Page.png"
+                style="width: 125px; position: absolute;left: 0px;right: 0;margin: 0 auto; top: 10px;animation: logoBG .5s ease;"
+                alt="">
+        </div>
+
+
+        <!-- main game div start -->
+
+
+        <div id="tapDiv" style="position: absolute;width: 100%;height: 100%;"></div>
+
+
+        <!-- final screen -->
+        <div id="lastScreen"
+            style=" display:none; position: absolute;width: 100%;height: 100%;animation: divAni .7s linear;">
+            <a href="https://www.amazon.in/" target="_blank">
+                <img src="./img/newImg/BG LastPAge.png"
+                    style="position: absolute;width: 100%;height: 100%;object-fit: cover;" alt="">
+                <iframe src="https://beta.andbeyond.media/abm-direct/RichMedia/amazon/rain.html"
+                    style="position: absolute;width: 100%;height: 100%;transform: rotate(15deg);" frameborder="0"></iframe>
+
+                <img src="./img/newImg/Logo BG.png"
+                    style="width: 180px; position: absolute;left: 0px;right: 0;margin: 0 auto; top: -15px;animation: logoBG .5s ease;"
+                    alt="">
+                <img src="./img/newImg/Logo Last Page.png"
+                    style="width: 125px; position: absolute;left: 0px;right: 0;margin: 0 auto; top: 10px;animation: logoBG .5s ease;"
+                    alt="">
+
+                <img src="./img/newImg/DeliverTheLove.png"
+                    style="width: 80%;z-index: 99; position: absolute;left: 0;right: 0;margin: 0 auto; top: 45%;animation: car 2.5s ease;transform-origin: center top"
+                    alt="">
+                <img src="./img/newImg/Heart LastPage.png"
+                    style="width: 60px;z-index: 99; position: absolute;right: 0; top: 36%;animation: lastPageH 2.5s ease;transform-origin: center top"
+                    alt="">
+                <img id="cta" src="./img/newImg/Know More.png"
+                    style="position: absolute;z-index: 999; right: 0px;left: 0;margin: 0 auto; bottom: 15px; width: 170px;animation: cta 2.7s ease;"
+                    alt="">
+
+            </a>
+
+            <video id="myVid" src="https://beta.andbeyond.media/abm-direct/RichMedia/video/myVid.mp4" controls autoplay
+                muted
+                style="width: 90%; position: absolute;left: 0;right: 0;margin: 0 auto; top: 10%;border: 5px solid #fff;"></video>
+
+        </div>
+
+
+        <img id="close"
+            src="https://cache-ssl.celtra.com/api/static/ve67ae1362e/runner/clazzes/CreativeUnit/close-up.svg"
+            alt="Close Button">
+    </div>
+
+    <script>
+
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const close = document.getElementById("close");
+            const main = document.getElementById("main");
+            const playBtn = document.getElementById("playBtn");
+            const tapDiv = document.getElementById("tapDiv");
+            const firstScreen = document.getElementById("firstScreen");
+            const popUp1 = document.getElementById("popUp1");
+            const popUp2 = document.getElementById("popUp2");
+            const myVid = document.getElementById("myVid");
+            const cta = document.getElementById("cta");
+            const roadDiv = document.getElementById("roadDiv");
+            const heart = document.getElementById("heart");
+            const myCar = document.getElementById('myCar');
+            const carausal = document.getElementById('carausal');
+            const lastScreen = document.getElementById('lastScreen');
+
+            window.parent.document.body.style.overflow = "hidden";
+
+            setTimeout(() => {
+                playBtn.style.animation = "pulse .7s ease alternate infinite";
+                heart.style.animation = "pulse1 .8s linear alternate infinite";
+            }, 2650);
+
+            tapDiv.addEventListener("click", playGame);
+
+            function playGame() {
+                let carPosition = 0;
+                let moveInterval = null;
+
+                console.log("start Game..");
+                tapDiv.style.display = "none";
+                firstScreen.style.opacity = 0;
+                firstScreen.style.transition = "all .7s linear";
+
+                screen2.style.display = "block";
+
+                setTimeout(() => {
+                    popUp1.style.opacity = 0;
+                    popUp1.style.transition = "all .5s linear";
+
+                    setTimeout(() => {
+                        roadDiv.style.animation = "moveDiv1 18s linear infinite"
+
+                        window.addEventListener('deviceorientation', handleOrientation);
+
+                        let tiltThreshold = 10;
+
+                        function handleOrientation(event) {
+                            let tilt = event.gamma;
+
+                            if (tilt < -tiltThreshold) {
+                                startMoving(-35);
+                            } else if (tilt > tiltThreshold) {
+                                startMoving(35);
+                            } else {
+                                stopMoving();
+                            }
+                        }
+
+                        const obstacles = [
+                            { id: 'f1', value: 1 },
+                            { id: 'f2', value: 2 },
+                            { id: 'f3', value: 3 }
+                        ].map(obstacle => ({
+                            element: document.getElementById(obstacle.id),
+                            value: obstacle.value,
+                            touched: false
+                        }));
+
+                        function startMoving(delta) {
+                            if (!moveInterval) {
+                                moveInterval = requestAnimationFrame(() => moveCar(delta));
+                            }
+                        }
+
+                        function stopMoving() {
+                            if (moveInterval) {
+                                cancelAnimationFrame(moveInterval);
+                                moveInterval = null;
+                            }
+                        }
+
+                        function moveCar(delta) {
+                            carPosition += delta;
+                            const parentRect = myCar.parentElement.getBoundingClientRect();
+                            const carRect = myCar.getBoundingClientRect();
+
+                            if (carRect.left + delta < parentRect.left) {
+                                carPosition = 0;
+                            } else if (carRect.right + delta > parentRect.right) {
+                                carPosition = parentRect.width - carRect.width;
+                            }
+
+                            myCar.style.left = `${carPosition}px`;
+                            myCar.style.transition = "left 0.25s linear";
+                            checkCollisions();
+
+                            moveInterval = requestAnimationFrame(() => moveCar(delta));
+                        }
+
+                        function checkCollisions() {
+                            const carRect = myCar.getBoundingClientRect();
+                            obstacles.forEach(obstacle => {
+                                const obstacleRect = obstacle.element.getBoundingClientRect();
+
+                                if (isColliding(carRect, obstacleRect) && !obstacle.touched) {
+                                    obstacle.touched = true;
+                                    obstacle.element.style.opacity = 0;
+                                    obstacle.element.style.transition = "opacity 0.3s linear";
+                                    triggerPulseAnimation();
+                                }
+                            });
+                        }
+
+                        function isColliding(rect1, rect2) {
+                            return !(
+                                rect1.top > rect2.bottom ||
+                                rect1.right < rect2.left ||
+                                rect1.bottom < rect2.top ||
+                                rect1.left > rect2.right
+                            );
+                        }
+
+                        function triggerPulseAnimation() {
+                            myCar.classList.add('pulse');
+                            setTimeout(() => {
+                                myCar.classList.remove('pulse');
+                            }, 500);
+                        }
+
+                        setTimeout(() => {
+                            roadDiv.style.animationPlayState = "paused";
+                            startMoving(0);
+                        }, 9500);
+
+                        setTimeout(() => {
+                            popUp2.style.display = "block";
+
+                            setTimeout(() => {
+                                screen2.style.opacity = 0;
+                                screen2.style.transition = "all .5s";
+                                lastScreen.style.display = "block";
+
+                                setTimeout(() => {
+                                    myVid.muted = false;
+                                    myVid.play();
+                                }, 500);
+
+                                setTimeout(() => {
+                                    cta.style.animation = "pulse .7s ease alternate infinite";
+                                }, 2800);
+                            }, 2500);
+                        }, 9800);
+                    }, 600);
+                }, 3500);
+            }
+
+            close.addEventListener("click", () => {
+                main.style.display = "none";
+                myVid.muted = true;
+                myVid.pause();
+                window.parent.document.body.style.overflow = "scroll";
+            });
+        });
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tata Curvv</title>
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <script type="text/javascript">
+        var clickTag = "https://cars.tatamotors.com/curvv/ice.html?utm_source=AndbeyondMedia&utm_medium=interactiveads&utm_campaign=OMD_TML_AndbeyondMedia_CURVV_PV_Launch_September2024";
+    </script>
+
+    <script type="text/javascript">
+        var clickTag2 = "https://ev.tatamotors.com/curvv/ev/request-a-call-back.html?utm_source=AndbeyondMedia&utm_medium=interactiveads&utm_campaign=OMD_TML_AndbeyondMedia_CURVV_EV_Launch_September2024";
+    </script>
+
+    <script type="text/javascript" src="https://example.com?click=${CLICK_URL}"></script>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        overflow: hidden;
+    }
+
+    .main {
+        width: 320px;
+        height: 480px;
+        overflow: hidden;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    .first {
+        width: 320px;
+        height: 480px;
+        overflow: hidden;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    #close {
+        position: absolute;
+        right: 1px;
+        top: 1px;
+        width: 23px;
+        z-index: 9999;
+        cursor: pointer;
+    }
+
+    .swiper {
+        /* width: 100%; */
+        width: 81%;
+        height: 264px;
+        margin-top: 193px;
+    }
+
+    .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        /* background: #fff; */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .swiper-slide img {
+        display: block;
+        width: 260px;
+        height: auto;
+        object-fit: cover;
+    }
+
+    .swiper-button-next,
+    .swiper-button-prev {
+        display: none;
+    }
+
+    .swiper-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet,
+    .swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet {
+        margin: 0 var(--swiper-pagination-bullet-horizontal-gap, 2px);
+    }
+
+    .swiper-pagination-bullet-active {
+        background: #ffffff;
+        width: 9px;
+        height: 9px;
+        opacity: 1;
+    }
+
+    @keyframes text1 {
+        0% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+    @keyframes car1 {
+        0% {
+            left: -244px;
+        }
+
+        100% {
+            left: -4px;
+        }
+    }
+
+    @keyframes car2 {
+        0% {
+            left: 338px;
+        }
+
+        100% {
+            left: 118px;
+        }
+    }
+
+    @keyframes text2 {
+
+        0%,
+        50% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+    @keyframes text3 {
+
+        0%,
+        68% {
+            opacity: 0;
+            top: 499px;
+        }
+
+        100% {
+            opacity: 1;
+            top: 440px;
+        }
+    }
+
+    @keyframes arrow1 {
+
+        0%,
+        78% {
+            opacity: 0;
+            left: -31px;
+        }
+
+        100% {
+            opacity: 1;
+            left: 9px;
+        }
+    }
+
+    @keyframes arrow2 {
+
+        0%,
+        78% {
+            opacity: 0;
+            left: 184px;
+        }
+
+        100% {
+            opacity: 1;
+            left: 164px;
+        }
+    }
+
+    @keyframes car1NewAni {
+        0% {
+            left: -4px;
+        }
+
+        70% {
+            left: 16px;
+        }
+
+        100% {
+            left: -4px;
+        }
+    }
+
+    @keyframes car2NewAni {
+        0% {
+            left: 118px;
+        }
+
+        70% {
+            left: 98px;
+        }
+
+        100% {
+            left: 118px;
+        }
+    }
+</style>
+
+<body>
+    <div class="main" id="main">
+        <div class="first" id="firstScreen">
+            <img src="./images/bg.jpg" style="position: absolute;width: 320px;height: 480px;" alt="">
+            <img id="" src="./images/logo.png"
+                style="position: absolute;width: 300px;left: 0;right: 0;margin: 0 auto;top: 40px;" alt="">
+            <img id="" src="./images/topText.png"
+                style="position: absolute;width: 145px;left: 0;right: 0;margin: 0 auto;top: 64px;animation: text1 .75s linear;"
+                alt="">
+            <img id="carOne" src="./images/car.png"
+                style="position: absolute;top: 85px;left: -4px;width: 222px;animation: car1 .75s linear;" alt="">
+            <img id="carTwo" src="./images/VirtualSunrise.png"
+                style="position: absolute;top: 271px;left:118px;width: 200px;animation: car2 .75s linear;" alt="">
+
+            <img src="./images/priceCurv.png"
+                style="position: absolute;top: 230px;left: 10px;width: 140px;animation: text2 1.5s linear;" alt="">
+            <img src="./images/curvvevmaintext.png"
+                style="position: absolute;top: 232px;right: 10px;width: 98px;animation: text2 1.5s linear;" alt="">
+            <img src="./images/priceCurvvev.png"
+                style="position: absolute;top: 371px;left: 162px;width: 155px;animation: text2 1.5s linear;" alt="">
+
+            <img src="./images/swipe.png"
+                style="position: absolute;left: 0;right: 0;margin: 0 auto;top: 440px;width: 206px;animation: text3 2.4s linear;"
+                alt="">
+
+            <img src="./images/arrow.png"
+                style="position: absolute;left: 9px;top: 273px;width: 24px;animation: arrow1 3.350s linear;" alt="">
+            <img src="./images/evicon.png"
+                style="position: absolute;left: 164px;top: 405px;width: 24px;animation: arrow2 3.350s linear;" alt="">
+
+            <a href="javascript:window.open(window.clickTag)"
+                style="position: absolute;width: 160px;height: 480px;left: 0;">
+                <div id="SwipeRightCurvv" style="position: absolute;top: 0;left: 0;width: 160px;height: 480px;"></div>
+            </a>
+
+            <a href="javascript:window.open(window.clickTag2)"
+                style="position: absolute;width: 160px;height: 480px;right: 0;">
+                <div id="SwipeLeftEv" style="position: absolute;top: 0;right: 0;width: 160px;height: 480px;"></div>
+            </a>
+
+            <div id="curvv" style="position: absolute;top: 0;width: 320px;height: 480px;left: 0;display: none;">
+
+                <a href="javascript:window.open(window.clickTag)">
+                    <img src="./images/curv/bg.jpg" style="position: absolute;width: 320px;height: 480px;" alt="">
+                    <img id="" src="./images/logo.png"
+                        style="position: absolute;width: 300px;left: 0;right: 0;margin: 0 auto;top: 35px;" alt="">
+                </a>
+                <video id="curvvVid" src="https://beta.andbeyond.media/abm-direct/RichMedia/video/curvvNew11.mp4" muted
+                    autoplay controls playsinline
+                    style="position: absolute;top: 90px;width: 287px; left: 0;right: 0;margin: 0 auto;"></video>
+
+                <div class="swiper mySwiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <img src="./images/curv/feature4.png" style="" alt="">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="./images/curv/feature6.png" alt="">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="./images/curv/feature2.png" alt="">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="./images/curv/feature1.png" alt="">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="./images/curv/feature3.png" alt="">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="./images/curv/feature5.png" alt="">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="./images/curv/feature7.png" alt="">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="./images/curv/feature8.png" alt="">
+                        </div>
+                    </div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-pagination"></div>
+                </div>
+
+                <a href="javascript:window.open(window.clickTag)">
+                    <img id="" src="./images/curv/booknow.png"
+                        style="position: absolute;width: 91px;left: 0;right: 0;margin: 0 auto;top: 453px;" alt="">
+                </a>
+                <img id="backToEV" src="./images/curv/curvev.png"
+                    style="position: absolute;left: 255px;top: 457px;width: 59px;" alt="">
+            </div>
+
+            <div id="ev" style="position: absolute;top: 0;width: 320px;height: 480px;left: 0;display: none;">
+                <a href="javascript:window.open(window.clickTag2)">
+                    <img src="./images/EV/bg.jpg" style="position: absolute;width: 320px;height: 480px;" alt="">
+                    <img id="" src="./images/logo.png"
+                        style="position: absolute;width: 300px;left: 0;right: 0;margin: 0 auto;top: 35px;" alt="">
+                </a>
+                <video id="evVid" src="https://beta.andbeyond.media/abm-direct/RichMedia/video/TATAEV22.mp4" muted
+                    autoplay controls playsinline
+                    style="position: absolute;top: 93px;width: 287px; left: 0;right: 0;margin: 0 auto;"></video>
+
+                <div class="swiper mySwiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <img src="./images/EV/feature1.png" style="" alt="">
+                        </div>
+
+                        <div class="swiper-slide">
+                            <img src="./images/EV/feature2.png" alt="">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="./images/EV/feature3.png" alt="">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="./images/EV/feature4.png" alt="">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="./images/EV/feature5.png" alt="">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="./images/EV/feature6.png" alt="">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="./images/EV/feature7.png" alt="">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="./images/EV/feature8.png" alt="">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="./images/EV/feature9.png" alt="">
+                        </div>
+                    </div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-pagination"></div>
+                </div>
+
+                <a href="javascript:window.open(window.clickTag2)">
+                    <img id="" src="./images/EV/book.png"
+                        style="position: absolute;width: 91px;left: 0;right: 0;margin: 0 auto;top: 453px;" alt="">
+                </a>
+                <img id="backToCurvv" src="./images/EV/backCurvv.png"
+                    style="position: absolute;left: 258px;top: 457px;width: 59px;" alt="">
+            </div>
+
+        </div>
+
+        <img id="close"
+            src="https://cache-ssl.celtra.com/api/static/ve67ae1362e/runner/clazzes/CreativeUnit/close-up.svg"
+            alt="Close Button">
+
+
+    </div>
+    <SCRIPT language='JavaScript1.1'
+        SRC="https://ad.doubleclick.net/ddm/adj/Nxxxx.site-keyname/Byyyyyyy;sz=widthxheight;dc_expa=URL;ord=${CACHEBUSTER};dc_lat=N;dc_rdid=Czzzz;tag_for_child_directed_treatment=I;kw=[keyword];click=${CLICK_URL}?">
+        </SCRIPT>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+
+            const close = document.getElementById("close");
+            const closeVid = document.getElementById("closeVid");
+            const main = document.getElementById("main");
+            const firstScreen = document.getElementById("firstScreen");
+            const backToEV = document.getElementById("backToEV");
+            const backToCurvv = document.getElementById("backToCurvv");
+            const carOne = document.getElementById("carOne");
+            const carTwo = document.getElementById("carTwo");
+            const SwipeRightCurvv = document.getElementById("SwipeRightCurvv");
+            const SwipeLeftEv = document.getElementById("SwipeLeftEv");
+            const curvvVid = document.getElementById("curvvVid");
+            const evVid = document.getElementById("evVid");
+
+
+            let rotationActive = true; // Flag to control the rotation loop
+
+
+            setTimeout(() => {
+                rotation();
+            }, 5000); // Start after 5 seconds
+
+            function rotation() {
+                if (!rotationActive) return; // Exit if the rotation should stop
+
+                carOne.style.animation = "none";
+                carTwo.style.animation = "none";
+
+                setTimeout(() => {
+                    carOne.style.animation = "car1NewAni .750s linear";
+                }, 10);
+                setTimeout(() => {
+                    carTwo.style.animation = "car2NewAni .750s linear";
+                }, 1050);
+
+                setTimeout(() => {
+                    rotation();
+                }, 2250);
+            }
+
+            setTimeout(() => {
+                rotationActive = false; // Stop the rotation loop
+                carOne.style.animationPlayState = "pause";
+                carTwo.style.animationPlayState = "pause";
+            }, 15250); // 11.25 seconds total to allow 5 cycles
+
+            backToEV.addEventListener("click", function () {
+                backToEVfun();
+            })
+            function backToEVfun() {
+                curvv.style.display = "none";
+                ev.style.display = "block";
+
+                curvvVid.muted = true;
+                curvvVid.pause()
+                evVid.muted = false;
+                evVid.play()
+            }
+
+            backToCurvv.addEventListener("click", function () {
+                backToCurvvfun();
+            })
+            function backToCurvvfun() {
+                ev.style.display = "none";
+                curvv.style.display = "block";
+
+                curvvVid.muted = false;
+                curvvVid.play()
+                evVid.muted = true;
+                evVid.pause();
+            }
+
+            var swiper = new Swiper(".mySwiper", {
+                cssMode: true,
+                loop: true,
+                // autoplay: false,
+                autoplay: {
+                    delay: 2000
+                },
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev",
+                },
+                pagination: {
+                    el: ".swiper-pagination",
+                },
+                mousewheel: true,
+                keyboard: true,
+            });
+
+            // window.parent.document.body.style.overflow = "hidden";
+
+            close.addEventListener("click", () => {
+                main.style.display = "none";
+                // window.parent.document.body.style.overflow = "scroll";
+
+                curvvVid.muted = true;
+                curvvVid.pause()
+                evVid.muted = true;
+                evVid.pause();
+
+            });
+
+            function openLandingPage() {
+                location.href = window.clickTag// Replace with your landing page URL 
+            }
+            function openLandingPageTwo() {
+                location.href = window.clickTag2// Replace with your landing page URL 
+            }
+            
+            let startXRight = 0;
+            let startXLeft = 0;
+            let isDraggingRight = false;
+            let isDraggingLeft = false;
+
+            SwipeRightCurvv.addEventListener('touchstart', function (e) {
+                startXRight = e.touches[0].clientX;
+                openLandingPage()
+            });
+
+            SwipeRightCurvv.addEventListener('touchmove', function (e) {
+
+                const touchX = e.touches[0].clientX;
+                const deltaX = touchX - startXRight;
+
+                if (deltaX > 0) {
+                    SwipeRightCurvv.style.transform = `translateX(${deltaX}px)`;
+                }
+            });
+
+            SwipeRightCurvv.addEventListener('touchend', function (e) {
+                const endX = e.changedTouches[0].clientX;
+                const swipeDistance = endX - startXRight;
+
+                if (swipeDistance > 30) {
+                    curvv.style.display = "block";
+                    console.log("Swipe to curvv...");
+                    console.log("swipeDistance : ", swipeDistance);
+
+
+
+                    curvvVid.play();
+                } else {
+                    SwipeRightCurvv.style.transform = '';
+                    console.log("cuvee NOT :", swipeDistance);
+
+                }
+            });
+
+
+            SwipeLeftEv.addEventListener('touchstart', function (e) {
+                startXLeft = e.touches[0].clientX;
+                openLandingPageTwo()
+            });
+
+            SwipeLeftEv.addEventListener('touchmove', function (e) {
+                const touchX = e.touches[0].clientX;
+                const deltaX = touchX - startXLeft;
+
+                if (deltaX < 0) {
+                    SwipeLeftEv.style.transform = `translateX(${deltaX}px)`;
+                }
+            });
+
+            SwipeLeftEv.addEventListener('touchend', function (e) {
+                const endX = e.changedTouches[0].clientX;
+                const swipeDistance = startXLeft - endX;
+
+                if (swipeDistance > 30) {
+                    ev.style.display = "block";
+                    console.log("EV block...");
+                    console.log("swipeDistance...", swipeDistance);
+                    evVid.play();
+                } else {
+                    SwipeLeftEv.style.transform = '';
+                    console.log("swipeDistance not...", swipeDistance);
+                }
+            });
+
+
+            // Desktop Events
+
+            SwipeRightCurvv.addEventListener('mousedown', function (e) {
+                isDraggingRight = true;
+                startXRight = e.clientX;
+                openLandingPage()
+            });
+
+            document.addEventListener('mousemove', function (e) {
+                if (!isDraggingRight) return;
+
+                const deltaX = e.clientX - startXRight;
+                if (deltaX > 0) {
+                    SwipeRightCurvv.style.transform = `translateX(${deltaX}px)`;
+                }
+            });
+
+            document.addEventListener('mouseup', function (e) {
+                if (!isDraggingRight) return;
+
+                const swipeDistance = e.clientX - startXRight;
+                if (swipeDistance > 30) {
+                    curvv.style.display = "block";
+                    curvvVid.play();
+                    console.log("curvv !!!");
+
+                } else {
+                    SwipeRightCurvv.style.transform = '';
+                }
+
+                isDraggingRight = false;
+                startXRight = 0;
+            });
+
+
+            SwipeLeftEv.addEventListener('mousedown', function (e) {
+                isDraggingLeft = true;
+                startXLeft = e.clientX;
+                openLandingPageTwo()
+            });
+
+            document.addEventListener('mousemove', function (e) {
+                if (!isDraggingLeft) return;
+
+                const deltaX = e.clientX - startXLeft;
+                if (deltaX < 0) {
+                    SwipeLeftEv.style.transform = `translateX(${deltaX}px)`;
+                }
+            });
+
+            document.addEventListener('mouseup', function (e) {
+                if (!isDraggingLeft) return;
+
+                const swipeDistance = startXLeft - e.clientX;
+                if (swipeDistance > 30) {
+                    ev.style.display = "block";
+                    evVid.play();
+                    console.log("EV !!");
+
+                } else {
+                    SwipeLeftEv.style.transform = '';
+                }
+
+                isDraggingLeft = false;
+                startXLeft = 0;
+            });
+
+
+        })
+    </script>
+</body>
+
+</html>

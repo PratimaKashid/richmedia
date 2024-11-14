@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <title>Ganesh Chaturathi</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        overflow: hidden;
+        font-family: "Poppins", sans-serif;
+    }
+
+    .main {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        overflow: hidden;
+    }
+
+    .firstScreen {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        position: absolute;
+
+    }
+
+    #close {
+        position: absolute;
+        right: 1px;
+        top: 1px;
+        width: 27px;
+        z-index: 9999;
+        cursor: pointer;
+    }
+
+    @keyframes ganesh {
+        0% {
+            opacity: 0;
+        }
+
+        49% {
+            opacity: 0;
+        }
+
+        50% {
+            opacity: 1;
+            filter: blur(20px);
+        }
+
+        100% {
+            filter: blur(0);
+            opacity: 1;
+        }
+    }
+
+    @keyframes letsCelebrate {
+        0% {
+            opacity: 0;
+        }
+
+        70% {
+            opacity: 0;
+            transform: scale(0);
+        }
+
+        100% {
+            transform: scale(1);
+            opacity: 1;
+        }
+    }
+
+    @keyframes playBtn {
+        0% {
+            opacity: 0;
+        }
+
+        80% {
+            opacity: 0;
+            bottom: 0;
+        }
+
+        100% {
+            bottom: 7%;
+            opacity: 1;
+        }
+    }
+
+    @keyframes hand {
+        0% {
+            opacity: 0;
+        }
+
+        85% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+    @keyframes pulse {
+        0% {
+            transform: scale(1);
+        }
+
+        100% {
+            transform: scale(.92);
+        }
+    }
+
+    @keyframes divAni {
+        0% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+    @keyframes moveTopToBottomProduct {
+        0% {
+            bottom: 85%;
+            width: 120px;
+        }
+
+        100% {
+            bottom: 21%;
+            width: 50px;
+        }
+    }
+
+    @keyframes moveThebox {
+        0% {
+            left: 5%;
+        }
+
+        100% {
+            left: 60%;
+        }
+    }
+
+    @keyframes discount {
+        0% {
+            opacity: 0;
+        }
+
+        30% {
+            opacity: 0;
+            transform: scale(0);
+        }
+
+        100% {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    /* slider css */
+    .cube-parent-container {
+        width: 100%;
+        height: 230px;
+        margin: 0;
+        position: absolute;
+        bottom: 9%;
+    }
+
+    .cubeSwiper .swiper-slide img {
+        width: 100%;
+        object-fit: cover;
+    }
+
+    .cubeSwiper .pagination-container {
+        padding-top: 25px;
+        width: 100%;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 100px 1fr;
+        grid-template-rows: 1fr;
+        grid-column-gap: 0px;
+        grid-row-gap: 0px;
+        position: absolute;
+        top: 250px;
+        transform: scale(0.8);
+    }
+
+    .pagination-container {
+        position: relative;
+        top: -25px;
+    }
+
+    .cubeSwiper .cube-pagination-fraction {
+        color: rgba(255, 0, 255, 0.8);
+        font-size: 18px;
+        font-weight: 700;
+        margin-top: 15px;
+        text-align: center;
+        position: relative;
+    }
+
+    .swiper-button-next,
+    .swiper-button-prev {
+        color: #fff;
+        width: calc(var(--swiper-navigation-size)/ 44 * 6);
+        font-size: 12px;
+        font-weight: bolder;
+    }
+
+    .swiper-button-next:after,
+    .swiper-button-prev:after {
+        font-size: 12px;
+        font-weight: bolder;
+        padding: 7px 9px;
+        border-radius: 20px;
+
+    }
+
+    .swiper-button-prev {
+        left: var(--swiper-navigation-sides-offset, 19px);
+        position: absolute;
+        top: -200px;
+    }
+
+    .swiper-button-next {
+        right: var(--swiper-navigation-sides-offset, 20px);
+        position: absolute;
+        top: -200px;
+    }
+
+    .swiper-pagination-bullets.swiper-pagination-horizontal {
+        bottom: var(--swiper-pagination-bottom, -10px);
+    }
+
+    .swiper {
+        width: 100%;
+        height: 230px;
+        position: relative;
+        /* overflow: scroll; */
+    }
+
+    .swiper-pagination-bullet {
+        width: 12px;
+        height: 12px;
+    }
+
+    @keyframes cta {
+        0% {
+            opacity: 0;
+        }
+
+        70% {
+            opacity: 0;
+            bottom: -50px;
+        }
+
+        100% {
+            opacity: 1;
+            bottom: 2%;
+        }
+    }
+    @keyframes tilt {
+        0%{
+            transform: rotateX(-9deg)
+        }
+        100%{
+            transform: rotate(9deg)
+        }
+    }
+</style>
+
+<body>
+    <div class="main" id="main">
+
+        <div class="firstScreen" id="firstScreen">
+            <img src="./images/BG.png" style="position: absolute;width: 100%;height: 100%;left: 0;top: 0;" alt="">
+            <div id="pageOne" style="position: absolute;width: 100%;height: 100%;">
+                <img src="./images/Ganesh.png"
+                    style="position: absolute;left: 0;right: 0;margin: 0 auto;top: 13%;width: 250px;animation: ganesh 1.5s ease-in;"
+                    alt="">
+                <img id="textOne" src="./images/LetsCelebrate.png"
+                    style="position: absolute;left: 0;right: 0;margin: auto;bottom: 20%;width: 75%;animation: letsCelebrate 2s ease-out;"
+                    alt="">
+                <img src="./images/playButton.png"
+                    style="position: absolute;left: 0;right: 0;margin: 0 auto;bottom: 7%;width: 40%;animation: playBtn 2.5s ease-out;"
+                    alt="">
+                <img id="hand" src="./images/hand.png"
+                    style="position: absolute;left: 0;right: 0;margin: 0 auto;bottom: 1%;width: 40px;animation: hand 3s ease-out;"
+                    alt="">
+            </div>
+
+            <div id="textTwo" style="display: none; position: absolute;width: 300px;height: 300px;bottom: 90px;right: 0;left: 0;margin: auto;animation: divAni .5s ease;">
+                 <img src="./images/Tilt your phone TEXT.png" style="position: absolute;left: 0;right: 0;margin: 0 auto;bottom: 25px;width: 230px;" alt="">
+                 <img id="tiltIcon" src="./images/Tilt Icon.png" style="position: absolute;left: 0;right: 0;margin: 0 auto;bottom: 108px;width: 80px;" alt="">
+            </div>
+
+            <div id="featureCount"
+                style="opacity: 0; position: absolute;font-size: 25px;font-weight: bold;text-align: center; color: #fff;top: 92px;line-height: 1.2; left:0px;right: 0;margin: auto;bottom: 0;">
+            </div>
+            <div id="tapDiv" style="position: absolute;width: 340px;height: 100%;left: 0;right: 0;margin: 0 auto;">
+            </div>
+
+            <div id="boxDiv"
+                style="position: absolute;width: 150px;height: 115px;left: 0;right: 0;margin: 0 auto;bottom: 12%;display: none;">
+                <img id="topBOx" src="./images/Box/top.png"
+                    style="position: absolute;left: 0;right: 0;margin: 0 auto;top: 2px;width: 120px;" alt="">
+                <img id="bottomBox" src="./images/Box/bottom.png"
+                    style="position: absolute;left: 0;right: 0;margin: 0 auto;top: 20px;width: 140px;z-index: 99;"
+                    alt="">
+
+                <img id="feta1" src="./images/Clothes/feta.png"
+                    style="display: none; width: 50px; position: absolute;left: 0;right: 0;margin: 0 auto;" alt="">
+
+                <img id="material1" src="./images/Clothes/material.png"
+                    style="display: none; width: 50px; position: absolute;left: 0;right: 0;margin: 0 auto;" alt="">
+
+                <img id="kids1" src="./images/Clothes/kids.png"
+                    style="display: none; width: 50px; position: absolute;left: 0;right: 0;margin: 0 auto;" alt="">
+
+                <img id="sari1" src="./images/Clothes/sari.png"
+                    style="display: none; width:50px; position: absolute;left: 0;right: 0;margin: 0 auto;" alt="">
+            </div>
+
+            <div id="product"
+                style="position: absolute;width: 100%;height: 100%;left: 0;right: 0;margin: auto;bottom: 0;top: 0;display: none;">
+                <img id="feta" src="./images/Clothes/feta.png"
+                    style="width: 50px; position: absolute;left: 0;right: 0;margin: 0 auto;bottom: 21%;animation: moveTopToBottomProduct 1.5s ease-out;"
+                    alt="">
+
+                <img id="material" src="./images/Clothes/material.png"
+                    style="display: none; width: 50px; position: absolute;left: 0;right: 0;margin: 0 auto;bottom: 21%;animation: moveTopToBottomProduct 1.5s ease-out;"
+                    alt="">
+
+                <img id="kids" src="./images/Clothes/kids.png"
+                    style="display: none; width: 50px; position: absolute;left: 0;right: 0;margin: 0 auto;bottom: 21%;animation: moveTopToBottomProduct 1.5s ease-out;"
+                    alt="">
+
+                <img id="sari" src="./images/Clothes/sari.png"
+                    style="display: none; width:50px; position: absolute;left: 0;right: 0;margin: 0 auto;bottom: 21%;animation: moveTopToBottomProduct 1.5s ease-out;"
+                    alt="">
+            </div>
+            <div id="DisDiv1" style="position: absolute;width: 100%;height: 100%;display: none;">
+                <img id="" src="./images/Clothes/Overlay.png"
+                    style="width: 100%;height: 100%;position: absolute;left: 0;right: 0;margin: 0 auto;" alt="">
+                <img id="" src="./images/Discount 5.png"
+                    style="width: 200px;position: absolute;left: 0;right: 0;margin: auto;top: 0;bottom: 0;animation: discount .7s ease-in-out;"
+                    alt="">
+            </div>
+
+            <div id="DisDiv2" style="position: absolute;width: 100%;height: 100%;display: none;">
+                <img id="" src="./images/Clothes/Overlay.png"
+                    style="width: 100%;height: 100%;position: absolute;left: 0;right: 0;margin: 0 auto;" alt="">
+                <img id="" src="./images/Discount 10.png"
+                    style="width: 200px;position: absolute;left: 0;right: 0;margin: auto;top: 0;bottom: 0;animation: discount .7s ease-in-out;"
+                    alt="">
+            </div>
+
+            <div id="DisDiv3" style="position: absolute;width: 100%;height: 100%;display: none;">
+                <img id="" src="./images/Clothes/Overlay.png"
+                    style="width: 100%;height: 100%;position: absolute;left: 0;right: 0;margin: 0 auto;" alt="">
+                <img id="" src="./images/Discount 15.png"
+                    style="width: 200px;position: absolute;left: 0;right: 0;margin: auto;top: 0;bottom: 0;animation: discount .7s ease-in-out;"
+                    alt="">
+            </div>
+
+            <div id="DisDiv4" style="position: absolute;width: 100%;height: 100%;display: none;">
+                <img id="overlay" src="./images/Clothes/Overlay.png"
+                    style="width: 100%;height: 100%;position: absolute;left: 0;right: 0;margin: 0 auto;" alt="">
+                <img id="" src="./images/Discount 20.png"
+                    style="width: 200px;position: absolute;left: 0;right: 0;margin: auto;top: 0;bottom: 0;animation: discount .7s ease-in-out;"
+                    alt="">
+            </div>
+            <div id="totalDiscount" style="position: absolute;width: 100%;height: 100%;display: none;">
+                <img id="overlay" src="./images/Clothes/Overlay.png"
+                    style="width: 100%;height: 100%;position: absolute;left: 0;right: 0;margin: 0 auto;" alt="">
+                <img id="" src="./images/Discount 50.png"
+                    style="width: 200px;position: absolute;left: 0;right: 0;margin: auto;top: 0;bottom: 0;animation: discount .7s ease-in-out;"
+                    alt="">
+            </div>
+            <div id="DisDiv5" style="display: none;top: 0;left: 0; position: absolute;width: 100%;height: 100%;">
+                <img id="finalBox" src="./images/Box/Box Close.png"
+                    style="position: absolute;left: 0;right: 0;margin: 0 auto;bottom:13%;width: 120px;animation: divAni .5s ease-in-out;"
+                    alt="">
+                <img id="check" src="./images/TICK Green.png"
+                    style="position: absolute;left: 0;right: 0;margin: 0 auto;bottom: 15%;width: 50px;animation: divAni .8s ease-in-out"
+                    alt="">
+                <img id="congrats" src="./images/Congratulations!!.png"
+                    style="position: absolute;width: 100%;top: 13%;animation: divAni 1.1s ease-in-out" alt="">
+            </div>
+        </div>
+
+        <div id="lastScreen"
+            style="display: none; position: absolute;width: 100%;height: 100%;animation: divAni 1s linear; overflow: hidden;animation: divAni .7s linear;">
+            <img src="./images/BG.png" style="position: absolute;width: 100%;height: 100%;left: 0;top: 0;" alt="">
+            <img src="./images/Video.png"
+                style="position: absolute;top: 10%;left: 0;right: 0;margin: 0 auto;width: 320px;" alt="">
+            <a href="https://www.andbeyond.media/" target="_blank">
+                <img src="./images/Text/Lets celebrate.png"
+                    style="position: absolute;top: 40%;left: 0;right: 0;margin: 0 auto;width: 200px;animation: text1 1s ease-in-out;"
+                    alt="">
+                <img src="./images/Text/Ganesh Chaturthi.png"
+                    style="position: absolute;top: 45%;left: 0;right: 0;margin: 0 auto;width: 250px;animation: text2 1s ease-in-out;"
+                    alt="">
+                <img src="./images/Text/with our Offers.png"
+                    style="position: absolute;top: 55%;left: 0;right: 0;margin: 0 auto;width: 160px;animation: text3 1.3s ease-in-out;"
+                    alt="">
+            </a>
+
+
+            <figure class="cube-parent-container" id="slider">
+
+                <div class="swiper cubeSwiper">
+                    <div class="swiper-wrapper">
+
+                        <div class="swiper-slide">
+                            <img src="./images/Banners/Layer 1.png"
+                                style="width: 130px;position: absolute;left: 0;right: 0;margin: 0 auto;" />
+                        </div>
+
+                        <div class="swiper-slide">
+                            <img src="./images/Banners/Layer 2.png"
+                                style="width: 130px;position: absolute;left: 0;right: 0;margin: 0 auto;" />
+                        </div>
+
+                        <div class="swiper-slide">
+                            <img src="./images/Banners/Layer 3.png"
+                                style="width: 130px;position: absolute;left: 0;right: 0;margin: 0 auto;" />
+                        </div>
+
+                        <div class="swiper-slide">
+                            <img src="./images/Banners/Layer 4.png"
+                                style="width: 130px;position: absolute;left: 0;right: 0;margin: 0 auto;" />
+                        </div>
+
+                        <div class="swiper-slide">
+                            <img src="./images/Banners/Layer 5.png"
+                                style="width: 130px;position: absolute;left: 0;right: 0;margin: 0 auto;" />
+                        </div>
+
+                        <div class="swiper-slide">
+                            <img src="./images/Banners/Layer 6.png"
+                                style="width: 130px;position: absolute;left: 0;right: 0;margin: 0 auto;" />
+                        </div>
+
+                    </div>
+                </div>
+                <div class="pagination-container" style="opacity: 0;">
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                </div>
+            </figure>
+            <a href="https://www.andbeyond.media/" target="_blank">
+                <img id="cta" src="./images/Shop Now.png"
+                    style="position: absolute;width: 150px;left: 0;right: 0;margin: 0 auto;bottom: 2%;animation: cta 1.9s ease-out;"
+                    alt="">
+            </a>
+        </div>
+
+        <img id="close"
+            src="https://cache-ssl.celtra.com/api/static/ve67ae1362e/runner/clazzes/CreativeUnit/close-up.svg"
+            alt="Close Button">
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const close = document.getElementById("close");
+            const main = document.getElementById("main");
+            const firstScreen = document.getElementById("firstScreen");
+            const cta = document.getElementById("cta");
+            const hand = document.getElementById("hand");
+            const tapDiv = document.getElementById("tapDiv");
+
+            const boxDiv = document.getElementById("boxDiv");
+            const topBOx = document.getElementById("topBOx");
+            const bottomBox = document.getElementById("bottomBox");
+            const product = document.getElementById("product");
+
+            const feta = document.getElementById("feta");
+            const material = document.getElementById("material");
+            const kids = document.getElementById("kids");
+            const sari = document.getElementById("sari");
+
+            const feta1 = document.getElementById("feta1");
+            const material1 = document.getElementById("material1");
+            const kids1 = document.getElementById("kids1");
+            const sari1 = document.getElementById("sari1");
+
+            const DisDiv1 = document.getElementById("DisDiv1");
+            const DisDiv2 = document.getElementById("DisDiv2");
+            const DisDiv3 = document.getElementById("DisDiv3");
+            const DisDiv4 = document.getElementById("DisDiv4");
+            const DisDiv5 = document.getElementById("DisDiv5");
+            const totalDiscount = document.getElementById("totalDiscount");
+            const textTwo = document.getElementById("textTwo");
+            const textOne = document.getElementById("textOne");
+            const tiltIcon = document.getElementById("tiltIcon");
+
+            const lastScreen = document.getElementById("lastScreen");
+
+            function rotation() {
+                var swiper = new Swiper(".cubeSwiper", {
+                    effect: "slide",
+                    grabCursor: true,
+                    speed: 1500,
+                    spaceBetween: 30,
+                    //autoplay: false,
+                    slidesPerView: 3,
+                    loop: true,
+                    autoplay: {
+                        delay: 2000,
+                        disableOnInteraction: false
+                    },
+
+                    pagination: {
+                        el: ".swiper-pagination",
+                        clickable: true,
+                    },
+                    navigation: {
+                        nextEl: '.swiper-button-next',
+                        prevEl: '.swiper-button-prev',
+                    },
+                });
+
+            }
+            setTimeout(() => {
+                hand.style.animation = "pulse .5s ease alternate infinite";
+            }, 3001);
+
+            window.parent.document.body.style.overflow = "hidden";
+
+            tapDiv.addEventListener("click", () => {
+                console.log("click.....");
+                tapDiv.style.display = "none";
+
+                textOne.style.opacity = 0;
+                textOne.style.transition = "all .5s linear";
+                textTwo.style.display = "block";
+                setTimeout(() => {
+                    tiltIcon.style.animation = "tilt .7s ease-in-out alternate infinite"
+                }, 100);
+
+                setTimeout(() => {
+                    textTwo.style.opacity = 0;
+                    textTwo.style.transition = "all .5s linear";
+                }, 3000);
+                
+                setTimeout(() => {
+                    playGame();
+                }, 3500);
+
+            })
+
+            function playGame() {
+                let carPosition = 0;
+                let featureCount = 0;
+                let moveInterval = null;
+
+                console.log("start Game..");
+
+                setTimeout(() => {
+
+                    boxDiv.style.display = "block";
+                    pageOne.style.display = "none";
+
+                    setTimeout(() => {
+                        product.style.display = "block";
+                    }, 500);
+
+
+                    setTimeout(() => {
+                        feta.style.display = "none";
+                        material.style.display = "block";
+                    }, 3000);
+
+                    setTimeout(() => {
+                        material.style.display = "none";
+                        kids.style.display = "block";
+                    }, 6000);
+                    setTimeout(() => {
+                        kids.style.display = "none";
+                        sari.style.display = "block";
+                    }, 8500);
+                    setTimeout(() => {
+                        sari.style.display = "none";
+                    }, 10000);
+
+                    setTimeout(() => {
+                        DisDiv5.style.display = "block"
+                        totalDiscount.style.display = "block"
+                        boxDiv.style.display = "none";
+                    }, 12000);
+
+                    setTimeout(() => {
+                        DisDiv5.style.opacity = 0;
+                        DisDiv5.style.transition = "all .5s linear"
+                    }, 15000);
+                    setTimeout(() => {
+                        lastScreen.style.display = "block";
+                        rotation();
+
+                        totalDiscount.style.opacity = 0;
+                        totalDiscount.style.transition = "all .5s linear"
+                    }, 15000);
+
+                    setTimeout(() => {
+                        // startTimer()
+                        window.addEventListener('deviceorientation', handleOrientation);
+
+                        let tiltThreshold = 10; // Adjust this threshold as needed
+
+                        function handleOrientation(event) {
+                            let tilt = event.gamma; // gamma represents the tilt in the horizontal plane
+
+                            if (tilt < -tiltThreshold) {
+                                startMoving(-20); // tilt to the left
+                            } else if (tilt > tiltThreshold) {
+                                startMoving(20); // tilt to the right
+                            } else {
+                                stopMoving(); // stop moving if within threshold
+                            }
+                        }
+
+                        const obstacles = [
+                            { id: 'feta', value: 1 },
+                            { id: 'material', value: 2 },
+                            { id: 'kids', value: 3 },
+                            { id: 'sari', value: 4 }
+
+                        ].map(obstacle => ({
+                            element: document.getElementById(obstacle.id),
+                            value: obstacle.value,
+                            touched: false // to track if the obstacle has already been touched
+                        }));
+
+                        function startMoving(delta) {
+                            if (!moveInterval) {
+                                moveInterval = setInterval(() => moveCar(delta), 70); // Adjust the interval speed as needed
+                            }
+                        }
+
+                        function stopMoving() {
+                            if (moveInterval) {
+                                clearInterval(moveInterval);
+                                moveInterval = null;
+                            }
+                        }
+
+                        function moveCar(delta) {
+                            carPosition += delta;
+
+                            const parentRect = boxDiv.parentElement.getBoundingClientRect();
+                            const carRect = boxDiv.getBoundingClientRect();
+
+                            if (carRect.left + delta < parentRect.left) {
+                                carPosition = 0;
+                            } else if (carRect.right + delta > parentRect.right) {
+                                carPosition = parentRect.width - carRect.width;
+                            }
+
+                            boxDiv.style.left = `${carPosition}px`;
+                            // boxDiv.style.transition = "left 0.25s linear";
+                            checkCollisions();
+                        }
+
+                        function checkCollisions() {
+                            const carRect = boxDiv.getBoundingClientRect();
+                            obstacles.forEach(obstacle => {
+                                const obstacleRect = obstacle.element.getBoundingClientRect();
+                                if (isColliding(carRect, obstacleRect) && !obstacle.touched) {
+                                    featureCount++;
+                                    document.getElementById("featureCount").textContent = `YOU COLLECTED ${featureCount}/6 FEATURES `;
+                                    obstacle.touched = true;
+                                    obstacle.element.style.opacity = 0;
+                                    obstacle.element.style.transition = "opacity 0.3s linear";
+                                    triggerPulseAnimation();
+                                    console.log(`Feature count: ${featureCount}`);
+                                    updateFeatures();
+                                }
+                            });
+                        }
+
+                        function isColliding(rect1, rect2) {
+                            return !(
+                                rect1.top > rect2.bottom ||
+                                rect1.right < rect2.left ||
+                                rect1.bottom < rect2.top ||
+                                rect1.left > rect2.right
+                            );
+                        }
+
+                        function triggerPulseAnimation() {
+                            boxDiv.classList.add('pulse');
+                            setTimeout(() => {
+                                boxDiv.classList.remove('pulse');
+                            }, 500);
+                        }
+
+                        function updateFeatures() {
+                            if (featureCount === 1) {
+                                feta1.style.display = "block";
+                                DisDiv1.style.display = "block";
+                                setTimeout(() => {
+                                    DisDiv1.style.opacity = 0;
+                                    DisDiv1.style.transition = "all .3s";
+                                }, 1000);
+                            }
+                            if (featureCount === 2) {
+                                material1.style.display = "block";
+                                DisDiv2.style.display = "block";
+                                setTimeout(() => {
+                                    DisDiv2.style.opacity = 0;
+                                    DisDiv2.style.transition = "all .3s";
+                                }, 1000);
+                            }
+                            if (featureCount === 3) {
+                                kids1.style.display = "block";
+                                DisDiv3.style.display = "block";
+                                setTimeout(() => {
+                                    DisDiv3.style.opacity = 0;
+                                    DisDiv3.style.transition = "all .3s";
+                                }, 1000);
+                            }
+                            if (featureCount === 4) {
+                                sari1.style.display = "block";
+                                DisDiv4.style.display = "block";
+                                setTimeout(() => {
+                                    DisDiv4.style.opacity = 0;
+                                    DisDiv4.style.transition = "all .3s";
+                                }, 1500);
+                            }
+                        }
+
+                    }, 800);
+
+                }, 500);
+
+            }
+            close.addEventListener("click", () => {
+                main.style.display = "none";
+                window.parent.document.body.style.overflow = "scroll";
+            });
+        });
+
+    </script>
+</body>
+
+</html>

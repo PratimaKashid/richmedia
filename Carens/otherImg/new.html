@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    .cube-parent-container {
+        width: 100%;
+        margin: 0;
+        position: absolute;
+        top: 15%;
+    }
+
+    .cubeSwiper .swiper-slide {
+        aspect-ratio: 1/1;
+    }
+
+    .cubeSwiper .swiper-slide img {
+        width: 100%;
+        object-fit: cover;
+    }
+
+    .cubeSwiper .pagination-container {
+        padding-top: 25px;
+        width: 100%;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 100px 1fr;
+        grid-template-rows: 1fr;
+        grid-column-gap: 0px;
+        grid-row-gap: 0px;
+        position: absolute;
+        top: 250px;
+        transform: scale(0.8);
+    }
+
+    .pagination-container {
+        position: relative;
+        top: -25px;
+    }
+
+    .cubeSwiper .cube-pagination-fraction {
+        color: rgba(255, 0, 255, 0.8);
+        font-size: 18px;
+        font-weight: 700;
+        margin-top: 15px;
+        text-align: center;
+        position: relative;
+    }
+
+    .swiper-button-next,
+    .swiper-button-prev {
+        color: #fff;
+        width: calc(var(--swiper-navigation-size)/ 44 * 6);
+        font-size: 12px;
+        font-weight: bolder;
+    }
+
+    .swiper-button-next:after,
+    .swiper-button-prev:after {
+        font-size: 12px;
+        font-weight: bolder;
+        padding: 7px 9px;
+        border-radius: 20px;
+
+    }
+
+    .swiper-button-prev {
+        left: var(--swiper-navigation-sides-offset, 19px);
+        position: absolute;
+        top: -200px;
+    }
+
+    .swiper-button-next {
+        right: var(--swiper-navigation-sides-offset, 20px);
+        position: absolute;
+        top: -200px;
+    }
+
+    .swiper-pagination-bullets.swiper-pagination-horizontal {
+        bottom: var(--swiper-pagination-bottom, -10px);
+    }
+
+    .swiper {
+        width: 100%;
+        position: relative;
+    }
+
+    .swiper-pagination-bullet {
+        width: 12px;
+        height: 12px;
+    }
+</style>
+
+<body>
+    <img src="./Interior.png"
+    style="position: absolute;left: 0;right: 0;margin: 0 auto; top: 0%;width: 150px;" alt="">
+    <figure class="cube-parent-container" id="slider">
+       
+        <div class="swiper cubeSwiper">
+            <div class="swiper-wrapper">
+
+                <div class="swiper-slide">
+                    <img src="./IMG Int 1.png"
+                        style="width: 100%;position: absolute;left: 0;right: 0;margin: 0 auto;" />
+                        <img src="./i1.png" style="position: absolute;left: 0;right: 0;margin: 0 auto;width: 78%;top: 74%;" alt="">
+                    </div>
+                    
+                    <div class="swiper-slide">
+                        <img src="./IMG Int 2.png"
+                        style="width: 100%;position: absolute;left: 0;right: 0;margin: 0 auto;" />
+                        <img src="./i2.png" style="position: absolute;left: 0;right: 0;margin: 0 auto;width: 57%;top: 74%;" alt="">
+                    </div>
+                    
+                    <div class="swiper-slide">
+                        <img src="./IMG Int 3.png"
+                        style="width: 100%;position: absolute;left: 0;right: 0;margin: 0 auto;" />
+                        <img src="./i3.png" style="position: absolute;left: 0;right: 0;margin: 0 auto;width: 57%;top: 74%;" alt="">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./IMG Int 4.png"
+                        style="width: 100%;position: absolute;left: 0;right: 0;margin: 0 auto;" />
+                        <img src="./i4.png" style="position: absolute;left: 0;right: 0;margin: 0 auto;width: 60%;top: 74%;" alt="">
+                    </div>
+               
+                
+
+            </div>
+        </div>
+        <div class="pagination-container" style="opacity: 0;"> 
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+        </div>
+    </figure>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        var swiper = new Swiper(".cubeSwiper", {
+            effect: "slide",
+            grabCursor: true,
+            speed: 1500,
+            spaceBetween: 10,
+            // autoplay: false,
+            loop: true,
+            autoplay: {
+                delay: 2000,
+                disableOnInteraction: false
+            },
+
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drag and Drop</title>
+</head>
+
+<body>
+    <img id="dragAbleImg" src="./CleaningComplete.png" draggable="true"
+        style="position: absolute;width: 100px;bottom: 20%;left: 0;right: 0;margin: 0 auto;" alt="">
+    <div id="dropDiv"
+        style="position: absolute;width: 100px;height: 100px;top: 20px;border: 1px solid gray;left: 0;right: 0;margin: 0 auto;">
+    </div>
+
+    <script>
+        var dragAbleImg = document.getElementById("dragAbleImg");
+        var dropDiv = document.getElementById("dropDiv");
+
+        // Desktop Drag and Drop
+        dragAbleImg.addEventListener("dragstart", function (e) {
+            e.dataTransfer.setData("text/plain", e.target.id);
+            console.log("Drag started");
+        });
+
+        dropDiv.addEventListener("dragover", function (e) {
+            e.preventDefault(); // Prevent default to allow drop
+        });
+
+        dropDiv.addEventListener("drop", function (e) {
+            e.preventDefault();
+            var data = e.dataTransfer.getData("text/plain");
+            var draggedElement = document.getElementById(data);
+            dropDiv.appendChild(draggedElement);
+            // Update position styles to ensure it's placed correctly
+            draggedElement.style.position = "relative";
+            draggedElement.style.bottom = "auto";
+            draggedElement.style.left = "auto";
+            draggedElement.style.right = "auto";
+            draggedElement.style.margin = "auto";
+            console.log("Dropped");
+        });
+
+        // Mobile Touch Events
+        dragAbleImg.addEventListener("touchstart", function (e) {
+            var touch = e.touches[0];
+            dragAbleImg.style.position = 'absolute';
+            dragAbleImg.style.left = touch.pageX - dragAbleImg.offsetWidth / 2 + 'px';
+            dragAbleImg.style.top = touch.pageY - dragAbleImg.offsetHeight / 2 + 'px';
+            console.log("Touch started");
+        });
+
+        dragAbleImg.addEventListener("touchmove", function (e) {
+            var touch = e.touches[0];
+            dragAbleImg.style.left = touch.pageX - dragAbleImg.offsetWidth / 2 + 'px';
+            dragAbleImg.style.top = touch.pageY - dragAbleImg.offsetHeight / 2 + 'px';
+            e.preventDefault();
+            console.log("Touch moved");
+        });
+
+        dragAbleImg.addEventListener("touchend", function (e) {
+            var touch = e.changedTouches[0];
+            var dropDivRect = dropDiv.getBoundingClientRect();
+            if (touch.pageX > dropDivRect.left && touch.pageX < dropDivRect.right &&
+                touch.pageY > dropDivRect.top && touch.pageY < dropDivRect.bottom) {
+                dropDiv.appendChild(dragAbleImg);
+                dragAbleImg.style.position = "relative";
+                dragAbleImg.style.left = "auto";
+                dragAbleImg.style.top = "auto";
+                dragAbleImg.style.margin = "auto";
+                console.log("Dropped");
+            }
+        });
+    </script>
+</body>
+
+</html>
